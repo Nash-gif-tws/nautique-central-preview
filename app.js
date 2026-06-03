@@ -223,6 +223,22 @@
     }
   }
 
+  /* "Design your Nautique" boat: subtle cursor parallax (desktop, fine pointer) */
+  try {
+    var bboat = document.getElementById('buildBoat');
+    if (bboat && matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      var bx = gsap.quickTo(bboat, 'x', { duration: 0.6, ease: 'expo.out' });
+      var brot = gsap.quickTo(bboat, 'rotation', { duration: 0.7, ease: 'expo.out' });
+      var bstage = bboat.closest('.build');
+      bstage.addEventListener('pointermove', function (e) {
+        var r = bstage.getBoundingClientRect();
+        var dx = (e.clientX - (r.left + r.width / 2)) / r.width;
+        bx(dx * 38); brot(dx * 3);
+      });
+      bstage.addEventListener('pointerleave', function () { bx(0); brot(0); });
+    }
+  } catch (e) {}
+
   window.addEventListener('load', function () {
     ScrollTrigger.refresh();
     if (location.hash) setTimeout(function () { goToHash(location.hash, false); }, 80);

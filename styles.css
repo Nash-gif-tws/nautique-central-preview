@@ -313,6 +313,16 @@ p { margin: 0; }
 .mcard__go { margin-top: auto; display: inline-flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--muted-2); }
 .mcard__go svg { width: 15px; height: 15px; color: var(--accent-2); }
 
+/* ---------- Design your Nautique (floating boat on dark) ---------- */
+.build { position: relative; text-align: center; overflow: hidden; padding-block: clamp(72px, 10vw, 130px) clamp(36px, 6vw, 64px); background: radial-gradient(125% 80% at 50% 22%, #1c1e24 0%, var(--bg) 56%); border-top: 1px solid var(--line); }
+.build__inner { position: relative; z-index: 2; max-width: 620px; margin-inline: auto; }
+.build h2 { font-size: clamp(2.2rem, 5vw, 3.8rem); margin: 6px 0 18px; }
+.build .lede { margin: 0 auto 28px; }
+.build__stage { position: relative; z-index: 1; margin-top: clamp(12px, 2vw, 28px); animation: bob 6s ease-in-out infinite; will-change: transform; }
+.build__boat { display: block; width: min(560px, 80%); height: auto; margin-inline: auto; filter: drop-shadow(0 38px 48px rgba(0,0,0,0.6)); will-change: transform; }
+@keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
+@media (prefers-reduced-motion: reduce) { .build__stage { animation: none; } }
+
 /* ============================================================
    MOTION STATES (gated; everything visible if JS/GSAP absent or reduced-motion)
    ============================================================ */
