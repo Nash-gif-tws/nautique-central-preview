@@ -91,8 +91,11 @@ p { margin: 0; }
 /* mobile hero: portrait-friendly golden-hour shot — frame the boat, let the warm sky
    breathe up top, keep a strong base scrim so the copy stays legible */
 @media (max-width: 700px) {
-  .hero__media img { height: 100%; object-position: 58% center; }
-  .hero__media::after { background: linear-gradient(to top, rgba(8,8,9,0.95) 0%, rgba(8,8,9,0.72) 24%, rgba(8,8,9,0.24) 56%, rgba(8,8,9,0.06) 100%); }
+  .hero__media img { height: 100%; object-position: center; }
+  /* lighter, bottom-weighted scrim so the boat + golden light read through; the headline
+     stays legible via a soft text-shadow rather than a heavy blanket darken */
+  .hero__media::after { background: linear-gradient(to top, rgba(8,8,9,0.9) 0%, rgba(8,8,9,0.52) 30%, rgba(8,8,9,0.18) 56%, rgba(8,8,9,0.04) 100%); }
+  .hero .eyebrow, .hero h1, .hero__sub { text-shadow: 0 1px 22px rgba(0,0,0,0.55); }
 }
 
 /* ---------- brand strip ---------- */
