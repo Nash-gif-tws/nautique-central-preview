@@ -25,7 +25,7 @@ GSAP loads from a CDN. The flagship moment is the pinned horizontal pan through 
 
 ## Before launch (real data + wiring)
 - **Enquiry form** (`#demo`): currently front-end only with a success state. Wire `#demoForm` submit to a real handler (Formspree / CRM / email) — see the NOTE in `app.js`.
-- **Reviews** (Proof section): the 4.9 Google rating and the three owner quotes are PLACEHOLDERS. Replace with the real Google rating + count and genuine customer quotes (the TODO comment marks the spot in `index.html`).
+- **Reviews** (Proof section): now REAL — 5.0 Google rating and three genuine, faithfully-quoted reviews pulled from the NSW (Penrith) and QLD (Yatala) Google listings (both 5.0). Refresh periodically as new reviews come in.
 - **Imagery** is Nautique USA's (manufacturer) photography — confirm licensing, and ideally swap in real per-state customer/showroom shots.
 - **Stock counts** (11 / 10 / 8, "30+") are from a scrape on 03/06/2026 and will drift.
 
