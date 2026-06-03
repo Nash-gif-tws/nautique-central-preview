@@ -91,11 +91,14 @@ p { margin: 0; }
 /* mobile hero: portrait-friendly golden-hour shot — frame the boat, let the warm sky
    breathe up top, keep a strong base scrim so the copy stays legible */
 @media (max-width: 700px) {
+  /* phones: the boat sits low in-frame, so anchor the copy to the TOP over the golden sky
+     and let the boat stand clear in the lower half — scrim is top-weighted to match */
+  .hero { align-items: flex-start; padding-top: clamp(92px, 24vw, 132px); padding-bottom: clamp(36px, 10vw, 64px); }
   .hero__media img { height: 100%; object-position: center; }
-  /* lighter, bottom-weighted scrim so the boat + golden light read through; the headline
-     stays legible via a soft text-shadow rather than a heavy blanket darken */
-  .hero__media::after { background: linear-gradient(to top, rgba(8,8,9,0.9) 0%, rgba(8,8,9,0.52) 30%, rgba(8,8,9,0.18) 56%, rgba(8,8,9,0.04) 100%); }
-  .hero .eyebrow, .hero h1, .hero__sub { text-shadow: 0 1px 22px rgba(0,0,0,0.55); }
+  .hero__media::after { background: linear-gradient(to bottom, rgba(8,8,9,0.88) 0%, rgba(8,8,9,0.52) 24%, rgba(8,8,9,0.12) 48%, rgba(8,8,9,0.03) 66%, rgba(8,8,9,0.2) 100%); }
+  .hero .eyebrow, .hero h1, .hero__sub { text-shadow: 0 1px 22px rgba(0,0,0,0.6); }
+  /* ghost CTA sits over the bright boat on phones — give it a frosted backdrop so it reads */
+  .hero .btn--ghost { background: rgba(10,10,12,0.34); -webkit-backdrop-filter: blur(7px); backdrop-filter: blur(7px); border-color: rgba(255,255,255,0.55); }
 }
 
 /* ---------- brand strip ---------- */
