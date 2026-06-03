@@ -112,18 +112,27 @@
      (iOS Safari's changing viewport height can break ScrollTrigger starts). */
   var motionOK = matchMedia('(min-width: 981px)').matches;
   if (motionOK) {
-  /* headline mask-reveal: wrap content in an overflow-clip, wipe the inner up */
+  /* headline mask-reveal: wrap content in an overflow-clip; the reveal itself is driven
+     by an IntersectionObserver + CSS transition (NOT ScrollTrigger). IO uses real
+     geometry, so it survives refreshes and deep-links through the pinned section —
+     no headline line ever gets left clipped. */
   gsap.utils.toArray('[data-mask]').forEach(function (el) {
     var inner = document.createElement('span');
     inner.className = 'mask-inner';
     while (el.firstChild) inner.appendChild(el.firstChild);
     el.appendChild(inner);
     el.classList.add('mask-clip');
-    gsap.fromTo(inner, { yPercent: 115 }, {
-      yPercent: 0, duration: 1.0, ease: 'expo.out',
-      scrollTrigger: { trigger: el, start: 'top 88%', once: true }
-    });
   });
+  if ('IntersectionObserver' in window) {
+    var maskIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('is-revealed'); maskIO.unobserve(en.target); }
+      });
+    }, { rootMargin: '0px 0px -10% 0px' });
+    document.querySelectorAll('.mask-clip').forEach(function (el) { maskIO.observe(el); });
+  } else {
+    document.querySelectorAll('.mask-clip').forEach(function (el) { el.classList.add('is-revealed'); });
+  }
 
   /* quiet fades for supporting content (moves LESS than headlines = hierarchy) */
   gsap.utils.toArray('[data-reveal]').forEach(function (el) {
@@ -219,6 +228,15 @@
         trigger: ft, start: 'top bottom',
         onEnter: function () { cruise.style.opacity = '0'; },
         onLeaveBack: function () { cruise.style.opacity = '1'; }
+      });
+    }
+    // fade the cruising boat out across "Design your Nautique" so it doesn't
+    // duplicate the static G23 centrepiece there — a visitor should see one boat, not two
+    var buildSec = document.getElementById('build');
+    if (buildSec && cruise) {
+      ScrollTrigger.create({
+        trigger: buildSec, start: 'top 75%', end: 'bottom 25%',
+        onToggle: function (self) { cruise.style.opacity = self.isActive ? '0' : '1'; }
       });
     }
   }

@@ -339,6 +339,10 @@ p { margin: 0; }
 @media (min-width: 981px) {
   .gsap-ready [data-reveal] { opacity: 0; transform: translateY(18px); }
   .gsap-ready [data-reveal-img] { clip-path: inset(0 0 100% 0); }
+  /* headline mask: CSS-transition reveal toggled by an IntersectionObserver (refresh-proof,
+     deep-link-proof — no dependence on ScrollTrigger's scroll-space through the pinned section) */
+  .gsap-ready .mask-clip .mask-inner { transform: translateY(110%); transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1); will-change: transform; }
+  .gsap-ready .mask-clip.is-revealed .mask-inner { transform: translateY(0); }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -346,6 +350,7 @@ p { margin: 0; }
   .anim .hero [data-hero] { animation: none; }
   .anim .hero [data-hero], .gsap-ready [data-reveal] { opacity: 1; transform: none; }
   .gsap-ready [data-reveal-img] { clip-path: none; }
+  .gsap-ready .mask-clip .mask-inner { transform: none !important; transition: none !important; }
 }
 
 /* ============================================================
