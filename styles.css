@@ -83,11 +83,17 @@ p { margin: 0; }
 .hero { position: relative; min-height: 100svh; display: flex; align-items: flex-end; padding-bottom: clamp(56px, 9vw, 110px); overflow: hidden; }
 .hero__media { position: absolute; inset: 0; z-index: -2; overflow: hidden; }
 .hero__media img { width: 100%; height: 116%; object-fit: cover; will-change: transform; }
-.hero__media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(8,8,9,0.92) 0%, rgba(8,8,9,0.6) 34%, rgba(8,8,9,0.18) 66%, rgba(8,8,9,0.5) 100%), linear-gradient(to right, rgba(8,8,9,0.8) 0%, rgba(8,8,9,0.12) 62%, rgba(8,8,9,0) 100%); }
+.hero__media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(8,8,9,0.9) 0%, rgba(8,8,9,0.5) 40%, rgba(8,8,9,0.1) 72%, rgba(8,8,9,0.22) 100%), linear-gradient(to right, rgba(8,8,9,0.72) 0%, rgba(8,8,9,0.16) 52%, rgba(8,8,9,0) 82%); }
 .hero__inner { max-width: 900px; }
 .hero h1 { font-size: clamp(2rem, 5vw, 3.9rem); font-weight: 700; letter-spacing: -0.015em; line-height: 1.02; }
 .hero__sub { color: rgba(255,255,255,0.88); font-size: clamp(1.05rem, 1.7vw, 1.32rem); max-width: 46ch; margin: 22px 0 34px; }
 .hero__cta { display: flex; flex-wrap: wrap; gap: 14px; }
+/* mobile hero: portrait-friendly golden-hour shot — frame the boat, let the warm sky
+   breathe up top, keep a strong base scrim so the copy stays legible */
+@media (max-width: 700px) {
+  .hero__media img { height: 100%; object-position: 58% center; }
+  .hero__media::after { background: linear-gradient(to top, rgba(8,8,9,0.95) 0%, rgba(8,8,9,0.72) 24%, rgba(8,8,9,0.24) 56%, rgba(8,8,9,0.06) 100%); }
+}
 
 /* ---------- brand strip ---------- */
 .brands { background: var(--bg-1); border-block: 1px solid var(--line); padding-block: clamp(28px, 4vw, 44px); }
