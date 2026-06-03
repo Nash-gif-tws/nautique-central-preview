@@ -1,0 +1,134 @@
+[
+  {
+    "name": "Super Air Nautique G23",
+    "slug": "super-air-g23",
+    "class": "G-Series",
+    "discipline": "Wake & Surf",
+    "tagline": "The undisputed boat of choice.",
+    "description": "For over a decade, the G23 has been the most sought-after wake boat in the industry. The award-winning hull delivers pro-level wakes and waves, yet scales down for first-timers, all wrapped in a luxurious, meticulously finished cockpit.",
+    "specs": {
+      "Length": "23' 3\" (7.09 m)",
+      "Beam": "102\" (2.59 m)",
+      "Capacity": "16 people",
+      "Ballast": "3,600 lbs max",
+      "Dry weight": "6,300 lbs",
+      "Fuel": "65.6 gal",
+      "Standard engine": "PCM ZZ6 - 450 hp",
+      "Top engine": "PCM ZZ8S - 630 hp"
+    },
+    "hero": "images/models/super-air-g23-hero.jpg",
+    "profile": "images/models/super-air-g23-profile.png",
+    "stern": "images/models/super-air-g23-stern.jpg",
+    "helm": "images/models/super-air-g23-helm.jpg"
+  },
+  {
+    "name": "Super Air Nautique G25",
+    "slug": "super-air-g25",
+    "class": "G-Series",
+    "discipline": "Wake & Surf",
+    "tagline": "Legendary lineage, more room.",
+    "description": "The G25 carries the award-winning G-Series legacy into a larger package for bigger crews. The best hull in the industry delivers pro-level wakes and waves while still welcoming beginners, with a luxurious interior you can tailor to your taste.",
+    "specs": {
+      "Length": "25' 3\" (7.7 m)",
+      "Beam": "102\" (2.59 m)",
+      "Capacity": "19 people",
+      "Ballast": "3,600 lbs max",
+      "Dry weight": "6,600 lbs",
+      "Fuel": "88 gal",
+      "Standard engine": "PCM ZZ6 - 450 hp",
+      "Top engine": "PCM ZZ8S - 630 hp"
+    },
+    "hero": "images/models/super-air-g25-hero.jpg",
+    "profile": "images/models/super-air-g25-profile.png",
+    "stern": "images/models/super-air-g25-stern.jpg",
+    "helm": "images/models/super-air-g25-helm.jpg"
+  },
+  {
+    "name": "Super Air Nautique GS22",
+    "slug": "super-air-gs22",
+    "class": "GS-Series",
+    "discipline": "Surf, Wake & Ski",
+    "tagline": "Unlimited possibilities.",
+    "description": "The most popular multi-sport boat on the market. Blending the running surfaces of the record-setting Ski Nautique and the award-winning G-Series, the GS22 delivers uncompromising ski, surf and wake performance for the family that likes to do it all.",
+    "specs": {
+      "Length": "22' (6.70 m)",
+      "Beam": "100\" (2.54 m)",
+      "Capacity": "15 people",
+      "Ballast": "2,900 lbs max",
+      "Dry weight": "4,900 lbs",
+      "Fuel": "59 gal",
+      "Standard engine": "PCM ZZ5 - 355 hp",
+      "Top engine": "PCM ZZ8R - 570 hp"
+    },
+    "hero": "images/models/super-air-gs22-hero.jpg",
+    "profile": "images/models/super-air-gs22-profile.png",
+    "stern": "images/models/super-air-gs22-stern.jpg",
+    "helm": "images/models/super-air-gs22-helm.jpg"
+  },
+  {
+    "name": "Super Air Nautique GS24",
+    "slug": "super-air-gs24",
+    "class": "GS-Series",
+    "discipline": "Surf, Wake & Ski",
+    "tagline": "Uncompromising versatility.",
+    "description": "The GS24 sets the standard for versatility in the 24-foot class, with inspiration drawn from the record-setting Ski Nautique and award-winning G-Series. Ample room for larger crews meets the perfect balance of ski, wake and surf performance.",
+    "specs": {
+      "Length": "24' (7.32 m)",
+      "Beam": "100\" (2.54 m)",
+      "Capacity": "17 people",
+      "Ballast": "3,450 lbs max",
+      "Dry weight": "5,250 lbs",
+      "Fuel": "76.7 gal",
+      "Standard engine": "PCM ZZ5 - 355 hp",
+      "Top engine": "PCM ZZ8R - 570 hp"
+    },
+    "hero": "images/models/super-air-gs24-hero.jpg",
+    "profile": "images/models/super-air-gs24-profile.png",
+    "stern": "images/models/super-air-gs24-stern.jpg",
+    "helm": "images/models/super-air-gs24-helm.jpg"
+  },
+  {
+    "name": "Super Air Nautique GS20",
+    "slug": "super-air-gs20",
+    "class": "GS-Series",
+    "discipline": "Surf, Wake & Ski",
+    "tagline": "The ultimate multi-sport boat.",
+    "description": "The GS20 blends the hull characteristics of the record-setting Ski Nautique and award-winning G-Series to deliver smooth slalom passes, crisp wakeboard wakes and endless surf waves, all in one package. The ultimate multi-sport tow boat in its class.",
+    "specs": {
+      "Length": "20' (6.1 m)",
+      "Beam": "100\" (2.54 m)",
+      "Capacity": "12 people",
+      "Ballast": "1,700 lbs",
+      "Dry weight": "4,700 lbs",
+      "Fuel": "39 gal",
+      "Standard engine": "PCM ZZ5 - 355 hp",
+      "Top engine": "PCM ZZ6 - 450 hp"
+    },
+    "hero": "images/models/super-air-gs20-hero.jpg",
+    "profile": "images/models/super-air-gs20-profile.png",
+    "stern": "images/models/super-air-gs20-stern.jpg",
+    "helm": "images/models/super-air-gs20-helm.jpg"
+  },
+  {
+    "name": "Ski Nautique",
+    "slug": "ski-nautique",
+    "class": "Ski",
+    "discipline": "Ski",
+    "tagline": "An icon, evolved.",
+    "description": "An evolution of a true icon, with more personal bests and world records than any waterski boat in history. Significantly lighter than the previous generation and redesigned bow to stern, the all-new Ski Nautique delivers unprecedented performance through every pass.",
+    "specs": {
+      "Length": "20' (6.10 m)",
+      "Beam": "94\" (2.39 m)",
+      "Capacity": "6 people",
+      "Ballast": "400 lbs max",
+      "Dry weight": "2,800 lbs",
+      "Fuel": "28 gal",
+      "Standard engine": "PCM ZZ5 - 355 hp",
+      "Top engine": "PCM ZZ6 - 450 hp"
+    },
+    "hero": "images/models/ski-nautique-hero.jpg",
+    "profile": "images/models/ski-nautique-profile.png",
+    "stern": "images/models/ski-nautique-stern.jpg",
+    "helm": "images/models/ski-nautique-helm.jpg"
+  }
+]

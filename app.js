@@ -107,6 +107,11 @@
     });
   }
 
+  /* Scroll-reveal/mask/parallax motion runs on desktop only. On phones & tablets
+     these stay static so content is NEVER left hidden if a trigger misfires
+     (iOS Safari's changing viewport height can break ScrollTrigger starts). */
+  var motionOK = matchMedia('(min-width: 981px)').matches;
+  if (motionOK) {
   /* headline mask-reveal: wrap content in an overflow-clip, wipe the inner up */
   gsap.utils.toArray('[data-mask]').forEach(function (el) {
     var inner = document.createElement('span');
@@ -141,9 +146,10 @@
   gsap.fromTo('#statementImg', { yPercent: -10 }, { yPercent: 10, ease: 'none', scrollTrigger: { trigger: '.statement', start: 'top bottom', end: 'bottom top', scrub: 1 } });
   var whyImg = document.getElementById('whyImg');
   if (whyImg) gsap.fromTo(whyImg, { yPercent: -8 }, { yPercent: 8, ease: 'none', scrollTrigger: { trigger: '.why', start: 'top bottom', end: 'bottom top', scrub: 1 } });
+  } /* end motionOK */
 
   /* intro stats count up */
-  ScrollTrigger.create({
+  if (document.querySelector('.stats')) ScrollTrigger.create({
     trigger: '.stats', start: 'top 82%', once: true,
     onEnter: function () { document.querySelectorAll('.stats [data-count]').forEach(countUp); }
   });
@@ -151,9 +157,10 @@
   /* ---------- THREE STATES: pinned horizontal pan + progress + per-panel counters ---------- */
   var mm = gsap.matchMedia();
   mm.add('(min-width: 981px)', function () {
-    root.classList.add('gsap-horizontal');
     var track = document.getElementById('statesTrack');
     var viewport = document.getElementById('statesViewport');
+    if (!track || !viewport) return;
+    root.classList.add('gsap-horizontal');
     var bar = document.getElementById('statesBar');
     var panels = gsap.utils.toArray('.state-panel');
     var nums = panels.map(function (p) { return p.querySelector('.state-panel__num'); });
