@@ -10,7 +10,7 @@ import { dirname, join } from 'node:path';
 import { loadModels } from './storyblok.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const V = '17'; // asset cache-bust version (bump on each deploy)
+const V = '18'; // asset cache-bust version (bump on each deploy)
 // Master price switch. false => every boat shows "Price on application" (the range
 // still SORTS by the indicative price set in the data). Flip to true once real
 // drive-away prices are set in Storyblok; boats with an empty price field then
@@ -23,7 +23,7 @@ const HAMBURGER = `<svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="t
 const IG = `<svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 80a48 48 0 1 0 48 48 48 48 0 0 0-48-48Zm0 80a32 32 0 1 1 32-32 32 32 0 0 1-32 32Zm44-94a12 12 0 1 1-12-12 12 12 0 0 1 12 12Zm44 2a54.06 54.06 0 0 0-15.54-38.46A54.06 54.06 0 0 0 162 14c-15.8-.9-52.2-.9-68 0a54.06 54.06 0 0 0-38.46 15.54A54.06 54.06 0 0 0 14 68c-.9 15.8-.9 52.2 0 68a54.06 54.06 0 0 0 15.54 38.46A54.06 54.06 0 0 0 94 190c15.8.9 52.2.9 68 0a54.06 54.06 0 0 0 38.46-15.54A54.06 54.06 0 0 0 216 136c.9-15.8.9-52.16 0-68Zm-19 80a38 38 0 0 1-21 21c-14.55 5.74-49.06 4.42-65 4.42s-50.5 1.3-65-4.42a38 38 0 0 1-21-21c-5.74-14.55-4.42-49.06-4.42-65s-1.3-50.5 4.42-65a38 38 0 0 1 21-21c14.55-5.74 49.06-4.42 65-4.42s50.5-1.3 65 4.42a38 38 0 0 1 21 21c5.74 14.55 4.42 49.06 4.42 65s1.32 50.5-4.42 65Z"/></svg>`;
 const FB = `<svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 24a104 104 0 0 0-16 207.21V152H88a8 8 0 0 1 0-16h24v-20.4c0-26 15.46-40.4 39.19-40.4a160.34 160.34 0 0 1 23.27 2v25.6h-13.1c-12.89 0-16.9 8-16.9 16.2V136h28.8a8 8 0 0 1 7.89 9.32l-3.2 19.2a8 8 0 0 1-7.89 6.68H144v59.21A104 104 0 0 0 128 24Z"/></svg>`;
 
-const head = (title, desc, jsonld) => `<!doctype html>
+const head = (title, desc, jsonld, preload) => `<!doctype html>
 <html lang="en-AU">
 <head>
   <meta charset="utf-8" />
@@ -35,9 +35,11 @@ const head = (title, desc, jsonld) => `<!doctype html>
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=switzer@400,500,600,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css?v=${V}" />
+  ${preload ? `<link rel="preload" as="image" href="${preload}" type="image/webp" fetchpriority="high" />` : ''}
   ${jsonld ? `<script type="application/ld+json">${JSON.stringify(jsonld)}</script>` : ''}
 </head>
 <body id="top">
+  <div class="preloader" id="preloader" aria-hidden="true"><span class="preloader__bar"><i></i></span></div>
   <a href="#main" class="skip-link">Skip to content</a>
   <div class="grain" aria-hidden="true"></div>`;
 
@@ -114,6 +116,12 @@ const footer = `
 
 /* ---------- helpers ---------- */
 const shortName = (m) => m.name.replace('Super Air Nautique ', '');
+const toWebp = (src) => (src ? src.replace(/\.(jpe?g|png)$/i, '.webp') : src);
+// <picture> with a webp source + the original as fallback <img>; transparent to CSS (picture{display:contents})
+const pic = (src, alt, attrs = '') => {
+  if (!src) return '';
+  return `<picture><source srcset="${toWebp(src)}" type="image/webp" /><img src="${src}" alt="${alt}"${attrs ? ' ' + attrs : ''} /></picture>`;
+};
 const abs = (src) => (!src ? '' : src.startsWith('http') ? src : SITE + src);
 const fmtAUD = (n) => '$' + Number(n).toLocaleString('en-AU');
 const priceNum = (m) => (m.price != null && m.price !== '' && Number(m.price) > 0 ? Number(m.price) : 0);
@@ -141,7 +149,7 @@ function card(m) {
     .filter(Boolean).join(' &middot; ');
   return `
           <a class="mcard" href="${m.slug}.html">
-            <div class="mcard__media"><img src="${m.profile || m.hero}" alt="${m.name}" loading="lazy" /></div>
+            <div class="mcard__media">${pic(m.profile || m.hero, m.name, 'loading="lazy"')}</div>
             <div class="mcard__body">
               <span class="mcard__kicker">${m.brand || 'Nautique'} &middot; ${m.class}</span>
               <h3>${shortName(m)}</h3>
@@ -223,7 +231,7 @@ function modelPage(m, all) {
           <h2 class="section-h" data-mask>Every detail considered.</h2>
         </div>
         <div class="mgallery__grid">
-          ${gal.map(([src, cap]) => `<figure class="mshot" data-reveal-img><img src="${src}" alt="${m.name} — ${cap}" loading="lazy" /><figcaption>${cap}</figcaption></figure>`).join('\n          ')}
+          ${gal.map(([src, cap]) => `<figure class="mshot" data-reveal-img>${pic(src, m.name + ' — ' + cap, 'loading="lazy"')}<figcaption>${cap}</figcaption></figure>`).join('\n          ')}
         </div>
       </div>
     </section>` : '';
@@ -252,15 +260,26 @@ function modelPage(m, all) {
       </div>
     </section>` : '';
 
+  const stmt = m.statement || '';
+  const stmtImg = m.stern || m.hero || m.profile || '';
+  const statementSection = stmt && stmtImg ? `
+    <section class="mstatement">
+      <div class="mstatement__media">${pic(stmtImg, m.name + ' on the water', 'loading="lazy"')}</div>
+      <div class="wrap mstatement__inner" data-reveal>
+        <p class="eyebrow">On the water</p>
+        <h2 class="mstatement__quote" data-mask>${stmt}</h2>
+      </div>
+    </section>` : '';
+
   const jsonld = {
     '@context': 'https://schema.org', '@type': 'Product', name: m.name,
     brand: { '@type': 'Brand', name: m.brand || 'Nautique' }, description: m.description,
     image: abs(heroImg), category: 'Tow boat',
   };
 
-  return head(`${m.name} | Nautique Central`, (m.description || '').replace(/"/g, "'"), jsonld) + header + `
+  return head(`${m.name} | Nautique Central`, (m.description || '').replace(/"/g, "'"), jsonld, toWebp(heroImg)) + header + `
     <section class="mhero">
-      <div class="mhero__media"><img src="${heroImg}" alt="${m.name} on the water" fetchpriority="high" /></div>
+      <div class="mhero__media">${pic(heroImg, m.name + ' on the water', 'fetchpriority="high"')}</div>
       <div class="wrap mhero__inner">
         <a class="mback" href="models.html">${ARROW}<span>All models</span></a>
         <p class="mhero__kicker">${m.brand || 'Nautique'} &middot; ${m.class} &middot; ${m.discipline}</p>
@@ -292,11 +311,11 @@ function modelPage(m, all) {
           </div>
         </div>
         <figure class="moverview__media" data-reveal-img>
-          <img src="${profileImg}" alt="${m.name} profile" loading="lazy" />
+          ${pic(profileImg, m.name + ' profile', 'loading="lazy"')}
         </figure>
       </div>
     </section>
-${featSection}${gallerySection}
+${featSection}${gallerySection}${statementSection}
     <section class="section mspecfull">
       <div class="wrap mspecfull__grid">
         <div class="mspecfull__head" data-reveal>

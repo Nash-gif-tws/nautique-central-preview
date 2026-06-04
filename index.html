@@ -10,7 +10,9 @@
 
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=switzer@400,500,600,700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=17" />
+  <link rel="stylesheet" href="styles.css?v=18" />
+  <link rel="preload" as="image" href="images/gs24.webp" type="image/webp" media="(min-width: 701px)" fetchpriority="high" />
+  <link rel="preload" as="image" href="images/gs24-mobile.webp" type="image/webp" media="(max-width: 700px)" fetchpriority="high" />
 
   <script type="application/ld+json">
   {
@@ -65,7 +67,9 @@
   <section class="hero">
     <div class="hero__media">
       <picture>
+        <source media="(max-width: 700px)" srcset="images/gs24-mobile.webp" type="image/webp" />
         <source media="(max-width: 700px)" srcset="images/gs24-mobile.jpg" />
+        <source srcset="images/gs24.webp" type="image/webp" />
         <img id="heroImg" src="images/gs24.jpg" alt="A Nautique tow boat cruising at golden hour with family aboard" fetchpriority="high" />
       </picture>
     </div>
@@ -105,7 +109,7 @@
       </div>
       <div class="range-grid">
         <a class="rtile" href="models.html" data-reveal>
-          <div class="rtile__media"><img src="images/g23.jpg" alt="Nautique surf boat throwing a clean wave" loading="lazy" /></div>
+          <div class="rtile__media"><img src="images/g23.webp" alt="Nautique surf boat throwing a clean wave" loading="lazy" /></div>
           <div class="rtile__body">
             <span class="rtile__kicker">Super Air Nautique G &amp; GS Series</span>
             <h3>Surf</h3>
@@ -114,7 +118,7 @@
           </div>
         </a>
         <a class="rtile" href="models.html" data-reveal>
-          <div class="rtile__media"><img src="images/wakeboarder.jpg" alt="Wakeboarder behind a Nautique" loading="lazy" /></div>
+          <div class="rtile__media"><img src="images/wakeboarder.webp" alt="Wakeboarder behind a Nautique" loading="lazy" /></div>
           <div class="rtile__body">
             <span class="rtile__kicker">Super Air Nautique &amp; Supreme</span>
             <h3>Wake</h3>
@@ -123,7 +127,7 @@
           </div>
         </a>
         <a class="rtile" href="models.html" data-reveal>
-          <div class="rtile__media"><img src="images/action-spray.jpg" alt="Slalom skier carving behind a Ski Nautique" loading="lazy" /></div>
+          <div class="rtile__media"><img src="images/action-spray.webp" alt="Slalom skier carving behind a Ski Nautique" loading="lazy" /></div>
           <div class="rtile__body">
             <span class="rtile__kicker">Ski Nautique &amp; Matrix</span>
             <h3>Ski</h3>
@@ -152,7 +156,7 @@
     <div class="states__viewport" id="statesViewport">
       <div class="states__track" id="statesTrack">
         <article class="state-panel">
-          <img class="state-panel__img" src="images/g23.jpg" alt="Nautique on the water in New South Wales" />
+          <img class="state-panel__img" src="images/g23.webp" alt="Nautique on the water in New South Wales" />
           <div class="wrap state-panel__body">
             <span class="state-panel__index">01 / 03</span>
             <span class="state-panel__count"><span class="state-panel__num" data-count="11">0</span> boats in stock</span>
@@ -164,7 +168,7 @@
           </div>
         </article>
         <article class="state-panel">
-          <img class="state-panel__img" src="images/coastal.jpg" alt="Nautique cruising in Queensland" />
+          <img class="state-panel__img" src="images/coastal.webp" alt="Nautique cruising in Queensland" />
           <div class="wrap state-panel__body">
             <span class="state-panel__index">02 / 03</span>
             <span class="state-panel__count"><span class="state-panel__num" data-count="10">0</span> boats in stock</span>
@@ -176,7 +180,7 @@
           </div>
         </article>
         <article class="state-panel">
-          <img class="state-panel__img" src="images/onwater-1.jpg" alt="Nautique on the water in Victoria" />
+          <img class="state-panel__img" src="images/onwater-1.webp" alt="Nautique on the water in Victoria" />
           <div class="wrap state-panel__body">
             <span class="state-panel__index">03 / 03</span>
             <span class="state-panel__count"><span class="state-panel__num" data-count="8">0</span> boats in stock</span>
@@ -194,7 +198,7 @@
 
   <!-- ============ WHY NAUTIQUE (tech / craft) ============ -->
   <section class="why" id="why">
-    <div class="why__media"><img id="whyImg" src="images/onwater-2.jpg" alt="A Nautique surf wave forming behind the transom" loading="lazy" /></div>
+    <div class="why__media"><img id="whyImg" src="images/onwater-2.webp" alt="A Nautique surf wave forming behind the transom" loading="lazy" /></div>
     <div class="wrap why__inner">
       <h2 data-mask>The wave is<br>not an accident.</h2>
       <p class="why__lead" data-reveal>A Nautique surf wave is shaped by hull design and ballast refined over decades. Set it from the touchscreen, switch it from side to side, and it holds, run after run. Supreme and Matrix bring the same thinking at every price point, so the boat you can afford still rides like it was engineered to.</p>
@@ -232,13 +236,13 @@
           <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>
         </a>
       </div>
-      <div class="split__media"><div class="split__frame" data-reveal-img><img src="images/action-spray.jpg" alt="A skier carving a wall of spray behind a Nautique" loading="lazy" /></div></div>
+      <div class="split__media"><div class="split__frame" data-reveal-img><img src="images/action-spray.webp" alt="A skier carving a wall of spray behind a Nautique" loading="lazy" /></div></div>
     </div>
   </section>
 
   <!-- ============ STATEMENT BAND ============ -->
   <section class="statement">
-    <div class="statement__media"><img id="statementImg" src="images/coastal.jpg" alt="Cruising the coast aboard a Nautique" loading="lazy" /></div>
+    <div class="statement__media"><img id="statementImg" src="images/coastal.webp" alt="Cruising the coast aboard a Nautique" loading="lazy" /></div>
     <div class="wrap"><h2 data-mask>From first ski to<br>head-high surf.</h2></div>
   </section>
 
@@ -419,7 +423,7 @@
     <div class="cruise__rig" id="cruiseRig">
       <span class="cruise__wake"></span>
       <span class="cruise__wake cruise__wake--2"></span>
-      <img class="cruise__boat" src="images/g23-profile.png" alt="" />
+      <img class="cruise__boat" src="images/g23-profile.webp" alt="" />
     </div>
   </div>
 
@@ -471,7 +475,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-  <script src="app.js?v=17"></script>
+  <script src="app.js?v=18"></script>
   <script>/* Storyblok Visual Editor bridge — only loads inside the editor */(function(){if(!/[?&]_storyblok/.test(location.search))return;var s=document.createElement('script');s.src='https://app.storyblok.com/f/storyblok-v2-latest.js';s.onload=function(){try{var b=new StoryblokBridge();b.on(['published','change'],function(){location.reload();});}catch(e){}};document.head.appendChild(s);})();</script>
 </body>
 </html>

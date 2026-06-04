@@ -2,6 +2,7 @@
   'use strict';
   var root = document.documentElement;
   var header = document.getElementById('header');
+  var pre = document.getElementById('preloader');
   var gsapOK = !!(window.gsap && window.ScrollTrigger);
   var reduced = false;
   try { reduced = matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
@@ -67,7 +68,7 @@
   }
 
   /* ---------- no motion: reveal everything, stop ---------- */
-  if (!gsapOK || reduced) { root.classList.remove('anim'); return; }
+  if (!gsapOK || reduced) { root.classList.remove('anim'); if (pre) pre.style.display = 'none'; return; }
 
   gsap.registerPlugin(ScrollTrigger);
   if (window.ScrollToPlugin) gsap.registerPlugin(ScrollToPlugin);
@@ -94,6 +95,20 @@
       }
     }
   } catch (e) { lenis = null; }
+
+  /* ---------- preloader curtain → reveal (lifts on load, hard cap 2.2s) ---------- */
+  if (pre) {
+    var pbar = pre.querySelector('.preloader__bar i');
+    var lifted = false;
+    var liftPre = function () {
+      if (lifted) return; lifted = true;
+      gsap.timeline({ onComplete: function () { pre.style.display = 'none'; } })
+        .to(pbar, { scaleX: 1, duration: 0.6, ease: 'power2.inOut' })
+        .to(pre, { yPercent: -100, duration: 0.8, ease: 'expo.inOut' }, '+=0.05');
+    };
+    if (document.readyState === 'complete') liftPre();
+    else { window.addEventListener('load', liftPre); setTimeout(liftPre, 2200); }
+  }
 
   /* in-page anchors that respect the pinned section's added scroll length */
   function goToHash(hash, animate) {

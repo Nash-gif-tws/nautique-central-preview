@@ -335,6 +335,25 @@ p { margin: 0; }
 .mshot img { width: 100%; height: clamp(280px, 40vw, 540px); object-fit: cover; display: block; }
 .mshot figcaption { position: absolute; left: 22px; bottom: 18px; font-family: var(--font-display); text-transform: uppercase; font-size: 1.05rem; letter-spacing: 0.04em; color: #fff; text-shadow: 0 2px 14px rgba(0,0,0,0.65); }
 
+/* <picture> is transparent to layout — the inner <img> is what gets styled */
+picture { display: contents; }
+
+/* ---------- cinematic statement band (PDP) ---------- */
+.mstatement { position: relative; min-height: clamp(380px, 62vh, 640px); display: flex; align-items: flex-end; overflow: hidden; border-top: 1px solid var(--line); }
+.mstatement__media { position: absolute; inset: 0; z-index: -2; }
+.mstatement__media img { width: 100%; height: 116%; object-fit: cover; }
+.mstatement__media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(8,8,9,0.92) 6%, rgba(8,8,9,0.32) 56%, rgba(8,8,9,0.55)); }
+.mstatement__inner { position: relative; padding-block: clamp(40px, 7vw, 90px); }
+.mstatement__quote { font-size: clamp(2rem, 5.2vw, 4rem); max-width: 18ch; letter-spacing: -0.02em; line-height: 1.04; }
+
+/* ---------- preloader curtain ---------- */
+.preloader { position: fixed; inset: 0; z-index: 10001; background: var(--bg); display: grid; place-items: center; animation: preloaderFail 0.01s linear 4s forwards; }
+.preloader__bar { width: 140px; height: 2px; background: var(--line-strong); overflow: hidden; }
+.preloader__bar i { display: block; height: 100%; width: 100%; background: var(--accent); transform: scaleX(0); transform-origin: left; }
+.preloader.is-done { opacity: 0; visibility: hidden; pointer-events: none; }
+@keyframes preloaderFail { to { opacity: 0; visibility: hidden; pointer-events: none; } }
+@media (prefers-reduced-motion: reduce) { .preloader { display: none !important; } }
+
 /* full specifications, grouped */
 .mspecfull { background: var(--bg-1); border-top: 1px solid var(--line); }
 .mspecfull__grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(32px, 6vw, 80px); align-items: start; }

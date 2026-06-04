@@ -25,10 +25,17 @@ const SPEC_FIELDS = {
 };
 
 // An asset field is an object { filename, ... }; tolerate a plain string too.
+// Storyblok stores these as absolute URLs on the live domain; strip that prefix
+// back to a relative path so the build is portable (works locally + live) and the
+// webp <source> resolves the same place as the jpg/png fallback.
+const SITE_BASE = 'https://nash-gif-tws.github.io/nautique-central-preview/';
 function assetUrl(field, fallback = '') {
-  if (!field) return fallback;
-  if (typeof field === 'string') return field || fallback;
-  return field.filename || fallback;
+  let u = '';
+  if (!field) u = fallback;
+  else if (typeof field === 'string') u = field || fallback;
+  else u = field.filename || fallback;
+  if (u && u.startsWith(SITE_BASE)) u = u.slice(SITE_BASE.length);
+  return u;
 }
 
 // Price may be a number (local json) or a string like "$370,000" / "370000"
@@ -63,6 +70,7 @@ function mapStory(story) {
     class: c.class || '',
     discipline: c.discipline || '',
     tagline: c.tagline || '',
+    statement: c.statement || '',
     price: parsePrice(c.price),
     description: c.description || '',
     overview: c.overview || '',
