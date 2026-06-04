@@ -60,10 +60,11 @@ export async function loadModels(ROOT) {
     const params = new URLSearchParams({
       token,
       version: process.env.STORYBLOK_VERSION || 'published',
-      starts_with: 'boats/',
       per_page: '100',
       cv: String(Date.now()), // bust Storyblok's CDN cache so fresh edits build
     });
+    // boats live at the space root (full_slug == slug) so the Visual Editor preview
+    // resolves to /<slug> on the site; we select them by component below.
     const res = await fetch(`${CDN}/v2/cdn/stories?${params}`);
     if (!res.ok) {
       throw new Error(`Storyblok fetch failed: ${res.status} ${res.statusText}. Check STORYBLOK_DELIVERY_TOKEN / region.`);
