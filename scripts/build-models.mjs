@@ -10,7 +10,7 @@ import { dirname, join } from 'node:path';
 import { loadModels } from './storyblok.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const V = '15'; // asset cache-bust version (bump on each deploy)
+const V = '16'; // asset cache-bust version (bump on each deploy)
 // Master price switch. false => every boat shows "Price on application" (the range
 // still SORTS by the indicative price set in the data). Flip to true once real
 // drive-away prices are set in Storyblok; boats with an empty price field then
@@ -106,6 +106,7 @@ const footer = `
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
   <script src="app.js?v=${V}"></script>
   <script>/* Storyblok Visual Editor bridge — only loads inside the editor */(function(){if(!/[?&]_storyblok/.test(location.search))return;var s=document.createElement('script');s.src='https://app.storyblok.com/f/storyblok-v2-latest.js';s.onload=function(){try{var b=new StoryblokBridge();b.on(['published','change'],function(){location.reload();});}catch(e){}};document.head.appendChild(s);})();</script>
 </body>
@@ -128,6 +129,11 @@ const SPEC_GROUPS = [
   ['Capacity', ['Capacity', 'Ballast', 'Fuel']],
   ['Power', ['Standard engine', 'Top engine']],
 ];
+const BRAND_BLURB = {
+  Nautique: 'American-built &middot; wake, surf &amp; ski',
+  Matrix: 'Australian-built &middot; performance &amp; value',
+  Supreme: 'American-built &middot; surf-first',
+};
 
 /* shared range/related card */
 function card(m) {
@@ -316,18 +322,30 @@ ${relSection}
 }
 
 function indexPage(models) {
-  const sorted = [...models].sort((a, b) => priceNum(b) - priceNum(a));
-  const cards = sorted.map(card).join('');
-  return head('The Range | Nautique Central', 'Explore the full range from Nautique and Matrix — wake, surf and ski boats, ordered by price. Book an on-water demo at your nearest showroom.', null) + header + `
+  const order = ['Nautique', 'Supreme', 'Matrix'];
+  const brands = [...new Set(models.map((m) => m.brand || 'Nautique'))]
+    .sort((a, b) => (order.indexOf(a) + 1 || 99) - (order.indexOf(b) + 1 || 99));
+  const groups = brands.map((b) => {
+    const list = models.filter((m) => (m.brand || 'Nautique') === b).sort((x, y) => priceNum(y) - priceNum(x));
+    const blurb = BRAND_BLURB[b] ? ` &middot; ${BRAND_BLURB[b]}` : '';
+    return `<section class="brand-group" data-reveal>
+          <header class="brand-group__head">
+            <h2 class="brand-group__title" data-mask>${b}</h2>
+            <span class="brand-group__meta">${list.length} model${list.length > 1 ? 's' : ''}${blurb}</span>
+          </header>
+          <div class="models-grid">${list.map(card).join('')}</div>
+        </section>`;
+  }).join('\n        ');
+  return head('The Range | Nautique Central', 'Explore the full range from Nautique and Matrix — wake, surf and ski boats, grouped by brand. Book an on-water demo at your nearest showroom.', null) + header + `
     <section class="section range-index">
       <div class="wrap">
         <div class="head" data-reveal>
           <p class="eyebrow">The Range</p>
           <h2 class="section-h" data-mask>Every boat<br>we sell.</h2>
-          <p class="lede">From the flagship Paragon and the award-winning G-Series to the Australian-built Matrix &mdash; ordered by price, highest to lowest. Pick the one that fits how you ride, then feel it on the water.</p>
-          <p class="range-note">${SHOW_PRICES ? 'Prices are indicative new drive-away guides in AUD. Final pricing depends on specification and options &mdash; on application.' : 'Models are ordered by price, highest to lowest. Contact our team for current drive-away pricing on any model.'}</p>
+          <p class="lede">From the flagship Paragon and the award-winning G-Series to the Australian-built Matrix. Grouped by brand and ordered by price &mdash; pick the one that fits how you ride, then feel it on the water.</p>
+          <p class="range-note">${SHOW_PRICES ? 'Prices are indicative new drive-away guides in AUD. Final pricing depends on specification and options &mdash; on application.' : 'Each range is ordered by price, highest to lowest. Contact our team for drive-away pricing on any model.'}</p>
         </div>
-        <div class="models-grid range-index__grid" data-reveal>${cards}</div>
+        ${groups}
       </div>
     </section>
 

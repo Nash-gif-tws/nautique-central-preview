@@ -74,6 +74,27 @@
   gsap.defaults({ ease: 'expo.out' });
   root.classList.add('gsap-ready');
 
+  /* ---------- Lenis inertial smooth scroll, wired to the GSAP ticker — the premium "feel" ---------- */
+  var lenis = null;
+  try {
+    if (typeof Lenis !== 'undefined') {
+      lenis = new Lenis({ duration: 1.1, smoothWheel: true });
+      lenis.on('scroll', ScrollTrigger.update);
+      gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
+      gsap.ticker.lagSmoothing(0);
+      /* hide-on-scroll-down / reveal-on-scroll-up nav (barely-there chrome) */
+      if (header) {
+        var lastSY = 0;
+        lenis.on('scroll', function (o) {
+          var sc = (o && typeof o.scroll === 'number') ? o.scroll : window.pageYOffset;
+          if (Math.abs(sc - lastSY) < 6) return;
+          header.classList.toggle('header--hidden', sc > lastSY && sc > 280 && !(mnav && mnav.classList.contains('open')));
+          lastSY = sc;
+        });
+      }
+    }
+  } catch (e) { lenis = null; }
+
   /* in-page anchors that respect the pinned section's added scroll length */
   function goToHash(hash, animate) {
     if (!hash || hash.length < 2) return false;
@@ -86,7 +107,9 @@
     // native scroll (GSAP scrollTo is suppressed by the pinned ScrollTrigger here);
     // long jumps that cross the pinned section go instant so they don't whip the pan
     var far = Math.abs(y - window.pageYOffset) > window.innerHeight * 2;
-    window.scrollTo({ top: y, behavior: (animate && !far) ? 'smooth' : 'auto' });
+    var smooth = animate && !far;
+    if (lenis) lenis.scrollTo(y, { duration: smooth ? 1 : 0, immediate: !smooth });
+    else window.scrollTo({ top: y, behavior: smooth ? 'smooth' : 'auto' });
     return true;
   }
   document.addEventListener('click', function (e) {
@@ -154,7 +177,7 @@
   });
 
   /* parallax — smoothed scrub everywhere for weight */
-  gsap.to('#heroImg', { yPercent: 12, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 } });
+  gsap.fromTo('#heroImg', { scale: 1.12, yPercent: 0 }, { scale: 1, yPercent: 12, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 } });
   gsap.fromTo('#statementImg', { yPercent: -10 }, { yPercent: 10, ease: 'none', scrollTrigger: { trigger: '.statement', start: 'top bottom', end: 'bottom top', scrub: 1 } });
   var whyImg = document.getElementById('whyImg');
   if (whyImg) gsap.fromTo(whyImg, { yPercent: -8 }, { yPercent: 8, ease: 'none', scrollTrigger: { trigger: '.why', start: 'top bottom', end: 'bottom top', scrub: 1 } });
@@ -212,6 +235,57 @@
         });
         btn.addEventListener('pointerleave', function () { xTo(0); yTo(0); });
       });
+    }
+  } catch (e) {}
+
+  /* ---------- custom cursor: instant dot + lagging ring (desktop, fine pointer) ---------- */
+  try {
+    if (matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      var cdot = document.createElement('div'); cdot.className = 'cursor-dot'; cdot.setAttribute('aria-hidden', 'true');
+      var cring = document.createElement('div'); cring.className = 'cursor-ring'; cring.setAttribute('aria-hidden', 'true');
+      document.body.appendChild(cring); document.body.appendChild(cdot);
+      root.classList.add('cursor-custom');
+      var cdx = gsap.quickTo(cdot, 'x', { duration: 0.12, ease: 'power3' });
+      var cdy = gsap.quickTo(cdot, 'y', { duration: 0.12, ease: 'power3' });
+      var crx = gsap.quickTo(cring, 'x', { duration: 0.45, ease: 'power3' });
+      var cry = gsap.quickTo(cring, 'y', { duration: 0.45, ease: 'power3' });
+      var crs = gsap.quickTo(cring, 'scale', { duration: 0.3, ease: 'power3' });
+      var cHover = false, cDown = false, cShown = false;
+      var CSEL = 'a, button, .btn, .mshot, .moverview__media, [data-cursor]';
+      function cScale() { crs(cDown ? (cHover ? 1.4 : 0.8) : (cHover ? 1.7 : 1)); }
+      window.addEventListener('pointermove', function (e) {
+        if (!cShown) { cShown = true; root.classList.add('cursor-ready'); }
+        cdx(e.clientX); cdy(e.clientY); crx(e.clientX); cry(e.clientY);
+      }, { passive: true });
+      document.addEventListener('pointerover', function (e) {
+        if (e.target.closest && e.target.closest(CSEL)) { cHover = true; cring.classList.add('is-hover'); cScale(); }
+      });
+      document.addEventListener('pointerout', function (e) {
+        var from = e.target.closest && e.target.closest(CSEL);
+        var to = e.relatedTarget && e.relatedTarget.closest && e.relatedTarget.closest(CSEL);
+        if (from && from !== to) { cHover = false; cring.classList.remove('is-hover'); cScale(); }
+      });
+      document.addEventListener('pointerdown', function () { cDown = true; cScale(); });
+      document.addEventListener('pointerup', function () { cDown = false; cScale(); });
+      document.addEventListener('mouseleave', function () { root.classList.remove('cursor-ready'); });
+      document.addEventListener('mouseenter', function () { root.classList.add('cursor-ready'); });
+    }
+  } catch (e) {}
+
+  /* ---------- PDP hero: subtle cursor-parallax (desktop, fine pointer) ---------- */
+  try {
+    var mheroEl = document.querySelector('.mhero');
+    var mheroImg = document.querySelector('.mhero__media img');
+    if (mheroEl && mheroImg && matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      gsap.set(mheroImg, { scale: 1.07, transformOrigin: '50% 50%' });
+      var mhx = gsap.quickTo(mheroImg, 'x', { duration: 0.8, ease: 'power3' });
+      var mhy = gsap.quickTo(mheroImg, 'y', { duration: 0.8, ease: 'power3' });
+      mheroEl.addEventListener('pointermove', function (e) {
+        var r = mheroEl.getBoundingClientRect();
+        mhx(((e.clientX - (r.left + r.width / 2)) / r.width) * -22);
+        mhy(((e.clientY - (r.top + r.height / 2)) / r.height) * -16);
+      }, { passive: true });
+      mheroEl.addEventListener('pointerleave', function () { mhx(0); mhy(0); });
     }
   } catch (e) {}
 
