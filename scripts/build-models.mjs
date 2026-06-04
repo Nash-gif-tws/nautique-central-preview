@@ -3,9 +3,10 @@
  * from models.json. Plain Node, no deps. Run: node scripts/build-models.mjs
  * Output: <slug>.html (root) + models.html. Re-run after editing models.json.
  */
-import { readFile, writeFile } from 'node:fs/promises';
+import { writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { loadModels } from './storyblok.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const V = '11'; // asset cache-bust version (bump on each deploy)
@@ -108,7 +109,7 @@ function modelPage(m) {
   const jsonld = {
     '@context': 'https://schema.org', '@type': 'Product', name: m.name,
     brand: { '@type': 'Brand', name: 'Nautique' }, description: m.description,
-    image: 'https://nash-gif-tws.github.io/nautique-central-preview/' + m.hero,
+    image: m.hero.startsWith('http') ? m.hero : 'https://nash-gif-tws.github.io/nautique-central-preview/' + m.hero,
     category: 'Tow boat'
   };
   return head(`${m.name} | Nautique Central`, m.description.replace(/"/g, "'"), jsonld) + header + `
@@ -191,7 +192,7 @@ function indexPage(models) {
     </section>` + footer;
 }
 
-const models = JSON.parse(await readFile(join(ROOT, 'models.json'), 'utf8'));
+const models = await loadModels(ROOT);
 for (const m of models) {
   await writeFile(join(ROOT, `${m.slug}.html`), modelPage(m), 'utf8');
   console.log('wrote', `${m.slug}.html`);
