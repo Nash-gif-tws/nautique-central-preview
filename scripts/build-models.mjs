@@ -1,7 +1,8 @@
 /**
- * build-models.mjs — generates a page per Nautique model + a range index,
- * from models.json. Plain Node, no deps. Run: node scripts/build-models.mjs
- * Output: <slug>.html (root) + models.html. Re-run after editing models.json.
+ * build-models.mjs — generates a rich page per Nautique/Matrix model + a
+ * price-sorted range index, from the data source (Storyblok or models.json).
+ * Plain Node, no deps. Run: node scripts/build-models.mjs
+ * Output: <slug>.html (root) + models.html. Re-run after editing the data.
  */
 import { writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
@@ -9,7 +10,8 @@ import { dirname, join } from 'node:path';
 import { loadModels } from './storyblok.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const V = '13'; // asset cache-bust version (bump on each deploy)
+const V = '14'; // asset cache-bust version (bump on each deploy)
+const SITE = 'https://nash-gif-tws.github.io/nautique-central-preview/';
 
 const ARROW = `<svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>`;
 const HAMBURGER = `<svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M224 128a8 8 0 0 1-8 8H40a8 8 0 0 1 0-16h176a8 8 0 0 1 8 8ZM40 72h176a8 8 0 0 0 0-16H40a8 8 0 0 0 0 16Zm176 112H40a8 8 0 0 0 0 16h176a8 8 0 0 0 0-16Z"/></svg>`;
@@ -104,60 +106,201 @@ const footer = `
 </body>
 </html>`;
 
+/* ---------- helpers ---------- */
 const shortName = (m) => m.name.replace('Super Air Nautique ', '');
+const abs = (src) => (!src ? '' : src.startsWith('http') ? src : SITE + src);
+const fmtAUD = (n) => '$' + Number(n).toLocaleString('en-AU');
+const priceNum = (m) => (m.price != null && m.price !== '' && Number(m.price) > 0 ? Number(m.price) : 0);
+const priceFrom = (m) => (priceNum(m) ? `From ${fmtAUD(priceNum(m))}` : 'Price on application');
+// metric-only value for headline stats: "23' 3\" (7.09 m)" / "6.7 m (22')" -> "7.09 m"
+const metresOnly = (v = '') => { const s = String(v); const m = s.match(/([\d.]+)\s*m\b/); return m ? `${m[1]} m` : s; };
+const peopleOnly = (v = '') => { const m = String(v).match(/(\d[\d,]*)/); return m ? m[1] : String(v); };
+const stripMax = (v = '') => String(v).replace(/\s*max\s*$/i, '');
 
-function modelPage(m) {
+const SPEC_GROUPS = [
+  ['Dimensions', ['Length', 'Beam', 'Dry weight']],
+  ['Capacity', ['Capacity', 'Ballast', 'Fuel']],
+  ['Power', ['Standard engine', 'Top engine']],
+];
+
+/* shared range/related card */
+function card(m) {
+  const meta = [metresOnly(m.specs.Length), m.specs.Capacity ? `${peopleOnly(m.specs.Capacity)} guests` : '']
+    .filter(Boolean).join(' &middot; ');
+  return `
+          <a class="mcard" href="${m.slug}.html">
+            <div class="mcard__media"><img src="${m.profile || m.hero}" alt="${m.name}" loading="lazy" /></div>
+            <div class="mcard__body">
+              <span class="mcard__kicker">${m.brand || 'Nautique'} &middot; ${m.class}</span>
+              <h3>${shortName(m)}</h3>
+              <p class="mcard__tag">${m.tagline}</p>
+              <div class="mcard__foot">
+                <span class="mcard__price">${priceFrom(m)}</span>
+                ${meta ? `<span class="mcard__meta">${meta}</span>` : ''}
+              </div>
+              <span class="mcard__go">View boat ${ARROW}</span>
+            </div>
+          </a>`;
+}
+
+function relatedModels(m, all) {
+  const mp = priceNum(m);
+  const bm = m.brand || 'Nautique';
+  return all
+    .filter((x) => x.slug !== m.slug)
+    .map((x) => ({ x, sameBrand: (x.brand || 'Nautique') === bm ? 0 : 1, dist: Math.abs(priceNum(x) - mp) }))
+    .sort((a, b) => a.sameBrand - b.sameBrand || a.dist - b.dist)
+    .slice(0, 3)
+    .map((o) => o.x);
+}
+
+function modelPage(m, all) {
   const heroImg = m.hero || m.profile || '';
   const profileImg = m.profile || m.hero || '';
-  const specRows = Object.entries(m.specs)
-    .filter(([, v]) => v != null && v !== '')
-    .map(([k, v]) => `<div class="spec"><span class="spec__val">${v}</span><span class="spec__label">${k}</span></div>`).join('');
-  const feats = [
-    m.stern ? `<figure class="mfeature" data-reveal-img><img src="${m.stern}" alt="${m.name} stern" loading="lazy" /><figcaption>Surf-ready stern</figcaption></figure>` : '',
-    m.helm ? `<figure class="mfeature" data-reveal-img><img src="${m.helm}" alt="${m.name} helm" loading="lazy" /><figcaption>The helm</figcaption></figure>` : '',
-  ].filter(Boolean).join('');
-  const featSection = feats ? `
-    <section class="mfeatures">
-      ${feats}
-    </section>
-` : '';
+  const short = shortName(m);
+
+  // headline stat strip — always-present, short, metric
+  const statDefs = [
+    ['Length', metresOnly(m.specs.Length)],
+    ['Beam', metresOnly(m.specs.Beam)],
+    ['Guests', m.specs.Capacity ? peopleOnly(m.specs.Capacity) : ''],
+    ['Max ballast', stripMax(m.specs.Ballast)],
+  ].filter(([, v]) => v);
+  const statBar = statDefs.map(([label, val]) =>
+    `<div class="mstat"><span class="mstat__val">${val}</span><span class="mstat__label">${label}</span></div>`).join('');
+
+  // overview narrative (richer field, falls back to description)
+  const overview = (m.overview || m.description || '').trim();
+  const paras = overview.split(/\n\n+/).map((p) => `<p>${p.trim()}</p>`).join('');
+  const bestFor = m.best_for ? `<p class="moverview__bestfor"><span>Best for</span> ${m.best_for}</p>` : '';
+
+  // key features
+  const features = Array.isArray(m.features) ? m.features.filter((f) => f && f.title) : [];
+  const featGrid = features.map((f, i) => `
+          <article class="mfeat__item" data-reveal>
+            <span class="mfeat__num">${String(i + 1).padStart(2, '0')}</span>
+            <div>
+              <h3>${f.title}</h3>
+              <p>${f.body || ''}</p>
+            </div>
+          </article>`).join('');
+  const featSection = features.length ? `
+    <section class="section mfeat">
+      <div class="wrap">
+        <div class="head" data-reveal>
+          <p class="eyebrow">Highlights</p>
+          <h2 class="section-h" data-mask>What sets the ${short} apart.</h2>
+        </div>
+        <div class="mfeat__grid">${featGrid}</div>
+      </div>
+    </section>` : '';
+
+  // gallery — large detail shots; prefer helm/stern, fall back to hero/profile
+  const primary = [[m.helm, 'At the helm'], [m.stern, 'Surf-ready stern']].filter(([s]) => s);
+  let gal = primary;
+  if (gal.length < 2) {
+    const backup = [[m.hero, `${short} on the water`], [m.profile, `${short} profile`]].filter(([s]) => s);
+    const seen = new Set(gal.map(([s]) => s));
+    gal = [...gal, ...backup.filter(([s]) => !seen.has(s))].slice(0, 2);
+  }
+  const gallerySection = gal.length >= 2 ? `
+    <section class="section mgallery">
+      <div class="wrap">
+        <div class="head" data-reveal>
+          <p class="eyebrow">Up close</p>
+          <h2 class="section-h" data-mask>Every detail considered.</h2>
+        </div>
+        <div class="mgallery__grid">
+          ${gal.map(([src, cap]) => `<figure class="mshot" data-reveal-img><img src="${src}" alt="${m.name} — ${cap}" loading="lazy" /><figcaption>${cap}</figcaption></figure>`).join('\n          ')}
+        </div>
+      </div>
+    </section>` : '';
+
+  // full specs, grouped
+  const specGroupsHtml = SPEC_GROUPS.map(([title, keys]) => {
+    const rows = keys.filter((k) => m.specs[k] != null && m.specs[k] !== '')
+      .map((k) => `<div class="specrow"><dt>${k === 'Capacity' ? 'Capacity' : k}</dt><dd>${m.specs[k]}</dd></div>`).join('');
+    return rows ? `
+          <div class="specgroup">
+            <h4>${title}</h4>
+            <dl>${rows}</dl>
+          </div>` : '';
+  }).filter(Boolean).join('');
+
+  // related
+  const rel = relatedModels(m, all);
+  const relSection = rel.length ? `
+    <section class="section mrelated">
+      <div class="wrap">
+        <div class="head" data-reveal>
+          <p class="eyebrow">Keep exploring</p>
+          <h2 class="section-h" data-mask>Other boats in the range.</h2>
+        </div>
+        <div class="models-grid mrelated__grid">${rel.map(card).join('')}</div>
+      </div>
+    </section>` : '';
+
   const jsonld = {
     '@context': 'https://schema.org', '@type': 'Product', name: m.name,
     brand: { '@type': 'Brand', name: m.brand || 'Nautique' }, description: m.description,
-    image: heroImg.startsWith('http') ? heroImg : 'https://nash-gif-tws.github.io/nautique-central-preview/' + heroImg,
-    category: 'Tow boat'
+    image: abs(heroImg), category: 'Tow boat',
   };
-  return head(`${m.name} | Nautique Central`, m.description.replace(/"/g, "'"), jsonld) + header + `
+
+  return head(`${m.name} | Nautique Central`, (m.description || '').replace(/"/g, "'"), jsonld) + header + `
     <section class="mhero">
       <div class="mhero__media"><img src="${heroImg}" alt="${m.name} on the water" fetchpriority="high" /></div>
       <div class="wrap mhero__inner">
         <a class="mback" href="models.html">${ARROW}<span>All models</span></a>
-        <p class="mhero__kicker">${m.class} &middot; ${m.discipline}</p>
-        <h1>${shortName(m)}</h1>
+        <p class="mhero__kicker">${m.brand || 'Nautique'} &middot; ${m.class} &middot; ${m.discipline}</p>
+        <h1>${short}</h1>
         <p class="mhero__tagline">${m.tagline}</p>
+        <div class="mhero__price"><span class="mhero__from">${priceFrom(m)}</span>${priceNum(m) ? '<span class="mhero__pnote">Indicative &middot; drive-away on application</span>' : ''}</div>
         <div class="mhero__cta">
           <a class="btn btn--primary" href="index.html#demo">Book a demo ${ARROW}</a>
-          <a class="btn btn--ghost" href="index.html#stock">Browse stock</a>
+          <a class="btn btn--ghost" href="index.html#demo">Enquire about this boat</a>
         </div>
       </div>
     </section>
 
-    <section class="section mbody">
-      <div class="wrap mbody__grid">
-        <div class="mbody__intro" data-reveal>
-          <p class="mhero__kicker" style="color:var(--accent)">${m.name}</p>
-          <p class="mbody__desc">${m.description}</p>
-          <div class="mbody__profile"><img src="${profileImg}" alt="${m.name} profile" loading="lazy" /></div>
+    <section class="mstatbar">
+      <div class="wrap mstatbar__row">
+        ${statBar}
+      </div>
+    </section>
+
+    <section class="section moverview">
+      <div class="wrap moverview__grid">
+        <div class="moverview__text" data-reveal>
+          <p class="eyebrow">Overview</p>
+          <h2 class="section-h" data-mask>${m.tagline}</h2>
+          <div class="moverview__body">${paras}</div>
+          ${bestFor}
+          <div class="moverview__cta">
+            <a class="text-link" href="index.html#demo">Book an on-water demo ${ARROW}</a>
+          </div>
         </div>
-        <div class="mspecs" data-reveal>
-          ${specRows}
+        <figure class="moverview__media" data-reveal-img>
+          <img src="${profileImg}" alt="${m.name} profile" loading="lazy" />
+        </figure>
+      </div>
+    </section>
+${featSection}${gallerySection}
+    <section class="section mspecfull">
+      <div class="wrap mspecfull__grid">
+        <div class="mspecfull__head" data-reveal>
+          <p class="eyebrow">Specifications</p>
+          <h2 class="section-h" data-mask>The numbers.</h2>
+          <p class="mspecfull__note">Manufacturer figures &mdash; may vary by model year and options. Confirm exact specification with our team.</p>
+        </div>
+        <div class="specgroups" data-reveal>
+          ${specGroupsHtml}
         </div>
       </div>
     </section>
-${featSection}
+${relSection}
     <section class="section closer">
       <div class="wrap" data-reveal>
-        <h2 data-mask>Ride the ${shortName(m)}.</h2>
+        <h2 data-mask>Ride the ${short}.</h2>
         <div class="closer__cta">
           <a class="btn btn--primary" href="index.html#demo">Book an On-Water Demo ${ARROW}</a>
           <a class="btn btn--ghost" href="index.html#showrooms">Find Your Showroom</a>
@@ -167,38 +310,18 @@ ${featSection}
 }
 
 function indexPage(models) {
-  const card = (m) => {
-    const meta = [m.specs.Length, m.specs.Capacity].filter(Boolean).join(' &middot; ');
-    return `
-          <a class="mcard" href="${m.slug}.html">
-            <div class="mcard__media"><img src="${m.profile || m.hero}" alt="${m.name}" loading="lazy" /></div>
-            <div class="mcard__body">
-              <span class="mcard__kicker">${m.class} &middot; ${m.discipline}</span>
-              <h3>${shortName(m)}</h3>
-              <p>${m.tagline}</p>
-              <span class="mcard__go">${meta} ${ARROW}</span>
-            </div>
-          </a>`;
-  };
-  const order = ['Nautique', 'Matrix'];
-  const brands = [...new Set(models.map((m) => m.brand || 'Nautique'))]
-    .sort((a, b) => (order.indexOf(a) + 1 || 99) - (order.indexOf(b) + 1 || 99));
-  const groups = brands.map((b) => {
-    const list = models.filter((m) => (m.brand || 'Nautique') === b);
-    return `<div class="brand-group" data-reveal>
-          <h3 class="brand-group__title">${b} <span>${list.length} models</span></h3>
-          <div class="models-grid">${list.map(card).join('')}</div>
-        </div>`;
-  }).join('\n        ');
-  return head('The Range | Nautique Central', 'Explore the full range from Nautique and Matrix — wake, surf and ski boats. Book an on-water demo at your nearest showroom.', null) + header + `
+  const sorted = [...models].sort((a, b) => priceNum(b) - priceNum(a));
+  const cards = sorted.map(card).join('');
+  return head('The Range | Nautique Central', 'Explore the full range from Nautique and Matrix — wake, surf and ski boats, ordered by price. Book an on-water demo at your nearest showroom.', null) + header + `
     <section class="section range-index">
       <div class="wrap">
         <div class="head" data-reveal>
           <p class="eyebrow">The Range</p>
           <h2 class="section-h" data-mask>Every boat<br>we sell.</h2>
-          <p class="lede">From the record-setting Ski Nautique and award-winning G-Series to the Australian-built Matrix. Pick the one that fits how you ride, then feel it on the water.</p>
+          <p class="lede">From the flagship Paragon and the award-winning G-Series to the Australian-built Matrix &mdash; ordered by price, highest to lowest. Pick the one that fits how you ride, then feel it on the water.</p>
+          <p class="range-note">Prices are indicative new drive-away guides in AUD. Final pricing depends on specification and options &mdash; on application.</p>
         </div>
-        ${groups}
+        <div class="models-grid range-index__grid" data-reveal>${cards}</div>
       </div>
     </section>
 
@@ -215,7 +338,7 @@ function indexPage(models) {
 
 const models = await loadModels(ROOT);
 for (const m of models) {
-  await writeFile(join(ROOT, `${m.slug}.html`), modelPage(m), 'utf8');
+  await writeFile(join(ROOT, `${m.slug}.html`), modelPage(m, models), 'utf8');
   console.log('wrote', `${m.slug}.html`);
 }
 await writeFile(join(ROOT, 'models.html'), indexPage(models), 'utf8');

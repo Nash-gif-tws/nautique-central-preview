@@ -31,6 +31,25 @@ function assetUrl(field, fallback = '') {
   return field.filename || fallback;
 }
 
+// Price may be a number (local json) or a string like "$370,000" / "370000"
+// (Storyblok text field). Return a clean number, or null when absent.
+function parsePrice(v) {
+  if (v == null || v === '') return null;
+  const n = Number(String(v).replace(/[^0-9.]/g, ''));
+  return Number.isFinite(n) && n > 0 ? n : null;
+}
+
+// Features may be a structured array (local json) or a textarea string where
+// each line is "Title | body description" (Storyblok). Normalise to [{title,body}].
+function parseFeatures(raw) {
+  if (Array.isArray(raw)) return raw.filter((f) => f && f.title);
+  if (!raw || typeof raw !== 'string') return [];
+  return raw.split(/\r?\n/).map((l) => l.trim()).filter(Boolean).map((line) => {
+    const i = line.indexOf('|');
+    return i === -1 ? { title: line, body: '' } : { title: line.slice(0, i).trim(), body: line.slice(i + 1).trim() };
+  });
+}
+
 function mapStory(story) {
   const c = story.content || {};
   const specs = {};
@@ -44,7 +63,11 @@ function mapStory(story) {
     class: c.class || '',
     discipline: c.discipline || '',
     tagline: c.tagline || '',
+    price: parsePrice(c.price),
     description: c.description || '',
+    overview: c.overview || '',
+    best_for: c.best_for || '',
+    features: parseFeatures(c.features),
     specs,
     hero: assetUrl(c.hero),
     profile: assetUrl(c.profile),

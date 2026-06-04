@@ -2,10 +2,24 @@
   {
     "name": "Super Air Nautique G23",
     "slug": "super-air-g23",
+    "brand": "Nautique",
     "class": "G-Series",
     "discipline": "Wake & Surf",
     "tagline": "The undisputed boat of choice.",
+    "price": 370000,
     "description": "For over a decade, the G23 has been the most sought-after wake boat in the industry. The award-winning hull delivers pro-level wakes and waves, yet scales down for first-timers, all wrapped in a luxurious, meticulously finished cockpit.",
+    "overview": "For over a decade the Super Air Nautique G23 has been the most sought-after wake boat on the water, and the flagship of the G-Series. Its meticulously refined hull throws clean, consistent and fully customisable wakeboard wakes and surf waves at the touch of a screen.\n\nIt scales from a relaxed first ride to the kind of pro-level wake that redefines what's possible, which is why serious riders and families alike keep coming back to it. On the water it feels composed and purposeful, with a cabin built entirely around board sports.",
+    "best_for": "Serious surf and wake families who want the industry benchmark.",
+    "features": [
+      { "title": "Nautique Surf System", "body": "NSS with WAVEPLATE technology shapes a scalable, switchable surf wave on either side instantly." },
+      { "title": "Configurable Running Surface", "body": "NCRS extends from the hull to fine-tune wake and wave shape to each rider's preference." },
+      { "title": "Custom Ballast", "body": "Up to 3,600 lbs of sub-floor ballast sculpts the wake without sacks cluttering the cockpit." },
+      { "title": "Fast-Fill Ballast", "body": "Reworked plumbing fills the ballast system around 40% faster between sets." },
+      { "title": "LINC Panoray", "body": "A 15-inch helm touchscreen centralises wake settings, speed, audio and boat systems." },
+      { "title": "Flight Control Tower", "body": "Offered in manual, actuated or telescoping form to clear low garages and bridges." },
+      { "title": "JL Audio M6", "body": "An M6 Series Elite stereo package comes standard for full-volume sound across the boat." },
+      { "title": "Integrated Steering Assist", "body": "Standard assist with optional Auto Steer makes docking and rider pickups effortless." }
+    ],
     "specs": {
       "Length": "23' 3\" (7.09 m)",
       "Beam": "102\" (2.59 m)",
@@ -19,16 +33,29 @@
     "hero": "images/models/super-air-g23-hero.jpg",
     "profile": "images/models/super-air-g23-profile.png",
     "stern": "images/models/super-air-g23-stern.jpg",
-    "helm": "images/models/super-air-g23-helm.jpg",
-    "brand": "Nautique"
+    "helm": "images/models/super-air-g23-helm.jpg"
   },
   {
     "name": "Super Air Nautique G25",
     "slug": "super-air-g25",
+    "brand": "Nautique",
     "class": "G-Series",
     "discipline": "Wake & Surf",
     "tagline": "Legendary lineage, more room.",
+    "price": 420000,
     "description": "The G25 carries the award-winning G-Series legacy into a larger package for bigger crews. The best hull in the industry delivers pro-level wakes and waves while still welcoming beginners, with a luxurious interior you can tailor to your taste.",
+    "overview": "The Super Air Nautique G25 carries the award-winning G-Series lineage into a larger, more accommodating package. At over 25 feet it seats up to 19 and still produces the clean, fully customisable pro-level wakes and waves the G-Series is known for.\n\nIt's built for big crews who refuse to compromise on performance, whether that's a beginner's first attempt or an advanced rider's session. With ample power and standard steering assist, a boat this size still handles with reassuring ease around the dock.",
+    "best_for": "Large families wanting G-Series wakes with room for everyone.",
+    "features": [
+      { "title": "Nautique Surf System", "body": "NSS with WAVEPLATE technology delivers scalable, side-to-side surf waves controlled from the helm." },
+      { "title": "Configurable Running Surface", "body": "NCRS deploys automatically to optimise the running surface at any speed or setting." },
+      { "title": "Custom Ballast", "body": "Up to 3,600 lbs of ballast works with the hull to build genuinely pro-level wakes." },
+      { "title": "Big-Crew Seating", "body": "Forward, aft and side-facing seating with a centre walk-through seats up to nineteen." },
+      { "title": "LINC Panoray", "body": "A 15-inch touchscreen gives the driver command of wake, speed and powertrain functions." },
+      { "title": "Integrated Steering Assist", "body": "Standard assist with optional Auto Steer simplifies low-speed manoeuvring for a large boat." },
+      { "title": "Flight Control Tower", "body": "Manual, actuated or telescoping tower options to suit storage and ride height." },
+      { "title": "JL Audio Sound", "body": "A JL Audio M6 system is standard, with an optional Studio Elite upgrade available." }
+    ],
     "specs": {
       "Length": "25' 3\" (7.7 m)",
       "Beam": "102\" (2.59 m)",
@@ -42,16 +69,29 @@
     "hero": "images/models/super-air-g25-hero.jpg",
     "profile": "images/models/super-air-g25-profile.png",
     "stern": "images/models/super-air-g25-stern.jpg",
-    "helm": "images/models/super-air-g25-helm.jpg",
-    "brand": "Nautique"
+    "helm": "images/models/super-air-g25-helm.jpg"
   },
   {
     "name": "Super Air Nautique GS22",
     "slug": "super-air-gs22",
+    "brand": "Nautique",
     "class": "GS-Series",
     "discipline": "Surf, Wake & Ski",
     "tagline": "Unlimited possibilities.",
+    "price": 320000,
     "description": "The most popular multi-sport boat on the market. Blending the running surfaces of the record-setting Ski Nautique and the award-winning G-Series, the GS22 delivers uncompromising ski, surf and wake performance for the family that likes to do it all.",
+    "overview": "The Super Air Nautique GS22 is the most popular multi-sport boat on the market, and it's easy to see why. Its hull blends the running surfaces of the record-setting Ski Nautique and the award-winning G-Series, so one boat genuinely covers slalom, wakeboard and surf.\n\nAt 22 feet it's an approachable, versatile package that opens the door to almost any sport behind it. Families who can't choose a single discipline get clean ski wakes, crisp wakeboard wakes and a proper surf wave from the same hull.",
+    "best_for": "Multi-sport families who want one boat to do everything.",
+    "features": [
+      { "title": "Multi-Sport Hull", "body": "Combines Ski Nautique and G-Series running surfaces for genuine slalom, wakeboard and surf ability." },
+      { "title": "Nautique Surf System", "body": "NSS creates a clean, switchable surf wave at the touch of a button." },
+      { "title": "Configurable Running Surface", "body": "NCRS extends from the hull and deploys automatically to refine wake shape." },
+      { "title": "Supplemental Ballast", "body": "Two 250 lb sacks lift total ballast to around 2,900 lbs for bigger waves." },
+      { "title": "Ski Pylon", "body": "A dedicated tow point delivers a low, true pull for slalom and trick skiing." },
+      { "title": "LINC Panoray", "body": "An intuitive 12.4-inch touchscreen controls wake settings, speed and onboard systems." },
+      { "title": "Flight Control Tower", "body": "Available with an actuated option, carrying M6 tower speakers with integrated down lighting." },
+      { "title": "JL Audio M3", "body": "An M3 Series stereo comes standard, with M6 tower-speaker upgrades on offer." }
+    ],
     "specs": {
       "Length": "22' (6.70 m)",
       "Beam": "100\" (2.54 m)",
@@ -65,16 +105,29 @@
     "hero": "images/models/super-air-gs22-hero.jpg",
     "profile": "images/models/super-air-gs22-profile.png",
     "stern": "images/models/super-air-gs22-stern.jpg",
-    "helm": "images/models/super-air-gs22-helm.jpg",
-    "brand": "Nautique"
+    "helm": "images/models/super-air-gs22-helm.jpg"
   },
   {
     "name": "Super Air Nautique GS24",
     "slug": "super-air-gs24",
+    "brand": "Nautique",
     "class": "GS-Series",
     "discipline": "Surf, Wake & Ski",
     "tagline": "Uncompromising versatility.",
+    "price": 340000,
     "description": "The GS24 sets the standard for versatility in the 24-foot class, with inspiration drawn from the record-setting Ski Nautique and award-winning G-Series. Ample room for larger crews meets the perfect balance of ski, wake and surf performance.",
+    "overview": "The Super Air Nautique GS24 takes the brand's multi-sport recipe and scales it up for bigger crews. Its hull draws on both the record-setting Ski Nautique and the award-winning G-Series, setting the standard for versatility in the 24-foot class across ski, wakeboard and surf.\n\nWith seating for 17 and a bow over twenty percent larger than the previous generation, it's built around space and comfort without giving up performance. Riders of every age and ability get world-class, fully customisable wakes and waves from the one boat.",
+    "best_for": "Bigger multi-sport families wanting space and benchmark versatility.",
+    "features": [
+      { "title": "Multi-Sport Hull", "body": "Inspired by the Ski Nautique and G-Series to balance ski, wakeboard and surf performance." },
+      { "title": "Nautique Surf System", "body": "WAVEPLATES create a custom surf wave adjustable through ten settings on the touchscreen." },
+      { "title": "Configurable Running Surface", "body": "NCRS automatically adjusts the running surface for precise wake and wave shaping." },
+      { "title": "Supplemental Ballast", "body": "Two 250 lb sacks fill and empty automatically to build larger waves on demand." },
+      { "title": "LINC Panoray", "body": "A 12.4-inch touchscreen paired with a Helm Command rotary dial keeps control within reach." },
+      { "title": "Awareness Camera", "body": "A wide-angle stern camera on the LINC screen keeps the rider in clear view." },
+      { "title": "Steering Assist", "body": "An optional stern thruster swings the transom left or right for precise low-speed handling." },
+      { "title": "Expansive Bow", "body": "A roomy lounge and a bow over twenty percent larger suit big crews and families." }
+    ],
     "specs": {
       "Length": "24' (7.32 m)",
       "Beam": "100\" (2.54 m)",
@@ -88,16 +141,29 @@
     "hero": "images/models/super-air-gs24-hero.jpg",
     "profile": "images/models/super-air-gs24-profile.png",
     "stern": "images/models/super-air-gs24-stern.jpg",
-    "helm": "images/models/super-air-gs24-helm.jpg",
-    "brand": "Nautique"
+    "helm": "images/models/super-air-gs24-helm.jpg"
   },
   {
     "name": "Super Air Nautique GS20",
     "slug": "super-air-gs20",
+    "brand": "Nautique",
     "class": "GS-Series",
     "discipline": "Surf, Wake & Ski",
     "tagline": "The ultimate multi-sport boat.",
+    "price": 285000,
     "description": "The GS20 blends the hull characteristics of the record-setting Ski Nautique and award-winning G-Series to deliver smooth slalom passes, crisp wakeboard wakes and endless surf waves, all in one package. The ultimate multi-sport tow boat in its class.",
+    "overview": "The Super Air Nautique GS20 packs the brand's multi-sport DNA into a compact, 20-foot package. Blending hull characteristics from the record-setting Ski Nautique and the award-winning G-Series, it delivers smooth slalom passes, crisp wakeboard wakes and surf waves once thought impossible in a boat this size.\n\nIt's the all-in-one choice for families and mixed-ability crews wanting genuine versatility without a larger boat's footprint or running costs. Despite its size it carries serious wake technology, so no sport feels like an afterthought.",
+    "best_for": "Families wanting true multi-sport ability in a compact boat.",
+    "features": [
+      { "title": "Multi-Sport Hull", "body": "Combines Ski Nautique and G-Series characteristics for slalom, wakeboard and surf in 20 feet." },
+      { "title": "Nautique Surf System", "body": "WAVEPLATES extend from the transom to create customisable surf waves on either side." },
+      { "title": "Configurable Running Surface", "body": "NCRS deploys automatically for clean performance across every speed and activity." },
+      { "title": "Sub-Floor Ballast", "body": "Around 1,700 lbs of internal ballast helps build wakes punching above the boat's size." },
+      { "title": "LINC Panoray", "body": "A 12.4-inch touchscreen controls wave settings, lighting and music from the helm." },
+      { "title": "Awareness Camera", "body": "A wide-angle rear-view camera displays on the touchscreen for added safety." },
+      { "title": "Flight Control Tower", "body": "Offered in standard manual or motorised actuated form to suit storage height." },
+      { "title": "JL Audio Sound", "body": "An M3 Series system is standard, with optional M6 tower speakers and down lighting." }
+    ],
     "specs": {
       "Length": "20' (6.1 m)",
       "Beam": "100\" (2.54 m)",
@@ -111,16 +177,29 @@
     "hero": "images/models/super-air-gs20-hero.jpg",
     "profile": "images/models/super-air-gs20-profile.png",
     "stern": "images/models/super-air-gs20-stern.jpg",
-    "helm": "images/models/super-air-gs20-helm.jpg",
-    "brand": "Nautique"
+    "helm": "images/models/super-air-gs20-helm.jpg"
   },
   {
     "name": "Ski Nautique",
     "slug": "ski-nautique",
+    "brand": "Nautique",
     "class": "Ski",
     "discipline": "Ski",
     "tagline": "An icon, evolved.",
+    "price": 195000,
     "description": "An evolution of a true icon, with more personal bests and world records than any waterski boat in history. Significantly lighter than the previous generation and redesigned bow to stern, the all-new Ski Nautique delivers unprecedented performance through every pass.",
+    "overview": "The Ski Nautique is the evolution of a true icon, purpose-built for three-event waterskiing across slalom, trick and jump. Significantly lighter than its predecessor thanks to a carbon-fibre and fibreglass hull, it produces naturally flatter wakes with more support through the trough.\n\nIt carries more personal bests and world records than any waterski boat in history, making it the choice of dedicated skiers and clubs. On the water it rewards technique, holding a clean line and consistent speed pass after pass.",
+    "best_for": "Dedicated slalom and three-event skiers chasing personal bests.",
+    "features": [
+      { "title": "Carbon-Fibre Hull", "body": "Carbon fibre, fibreglass and an integrated stringer system balance strength against minimal weight." },
+      { "title": "Automated HydroGate", "body": "Fine-tunes the running surface automatically across ten customisable positions for a flatter wake." },
+      { "title": "MicroTuners", "body": "Patented surfaces disrupt water flow to fill the wake troughs for cleaner crossings." },
+      { "title": "Integrated Zero Off", "body": "GPS-based speed control holds consistent speed through every pass of the course." },
+      { "title": "LINC Panoray", "body": "The touchscreen automates HydroGate and MicroTuners based on the discipline you select." },
+      { "title": "Trick Ballast", "body": "An optional trick ballast configuration has set the stage for numerous trick world records." },
+      { "title": "Ski Cradles", "body": "Purpose-built open cradles lined with NauTeak Non-Skid stow skis within easy reach." },
+      { "title": "Convertible Seating", "body": "Removable three-cushion rear seating converts into a coaching platform when needed." }
+    ],
     "specs": {
       "Length": "20' (6.10 m)",
       "Beam": "94\" (2.39 m)",
@@ -134,8 +213,7 @@
     "hero": "images/models/ski-nautique-hero.jpg",
     "profile": "images/models/ski-nautique-profile.png",
     "stern": "images/models/ski-nautique-stern.jpg",
-    "helm": "images/models/ski-nautique-helm.jpg",
-    "brand": "Nautique"
+    "helm": "images/models/ski-nautique-helm.jpg"
   },
   {
     "name": "Super Air Nautique G23 Paragon",
@@ -143,8 +221,21 @@
     "brand": "Nautique",
     "class": "Paragon",
     "discipline": "Wake & Surf",
-    "tagline": "Unrivalled luxury, built to perform",
+    "tagline": "Unrivalled luxury, built to perform.",
+    "price": 460000,
     "description": "From the moment you see it, the G23 Paragon's sophistication is undeniable — modern design, exclusive features and premium tailored finishes. Beneath the looks sits an award-winning hull Nautique calls the highest-performing on the market, with wakes and waves fully customisable for any age or ability.",
+    "overview": "The Super Air Nautique G23 Paragon is the ultra-premium flagship trim of the most awarded hull in towsports. Beneath its bold, modern styling sits the multiple-time Wakeboard and Wakesurf Boat of the Year-winning G-Series platform, delivering pro-level wakes and waves that remain the industry benchmark.\n\nParagon elevates that pedigree with exclusive dual 15-inch LINC Panoray displays, a telescoping Flight Control Tower, tailored upholstery and finishes, and a complete JL Audio M6 Studio Elite system. An available Yanmar 8LV diesel powerplant rounds out the most refined G23 ever built.",
+    "best_for": "Buyers who want proven G23 performance in its most exclusive, fully-loaded form.",
+    "features": [
+      { "title": "Dual LINC Panoray", "body": "Twin offset 15-inch touchscreen displays, exclusive to Paragon models, manage every setting and configuration." },
+      { "title": "Telescoping Tower", "body": "The Flight Control Tower raises and lowers at the touch of a button without sacrificing interior space." },
+      { "title": "Diesel Option", "body": "An available Yanmar 8LV diesel delivers 370 hp and a torquey 595 ft-lb for efficient, effortless power." },
+      { "title": "Nautique Surf System", "body": "NSS with WAVEPLATE technology redirects water flow to form a clean, side-switchable wave on a 0-10 scale." },
+      { "title": "Configurable Surface", "body": "The Nautique Configurable Running Surface deploys and stows automatically to shape wakes and optimise attitude." },
+      { "title": "Supplemental Ballast", "body": "An optional 1,200 lb of subfloor ballast lets smaller crews still command full-size waves." },
+      { "title": "JL Audio M6", "body": "A complete JL Audio M6 Studio Elite package delivers immersive sound, with WakeSub subwoofers ported through the transom." },
+      { "title": "Paragon Comfort", "body": "Convertible transom seating, a reversible stern seat and an actuated helm seat define the luxurious cockpit." }
+    ],
     "specs": {
       "Length": "23' 3\" (7.09 m)",
       "Beam": "102\" (2.59 m)",
@@ -166,8 +257,21 @@
     "brand": "Nautique",
     "class": "Paragon",
     "discipline": "Wake & Surf",
-    "tagline": "Luxury for everyone",
+    "tagline": "Luxury for everyone.",
+    "price": 520000,
     "description": "The G25 Paragon pairs industry-leading performance with refined luxury in a bold, unmistakable design. Engineered to throw world-class wakes and waves for the whole family, it adds spacious comfort and exclusive Paragon finishes — every detail meticulously crafted.",
+    "overview": "The Super Air Nautique G25 Paragon is the larger flagship of the Paragon range, built on Nautique's award-winning G-Series hull and styled for those who refuse to choose between performance and refinement. It generates world-class wakes and waves while seating the whole family in genuine luxury.\n\nParagon-exclusive touches include dual 15-inch LINC Panoray displays, a telescoping Flight Control Tower, meticulously crafted upholstery and finishes, and a full JL Audio M6 Studio Elite system. An available Yanmar 8LV diesel completes the most spacious, luxurious G-Series Nautique on the water.",
+    "best_for": "Larger families and entertainers wanting flagship performance with the most room and luxury.",
+    "features": [
+      { "title": "Dual LINC Panoray", "body": "Twin side-by-side 15-inch touchscreens, found only on Paragon models, give effortless command of every system." },
+      { "title": "Telescoping Tower", "body": "The Flight Control Tower telescopes up or down at the touch of a button and projects the Nautique logo at night." },
+      { "title": "Diesel Option", "body": "An available Yanmar 8LV diesel produces 370 hp and 595 ft-lb of torque for relaxed, efficient cruising." },
+      { "title": "Nautique Surf System", "body": "NSS with WAVEPLATE forms customisable waves on either side with no ballast shifting required." },
+      { "title": "Configurable Surface", "body": "The Nautique Configurable Running Surface auto-deploys to fine-tune wake shape and boat attitude." },
+      { "title": "Supplemental Ballast", "body": "An optional 1,200 lb of subfloor ballast offsets smaller crews so the wave stays full-size." },
+      { "title": "JL Audio M6", "body": "A complete JL Audio M6 Studio Elite system fills the cockpit with sound, with transom-ported WakeSub subwoofers." },
+      { "title": "Luxury Seating", "body": "Convertible transom seats with flip-up tray tables and a reversible stern seat maximise space and comfort." }
+    ],
     "specs": {
       "Length": "25' 3\" (7.7 m)",
       "Beam": "102\" (2.59 m)",
@@ -189,8 +293,21 @@
     "brand": "Nautique",
     "class": "S-Series",
     "discipline": "Wake & Surf",
-    "tagline": "A contemporary classic",
+    "tagline": "A contemporary classic.",
+    "price": 270000,
     "description": "A contemporary classic — the S21 blends a traditional bow with modern lines. Built on an award-winning hull, its customisable wakes and waves deliver the best wake-centric experience in its class, wrapped in signature Nautique quality.",
+    "overview": "The Super Air Nautique S21 blends the timeless language of a traditional bow with modern Nautique styling, creating a contemporary classic. At 21 feet it is purpose-built around customisable, wake-centric performance, delivering the best riding experience in its class for wakeboarders and surfers alike.\n\nAs part of the S-Series, the S21 is the more attainable way into a Super Air Nautique without giving up the signature build quality, surf technology and finish the brand is known for. It is the ideal first serious tow boat for a wake-focused family.",
+    "best_for": "Wake-focused families wanting genuine Nautique surf performance in an attainable 21-foot package.",
+    "features": [
+      { "title": "Traditional Bow", "body": "An aggressive bow with sharp, striking lines pays a modern tribute to classic Nautique styling." },
+      { "title": "Nautique Surf System", "body": "NSS with WAVEPLATE technology redirects water to form a scalable, customisable wave on either side." },
+      { "title": "Configurable Surface", "body": "The Nautique Configurable Running Surface deploys and stows automatically to optimise performance at any speed." },
+      { "title": "LINC Panoray", "body": "A 12.4-inch LINC Panoray touchscreen controls wave settings, lighting, music and boat functions intuitively." },
+      { "title": "Engine Choice", "body": "Petrol options span the PCM ZZ5, ZZ6 and supercharged ZZ8R, with an available Yanmar 8LV diesel." },
+      { "title": "Tower Options", "body": "Choose a manual, actuated or telescoping Flight Control Tower to suit your storage and budget." },
+      { "title": "JL Audio Sound", "body": "A standard JL Audio M3 Series Elite system upgrades to M3 Premier with added speakers and subwoofer." },
+      { "title": "Steering Assist", "body": "A stern-mounted Nautique Steering Assist thruster makes low-speed docking and manoeuvring precise." }
+    ],
     "specs": {
       "Length": "21' 5\" (6.52 m)",
       "Beam": "100\" (2.54 m)",
@@ -212,8 +329,21 @@
     "brand": "Nautique",
     "class": "S-Series",
     "discipline": "Wake & Surf",
-    "tagline": "Pure performance",
+    "tagline": "Pure performance.",
+    "price": 295000,
     "description": "Modern innovation with the timeless lines of a traditional-bow Nautique, in a 23-foot package. The S23's hull is inspired by the proven, award-winning G-Series, delivering customisable wakes and waves scalable for all ages and abilities.",
+    "overview": "The Super Air Nautique S23 pairs the timeless lines of a traditional bow Nautique with modern innovation, delivering pure performance in a versatile 23-foot package. It is engineered around customisable wakes and waves that suit mixed crews and all-day sessions on the water.\n\nWithin the S-Series, the S23 is the more attainable route into a Super Air Nautique, retaining the surf technology, build quality and styling that define the brand. It is a strong fit for families who want serious capability without stepping up to the flagship G-Series.",
+    "best_for": "Families and mixed-ability crews wanting versatile 23-foot performance at an accessible price.",
+    "features": [
+      { "title": "Traditional Bow", "body": "An aggressive bow with sharp lines and integrated LED docking-light arrays gives a striking daytime presence." },
+      { "title": "Nautique Surf System", "body": "NSS with WAVEPLATE creates customisable, scalable waves with instant side-switching and no ballast shifting." },
+      { "title": "Configurable Surface", "body": "The Nautique Configurable Running Surface auto-deploys to optimise running attitude and wake shape." },
+      { "title": "LINC Panoray", "body": "A 12.4-inch LINC Panoray touchscreen manages wave and wake settings, lighting and music." },
+      { "title": "Engine Choice", "body": "Options range across the PCM ZZ5, ZZ6 and supercharged ZZ8R, plus an available Yanmar 8LV diesel." },
+      { "title": "Supplemental Ballast", "body": "An optional system adds two ballast sacks with dedicated pumps that auto-fill and empty via touchscreen." },
+      { "title": "JL Audio Sound", "body": "A standard JL Audio M3 Series Elite system upgrades to M3 Premier with bow speakers and a subwoofer." },
+      { "title": "Tower Options", "body": "Select a manual, actuated or telescoping Flight Control Tower to match your needs." }
+    ],
     "specs": {
       "Length": "23' (7.01 m)",
       "Beam": "100\" (2.54 m)",
@@ -235,8 +365,21 @@
     "brand": "Nautique",
     "class": "S-Series",
     "discipline": "Wake & Surf",
-    "tagline": "Built to perform",
+    "tagline": "Built to perform.",
+    "price": 325000,
     "description": "Bold, spacious and built to perform, the S25 is the ultimate wake-centric machine for larger crews. It pairs a traditional-bow Nautique with sleek modern aesthetics and Nautique's legendary hull, delivering customisable wakes and waves for every rider.",
+    "overview": "The Super Air Nautique S25 is bold, spacious and built to perform, pairing a traditional bow Nautique with sleek, modern aesthetics. At 25 feet it is the wake-centric machine for larger crews, delivering customisable wakes and waves without compromising room or comfort.\n\nAs the largest model in the S-Series, the S25 offers the most attainable path to a 25-foot Super Air Nautique, carrying the same surf technology and build quality found across the range. It suits big families and groups who want to bring everyone along for the session.",
+    "best_for": "Larger families and groups wanting maximum space and wake-centric performance in an attainable 25-footer.",
+    "features": [
+      { "title": "Traditional Bow", "body": "An aggressive bow with sharp lines and a docking light array gives a unique, stunning appearance." },
+      { "title": "Nautique Surf System", "body": "NSS with WAVEPLATE extends from the transom to redirect water and form customisable waves on either side." },
+      { "title": "Configurable Surface", "body": "The Nautique Configurable Running Surface auto-deploys to optimise wake shape and running attitude." },
+      { "title": "LINC Panoray", "body": "A 12.4-inch LINC Panoray touchscreen with Helm Command rotary encoder controls waves, lighting and music." },
+      { "title": "Engine Choice", "body": "The standard PCM ZZ6 offers optional Yanmar 8LV diesel or supercharged PCM ZZ8R powerplants." },
+      { "title": "Big Ballast", "body": "A 2,800 lb standard factory ballast capacity with subfloor storage builds substantial waves for larger crews." },
+      { "title": "Tower Options", "body": "Choose a manual, actuated or telescoping Flight Control Tower, the latter with integrated JL Audio M6 speakers." },
+      { "title": "JL Audio Sound", "body": "A standard JL Audio M3 Series Elite system upgrades to M3 Premier with a 10-inch subwoofer." }
+    ],
     "specs": {
       "Length": "25' (7.62 m)",
       "Beam": "100\" (2.54 m)",
@@ -258,8 +401,21 @@
     "brand": "Matrix",
     "class": "MX Series",
     "discipline": "Wake & Surf",
-    "tagline": "New standards in wake & surf",
+    "tagline": "New standards in wake & surf.",
+    "price": 175000,
     "description": "The Australian-designed MX22 sets new standards in wakeboard and wake-surf boats. Full fibreglass construction, an integrated surf system, 1,300 L of ballast, a touchscreen dash, Zero Off speed control and a folding tower — seating 13 with the storage to be your weekend headquarters.",
+    "overview": "The MX22 is Matrix's flagship wakeboard and wakesurf boat, designed and built in Adelaide, South Australia from full fibreglass with a timber-free chassis that won't rot over time. At around 22 feet with seating for up to 13, it's built for families and serious riders who want a genuine surf-and-wake machine.\n\nIt delivers what the big US imports do, with a hull engineered for Australian waters and pricing that makes more sense closer to home. The integrated surf system, 1,300 litres of ballast and folding tower mean it's ready to throw a serious wake straight off the trailer.",
+    "best_for": "Families and committed riders who want a true wakesurf and wakeboard boat without paying US-import money.",
+    "features": [
+      { "title": "Integrated Surf System", "body": "A factory-integrated surf system shapes a clean, rideable wave on either side without manual ballast juggling." },
+      { "title": "1,300 L Ballast", "body": "1,300 litres of ballast lets you build everything from a learner wake to a full surf wave." },
+      { "title": "Folding Tower", "body": "The folding tower clears low garage doors and bridges, then raises for towing wakeboarders and surfers." },
+      { "title": "400 Raptor Engine", "body": "Powered by a 400 Raptor engine for strong, reliable hole-shot and all-day torque." },
+      { "title": "Touchscreen Dash", "body": "A touchscreen dash puts ballast, surf settings and boat controls under a single clean interface." },
+      { "title": "Zero Off GPS", "body": "Zero Off GPS speed control holds an exact, repeatable speed for consistent riding and skiing." },
+      { "title": "Fibreglass Build", "body": "Full fibreglass construction with a timber-free stringer and flooring system that won't rot over time." },
+      { "title": "Gear Storage", "body": "Ample storage for boards, ropes and wet gear, plus 14 drink holders across the layout." }
+    ],
     "specs": {
       "Length": "6.7 m (22')",
       "Beam": "2.47 m",
@@ -280,8 +436,20 @@
     "brand": "Matrix",
     "class": "MX Series",
     "discipline": "Barefoot, Wake & Surf",
-    "tagline": "From barefoot to surf",
+    "tagline": "From barefoot to surf.",
+    "price": 130000,
     "description": "Endless possibilities, from barefoot to surf. The newest member of the Matrix family, the MXV is a true crossover — compact outside, roomy inside, and far easier on fuel than its oversized rivals, giving you more cost-effective time on the water.",
+    "overview": "The MXV is the newest boat in the Matrix range and a true crossover, built to handle everything from barefoot to surf. Designed and built in Australia from fibreglass, it's compact on the outside but roomy inside, with seating for up to 10 and a clean, USA-style interior as standard.\n\nIts edge is efficiency. Where oversized imports drink fuel, the MXV keeps running costs realistic without giving up performance. Fibreglass floors and engine bearers, double pump-in-and-out ballast and an MTX folding tower come standard, with factory upgrades available to tailor it to how you ride.",
+    "best_for": "Buyers who want one efficient, do-everything tow boat spanning barefoot, ski and surf.",
+    "features": [
+      { "title": "True Crossover", "body": "One boat engineered to cover everything from barefoot and slalom through to wakeboarding and surf." },
+      { "title": "Double Ballast", "body": "Pump-in and pump-out double ballast comes standard, so you can tune the wake to the discipline." },
+      { "title": "MTX Folding Tower", "body": "The MTX folding tower is standard and drops down to clear garages, bridges and lower storage." },
+      { "title": "Fuel Efficient", "body": "A compact, efficient hull keeps the fuel bill realistic next to oversized imported competitors." },
+      { "title": "Fibreglass Floors", "body": "Fibreglass floors and engine bearers come standard for a strong, rot-free structure." },
+      { "title": "Roomy Interior", "body": "Compact on the outside but roomy inside, with a USA-style interior seating up to 10." },
+      { "title": "Factory Upgrades", "body": "Options include a MerCruiser engine upgrade, touchscreen dash with cruise control and tower surf pockets." }
+    ],
     "specs": {
       "Length": "6.35 m (21')",
       "Beam": "2.3 m",
@@ -301,8 +469,20 @@
     "brand": "Matrix",
     "class": "Super Sport",
     "discipline": "Ski & All-round",
-    "tagline": "Tournament wakes, all-rounder value",
+    "tagline": "Tournament wakes, all-rounder value.",
+    "price": 105000,
     "description": "The Super Sport blends performance, comfort and quality with outstanding ski wakes. Matrix's superior build delivers precise tracking, unrivalled handling and pillow-soft tournament wakes, plus more interior room than anything in its class — an affordable all-rounder.",
+    "overview": "The Matrix Super Sport is the all-rounder of the range, built in Australia from fibreglass and aimed at families and skiers who want serious performance without a flagship price. At around 21 feet it's light, easy to tow and quick to launch, yet still carries the crew with larger observer seating and a big rear lounge.\n\nIt's tuned for the water first: precise tracking, sharp handling and pillow-soft, tournament-style wakes that suit serious slalom skiers. For buyers chasing a genuine ski boat that also doubles as a capable family day-boat, it covers the bases at a sensible price.",
+    "best_for": "Skiers and families wanting a true tournament-style ski boat that's an affordable, easy-to-tow all-rounder.",
+    "features": [
+      { "title": "Tournament Wakes", "body": "Pillow-soft, tournament-style wakes tuned for serious slalom skiers chasing clean, repeatable passes." },
+      { "title": "Precise Tracking", "body": "A hull engineered for precise tracking and unrivalled handling through the slalom course and turns." },
+      { "title": "Observer Seating", "body": "Larger observer seating gives the spotter a comfortable, clear view of the skier behind." },
+      { "title": "Rear Lounge", "body": "A massive rear lounge turns the cockpit into comfortable family space between sets." },
+      { "title": "Ballast Ready", "body": "Onboard ballast lets you firm up the wake when the day turns to wakeboarding and surf." },
+      { "title": "Fibreglass Build", "body": "Full fibreglass construction built in Australia for durability and years of trouble-free use." },
+      { "title": "Light & Towable", "body": "A light, compact hull around 21 feet makes towing, launching and storage genuinely easy." }
+    ],
     "specs": {
       "Length": "6.35 m (21')",
       "Beam": "2.25 m",
