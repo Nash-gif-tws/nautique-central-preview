@@ -238,40 +238,6 @@
     }
   } catch (e) {}
 
-  /* ---------- custom cursor: instant dot + lagging ring (desktop, fine pointer) ---------- */
-  try {
-    if (matchMedia('(hover: hover) and (pointer: fine)').matches) {
-      var cdot = document.createElement('div'); cdot.className = 'cursor-dot'; cdot.setAttribute('aria-hidden', 'true');
-      var cring = document.createElement('div'); cring.className = 'cursor-ring'; cring.setAttribute('aria-hidden', 'true');
-      document.body.appendChild(cring); document.body.appendChild(cdot);
-      root.classList.add('cursor-custom');
-      var cdx = gsap.quickTo(cdot, 'x', { duration: 0.12, ease: 'power3' });
-      var cdy = gsap.quickTo(cdot, 'y', { duration: 0.12, ease: 'power3' });
-      var crx = gsap.quickTo(cring, 'x', { duration: 0.45, ease: 'power3' });
-      var cry = gsap.quickTo(cring, 'y', { duration: 0.45, ease: 'power3' });
-      var crs = gsap.quickTo(cring, 'scale', { duration: 0.3, ease: 'power3' });
-      var cHover = false, cDown = false, cShown = false;
-      var CSEL = 'a, button, .btn, .mshot, .moverview__media, [data-cursor]';
-      function cScale() { crs(cDown ? (cHover ? 1.4 : 0.8) : (cHover ? 1.7 : 1)); }
-      window.addEventListener('pointermove', function (e) {
-        if (!cShown) { cShown = true; root.classList.add('cursor-ready'); }
-        cdx(e.clientX); cdy(e.clientY); crx(e.clientX); cry(e.clientY);
-      }, { passive: true });
-      document.addEventListener('pointerover', function (e) {
-        if (e.target.closest && e.target.closest(CSEL)) { cHover = true; cring.classList.add('is-hover'); cScale(); }
-      });
-      document.addEventListener('pointerout', function (e) {
-        var from = e.target.closest && e.target.closest(CSEL);
-        var to = e.relatedTarget && e.relatedTarget.closest && e.relatedTarget.closest(CSEL);
-        if (from && from !== to) { cHover = false; cring.classList.remove('is-hover'); cScale(); }
-      });
-      document.addEventListener('pointerdown', function () { cDown = true; cScale(); });
-      document.addEventListener('pointerup', function () { cDown = false; cScale(); });
-      document.addEventListener('mouseleave', function () { root.classList.remove('cursor-ready'); });
-      document.addEventListener('mouseenter', function () { root.classList.add('cursor-ready'); });
-    }
-  } catch (e) {}
-
   /* ---------- PDP hero: subtle cursor-parallax (desktop, fine pointer) ---------- */
   try {
     var mheroEl = document.querySelector('.mhero');
