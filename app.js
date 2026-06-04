@@ -5,6 +5,9 @@
   var gsapOK = !!(window.gsap && window.ScrollTrigger);
   var reduced = false;
   try { reduced = matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+  // Inside the Storyblok Visual Editor the preview runs in an iframe where scroll-trigger
+  // reveals don't fire — so show all content statically (no blank/black preview).
+  try { if (/[?&]_storyblok/.test(location.search)) reduced = true; } catch (e) {}
 
   var EASE = 'cubic-bezier(0.16,1,0.3,1)'; // expo-out — the premium settle
 

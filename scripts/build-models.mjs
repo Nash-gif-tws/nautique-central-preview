@@ -9,7 +9,7 @@ import { dirname, join } from 'node:path';
 import { loadModels } from './storyblok.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const V = '11'; // asset cache-bust version (bump on each deploy)
+const V = '12'; // asset cache-bust version (bump on each deploy)
 
 const ARROW = `<svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>`;
 const HAMBURGER = `<svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M224 128a8 8 0 0 1-8 8H40a8 8 0 0 1 0-16h176a8 8 0 0 1 8 8ZM40 72h176a8 8 0 0 0 0-16H40a8 8 0 0 0 0 16Zm176 112H40a8 8 0 0 0 0 16h176a8 8 0 0 0 0-16Z"/></svg>`;
@@ -100,6 +100,7 @@ const footer = `
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
   <script src="app.js?v=${V}"></script>
+  <script>/* Storyblok Visual Editor bridge — only loads inside the editor */(function(){if(!/[?&]_storyblok/.test(location.search))return;var s=document.createElement('script');s.src='https://app.storyblok.com/f/storyblok-v2-latest.js';s.onload=function(){try{var b=new StoryblokBridge();b.on(['published','change'],function(){location.reload();});}catch(e){}};document.head.appendChild(s);})();</script>
 </body>
 </html>`;
 
