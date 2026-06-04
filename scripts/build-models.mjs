@@ -9,7 +9,7 @@ import { dirname, join } from 'node:path';
 import { loadModels } from './storyblok.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const V = '12'; // asset cache-bust version (bump on each deploy)
+const V = '13'; // asset cache-bust version (bump on each deploy)
 
 const ARROW = `<svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>`;
 const HAMBURGER = `<svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M224 128a8 8 0 0 1-8 8H40a8 8 0 0 1 0-16h176a8 8 0 0 1 8 8ZM40 72h176a8 8 0 0 0 0-16H40a8 8 0 0 0 0 16Zm176 112H40a8 8 0 0 0 0 16h176a8 8 0 0 0 0-16Z"/></svg>`;
@@ -104,22 +104,36 @@ const footer = `
 </body>
 </html>`;
 
+const shortName = (m) => m.name.replace('Super Air Nautique ', '');
+
 function modelPage(m) {
-  const specRows = Object.entries(m.specs).map(([k, v]) =>
-    `<div class="spec"><span class="spec__val">${v}</span><span class="spec__label">${k}</span></div>`).join('');
+  const heroImg = m.hero || m.profile || '';
+  const profileImg = m.profile || m.hero || '';
+  const specRows = Object.entries(m.specs)
+    .filter(([, v]) => v != null && v !== '')
+    .map(([k, v]) => `<div class="spec"><span class="spec__val">${v}</span><span class="spec__label">${k}</span></div>`).join('');
+  const feats = [
+    m.stern ? `<figure class="mfeature" data-reveal-img><img src="${m.stern}" alt="${m.name} stern" loading="lazy" /><figcaption>Surf-ready stern</figcaption></figure>` : '',
+    m.helm ? `<figure class="mfeature" data-reveal-img><img src="${m.helm}" alt="${m.name} helm" loading="lazy" /><figcaption>The helm</figcaption></figure>` : '',
+  ].filter(Boolean).join('');
+  const featSection = feats ? `
+    <section class="mfeatures">
+      ${feats}
+    </section>
+` : '';
   const jsonld = {
     '@context': 'https://schema.org', '@type': 'Product', name: m.name,
-    brand: { '@type': 'Brand', name: 'Nautique' }, description: m.description,
-    image: m.hero.startsWith('http') ? m.hero : 'https://nash-gif-tws.github.io/nautique-central-preview/' + m.hero,
+    brand: { '@type': 'Brand', name: m.brand || 'Nautique' }, description: m.description,
+    image: heroImg.startsWith('http') ? heroImg : 'https://nash-gif-tws.github.io/nautique-central-preview/' + heroImg,
     category: 'Tow boat'
   };
   return head(`${m.name} | Nautique Central`, m.description.replace(/"/g, "'"), jsonld) + header + `
     <section class="mhero">
-      <div class="mhero__media"><img src="${m.hero}" alt="${m.name} on the water" fetchpriority="high" /></div>
+      <div class="mhero__media"><img src="${heroImg}" alt="${m.name} on the water" fetchpriority="high" /></div>
       <div class="wrap mhero__inner">
         <a class="mback" href="models.html">${ARROW}<span>All models</span></a>
         <p class="mhero__kicker">${m.class} &middot; ${m.discipline}</p>
-        <h1>${m.name.replace('Super Air Nautique ', '')}</h1>
+        <h1>${shortName(m)}</h1>
         <p class="mhero__tagline">${m.tagline}</p>
         <div class="mhero__cta">
           <a class="btn btn--primary" href="index.html#demo">Book a demo ${ARROW}</a>
@@ -133,22 +147,17 @@ function modelPage(m) {
         <div class="mbody__intro" data-reveal>
           <p class="mhero__kicker" style="color:var(--accent)">${m.name}</p>
           <p class="mbody__desc">${m.description}</p>
-          <div class="mbody__profile"><img src="${m.profile}" alt="${m.name} profile" loading="lazy" /></div>
+          <div class="mbody__profile"><img src="${profileImg}" alt="${m.name} profile" loading="lazy" /></div>
         </div>
         <div class="mspecs" data-reveal>
           ${specRows}
         </div>
       </div>
     </section>
-
-    <section class="mfeatures">
-      <figure class="mfeature" data-reveal-img><img src="${m.stern}" alt="${m.name} stern" loading="lazy" /><figcaption>Surf-ready stern</figcaption></figure>
-      <figure class="mfeature" data-reveal-img><img src="${m.helm}" alt="${m.name} helm" loading="lazy" /><figcaption>The helm</figcaption></figure>
-    </section>
-
+${featSection}
     <section class="section closer">
       <div class="wrap" data-reveal>
-        <h2 data-mask>Ride the ${m.name.replace('Super Air Nautique ', '')}.</h2>
+        <h2 data-mask>Ride the ${shortName(m)}.</h2>
         <div class="closer__cta">
           <a class="btn btn--primary" href="index.html#demo">Book an On-Water Demo ${ARROW}</a>
           <a class="btn btn--ghost" href="index.html#showrooms">Find Your Showroom</a>
@@ -158,27 +167,38 @@ function modelPage(m) {
 }
 
 function indexPage(models) {
-  const cards = models.map((m) => `
-        <a class="mcard" href="${m.slug}.html">
-          <div class="mcard__media"><img src="${m.profile}" alt="${m.name}" loading="lazy" /></div>
-          <div class="mcard__body">
-            <span class="mcard__kicker">${m.class} &middot; ${m.discipline}</span>
-            <h3>${m.name.replace('Super Air Nautique ', '')}</h3>
-            <p>${m.tagline}</p>
-            <span class="mcard__go">${m.specs.Length} &middot; ${m.specs.Capacity} ${ARROW}</span>
-          </div>
-        </a>`).join('');
-  return head('The Range | Nautique Central', 'Explore the Nautique range — G-Series, GS-Series and the Ski Nautique. Book an on-water demo at your nearest showroom.', null) + header + `
+  const card = (m) => {
+    const meta = [m.specs.Length, m.specs.Capacity].filter(Boolean).join(' &middot; ');
+    return `
+          <a class="mcard" href="${m.slug}.html">
+            <div class="mcard__media"><img src="${m.profile || m.hero}" alt="${m.name}" loading="lazy" /></div>
+            <div class="mcard__body">
+              <span class="mcard__kicker">${m.class} &middot; ${m.discipline}</span>
+              <h3>${shortName(m)}</h3>
+              <p>${m.tagline}</p>
+              <span class="mcard__go">${meta} ${ARROW}</span>
+            </div>
+          </a>`;
+  };
+  const order = ['Nautique', 'Matrix'];
+  const brands = [...new Set(models.map((m) => m.brand || 'Nautique'))]
+    .sort((a, b) => (order.indexOf(a) + 1 || 99) - (order.indexOf(b) + 1 || 99));
+  const groups = brands.map((b) => {
+    const list = models.filter((m) => (m.brand || 'Nautique') === b);
+    return `<div class="brand-group" data-reveal>
+          <h3 class="brand-group__title">${b} <span>${list.length} models</span></h3>
+          <div class="models-grid">${list.map(card).join('')}</div>
+        </div>`;
+  }).join('\n        ');
+  return head('The Range | Nautique Central', 'Explore the full range from Nautique and Matrix — wake, surf and ski boats. Book an on-water demo at your nearest showroom.', null) + header + `
     <section class="section range-index">
       <div class="wrap">
         <div class="head" data-reveal>
           <p class="eyebrow">The Range</p>
-          <h2 class="section-h" data-mask>Every boat<br>we build.</h2>
-          <p class="lede">From the record-setting Ski Nautique to the award-winning G-Series. Pick the one that fits how you ride, then come and feel it on the water.</p>
+          <h2 class="section-h" data-mask>Every boat<br>we sell.</h2>
+          <p class="lede">From the record-setting Ski Nautique and award-winning G-Series to the Australian-built Matrix. Pick the one that fits how you ride, then feel it on the water.</p>
         </div>
-        <div class="models-grid" data-reveal>
-          ${cards}
-        </div>
+        ${groups}
       </div>
     </section>
 

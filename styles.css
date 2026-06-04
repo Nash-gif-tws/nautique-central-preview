@@ -314,6 +314,10 @@ p { margin: 0; }
 
 .range-index .head { max-width: 720px; }
 .models-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 18px; }
+.brand-group { margin-top: clamp(40px, 6vw, 68px); }
+.brand-group:first-of-type { margin-top: clamp(20px, 3vw, 32px); }
+.brand-group__title { display: flex; align-items: baseline; gap: 14px; font-size: clamp(1.4rem, 2.8vw, 2.1rem); letter-spacing: -0.01em; margin: 0 0 24px; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
+.brand-group__title span { font-size: 0.72rem; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
 .mcard { display: flex; flex-direction: column; background: var(--bg-1); border: 1px solid var(--line); border-radius: var(--r-card); overflow: hidden; transition: transform 0.3s var(--ease-out), border-color 0.3s var(--ease-out); }
 .mcard:hover { transform: translateY(-6px); border-color: var(--line-strong); }
 .mcard__media { aspect-ratio: 16 / 10; display: flex; align-items: center; justify-content: center; padding: 20px 20px 0; background: radial-gradient(120% 90% at 50% 0%, #16171c, var(--bg-1)); }

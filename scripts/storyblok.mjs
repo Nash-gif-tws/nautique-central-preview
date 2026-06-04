@@ -40,6 +40,7 @@ function mapStory(story) {
   return {
     name: c.name || story.name,
     slug: story.slug,
+    brand: c.brand || 'Nautique',
     class: c.class || '',
     discipline: c.discipline || '',
     tagline: c.tagline || '',

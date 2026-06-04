@@ -19,7 +19,8 @@
     "hero": "images/models/super-air-g23-hero.jpg",
     "profile": "images/models/super-air-g23-profile.png",
     "stern": "images/models/super-air-g23-stern.jpg",
-    "helm": "images/models/super-air-g23-helm.jpg"
+    "helm": "images/models/super-air-g23-helm.jpg",
+    "brand": "Nautique"
   },
   {
     "name": "Super Air Nautique G25",
@@ -41,7 +42,8 @@
     "hero": "images/models/super-air-g25-hero.jpg",
     "profile": "images/models/super-air-g25-profile.png",
     "stern": "images/models/super-air-g25-stern.jpg",
-    "helm": "images/models/super-air-g25-helm.jpg"
+    "helm": "images/models/super-air-g25-helm.jpg",
+    "brand": "Nautique"
   },
   {
     "name": "Super Air Nautique GS22",
@@ -63,7 +65,8 @@
     "hero": "images/models/super-air-gs22-hero.jpg",
     "profile": "images/models/super-air-gs22-profile.png",
     "stern": "images/models/super-air-gs22-stern.jpg",
-    "helm": "images/models/super-air-gs22-helm.jpg"
+    "helm": "images/models/super-air-gs22-helm.jpg",
+    "brand": "Nautique"
   },
   {
     "name": "Super Air Nautique GS24",
@@ -85,7 +88,8 @@
     "hero": "images/models/super-air-gs24-hero.jpg",
     "profile": "images/models/super-air-gs24-profile.png",
     "stern": "images/models/super-air-gs24-stern.jpg",
-    "helm": "images/models/super-air-gs24-helm.jpg"
+    "helm": "images/models/super-air-gs24-helm.jpg",
+    "brand": "Nautique"
   },
   {
     "name": "Super Air Nautique GS20",
@@ -107,7 +111,8 @@
     "hero": "images/models/super-air-gs20-hero.jpg",
     "profile": "images/models/super-air-gs20-profile.png",
     "stern": "images/models/super-air-gs20-stern.jpg",
-    "helm": "images/models/super-air-gs20-helm.jpg"
+    "helm": "images/models/super-air-gs20-helm.jpg",
+    "brand": "Nautique"
   },
   {
     "name": "Ski Nautique",
@@ -129,6 +134,186 @@
     "hero": "images/models/ski-nautique-hero.jpg",
     "profile": "images/models/ski-nautique-profile.png",
     "stern": "images/models/ski-nautique-stern.jpg",
-    "helm": "images/models/ski-nautique-helm.jpg"
+    "helm": "images/models/ski-nautique-helm.jpg",
+    "brand": "Nautique"
+  },
+  {
+    "name": "Super Air Nautique G23 Paragon",
+    "slug": "super-air-paragon-23",
+    "brand": "Nautique",
+    "class": "Paragon",
+    "discipline": "Wake & Surf",
+    "tagline": "Unrivalled luxury, built to perform",
+    "description": "From the moment you see it, the G23 Paragon's sophistication is undeniable — modern design, exclusive features and premium tailored finishes. Beneath the looks sits an award-winning hull Nautique calls the highest-performing on the market, with wakes and waves fully customisable for any age or ability.",
+    "specs": {
+      "Length": "23' 3\" (7.09 m)",
+      "Beam": "102\" (2.59 m)",
+      "Capacity": "16 people",
+      "Ballast": "3,700 lbs max",
+      "Dry weight": "7,750 lbs",
+      "Fuel": "65.6 gal",
+      "Standard engine": "PCM ZZ8S - 630 hp",
+      "Top engine": "Yanmar 8LV - 370 hp diesel"
+    },
+    "hero": "images/models/super-air-paragon-23-hero.jpg",
+    "profile": "images/models/super-air-paragon-23-profile.png",
+    "stern": "images/models/super-air-paragon-23-stern.jpg",
+    "helm": "images/models/super-air-paragon-23-helm.jpg"
+  },
+  {
+    "name": "Super Air Nautique G25 Paragon",
+    "slug": "super-air-paragon-25",
+    "brand": "Nautique",
+    "class": "Paragon",
+    "discipline": "Wake & Surf",
+    "tagline": "Luxury for everyone",
+    "description": "The G25 Paragon pairs industry-leading performance with refined luxury in a bold, unmistakable design. Engineered to throw world-class wakes and waves for the whole family, it adds spacious comfort and exclusive Paragon finishes — every detail meticulously crafted.",
+    "specs": {
+      "Length": "25' 3\" (7.7 m)",
+      "Beam": "102\" (2.59 m)",
+      "Capacity": "19 people",
+      "Ballast": "3,400 lbs max",
+      "Dry weight": "8,400 lbs",
+      "Fuel": "88 gal",
+      "Standard engine": "PCM ZZ8S - 630 hp",
+      "Top engine": "Yanmar 8LV - 370 hp diesel"
+    },
+    "hero": "images/models/super-air-paragon-25-hero.jpg",
+    "profile": "images/models/super-air-paragon-25-profile.png",
+    "stern": "images/models/super-air-paragon-25-stern.jpg",
+    "helm": "images/models/super-air-paragon-25-helm.jpg"
+  },
+  {
+    "name": "Super Air Nautique S21",
+    "slug": "super-air-s21",
+    "brand": "Nautique",
+    "class": "S-Series",
+    "discipline": "Wake & Surf",
+    "tagline": "A contemporary classic",
+    "description": "A contemporary classic — the S21 blends a traditional bow with modern lines. Built on an award-winning hull, its customisable wakes and waves deliver the best wake-centric experience in its class, wrapped in signature Nautique quality.",
+    "specs": {
+      "Length": "21' 5\" (6.52 m)",
+      "Beam": "100\" (2.54 m)",
+      "Capacity": "14 people",
+      "Ballast": "2,650 lbs",
+      "Dry weight": "5,200 lbs",
+      "Fuel": "65.1 gal",
+      "Standard engine": "PCM ZZ5 - 355 hp",
+      "Top engine": "PCM ZZ8R - 570 hp"
+    },
+    "hero": "images/models/super-air-s21-hero.jpg",
+    "profile": "images/models/super-air-s21-profile.png",
+    "stern": "images/models/super-air-s21-stern.jpg",
+    "helm": "images/models/super-air-s21-helm.jpg"
+  },
+  {
+    "name": "Super Air Nautique S23",
+    "slug": "super-air-s23",
+    "brand": "Nautique",
+    "class": "S-Series",
+    "discipline": "Wake & Surf",
+    "tagline": "Pure performance",
+    "description": "Modern innovation with the timeless lines of a traditional-bow Nautique, in a 23-foot package. The S23's hull is inspired by the proven, award-winning G-Series, delivering customisable wakes and waves scalable for all ages and abilities.",
+    "specs": {
+      "Length": "23' (7.01 m)",
+      "Beam": "100\" (2.54 m)",
+      "Capacity": "16 people",
+      "Ballast": "3,150 lbs max",
+      "Dry weight": "5,500 lbs",
+      "Fuel": "65.1 gal",
+      "Standard engine": "PCM ZZ5 - 355 hp",
+      "Top engine": "PCM ZZ8R - 570 hp"
+    },
+    "hero": "images/models/super-air-s23-hero.jpg",
+    "profile": "images/models/super-air-s23-profile.png",
+    "stern": "images/models/super-air-s23-stern.jpg",
+    "helm": "images/models/super-air-s23-helm.jpg"
+  },
+  {
+    "name": "Super Air Nautique S25",
+    "slug": "super-air-s25",
+    "brand": "Nautique",
+    "class": "S-Series",
+    "discipline": "Wake & Surf",
+    "tagline": "Built to perform",
+    "description": "Bold, spacious and built to perform, the S25 is the ultimate wake-centric machine for larger crews. It pairs a traditional-bow Nautique with sleek modern aesthetics and Nautique's legendary hull, delivering customisable wakes and waves for every rider.",
+    "specs": {
+      "Length": "25' (7.62 m)",
+      "Beam": "100\" (2.54 m)",
+      "Capacity": "18 people",
+      "Ballast": "2,800 lbs",
+      "Dry weight": "5,800 lbs",
+      "Fuel": "85.8 gal",
+      "Standard engine": "PCM ZZ6 - 450 hp",
+      "Top engine": "PCM ZZ8R - 570 hp"
+    },
+    "hero": "images/models/super-air-s25-hero.jpg",
+    "profile": "images/models/super-air-s25-profile.png",
+    "stern": "images/models/super-air-s25-stern.jpg",
+    "helm": "images/models/super-air-s25-helm.jpg"
+  },
+  {
+    "name": "Matrix MX22",
+    "slug": "matrix-mx22",
+    "brand": "Matrix",
+    "class": "MX Series",
+    "discipline": "Wake & Surf",
+    "tagline": "New standards in wake & surf",
+    "description": "The Australian-designed MX22 sets new standards in wakeboard and wake-surf boats. Full fibreglass construction, an integrated surf system, 1,300 L of ballast, a touchscreen dash, Zero Off speed control and a folding tower — seating 13 with the storage to be your weekend headquarters.",
+    "specs": {
+      "Length": "6.7 m (22')",
+      "Beam": "2.47 m",
+      "Capacity": "13 people",
+      "Ballast": "1,300 L",
+      "Dry weight": "2,350 kg",
+      "Fuel": "150 L",
+      "Standard engine": "400 Raptor"
+    },
+    "hero": "images/models/matrix-mx22-hero.jpg",
+    "profile": "images/models/matrix-mx22-profile.jpg",
+    "stern": null,
+    "helm": null
+  },
+  {
+    "name": "Matrix MXV",
+    "slug": "matrix-mxv",
+    "brand": "Matrix",
+    "class": "MX Series",
+    "discipline": "Barefoot, Wake & Surf",
+    "tagline": "From barefoot to surf",
+    "description": "Endless possibilities, from barefoot to surf. The newest member of the Matrix family, the MXV is a true crossover — compact outside, roomy inside, and far easier on fuel than its oversized rivals, giving you more cost-effective time on the water.",
+    "specs": {
+      "Length": "6.35 m (21')",
+      "Beam": "2.3 m",
+      "Capacity": "10 people",
+      "Ballast": "510 L",
+      "Dry weight": "2,150 kg",
+      "Fuel": "140 L"
+    },
+    "hero": "images/models/matrix-mxv-hero.jpg",
+    "profile": "images/models/matrix-mxv-profile.jpg",
+    "stern": "images/models/matrix-mxv-stern.jpg",
+    "helm": "images/models/matrix-mxv-helm.jpg"
+  },
+  {
+    "name": "Matrix Super Sport",
+    "slug": "matrix-super-sport",
+    "brand": "Matrix",
+    "class": "Super Sport",
+    "discipline": "Ski & All-round",
+    "tagline": "Tournament wakes, all-rounder value",
+    "description": "The Super Sport blends performance, comfort and quality with outstanding ski wakes. Matrix's superior build delivers precise tracking, unrivalled handling and pillow-soft tournament wakes, plus more interior room than anything in its class — an affordable all-rounder.",
+    "specs": {
+      "Length": "6.35 m (21')",
+      "Beam": "2.25 m",
+      "Capacity": "8 people",
+      "Ballast": "300 L",
+      "Dry weight": "1,750 kg",
+      "Fuel": "130 L"
+    },
+    "hero": "images/models/matrix-super-sport-hero.jpg",
+    "profile": "images/models/matrix-super-sport-profile.jpg",
+    "stern": "images/models/matrix-super-sport-stern.jpg",
+    "helm": "images/models/matrix-super-sport-helm.jpg"
   }
 ]
