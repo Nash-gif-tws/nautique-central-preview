@@ -94,7 +94,7 @@ for (const m of models) {
   const content = {
     component: 'boat',
     name: m.name,
-    order,
+    order: String(order),
     class: m.class,
     discipline: m.discipline,
     tagline: m.tagline,

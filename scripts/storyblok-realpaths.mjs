@@ -23,8 +23,10 @@ const { stories } = await api('/stories?starts_with=boats/&per_page=100');
 for (const s of stories) {
   if (s.is_folder) continue;
   const slug = s.full_slug.replace(/^boats\//, '');
-  const real_path = `/${slug}.html`;
-  await api(`/stories/${s.id}`, 'PUT', { story: { real_path } });
-  console.log('set', s.full_slug, '->', real_path);
+  const full = (await api(`/stories/${s.id}`)).story;
+  full.real_path = `/${slug}.html`;
+  if (full.content && full.content.order != null) full.content.order = String(full.content.order);
+  await api(`/stories/${s.id}`, 'PUT', { story: full, publish: 1 });
+  console.log('set', s.full_slug, '->', full.real_path);
 }
 console.log('done');
