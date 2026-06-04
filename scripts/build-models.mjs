@@ -10,7 +10,12 @@ import { dirname, join } from 'node:path';
 import { loadModels } from './storyblok.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const V = '14'; // asset cache-bust version (bump on each deploy)
+const V = '15'; // asset cache-bust version (bump on each deploy)
+// Master price switch. false => every boat shows "Price on application" (the range
+// still SORTS by the indicative price set in the data). Flip to true once real
+// drive-away prices are set in Storyblok; boats with an empty price field then
+// fall back to "Price on application" individually.
+const SHOW_PRICES = false;
 const SITE = 'https://nash-gif-tws.github.io/nautique-central-preview/';
 
 const ARROW = `<svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>`;
@@ -111,7 +116,8 @@ const shortName = (m) => m.name.replace('Super Air Nautique ', '');
 const abs = (src) => (!src ? '' : src.startsWith('http') ? src : SITE + src);
 const fmtAUD = (n) => '$' + Number(n).toLocaleString('en-AU');
 const priceNum = (m) => (m.price != null && m.price !== '' && Number(m.price) > 0 ? Number(m.price) : 0);
-const priceFrom = (m) => (priceNum(m) ? `From ${fmtAUD(priceNum(m))}` : 'Price on application');
+const showPrice = (m) => SHOW_PRICES && priceNum(m) > 0;
+const priceLabel = (m) => (showPrice(m) ? `From ${fmtAUD(priceNum(m))}` : 'Price on application');
 // metric-only value for headline stats: "23' 3\" (7.09 m)" / "6.7 m (22')" -> "7.09 m"
 const metresOnly = (v = '') => { const s = String(v); const m = s.match(/([\d.]+)\s*m\b/); return m ? `${m[1]} m` : s; };
 const peopleOnly = (v = '') => { const m = String(v).match(/(\d[\d,]*)/); return m ? m[1] : String(v); };
@@ -135,7 +141,7 @@ function card(m) {
               <h3>${shortName(m)}</h3>
               <p class="mcard__tag">${m.tagline}</p>
               <div class="mcard__foot">
-                <span class="mcard__price">${priceFrom(m)}</span>
+                <span class="mcard__price${showPrice(m) ? '' : ' mcard__price--poa'}">${priceLabel(m)}</span>
                 ${meta ? `<span class="mcard__meta">${meta}</span>` : ''}
               </div>
               <span class="mcard__go">View boat ${ARROW}</span>
@@ -254,7 +260,7 @@ function modelPage(m, all) {
         <p class="mhero__kicker">${m.brand || 'Nautique'} &middot; ${m.class} &middot; ${m.discipline}</p>
         <h1>${short}</h1>
         <p class="mhero__tagline">${m.tagline}</p>
-        <div class="mhero__price"><span class="mhero__from">${priceFrom(m)}</span>${priceNum(m) ? '<span class="mhero__pnote">Indicative &middot; drive-away on application</span>' : ''}</div>
+        <div class="mhero__price"><span class="mhero__from${showPrice(m) ? '' : ' mhero__from--poa'}">${priceLabel(m)}</span>${showPrice(m) ? '<span class="mhero__pnote">Indicative &middot; drive-away on application</span>' : ''}</div>
         <div class="mhero__cta">
           <a class="btn btn--primary" href="index.html#demo">Book a demo ${ARROW}</a>
           <a class="btn btn--ghost" href="index.html#demo">Enquire about this boat</a>
@@ -319,7 +325,7 @@ function indexPage(models) {
           <p class="eyebrow">The Range</p>
           <h2 class="section-h" data-mask>Every boat<br>we sell.</h2>
           <p class="lede">From the flagship Paragon and the award-winning G-Series to the Australian-built Matrix &mdash; ordered by price, highest to lowest. Pick the one that fits how you ride, then feel it on the water.</p>
-          <p class="range-note">Prices are indicative new drive-away guides in AUD. Final pricing depends on specification and options &mdash; on application.</p>
+          <p class="range-note">${SHOW_PRICES ? 'Prices are indicative new drive-away guides in AUD. Final pricing depends on specification and options &mdash; on application.' : 'Models are ordered by price, highest to lowest. Contact our team for current drive-away pricing on any model.'}</p>
         </div>
         <div class="models-grid range-index__grid" data-reveal>${cards}</div>
       </div>

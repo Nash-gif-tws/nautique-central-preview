@@ -299,6 +299,7 @@ p { margin: 0; }
 .mhero__cta { display: flex; gap: 14px; flex-wrap: wrap; }
 .mhero__price { display: flex; flex-direction: column; gap: 3px; margin: 0 0 30px; }
 .mhero__from { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.4rem, 2.6vw, 2rem); color: #fff; letter-spacing: -0.01em; line-height: 1; }
+.mhero__from--poa { font-size: clamp(1.15rem, 2vw, 1.5rem); }
 .mhero__pnote { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted-2); }
 
 /* headline stat strip under the hero */
@@ -361,6 +362,7 @@ p { margin: 0; }
 .mcard__tag { color: var(--muted); font-size: 0.95rem; margin-bottom: 18px; }
 .mcard__foot { margin-top: auto; display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding-top: 16px; border-top: 1px solid var(--line); }
 .mcard__price { font-family: var(--font-display); font-weight: 600; font-size: 1.15rem; color: #fff; letter-spacing: -0.01em; }
+.mcard__price--poa { font-family: var(--font-body); font-weight: 600; font-size: 0.92rem; color: #eef0f2; letter-spacing: 0.01em; }
 .mcard__meta { font-size: 0.78rem; color: var(--muted-2); text-align: right; }
 .mcard__go { margin-top: 14px; display: inline-flex; align-items: center; gap: 8px; font-size: 0.85rem; font-weight: 600; color: var(--accent-2); }
 .mcard__go svg { width: 15px; height: 15px; transition: transform 0.25s var(--ease-out); }
