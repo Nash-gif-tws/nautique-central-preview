@@ -12,6 +12,50 @@
 
   var EASE = 'cubic-bezier(0.16,1,0.3,1)'; // expo-out — the premium settle
 
+  /* ---------- always-on: cross-document view transitions ---------- */
+  // Arriving via a view transition: the preloader curtain would cover the morph — skip it.
+  var preSkip = false;
+  window.addEventListener('pagereveal', function (e) {
+    if (e.viewTransition) { preSkip = true; if (pre) pre.style.display = 'none'; }
+  });
+  // Clicking a range card names its image "boat-hero" so it morphs into the
+  // model-page hero (which carries the same name in CSS). The current page's
+  // hero gives the name up first — names must be unique per snapshot.
+  document.addEventListener('click', function (e) {
+    var card = e.target.closest ? e.target.closest('a.mcard') : null;
+    if (!card) return;
+    document.querySelectorAll('.mcard__media img').forEach(function (i) { i.style.viewTransitionName = ''; });
+    var img = card.querySelector('.mcard__media img');
+    if (img) {
+      img.style.viewTransitionName = 'boat-hero';
+      var ownHero = document.querySelector('.mhero__media img');
+      if (ownHero) ownHero.style.viewTransitionName = 'none';
+    }
+  });
+  // bfcache restore: clear stale names so a second navigation can't double up
+  window.addEventListener('pageshow', function (ev) {
+    if (!ev.persisted) return;
+    document.querySelectorAll('.mcard__media img').forEach(function (i) { i.style.viewTransitionName = ''; });
+    var ownHero = document.querySelector('.mhero__media img');
+    if (ownHero) ownHero.style.viewTransitionName = '';
+  });
+
+  /* ---------- always-on: button label roll (CSS does the motion, fine-pointer only) ---------- */
+  document.querySelectorAll('.btn').forEach(function (btn) {
+    for (var n = btn.firstChild; n; n = n.nextSibling) {
+      if (n.nodeType === 3 && n.textContent.trim()) {
+        var label = n.textContent.trim();
+        var wrap = document.createElement('span');
+        wrap.className = 'btn__txt';
+        var a = document.createElement('span'); a.textContent = label;
+        var b = document.createElement('span'); b.textContent = label; b.setAttribute('aria-hidden', 'true');
+        wrap.appendChild(a); wrap.appendChild(b);
+        btn.replaceChild(wrap, n);
+        break;
+      }
+    }
+  });
+
   /* ---------- always-on: mobile nav ---------- */
   var toggle = document.getElementById('navToggle');
   var mnav = document.getElementById('mnav');
@@ -102,6 +146,7 @@
     var lifted = false;
     var liftPre = function () {
       if (lifted) return; lifted = true;
+      if (preSkip) { pre.style.display = 'none'; return; }
       gsap.timeline({ onComplete: function () { pre.style.display = 'none'; } })
         .to(pbar, { scaleX: 1, duration: 0.6, ease: 'power2.inOut' })
         .to(pre, { yPercent: -100, duration: 0.8, ease: 'expo.inOut' }, '+=0.05');
@@ -158,16 +203,45 @@
      geometry, so it survives refreshes and deep-links through the pinned section —
      no headline line ever gets left clipped. */
   gsap.utils.toArray('[data-mask]').forEach(function (el) {
-    var inner = document.createElement('span');
-    inner.className = 'mask-inner';
-    while (el.firstChild) inner.appendChild(el.firstChild);
-    el.appendChild(inner);
-    el.classList.add('mask-clip');
+    // split on <br> so each headline line gets its own clip and the lines cascade
+    var lines = [[]];
+    Array.prototype.slice.call(el.childNodes).forEach(function (n) {
+      if (n.nodeName === 'BR') lines.push([]);
+      else lines[lines.length - 1].push(n);
+    });
+    lines = lines.filter(function (l) { return l.length; });
+    if (lines.length > 1) {
+      el.textContent = '';
+      lines.forEach(function (nodes, i) {
+        var clip = document.createElement('span');
+        clip.className = 'mask-clip';
+        var inner = document.createElement('span');
+        inner.className = 'mask-inner';
+        inner.style.transitionDelay = (i * 0.09) + 's';
+        nodes.forEach(function (n) { inner.appendChild(n); });
+        clip.appendChild(inner);
+        el.appendChild(clip);
+      });
+      el.classList.add('mask-lines');
+    } else {
+      var inner = document.createElement('span');
+      inner.className = 'mask-inner';
+      while (el.firstChild) inner.appendChild(el.firstChild);
+      el.appendChild(inner);
+      el.classList.add('mask-clip');
+    }
   });
+  /* reveal all lines of one headline together (delays do the cascade) */
   if ('IntersectionObserver' in window) {
     var maskIO = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
-        if (en.isIntersecting) { en.target.classList.add('is-revealed'); maskIO.unobserve(en.target); }
+        if (!en.isIntersecting) return;
+        var parent = en.target.parentElement;
+        if (parent && parent.classList.contains('mask-lines')) {
+          parent.querySelectorAll('.mask-clip').forEach(function (c) { c.classList.add('is-revealed'); maskIO.unobserve(c); });
+        } else {
+          en.target.classList.add('is-revealed'); maskIO.unobserve(en.target);
+        }
       });
     }, { rootMargin: '0px 0px -10% 0px' });
     document.querySelectorAll('.mask-clip').forEach(function (el) { maskIO.observe(el); });
@@ -177,9 +251,51 @@
 
   /* quiet fades for supporting content (moves LESS than headlines = hierarchy) */
   gsap.utils.toArray('[data-reveal]').forEach(function (el) {
+    // range brand groups: header fades, the card grid gets its own cascade below
+    if (el.classList.contains('brand-group')) {
+      el.removeAttribute('data-reveal');
+      var bgHead = el.querySelector('.brand-group__head');
+      if (bgHead) gsap.fromTo(bgHead, { opacity: 0, y: 18 }, {
+        opacity: 1, y: 0, duration: 0.7, ease: 'expo.out', clearProps: 'transform',
+        scrollTrigger: { trigger: bgHead, start: 'top 88%', once: true }
+      });
+      return;
+    }
+    // spec sheet: rows cascade in line by line instead of one block fade
+    if (el.classList.contains('specgroups')) {
+      el.removeAttribute('data-reveal');
+      var rows = el.querySelectorAll('.specgroup h4, .specrow');
+      if (rows.length) gsap.fromTo(rows, { opacity: 0, y: 14 }, {
+        opacity: 1, y: 0, duration: 0.55, ease: 'expo.out', stagger: 0.045, clearProps: 'transform',
+        scrollTrigger: { trigger: el, start: 'top 85%', once: true }
+      });
+      return;
+    }
+    // home range tiles: opacity-only cascade (tile #2 keeps its CSS offset + hover lift)
+    if (el.classList.contains('rtile')) {
+      el.removeAttribute('data-reveal');
+      gsap.set(el, { clearProps: 'transform' });
+      return; // animated as a group below
+    }
     gsap.fromTo(el, { opacity: 0, y: 18 }, {
-      opacity: 1, y: 0, duration: 0.7, ease: 'expo.out',
+      opacity: 1, y: 0, duration: 0.7, ease: 'expo.out', clearProps: 'transform',
       scrollTrigger: { trigger: el, start: 'top 88%', once: true }
+    });
+  });
+
+  /* card grids cascade: model cards rise in sequence; transforms cleared so hover lifts survive */
+  gsap.utils.toArray('.models-grid').forEach(function (grid) {
+    if (!grid.children.length) return;
+    gsap.fromTo(grid.children, { opacity: 0, y: 30 }, {
+      opacity: 1, y: 0, duration: 0.8, ease: 'expo.out', stagger: 0.07, clearProps: 'transform',
+      scrollTrigger: { trigger: grid, start: 'top 88%', once: true }
+    });
+  });
+  gsap.utils.toArray('.range-grid').forEach(function (grid) {
+    if (!grid.children.length) return;
+    gsap.fromTo(grid.children, { opacity: 0 }, {
+      opacity: 1, duration: 0.9, ease: 'expo.out', stagger: 0.12,
+      scrollTrigger: { trigger: grid, start: 'top 86%', once: true }
     });
   });
 
@@ -191,12 +307,64 @@
     });
   });
 
+  /* ---------- cinematic hero intro: focus pull (blur -> sharp) + line cascade.
+     The scale settle lives on the media CONTAINER so it never fights the
+     scrubbed parallax, which owns the img's scale. ---------- */
+  var heroEl = document.querySelector('.hero');
+  var heroImgEl = document.getElementById('heroImg');
+  if (heroEl && heroImgEl) {
+    root.classList.add('hero-cine');
+    var heroItems = heroEl.querySelectorAll('[data-hero]');
+    gsap.timeline({ defaults: { ease: 'expo.out' } })
+      .fromTo('.hero__media', { scale: 1.08 }, { scale: 1, duration: 1.8, ease: 'power3.out' }, 0)
+      .fromTo(heroImgEl, { filter: 'blur(14px) brightness(0.7)' }, {
+        filter: 'blur(0px) brightness(1)', duration: 1.5, ease: 'power2.out',
+        onComplete: function () { gsap.set(heroImgEl, { clearProps: 'filter' }); }
+      }, 0)
+      .fromTo(heroItems, { autoAlpha: 0, y: 36 }, { autoAlpha: 1, y: 0, duration: 1.0, stagger: 0.1 }, 0.45);
+  }
+
   /* parallax — smoothed scrub everywhere for weight */
-  gsap.fromTo('#heroImg', { scale: 1.12, yPercent: 0 }, { scale: 1, yPercent: 12, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 } });
-  gsap.fromTo('#statementImg', { yPercent: -10 }, { yPercent: 10, ease: 'none', scrollTrigger: { trigger: '.statement', start: 'top bottom', end: 'bottom top', scrub: 1 } });
+  if (heroImgEl) gsap.fromTo(heroImgEl, { scale: 1.12, yPercent: 0 }, { scale: 1, yPercent: 12, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 } });
+  var stmtImg = document.getElementById('statementImg');
+  if (stmtImg) gsap.fromTo(stmtImg, { yPercent: -10 }, { yPercent: 10, ease: 'none', scrollTrigger: { trigger: '.statement', start: 'top bottom', end: 'bottom top', scrub: 1 } });
   var whyImg = document.getElementById('whyImg');
   if (whyImg) gsap.fromTo(whyImg, { yPercent: -8 }, { yPercent: 8, ease: 'none', scrollTrigger: { trigger: '.why', start: 'top bottom', end: 'bottom top', scrub: 1 } });
+  var mstImg = document.querySelector('.mstatement__media img');
+  if (mstImg) gsap.fromTo(mstImg, { yPercent: -9 }, { yPercent: 9, ease: 'none', scrollTrigger: { trigger: '.mstatement', start: 'top bottom', end: 'bottom top', scrub: 1 } });
+
+  /* scroll-velocity shear: grids lean with the scroll's momentum and settle on stop */
+  if (lenis) {
+    var shearEls = gsap.utils.toArray('.models-grid, .range-grid, .proof__grid, .mgallery__grid, .mfeat__grid');
+    if (shearEls.length) {
+      var shearTo = shearEls.map(function (el) { return gsap.quickTo(el, 'skewY', { duration: 0.55, ease: 'power3.out' }); });
+      lenis.on('scroll', function (o) {
+        var v = gsap.utils.clamp(-2.2, 2.2, (o && o.velocity ? o.velocity : 0) * 0.045);
+        shearTo.forEach(function (fn) { fn(v); });
+      });
+    }
+  }
   } /* end motionOK */
+
+  /* model-page stat bar: numbers count up in place ("7.09 m" -> 0.00 m ... 7.09 m) */
+  gsap.utils.toArray('.mstat__val').forEach(function (el) {
+    var m = String(el.textContent).match(/^([^0-9]*)([\d,]+(?:\.\d+)?)([\s\S]*)$/);
+    if (!m) return;
+    var num = parseFloat(m[2].replace(/,/g, ''));
+    if (!num) return;
+    var dec = (m[2].split('.')[1] || '').length;
+    var obj = { v: 0 };
+    ScrollTrigger.create({
+      trigger: el, start: 'top 92%', once: true,
+      onEnter: function () {
+        gsap.to(obj, {
+          v: num, duration: 1.1, ease: 'power2.out',
+          onUpdate: function () { el.textContent = m[1] + obj.v.toLocaleString('en-AU', { minimumFractionDigits: dec, maximumFractionDigits: dec }) + m[3]; },
+          onComplete: function () { el.textContent = m[1] + m[2] + m[3]; }
+        });
+      }
+    });
+  });
 
   /* intro stats count up */
   if (document.querySelector('.stats')) ScrollTrigger.create({

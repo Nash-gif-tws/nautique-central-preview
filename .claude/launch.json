@@ -2,10 +2,10 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "nautique",
-      "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8123", "--directory", "/Users/roynewlan/Desktop/Claude/nautique-central-site"],
-      "port": 8123
+      "name": "static-site",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["-y", "http-server", "-p", "8741", "-c-1", "."],
+      "port": 8741
     }
   ]
 }

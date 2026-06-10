@@ -10,7 +10,7 @@ import { dirname, join } from 'node:path';
 import { loadModels } from './storyblok.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const V = '18'; // asset cache-bust version (bump on each deploy)
+const V = '19'; // asset cache-bust version (bump on each deploy)
 // Master price switch. false => every boat shows "Price on application" (the range
 // still SORTS by the indicative price set in the data). Flip to true once real
 // drive-away prices are set in Storyblok; boats with an empty price field then

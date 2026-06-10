@@ -413,6 +413,34 @@ picture { display: contents; }
 @media (prefers-reduced-motion: reduce) { .build__stage { animation: none; } }
 
 /* ============================================================
+   CROSS-DOCUMENT VIEW TRANSITIONS (Chrome 126+/Safari 18.2+;
+   everyone else gets a normal navigation). The clicked range-card
+   image morphs into the model-page hero ("boat-hero" pairing,
+   assigned on click in app.js).
+   ============================================================ */
+@view-transition { navigation: auto; }
+.mhero__media img { view-transition-name: boat-hero; }
+::view-transition-old(root) { animation-duration: 0.26s; }
+::view-transition-new(root) { animation-duration: 0.38s; }
+::view-transition-group(boat-hero) { animation-duration: 0.55s; animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1); }
+::view-transition-old(boat-hero), ::view-transition-new(boat-hero) { animation-duration: 0.55s; height: 100%; width: 100%; object-fit: cover; }
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*), ::view-transition-image-pair(*),
+  ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
+}
+
+/* ---------- button label roll (wrapped by app.js; desktop fine-pointer only) ---------- */
+.btn__txt { position: relative; display: inline-block; overflow: hidden; }
+.btn__txt span { display: block; }
+@media (hover: hover) and (pointer: fine) {
+  .btn__txt span { transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1); }
+  .btn__txt span + span { position: absolute; inset: 0; transform: translateY(110%); }
+  .btn:hover .btn__txt span:first-child { transform: translateY(-110%); }
+  .btn:hover .btn__txt span + span { transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) { .btn__txt span { transition: none !important; } }
+
+/* ============================================================
    MOTION STATES (gated; everything visible if JS/GSAP absent or reduced-motion)
    ============================================================ */
 .anim .hero [data-hero] { opacity: 0; transform: translateY(26px); animation: heroRise 0.85s var(--ease-out) forwards; }
@@ -422,8 +450,14 @@ picture { display: contents; }
 .anim .hero [data-hero]:nth-child(4) { animation-delay: 0.46s; }
 @keyframes heroRise { to { opacity: 1; transform: none; } }
 
+/* cinematic GSAP hero intro takes over from the CSS keyframes (desktop + gsap only) */
+.hero-cine .hero [data-hero] { animation: none; opacity: 0; }
+.hero-cine .hero__media img { will-change: transform, filter; }
+
 .mask-clip { overflow: hidden; display: block; }
 .mask-inner { display: block; }
+/* per-line masks: each headline line is its own clip so lines cascade */
+.mask-lines .mask-clip { display: block; }
 /* hide-then-reveal only on desktop; phones/tablets show content statically (robust) */
 @media (min-width: 981px) {
   .gsap-ready [data-reveal] { opacity: 0; transform: translateY(18px); }
