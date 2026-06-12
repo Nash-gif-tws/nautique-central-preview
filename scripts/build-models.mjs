@@ -10,7 +10,7 @@ import { dirname, join } from 'node:path';
 import { loadModels } from './storyblok.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const V = '19'; // asset cache-bust version (bump on each deploy)
+const V = '20'; // asset cache-bust version (bump on each deploy)
 // Master price switch. false => every boat shows "Price on application" (the range
 // still SORTS by the indicative price set in the data). Flip to true once real
 // drive-away prices are set in Storyblok; boats with an empty price field then
@@ -81,7 +81,7 @@ const footer = `
           </div>
         </div>
         <div>
-          <h4>Explore</h4>
+          <h3>Explore</h3>
           <div class="footer__links">
             <a href="models.html">The Range</a>
             <a href="index.html#stock">In-Stock Boats</a>
@@ -91,7 +91,7 @@ const footer = `
           </div>
         </div>
         <div>
-          <h4>Showrooms</h4>
+          <h3>Showrooms</h3>
           <div class="footer__locs">
             <p class="footer__loc"><strong>New South Wales</strong>Penrith &middot; <a href="tel:+61247318744">02 4731 8744</a></p>
             <p class="footer__loc"><strong>Queensland</strong>Yatala &middot; <a href="tel:+61756792246">07 5679 2246</a></p>
@@ -196,9 +196,8 @@ function modelPage(m, all) {
 
   // key features
   const features = Array.isArray(m.features) ? m.features.filter((f) => f && f.title) : [];
-  const featGrid = features.map((f, i) => `
+  const featGrid = features.map((f) => `
           <article class="mfeat__item" data-reveal>
-            <span class="mfeat__num">${String(i + 1).padStart(2, '0')}</span>
             <div>
               <h3>${f.title}</h3>
               <p>${f.body || ''}</p>
@@ -231,7 +230,7 @@ function modelPage(m, all) {
           <h2 class="section-h" data-mask>Every detail considered.</h2>
         </div>
         <div class="mgallery__grid">
-          ${gal.map(([src, cap]) => `<figure class="mshot" data-reveal-img>${pic(src, m.name + ' — ' + cap, 'loading="lazy"')}<figcaption>${cap}</figcaption></figure>`).join('\n          ')}
+          ${gal.map(([src, cap]) => `<figure class="mshot" data-reveal-img>${pic(src, m.name + ', ' + cap.toLowerCase(), 'loading="lazy"')}<figcaption>${cap}</figcaption></figure>`).join('\n          ')}
         </div>
       </div>
     </section>` : '';
@@ -242,7 +241,7 @@ function modelPage(m, all) {
       .map((k) => `<div class="specrow"><dt>${k === 'Capacity' ? 'Capacity' : k}</dt><dd>${m.specs[k]}</dd></div>`).join('');
     return rows ? `
           <div class="specgroup">
-            <h4>${title}</h4>
+            <h3>${title}</h3>
             <dl>${rows}</dl>
           </div>` : '';
   }).filter(Boolean).join('');
@@ -321,7 +320,7 @@ ${featSection}${gallerySection}${statementSection}
         <div class="mspecfull__head" data-reveal>
           <p class="eyebrow">Specifications</p>
           <h2 class="section-h" data-mask>The numbers.</h2>
-          <p class="mspecfull__note">Manufacturer figures &mdash; may vary by model year and options. Confirm exact specification with our team.</p>
+          <p class="mspecfull__note">Manufacturer figures, which may vary by model year and options. Confirm exact specification with our team.</p>
         </div>
         <div class="specgroups" data-reveal>
           ${specGroupsHtml}
@@ -355,14 +354,14 @@ function indexPage(models) {
           <div class="models-grid">${list.map(card).join('')}</div>
         </section>`;
   }).join('\n        ');
-  return head('The Range | Nautique Central', 'Explore the full range from Nautique and Matrix — wake, surf and ski boats, grouped by brand. Book an on-water demo at your nearest showroom.', null) + header + `
+  return head('The Range | Nautique Central', 'Explore the full range of wake, surf and ski boats from Nautique, Supreme and Matrix, grouped by brand. Book an on-water demo at your nearest showroom.', null) + header + `
     <section class="section range-index">
       <div class="wrap">
         <div class="head" data-reveal>
           <p class="eyebrow">The Range</p>
           <h2 class="section-h" data-mask>Every boat<br>we sell.</h2>
-          <p class="lede">From the flagship Paragon and the award-winning G-Series to the Australian-built Matrix. Grouped by brand and ordered by price &mdash; pick the one that fits how you ride, then feel it on the water.</p>
-          <p class="range-note">${SHOW_PRICES ? 'Prices are indicative new drive-away guides in AUD. Final pricing depends on specification and options &mdash; on application.' : 'Each range is ordered by price, highest to lowest. Contact our team for drive-away pricing on any model.'}</p>
+          <p class="lede">From the flagship Paragon and the award-winning G-Series to the Australian-built Matrix. Grouped by brand and ordered by price. Pick the one that fits how you ride, then feel it on the water.</p>
+          <p class="range-note">${SHOW_PRICES ? 'Prices are indicative new drive-away guides in AUD. Final pricing depends on specification and options, on application.' : 'Each range is ordered by price, highest to lowest. Contact our team for drive-away pricing on any model.'}</p>
         </div>
         ${groups}
       </div>

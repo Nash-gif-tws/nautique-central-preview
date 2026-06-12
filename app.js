@@ -438,35 +438,6 @@
     }
   } catch (e) {}
 
-  /* ---------- G23 cruising the bottom of the viewport, scrubbed to page scroll ---------- */
-  var rig = document.getElementById('cruiseRig');
-  var cruise = document.getElementById('cruise');
-  if (rig) {
-    gsap.fromTo(rig,
-      { x: function () { return -(rig.offsetWidth + 40); } },
-      {
-        x: function () { return window.innerWidth + 60; }, ease: 'none',
-        scrollTrigger: { start: 'top top', end: 'max', scrub: 0.8, invalidateOnRefresh: true }
-      });
-    var ft = document.querySelector('.footer');
-    if (ft && cruise) {
-      ScrollTrigger.create({
-        trigger: ft, start: 'top bottom',
-        onEnter: function () { cruise.style.opacity = '0'; },
-        onLeaveBack: function () { cruise.style.opacity = '1'; }
-      });
-    }
-    // fade the cruising boat out across "Design your Nautique" so it doesn't
-    // duplicate the static G23 centrepiece there — a visitor should see one boat, not two
-    var buildSec = document.getElementById('build');
-    if (buildSec && cruise) {
-      ScrollTrigger.create({
-        trigger: buildSec, start: 'top 75%', end: 'bottom 25%',
-        onToggle: function (self) { cruise.style.opacity = self.isActive ? '0' : '1'; }
-      });
-    }
-  }
-
   /* "Design your Nautique" boat: subtle cursor parallax (desktop, fine pointer) */
   try {
     var bboat = document.getElementById('buildBoat');
