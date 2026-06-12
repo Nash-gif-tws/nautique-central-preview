@@ -361,6 +361,40 @@
       });
     }
   }
+  /* ---------- G23 cruising the bottom of the viewport, scrubbed to page scroll.
+     The boat yields to interactive content: every section that parks CTAs or a
+     form at the bottom edge votes to hide it while in view (votes can overlap). ---------- */
+  var rig = document.getElementById('cruiseRig');
+  var cruise = document.getElementById('cruise');
+  if (rig && cruise) {
+    gsap.fromTo(rig,
+      { x: function () { return -(rig.offsetWidth + 40); } },
+      {
+        x: function () { return window.innerWidth + 60; }, ease: 'none',
+        scrollTrigger: { start: 'top top', end: 'max', scrub: 0.8, invalidateOnRefresh: true }
+      });
+    var hideVotes = 0;
+    var voteHide = function (on) {
+      hideVotes = Math.max(0, hideVotes + (on ? 1 : -1));
+      cruise.style.opacity = hideVotes > 0 ? '0' : '1';
+    };
+    ['.states', '#demo', '#build'].forEach(function (sel) {
+      var el = document.querySelector(sel);
+      if (!el) return;
+      ScrollTrigger.create({
+        trigger: el, start: 'top 70%', end: 'bottom 30%',
+        onToggle: function (self) { voteHide(self.isActive); }
+      });
+    });
+    var cruiseFt = document.querySelector('.footer');
+    if (cruiseFt) {
+      ScrollTrigger.create({
+        trigger: cruiseFt, start: 'top bottom',
+        onEnter: function () { voteHide(true); },
+        onLeaveBack: function () { voteHide(false); }
+      });
+    }
+  }
   } /* end motionOK */
 
   /* model-page stat bar: numbers count up in place ("7.09 m" -> 0.00 m ... 7.09 m) */

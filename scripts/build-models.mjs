@@ -49,7 +49,7 @@ const head = (title, desc, jsonld, preload) => `<!doctype html>
 const header = `
   <header class="header" id="header">
     <div class="wrap header__row">
-      <a href="index.html" aria-label="Nautique Central home"><img class="brand-logo" src="images/nc-logo.png" alt="Nautique Central" /></a>
+      <a href="index.html" aria-label="Nautique Central home"><img class="brand-logo" src="images/nc-logo-small.webp" alt="Nautique Central" width="233" height="192" /></a>
       <nav class="nav" aria-label="Primary">
         <a href="models.html">Range</a>
         <a href="index.html#stock">Stock</a>
@@ -76,7 +76,7 @@ const footer = `
     <div class="wrap">
       <div class="footer__grid">
         <div>
-          <img class="footer__logo" src="images/nc-logo.png" alt="Nautique Central" />
+          <img class="footer__logo" src="images/nc-logo-small.webp" alt="Nautique Central" width="233" height="192" />
           <p>Authorised dealer for Nautique, Supreme and Matrix tow boats. It's not just a boat. It's a lifestyle.</p>
           <div class="footer__socials">
             <a href="https://www.instagram.com/nautique_central" rel="noopener" aria-label="Instagram">${IG}</a>
