@@ -5,12 +5,13 @@
  * Output: <slug>.html (root) + models.html. Re-run after editing the data.
  */
 import { writeFile } from 'node:fs/promises';
+import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { loadModels } from './storyblok.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const V = '20'; // asset cache-bust version (bump on each deploy)
+const V = '21'; // asset cache-bust version (bump on each deploy)
 // Master price switch. false => every boat shows "Price on application" (the range
 // still SORTS by the indicative price set in the data). Flip to true once real
 // drive-away prices are set in Storyblok; boats with an empty price field then
@@ -28,11 +29,13 @@ const head = (title, desc, jsonld, preload) => `<!doctype html>
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b0b0b" />
   <meta name="robots" content="noindex" />
   <script>(function(d){d.documentElement.className+=' js';try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches)d.documentElement.className+=' anim';}catch(e){}})(document);</script>
   <title>${title}</title>
   <meta name="description" content="${desc}" />
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=switzer@400,500,600,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css?v=${V}" />
   ${preload ? `<link rel="preload" as="image" href="${preload}" type="image/webp" fetchpriority="high" />` : ''}
@@ -117,10 +120,40 @@ const footer = `
 /* ---------- helpers ---------- */
 const shortName = (m) => m.name.replace('Super Air Nautique ', '');
 const toWebp = (src) => (src ? src.replace(/\.(jpe?g|png)$/i, '.webp') : src);
+// read intrinsic dimensions from local PNG/JPEG headers at build time (no deps) so every
+// generated <img> ships width/height and never causes layout shift; CSS still controls size
+const dimsCache = new Map();
+function imgDims(src) {
+  if (dimsCache.has(src)) return dimsCache.get(src);
+  let d = null;
+  try {
+    if (src && !src.startsWith('http')) {
+      const buf = readFileSync(join(ROOT, src));
+      if (buf.readUInt32BE(0) === 0x89504e47) {
+        d = { w: buf.readUInt32BE(16), h: buf.readUInt32BE(20) }; // PNG IHDR
+      } else if (buf[0] === 0xff && buf[1] === 0xd8) {
+        let i = 2; // JPEG: walk markers to the first SOFn frame header
+        while (i < buf.length - 9) {
+          if (buf[i] !== 0xff) { i++; continue; }
+          const m = buf[i + 1];
+          if (m >= 0xc0 && m <= 0xcf && m !== 0xc4 && m !== 0xc8 && m !== 0xcc) {
+            d = { h: buf.readUInt16BE(i + 5), w: buf.readUInt16BE(i + 7) };
+            break;
+          }
+          i += 2 + buf.readUInt16BE(i + 2);
+        }
+      }
+    }
+  } catch (e) { d = null; }
+  dimsCache.set(src, d);
+  return d;
+}
 // <picture> with a webp source + the original as fallback <img>; transparent to CSS (picture{display:contents})
 const pic = (src, alt, attrs = '') => {
   if (!src) return '';
-  return `<picture><source srcset="${toWebp(src)}" type="image/webp" /><img src="${src}" alt="${alt}"${attrs ? ' ' + attrs : ''} /></picture>`;
+  const d = imgDims(src);
+  const dim = d ? ` width="${d.w}" height="${d.h}"` : '';
+  return `<picture><source srcset="${toWebp(src)}" type="image/webp" /><img src="${src}" alt="${alt}"${dim}${attrs ? ' ' + attrs : ''} /></picture>`;
 };
 const abs = (src) => (!src ? '' : src.startsWith('http') ? src : SITE + src);
 const fmtAUD = (n) => '$' + Number(n).toLocaleString('en-AU');
@@ -138,9 +171,9 @@ const SPEC_GROUPS = [
   ['Power', ['Standard engine', 'Top engine']],
 ];
 const BRAND_BLURB = {
-  Nautique: 'American-built &middot; wake, surf &amp; ski',
-  Matrix: 'Australian-built &middot; performance &amp; value',
-  Supreme: 'American-built &middot; surf-first',
+  Nautique: 'American-built wake, surf &amp; ski',
+  Matrix: 'Australian-built performance &amp; value',
+  Supreme: 'American-built, surf-first',
 };
 
 /* shared range/related card */
@@ -207,7 +240,6 @@ function modelPage(m, all) {
     <section class="section mfeat">
       <div class="wrap">
         <div class="head" data-reveal>
-          <p class="eyebrow">Highlights</p>
           <h2 class="section-h" data-mask>What sets the ${short} apart.</h2>
         </div>
         <div class="mfeat__grid">${featGrid}</div>
@@ -226,7 +258,6 @@ function modelPage(m, all) {
     <section class="section mgallery">
       <div class="wrap">
         <div class="head" data-reveal>
-          <p class="eyebrow">Up close</p>
           <h2 class="section-h" data-mask>Every detail considered.</h2>
         </div>
         <div class="mgallery__grid">
@@ -252,7 +283,6 @@ function modelPage(m, all) {
     <section class="section mrelated">
       <div class="wrap">
         <div class="head" data-reveal>
-          <p class="eyebrow">Keep exploring</p>
           <h2 class="section-h" data-mask>Other boats in the range.</h2>
         </div>
         <div class="models-grid mrelated__grid">${rel.map(card).join('')}</div>
@@ -265,7 +295,6 @@ function modelPage(m, all) {
     <section class="mstatement">
       <div class="mstatement__media">${pic(stmtImg, m.name + ' on the water', 'loading="lazy"')}</div>
       <div class="wrap mstatement__inner" data-reveal>
-        <p class="eyebrow">On the water</p>
         <h2 class="mstatement__quote" data-mask>${stmt}</h2>
       </div>
     </section>` : '';
@@ -281,13 +310,13 @@ function modelPage(m, all) {
       <div class="mhero__media">${pic(heroImg, m.name + ' on the water', 'fetchpriority="high"')}</div>
       <div class="wrap mhero__inner">
         <a class="mback" href="models.html">${ARROW}<span>All models</span></a>
-        <p class="mhero__kicker">${m.brand || 'Nautique'} &middot; ${m.class} &middot; ${m.discipline}</p>
+        <p class="mhero__kicker">${m.brand || 'Nautique'} ${m.class} &middot; ${m.discipline}</p>
         <h1>${short}</h1>
         <p class="mhero__tagline">${m.tagline}</p>
         <div class="mhero__price"><span class="mhero__from${showPrice(m) ? '' : ' mhero__from--poa'}">${priceLabel(m)}</span>${showPrice(m) ? '<span class="mhero__pnote">Indicative &middot; drive-away on application</span>' : ''}</div>
         <div class="mhero__cta">
-          <a class="btn btn--primary" href="index.html#demo">Book a demo ${ARROW}</a>
-          <a class="btn btn--ghost" href="index.html#demo">Enquire about this boat</a>
+          <a class="btn btn--primary" href="index.html#demo">Book a Demo ${ARROW}</a>
+          <a class="btn btn--ghost" href="#specs">Full Specifications</a>
         </div>
       </div>
     </section>
@@ -315,7 +344,7 @@ function modelPage(m, all) {
       </div>
     </section>
 ${featSection}${gallerySection}${statementSection}
-    <section class="section mspecfull">
+    <section class="section mspecfull" id="specs">
       <div class="wrap mspecfull__grid">
         <div class="mspecfull__head" data-reveal>
           <p class="eyebrow">Specifications</p>
@@ -359,7 +388,7 @@ function indexPage(models) {
       <div class="wrap">
         <div class="head" data-reveal>
           <p class="eyebrow">The Range</p>
-          <h2 class="section-h" data-mask>Every boat<br>we sell.</h2>
+          <h1 class="section-h" data-mask>Every boat<br>we sell.</h1>
           <p class="lede">From the flagship Paragon and the award-winning G-Series to the Australian-built Matrix. Grouped by brand and ordered by price. Pick the one that fits how you ride, then feel it on the water.</p>
           <p class="range-note">${SHOW_PRICES ? 'Prices are indicative new drive-away guides in AUD. Final pricing depends on specification and options, on application.' : 'Each range is ordered by price, highest to lowest. Contact our team for drive-away pricing on any model.'}</p>
         </div>
@@ -371,8 +400,8 @@ function indexPage(models) {
       <div class="wrap" data-reveal>
         <h2 data-mask>Not sure which one?</h2>
         <div class="closer__cta">
-          <a class="btn btn--primary" href="index.html#demo">Book a demo ${ARROW}</a>
-          <a class="btn btn--ghost" href="index.html#showrooms">Talk to our team</a>
+          <a class="btn btn--primary" href="index.html#demo">Book a Demo ${ARROW}</a>
+          <a class="btn btn--ghost" href="index.html#showrooms">Find Your Showroom</a>
         </div>
       </div>
     </section>` + footer;

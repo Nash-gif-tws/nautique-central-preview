@@ -95,24 +95,41 @@
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       // NOTE: wire this to a real handler (Formspree / CRM / email) before launch.
-      var ok = true;
+      var firstBad = null;
       form.querySelectorAll('[required]').forEach(function (f) {
-        var bad = !String(f.value || '').trim();
+        // checkValidity() still runs with novalidate — it only suppresses the native submit UI
+        var bad = !String(f.value || '').trim() || !f.checkValidity();
         f.classList.toggle('is-error', bad);
-        if (bad) ok = false;
+        if (bad) { f.setAttribute('aria-invalid', 'true'); } else { f.removeAttribute('aria-invalid'); }
+        var err = document.getElementById(f.id + '-err');
+        if (err) err.hidden = !bad;
+        if (bad && !firstBad) firstBad = f;
       });
-      if (!ok) return;
+      if (firstBad) { firstBad.focus(); return; }
       var done = document.getElementById('formDone');
       form.hidden = true;
       if (done) { done.hidden = false; done.focus && done.focus(); }
     });
     form.querySelectorAll('[required]').forEach(function (f) {
-      f.addEventListener('input', function () { f.classList.remove('is-error'); });
+      f.addEventListener('input', function () {
+        f.classList.remove('is-error');
+        f.removeAttribute('aria-invalid');
+        var err = document.getElementById(f.id + '-err');
+        if (err) err.hidden = true;
+      });
     });
   }
 
   /* ---------- no motion: reveal everything, stop ---------- */
-  if (!gsapOK || reduced) { root.classList.remove('anim'); if (pre) pre.style.display = 'none'; return; }
+  if (!gsapOK || reduced) {
+    root.classList.remove('anim');
+    if (pre) pre.style.display = 'none';
+    // no count-up will run — write the final counter values directly so stats don't sit at "0"
+    document.querySelectorAll('[data-count]').forEach(function (el) {
+      el.textContent = el.dataset.count + (el.dataset.suffix || '');
+    });
+    return;
+  }
 
   gsap.registerPlugin(ScrollTrigger);
   if (window.ScrollToPlugin) gsap.registerPlugin(ScrollToPlugin);
