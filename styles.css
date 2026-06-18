@@ -446,9 +446,13 @@ picture { display: contents; }
 /* ---------- button label roll (wrapped by app.js; desktop fine-pointer only) ---------- */
 .btn__txt { position: relative; display: inline-block; overflow: hidden; }
 .btn__txt span { display: block; }
+/* the duplicate label exists only to drive the desktop hover roll; on touch/coarse
+   pointers the roll media query never matches, so keep it out of flow or it stacks
+   a second copy of the label under the first (every button looked doubled on mobile). */
+.btn__txt span + span { display: none; }
 @media (hover: hover) and (pointer: fine) {
   .btn__txt span { transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1); }
-  .btn__txt span + span { position: absolute; inset: 0; transform: translateY(110%); }
+  .btn__txt span + span { display: block; position: absolute; inset: 0; transform: translateY(110%); }
   .btn:hover .btn__txt span:first-child { transform: translateY(-110%); }
   .btn:hover .btn__txt span + span { transform: translateY(0); }
 }
