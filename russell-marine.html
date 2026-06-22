@@ -1,0 +1,976 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#070f1a" />
+  <meta name="robots" content="noindex" />
+  <script>(function(d){d.documentElement.className+=' js';try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches)d.documentElement.className+=' anim';}catch(e){}})(document);</script>
+  <title>Russell Marine | Alabama's Largest Boat Dealer — Lake Martin &amp; Smith Lake</title>
+  <meta name="description" content="Russell Marine — Alabama's largest boat dealer. Six locations on Lake Martin and Smith Lake. Nautique, Sea Ray, Bennington, Chris-Craft, Godfrey, Supreme, Sea-Doo. Owned by the family that owns the lake. Call (256) 397-1700." />
+
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&display=swap" rel="stylesheet" />
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=switzer@400,500,600,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=22" />
+  <link rel="preload" as="image" href="images/gs24.webp" type="image/webp" media="(min-width: 701px)" fetchpriority="high" />
+  <link rel="preload" as="image" href="images/gs24-mobile.webp" type="image/webp" media="(max-width: 700px)" fetchpriority="high" />
+
+  <!-- ============ DEMO RE-SKIN + LIFT: Russell Marine palette + lift overrides ============ -->
+  <style>
+    /* Brand tokens — pulled from russellmarine.net stylesheet */
+    :root{
+      --bg:#070f1a; --bg-1:#0a1623; --bg-2:#0f1f30; --bg-3:#16293d;
+      --accent:#15a6da; --accent-2:#41c6f0;
+      --brass:#c9a86a;
+    }
+    .btn--primary{ color:#05121f; }
+    .skip-link{ color:#05121f; }
+
+    /* Wordmark */
+    .wordmark{ display:inline-flex; align-items:center; gap:11px; }
+    .wordmark__mark{ width:26px; height:26px; color:var(--accent); flex:none; filter:drop-shadow(0 2px 8px rgba(0,0,0,.45)); }
+    .wordmark__txt{ display:flex; flex-direction:column; line-height:1; }
+    .wordmark__name{ font-family:var(--font-display); text-transform:uppercase; font-weight:600; letter-spacing:.05em; font-size:1.16rem; color:#fff; }
+    .wordmark__sub{ font-family:var(--font-body); text-transform:uppercase; letter-spacing:.3em; font-size:.54rem; color:var(--muted-2); margin-top:5px; }
+    .footer__wordmark{ margin-bottom:18px; }
+    .footer__wordmark .wordmark__name{ font-size:1.3rem; }
+    @media (max-width:700px){ .wordmark__sub{ display:none; } }
+
+    /* Header phone */
+    .header__phone{ display:inline-flex; align-items:center; gap:9px; color:#fff; font-family:var(--font-display); font-size:.92rem; text-decoration:none; margin-left:auto; margin-right:14px; }
+    .header__phone svg{ color:var(--accent); flex:none; }
+    .header__phone strong{ display:block; letter-spacing:.04em; font-weight:600; line-height:1; white-space:nowrap; }
+    .nav a{ white-space:nowrap; }
+    @media (min-width:981px) and (max-width:1180px){ .nav{ gap:20px; } .header__phone{ margin-right:10px; } .header__cta{ padding:11px 18px; } }
+    .header__phone em{ display:block; font-style:normal; font-size:.66rem; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.55); margin-top:3px; }
+    @media (max-width:980px){ .header__phone em{ display:none; } .header__phone{ min-height:44px; padding:0 12px; border:1px solid rgba(21,166,218,.5); border-radius:999px; color:var(--accent-2); margin-right:8px; font-size:.85rem; } .header__phone strong{ letter-spacing:.02em; } }
+    @media (max-width:700px){ .header__phone strong{ font-size:.78rem; } }
+
+    /* Hero — credentials eyebrow */
+    .hero .eyebrow--creds{ font-size:.72rem; letter-spacing:.22em; text-transform:uppercase; color:rgba(255,255,255,.78); font-weight:500; display:flex; flex-wrap:wrap; gap:10px 14px; align-items:center; text-shadow:0 1px 12px rgba(0,0,0,.45); }
+    .hero .eyebrow--creds span{ color:var(--accent); opacity:.7; }
+    @media (max-width:600px){ .hero .eyebrow--creds{ font-size:.62rem; letter-spacing:.18em; gap:6px 10px; } }
+
+    /* (H1 desk/mob split removed — single headline on all viewports) */
+
+    /* Hero quick-call bar */
+    .hero__quick{ margin-top:22px; max-width:560px; }
+    .hero__quick-label{ display:block; font-size:.88rem; color:#dfe1e4; margin-bottom:10px; text-shadow:0 1px 10px rgba(0,0,0,.45); }
+    .hero__quick-row{ display:flex; gap:8px; background:rgba(10,14,22,.55); border:1px solid rgba(255,255,255,.18); border-radius:999px; padding:6px; backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); }
+    .hero__quick-row input{ flex:1; background:transparent; border:0; color:#fff; padding:12px 18px; font-size:1rem; font-family:var(--font-body); outline:none; min-width:0; }
+    .hero__quick-row input::placeholder{ color:rgba(255,255,255,.45); }
+    .hero__quick-row .btn{ padding:13px 22px; font-size:.85rem; }
+    .hero__quick-fine{ font-size:.72rem; letter-spacing:.04em; color:rgba(255,255,255,.6); margin-top:10px; text-align:left; text-shadow:0 1px 10px rgba(0,0,0,.45); }
+    @media (max-width:700px){ .hero__quick{ display:none; } }
+
+    /* Hero CTA — mobile call swap */
+    .hero__cta--mob{ display:none; }
+    .hero__cta--desk{ display:inline; }
+    @media (max-width:700px){
+      .hero__cta--mob{ display:inline; }
+      .hero__cta--desk{ display:none; }
+      .hero__cta--call{ background:rgba(21,166,218,.18) !important; border-color:rgba(21,166,218,.6) !important; color:#fff !important; }
+    }
+
+    /* Mobile hero rebuild */
+    @media (max-width:600px){
+      .hero{ min-height:88svh; align-items:flex-end; padding-top:84px; padding-bottom:28px; }
+      .hero__media img{ height:100%; object-position:60% 40%; }
+      .hero__media::after{ background:linear-gradient(to top,rgba(7,15,26,.95) 0%,rgba(7,15,26,.7) 28%,rgba(7,15,26,.15) 58%,rgba(7,15,26,0) 80%) !important; }
+      .hero h1{ font-size:clamp(2.6rem,11.5vw,3.6rem) !important; line-height:.98; letter-spacing:-.025em; }
+      .hero__sub{ display:none; }
+      .hero .eyebrow--creds{ font-size:11px; margin-bottom:14px; }
+      .hero__cta{ gap:10px; flex-direction:column; }
+      .hero__cta .btn{ width:100%; justify-content:center; padding:16px; font-size:1rem; }
+    }
+    @media (max-width:380px){ .hero h1{ font-size:2.4rem !important; } }
+
+    /* Proof bar under hero */
+    .proofbar{ background:#0a1623; border-top:1px solid rgba(255,255,255,.06); border-bottom:1px solid rgba(255,255,255,.06); padding:clamp(28px,4vw,52px) 0; }
+    .proofbar__row{ display:grid; grid-template-columns:repeat(4,1fr); gap:0; align-items:end; }
+    .proofbar__cell{ display:flex; flex-direction:column; gap:8px; padding:8px 20px; border-right:1px solid rgba(255,255,255,.08); }
+    .proofbar__cell:last-child{ border-right:0; }
+    .proofbar__num{ font-family:var(--font-display); font-weight:600; font-size:clamp(2.4rem,5.5vw,4rem); line-height:1; color:#fff; letter-spacing:-.02em; }
+    .proofbar__den{ font-size:.45em; color:var(--accent); margin-left:4px; font-weight:500; }
+    .proofbar__lbl{ font-family:var(--font-body); font-size:.74rem; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.6); font-weight:500; }
+    @media (max-width:700px){
+      .proofbar__row{ grid-template-columns:repeat(2,1fr); row-gap:24px; }
+      .proofbar__cell:nth-child(2){ border-right:0; }
+      .proofbar__cell:nth-child(1),.proofbar__cell:nth-child(2){ border-bottom:1px solid rgba(255,255,255,.08); padding-bottom:24px; }
+    }
+
+    /* Brand strip — mobile snap chips */
+    .brands__logos{ flex-wrap:wrap; justify-content:center; row-gap:14px; }
+    .brands__logos .brand-word{ font-size:1.12rem; letter-spacing:.05em; opacity:.86; }
+    .brands__div{ height:18px; }
+    @media (max-width:700px){
+      .brands__row{ display:block; padding:0; }
+      .brands__label{ display:block; text-align:center; margin-bottom:14px; }
+      .brands__logos{ flex-wrap:nowrap !important; gap:8px !important; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; padding:4px 20px 8px; scrollbar-width:none; }
+      .brands__logos::-webkit-scrollbar{ display:none; }
+      .brands__div{ display:none !important; }
+      .brand-word{ flex:0 0 auto; scroll-snap-align:start; padding:10px 16px; border:1px solid rgba(21,166,218,.3); border-radius:999px; background:rgba(21,166,218,.06); font-size:.86rem !important; letter-spacing:.08em; opacity:1 !important; }
+    }
+
+    /* Certifications strip */
+    .certs{ padding:clamp(28px,4vw,56px) 0; border-top:1px solid rgba(255,255,255,.06); border-bottom:1px solid rgba(255,255,255,.06); background:linear-gradient(180deg,transparent,rgba(21,166,218,.03) 50%,transparent); }
+    .certs__row{ display:grid; grid-template-columns:repeat(4,1fr); gap:28px; align-items:center; }
+    .cert{ display:flex; gap:14px; align-items:flex-start; }
+    .cert__seal{ width:36px; height:36px; color:var(--accent); flex:none; margin-top:2px; }
+    .cert__txt{ display:flex; flex-direction:column; gap:4px; }
+    .cert__txt strong{ font-family:var(--font-display); font-weight:600; font-size:.95rem; color:#fff; letter-spacing:.01em; text-transform:uppercase; }
+    .cert__txt span{ font-size:.78rem; color:var(--muted); line-height:1.4; }
+    @media (max-width:900px){ .certs__row{ grid-template-columns:repeat(2,1fr); gap:22px; } }
+    @media (max-width:500px){ .certs__row{ grid-template-columns:1fr; } }
+
+    /* Heritage inline link + pull-quote */
+    .inline-link{ color:#fff; text-decoration:underline; text-decoration-color:var(--accent); text-underline-offset:3px; text-decoration-thickness:1.5px; }
+    .inline-link:hover{ color:var(--accent); }
+    .family-quote{ margin:22px 0 8px; padding:18px 22px; border-left:3px solid var(--accent); background:rgba(21,166,218,.05); }
+    .family-quote blockquote{ font-family:var(--font-display); font-style:italic; font-size:1.05rem; line-height:1.45; color:#fff; margin:0 0 10px; text-transform:none; letter-spacing:0; font-weight:500; }
+    .family-quote figcaption{ font-size:.82rem; color:var(--muted); }
+    .family-quote figcaption strong{ color:#fff; font-weight:600; }
+
+    /* Six-location grid — wrap on lift */
+    .locs{ flex-wrap:wrap; }
+
+    /* Location text-link */
+    .loc__line--text a{ color:var(--accent); font-weight:500; }
+    .loc__line--text svg{ color:var(--accent); }
+
+    /* Form: hint + optional label */
+    .field__hint{ font-size:.74rem; color:rgba(255,255,255,.55); margin-top:6px; }
+    .field__opt{ color:rgba(255,255,255,.55); font-weight:400; letter-spacing:.04em; font-size:.85em; }
+
+    /* Form legal */
+    .demo__legal{ margin-top:6px; }
+    .demo__consent{ font-size:.68rem; color:rgba(255,255,255,.55); text-align:center; margin-top:10px; line-height:1.5; max-width:46ch; margin-inline:auto; opacity:.85; }
+
+    /* Form done state */
+    .demo__done{ text-align:center; padding:clamp(28px,4vw,48px) 0; }
+    .demo__done-tick{ display:inline-flex; width:64px; height:64px; border-radius:50%; background:var(--accent); color:#05121f; align-items:center; justify-content:center; margin-bottom:18px; }
+    .demo__done-tick svg{ width:32px; height:32px; }
+    .demo__done h3{ font-size:1.5rem; margin-bottom:12px; }
+    .demo__done > p{ color:var(--muted); max-width:48ch; margin:0 auto 22px; }
+    .demo__done-cta{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:18px; }
+    .demo__done-phone{ font-size:.85rem; color:rgba(255,255,255,.55); }
+    .demo__done-phone a{ color:var(--accent); text-decoration:underline; text-underline-offset:2px; }
+
+    /* Mobile form: tap targets + select chevron */
+    @media (max-width:980px){
+      .field input,.field select{ padding:16px 16px !important; font-size:16px; min-height:50px; border-radius:10px; }
+      .field select{ appearance:none; -webkit-appearance:none; background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a4b3c3' stroke-width='2' stroke-linecap='round'><path d='M7 10l5 5 5-5'/></svg>"); background-repeat:no-repeat; background-position:right 14px center; background-size:18px; padding-right:42px !important; }
+      .demo__form .btn{ min-height:56px; font-size:1.05rem; width:100%; justify-content:center; }
+    }
+
+    /* Sticky bar — all viewports, 3 buttons */
+    .stickybar{ position:fixed; left:0; right:0; bottom:0; z-index:90; display:flex; gap:10px; padding:12px clamp(16px,4vw,28px) calc(12px + env(safe-area-inset-bottom)); background:rgba(8,8,9,.92); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-top:1px solid var(--line); transform:translateY(110%); transition:transform .35s var(--ease-out); }
+    .stickybar.show{ transform:none; }
+    .stickybar__btn{ flex:1; justify-content:center; min-height:52px; padding:14px 8px; font-size:.85rem; gap:6px; }
+    @media (min-width:981px){
+      .stickybar{ left:auto; right:24px; bottom:24px; border:1px solid var(--line); border-radius:999px; padding:8px; background:rgba(8,8,9,.94); box-shadow:0 18px 48px rgba(0,0,0,.55); }
+      .stickybar__btn{ flex:0 0 auto; padding:12px 20px; }
+    }
+    @media (max-width:980px){ main{ padding-bottom:calc(88px + env(safe-area-inset-bottom)); } }
+
+    /* Mobile nav drawer — Call/Text on top */
+    .mnav__call{ display:grid; gap:10px; padding:18px; background:rgba(21,166,218,.08); border:1px solid rgba(21,166,218,.3); border-radius:14px; margin-bottom:22px; }
+    .mnav__calleyebrow{ font-size:.72rem; letter-spacing:.22em; text-transform:uppercase; color:rgba(255,255,255,.55); }
+    .mnav__callbtn,.mnav__textbtn{ justify-content:center; width:100%; padding:16px 18px !important; font-size:1.05rem !important; }
+
+    /* Mobile centerpiece — swipeable snap carousel */
+    @media (max-width:980px){
+      .states-snap .states__track{ flex-direction:row !important; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; gap:0; scrollbar-width:none; transform:none !important; width:auto !important; }
+      .states-snap .states__track::-webkit-scrollbar{ display:none; }
+      .states-snap .state-panel{ flex:0 0 100%; scroll-snap-align:start; min-height:62vh; }
+      .states__dots{ display:flex; gap:8px; justify-content:center; padding:16px 0 4px; position:relative; z-index:6; }
+      .states__dots button{ width:28px; height:4px; border:0; border-radius:2px; background:rgba(255,255,255,.25); cursor:pointer; padding:0; transition:background .2s; }
+      .states__dots button.is-on{ background:var(--accent); }
+    }
+
+    /* Closer — full-bleed sunset */
+    .closer--bleed{ position:relative; padding-block:clamp(120px,16vw,200px); overflow:hidden; min-height:64vh; display:flex; align-items:center; }
+    .closer--bleed .closer__media{ position:absolute; inset:0; z-index:-1; }
+    .closer--bleed .closer__media::after{ content:''; position:absolute; inset:0; background:linear-gradient(180deg,rgba(7,15,26,.55) 0%,rgba(7,15,26,.85) 100%); }
+    .closer--bleed .closer__media img{ width:100%; height:100%; object-fit:cover; }
+
+    /* Footer demo note */
+    .footer__demo-note{ font-size:.78rem; line-height:1.5; color:var(--muted); padding:14px 0 6px; border-top:1px dashed rgba(255,255,255,.12); margin-top:18px; max-width:780px; }
+    .footer__demo-note strong{ color:#fff; font-weight:600; }
+    .footer__demo-note a{ color:var(--accent); text-decoration:underline; text-underline-offset:2px; }
+
+    /* ============ ROUND 2 ELEVATION: heritage type + brass + cream inversion ============ */
+    /* Two-voice type — Fraunces serif for content headings, Clash kept for UI chrome */
+    :root{ --font-display:"Fraunces","Georgia",serif; --font-ui:"Clash Display","Arial Narrow",sans-serif; }
+    h1,h2,h3{ font-family:var(--font-display); text-transform:none; font-weight:500; letter-spacing:-0.018em; font-optical-sizing:auto; line-height:1.05; }
+    .hero h1{ font-weight:600; letter-spacing:-0.022em; line-height:.98; }
+    .btn,.nav a,.eyebrow,.wordmark__name,.rtile__kicker,.loc__city,.mnav a,.footer h3,.cert__txt strong,.brand-word{ font-family:var(--font-ui)!important; text-transform:uppercase; }
+    .loc__state,.state-panel__state{ font-family:var(--font-display); text-transform:none; font-weight:600; letter-spacing:-0.01em; }
+    .proofbar__num,.stat__num,.state-panel__num{ font-family:var(--font-ui); }
+    @media (max-width:600px){ .hero h1{ letter-spacing:-0.018em !important; } }
+
+    /* Brass = heritage/credential accent (cyan stays = action) */
+    .eyebrow{ color:var(--brass); }
+    .hero .eyebrow--creds span{ color:var(--brass); opacity:.85; }
+    .cert__seal{ color:var(--brass); }
+    .family-quote{ border-left-color:var(--brass); background:rgba(201,168,106,.06); }
+    .family-quote figcaption strong{ color:var(--brass); }
+    .proof .quote{ border-top:2px solid rgba(201,168,106,.45); padding-top:20px; }
+    .loc{ border-top:2px solid rgba(201,168,106,.55); }
+    .loc__line svg,.loc__line--text svg{ color:var(--brass); }
+    .proofbar__den{ color:var(--brass); }
+    .proofbar__lbl{ color:var(--brass); opacity:.9; }
+    .stat__label{ color:var(--brass); opacity:.85; }
+    .proofbar__num{ position:relative; padding-top:14px; display:inline-block; }
+    .proofbar__num::before{ content:""; position:absolute; top:0; left:0; width:24px; height:2px; background:var(--brass); }
+
+    /* #heritage — warm cream editorial inversion (brass darkened to #9a7b3c for AA on cream) */
+    #heritage{ background:#f4efe4; color:#1c2530; position:relative; }
+    #heritage::before,#heritage::after{ content:""; position:absolute; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,rgba(201,168,106,.6),transparent); }
+    #heritage::before{ top:0; } #heritage::after{ bottom:0; }
+    #heritage .split{ position:relative; z-index:1; }
+    #heritage .eyebrow{ color:#9a7b3c; }
+    #heritage h2{ color:#141c26; letter-spacing:-0.02em; }
+    #heritage p{ color:#414b58; }
+    #heritage strong{ color:#141c26; }
+    #heritage .inline-link{ color:#1c2530; text-decoration-color:#9a7b3c; }
+    #heritage .inline-link:hover{ color:#9a7b3c; }
+    #heritage .family-quote{ background:rgba(201,168,106,.10); border-left:3px solid #9a7b3c; }
+    #heritage .family-quote blockquote{ color:#1c2530; }
+    #heritage .family-quote figcaption{ color:#5a6470; }
+    #heritage .family-quote figcaption strong{ color:#9a7b3c; }
+    #heritage .text-link{ color:#1c2530; }
+    #heritage .text-link:hover{ color:#9a7b3c; }
+    #heritage .split__frame{ border:1px solid rgba(201,168,106,.45); padding:8px; background:#fbf8f1; }
+    .heritage-paper{ position:absolute; inset:0; pointer-events:none; opacity:.5; mix-blend-mode:multiply; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)' opacity='0.06'/%3E%3C/svg%3E"); }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutoDealer",
+    "name": "Russell Marine",
+    "description": "Alabama's largest boat dealer. Owned by the Russell Lands family. Six locations on Lake Martin and Smith Lake. Authorized dealer for Nautique, Sea Ray, Chris-Craft, Godfrey, Bennington, Supreme and Sea-Doo.",
+    "url": "https://www.russellmarine.net",
+    "telephone": "+12563971700",
+    "sameAs": ["https://www.instagram.com/russellmarine.al", "https://www.facebook.com/RussellMarineAL"],
+    "brand": ["Nautique", "Sea Ray", "Chris-Craft", "Godfrey", "Bennington", "Supreme", "Sea-Doo"],
+    "department": [
+      { "@type": "AutoDealer", "name": "Russell Marine Boating & Outdoors (The Superstore)", "telephone": "+12563971700", "address": { "@type": "PostalAddress", "streetAddress": "19 Russell Marine Rd", "addressLocality": "Alexander City", "addressRegion": "AL", "postalCode": "35010", "addressCountry": "US" } },
+      { "@type": "AutoDealer", "name": "The Ridge Marina", "telephone": "+12563971300", "address": { "@type": "PostalAddress", "streetAddress": "450 Ridge Marina Way", "addressLocality": "Alexander City", "addressRegion": "AL", "postalCode": "35010", "addressCountry": "US" } },
+      { "@type": "AutoDealer", "name": "Kowaliga Marina", "telephone": "+12563971210", "address": { "@type": "PostalAddress", "streetAddress": "255 Kowaliga Marina Rd", "addressLocality": "Eclectic", "addressRegion": "AL", "postalCode": "36024", "addressCountry": "US" } },
+      { "@type": "AutoDealer", "name": "River North Marina", "telephone": "+12563971500", "address": { "@type": "PostalAddress", "streetAddress": "250 River North Marina Rd", "addressLocality": "Alexander City", "addressRegion": "AL", "postalCode": "35010", "addressCountry": "US" } },
+      { "@type": "AutoDealer", "name": "Real Island Marina", "telephone": "+12563971200", "address": { "@type": "PostalAddress", "streetAddress": "2700 Real Island Rd", "addressLocality": "Equality", "addressRegion": "AL", "postalCode": "36026", "addressCountry": "US" } },
+      { "@type": "AutoDealer", "name": "Russell Marine Smith Lake", "telephone": "+12563971110", "address": { "@type": "PostalAddress", "streetAddress": "690 Alabama 69 S", "addressLocality": "Hanceville", "addressRegion": "AL", "postalCode": "35077", "addressCountry": "US" } }
+    ]
+  }
+  </script>
+</head>
+<body id="top">
+  <a href="#main" class="skip-link">Skip to content</a>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header" id="header">
+    <div class="wrap header__row">
+      <a href="#top" class="wordmark" aria-label="Russell Marine home">
+        <!-- Custom RM monogram + waterline (placeholder for Russell's real logo) -->
+        <svg class="wordmark__mark" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M10 50 V14 H22 a8 8 0 0 1 0 16 H14 M22 30 L30 50"/>
+          <path d="M34 50 V14 L44 34 L54 14 V50"/>
+          <path d="M8 58 H50 q3 -2 6 0" stroke-width="1.6" opacity=".85"/>
+        </svg>
+        <span class="wordmark__txt"><span class="wordmark__name">Russell Marine</span><span class="wordmark__sub">Lake Martin · Alabama</span></span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#range">Boats</a>
+        <a href="#stock">Locations</a>
+        <a href="#why">Why Russell</a>
+        <a href="#showrooms">Visit</a>
+        <a href="#demo">Contact</a>
+      </nav>
+      <a class="header__phone" href="tel:+12563971700" aria-label="Call Russell Marine at 256 397 1700">
+        <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" width="16" height="16"><path d="M222.37 158.46l-47.11-21.11a16 16 0 0 0-15.17 1.4L134.87 160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71a16 16 0 0 0 1.32-15.06l-21.11-47.2A16 16 0 0 0 80.6 25a56.34 56.34 0 0 0-48.6 56c0 79.4 64.6 144 144 144a56.34 56.34 0 0 0 56-48.6 16 16 0 0 0-9.63-17.94Z"/></svg>
+        <span><strong>(256) 397-1700</strong><em>Mon–Sat 9–5 CT</em></span>
+      </a>
+      <a class="btn btn--primary header__cta" href="#demo">Book a Sea Trial</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M224 128a8 8 0 0 1-8 8H40a8 8 0 0 1 0-16h176a8 8 0 0 1 8 8ZM40 72h176a8 8 0 0 0 0-16H40a8 8 0 0 0 0 16Zm176 112H40a8 8 0 0 0 0 16h176a8 8 0 0 0 0-16Z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="mnav" id="mnav">
+    <div class="mnav__call">
+      <span class="mnav__calleyebrow">Talk to the team</span>
+      <a class="btn btn--primary mnav__callbtn" href="tel:+12563971700" data-mclose>Call (256) 397-1700</a>
+      <a class="btn btn--ghost mnav__textbtn" href="sms:+12563971700" data-mclose>Text us instead</a>
+    </div>
+    <a href="#range" data-mclose>Boats</a>
+    <a href="#stock" data-mclose>Locations</a>
+    <a href="#why" data-mclose>Why Russell</a>
+    <a href="#showrooms" data-mclose>Visit</a>
+    <a class="btn btn--primary" href="#demo" data-mclose>Book a Sea Trial</a>
+  </div>
+
+  <main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero__media">
+      <picture>
+        <source media="(max-width: 700px)" srcset="images/gs24-mobile.webp" type="image/webp" />
+        <source media="(max-width: 700px)" srcset="images/gs24-mobile.jpg" />
+        <source srcset="images/gs24.webp" type="image/webp" />
+        <!-- Placeholder until a Lake-Martin-specific hero photo is generated/shot. -->
+        <img id="heroImg" src="images/gs24.jpg" alt="A boat cruising Lake Martin at first light with cypress shoreline in the background" fetchpriority="high" />
+      </picture>
+    </div>
+    <div class="wrap hero__inner">
+      <p class="eyebrow eyebrow--creds" data-hero>
+        Sea-Doo Platinum Dealer <span aria-hidden="true">·</span>
+        Marine Industry Certified <span aria-hidden="true">·</span>
+        CSI 9.84 / 10 <span aria-hidden="true">·</span>
+        Est. 1964
+      </p>
+      <h1 data-hero>Owned by the family<br>that owns the lake.</h1>
+      <p class="hero__sub" data-hero>People drive past closer dealers to buy here. Six marinas across Lake Martin and Smith Lake — and the family that's known this water for sixty years. Call and we'll tell you which boat's right before you ever leave the driveway.</p>
+      <div class="hero__cta" data-hero>
+        <a class="btn btn--primary" href="#range">Browse the Boats
+          <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>
+        </a>
+        <a class="btn btn--ghost hero__cta--call" href="#showrooms">
+          <span class="hero__cta--mob">Call (256) 397-1700</span>
+          <span class="hero__cta--desk">Visit a Marina</span>
+        </a>
+      </div>
+
+      <!-- Hero quick-call (desktop only — mobile uses the tel: ghost CTA above) -->
+      <form class="hero__quick" id="heroQuick" data-hero>
+        <label for="hq-phone" class="hero__quick-label">No time to browse? Drop your number — a Russell rep will call inside 15 minutes.</label>
+        <div class="hero__quick-row">
+          <input id="hq-phone" name="phone" type="tel" inputmode="tel" placeholder="(256) 555-0142" autocomplete="tel" required aria-label="Your phone number" />
+          <button class="btn btn--primary" type="submit">Call me back
+            <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>
+          </button>
+        </div>
+        <p class="hero__quick-fine">Mon–Sat 9–5 CT · We never share your number · Reply STOP to opt out.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ PROOF BAR (under hero) ============ -->
+  <section class="proofbar" aria-label="Russell Marine credentials">
+    <div class="wrap proofbar__row" data-reveal>
+      <div class="proofbar__cell"><span class="proofbar__num">60<span class="proofbar__den">+</span></span><span class="proofbar__lbl">Years on Lake Martin</span></div>
+      <div class="proofbar__cell"><span class="proofbar__num">6</span><span class="proofbar__lbl">Marinas across two lakes</span></div>
+      <div class="proofbar__cell"><span class="proofbar__num">9.84<span class="proofbar__den">/10</span></span><span class="proofbar__lbl">CSI sales score</span></div>
+      <div class="proofbar__cell"><span class="proofbar__num">4.5<span class="proofbar__den">★</span></span><span class="proofbar__lbl">Google, every location</span></div>
+    </div>
+  </section>
+
+  <!-- ============ BRAND STRIP ============ -->
+  <section class="brands" id="brands">
+    <div class="wrap brands__row" data-reveal>
+      <span class="brands__label">Proudly authorized for</span>
+      <div class="brands__logos">
+        <span class="brand-word">Nautique</span>
+        <span class="brands__div" aria-hidden="true"></span>
+        <span class="brand-word">Sea Ray</span>
+        <span class="brands__div" aria-hidden="true"></span>
+        <span class="brand-word">Chris-Craft</span>
+        <span class="brands__div" aria-hidden="true"></span>
+        <span class="brand-word">Godfrey</span>
+        <span class="brands__div" aria-hidden="true"></span>
+        <span class="brand-word">Bennington</span>
+        <span class="brands__div" aria-hidden="true"></span>
+        <span class="brand-word">Supreme</span>
+        <span class="brands__div" aria-hidden="true"></span>
+        <span class="brand-word">Sea-Doo</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CERTIFICATIONS STRIP ============ -->
+  <section class="certs" aria-label="Awards and certifications">
+    <div class="wrap certs__row" data-reveal>
+      <div class="cert">
+        <svg class="cert__seal" viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="32" cy="32" r="26"/><path d="M20 33l8 8 16-18" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="cert__txt"><strong>Marine Industry Certified Dealer</strong><span>Five locations · MRAA + NMMA program</span></div>
+      </div>
+      <div class="cert">
+        <svg class="cert__seal" viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M32 6l6.5 13.2L53 21.5l-10.5 10.2L45 46.5 32 39.6 19 46.5l2.5-14.8L11 21.5l14.5-2.3z" stroke-linejoin="round"/></svg>
+        <div class="cert__txt"><strong>Sea-Doo Platinum Dealer</strong><span>Top-tier service &amp; sales credential</span></div>
+      </div>
+      <div class="cert">
+        <svg class="cert__seal" viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M16 50V22a4 4 0 0 1 4-4h24a4 4 0 0 1 4 4v28"/><path d="M10 50h44M22 50V34h20v16" stroke-linejoin="round"/></svg>
+        <div class="cert__txt"><strong>Godfrey's oldest &amp; largest dealer</strong><span>Pontoon brand partnership, decades deep</span></div>
+      </div>
+      <div class="cert">
+        <svg class="cert__seal" viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M32 8v48M8 32h48" stroke-linecap="round"/><circle cx="32" cy="32" r="24"/></svg>
+        <div class="cert__txt"><strong>CSI 9.84 sales · 9.77 service</strong><span>Manufacturer-audited Customer Satisfaction Index</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HERITAGE (promoted up — landed within 1.5 screens) ============ -->
+  <section class="section" id="heritage">
+    <div class="heritage-paper" aria-hidden="true"></div>
+    <div class="wrap split">
+      <div class="split__text" data-reveal>
+        <p class="eyebrow">A Russell Lands company</p>
+        <h2 data-mask>We own the lake.<br>We've sold the boats<br>on it for sixty years.</h2>
+        <p>Russell Marine is part of <a href="https://www.russelllands.com" rel="noopener" class="inline-link">Russell Lands</a> — the same family that has owned this lake since the 1960s. <strong>25,000 acres. 200 miles of shoreline.</strong> When you buy a boat from us, the people selling it have spent their whole lives on the water you're about to put it on.</p>
+        <figure class="family-quote">
+          <blockquote>"We're not passing through. We live on this lake, and we'll still be here the day your boat needs us — two summers from now, twenty summers from now."</blockquote>
+          <figcaption>
+            <!-- ILLUSTRATIVE placeholder. Do NOT restore a named speaker until Russell confirms exact name, title and wording. -->
+            <strong>The Russell family</strong> · Russell Lands
+          </figcaption>
+        </figure>
+        <a class="text-link" href="#stock">See the six locations
+          <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>
+        </a>
+      </div>
+      <div class="split__media"><div class="split__frame" data-reveal-img><img src="images/onwater-1.webp" alt="Lake Martin shoreline stewarded by Russell Lands" loading="lazy" /></div></div>
+    </div>
+  </section>
+
+  <!-- ============ THE RANGE ============ -->
+  <section class="section range" id="range">
+    <div class="wrap">
+      <div class="head" data-reveal>
+        <h2 class="section-h" data-mask>Find the boat your<br>summer's been missing.</h2>
+        <p class="lede">Surf boat for the coves, pontoon for the cookout, ski boat for the early glass. Tell us how your family actually uses the lake and we'll put you on the right one — not the one with the best margin.</p>
+      </div>
+      <div class="range-grid">
+        <a class="rtile" href="#demo" data-reveal>
+          <div class="rtile__media"><img src="images/wakeboarder.webp" alt="Wakeboarder riding behind a tow boat on Lake Martin" loading="lazy" /></div>
+          <div class="rtile__body">
+            <span class="rtile__kicker">Nautique G23 · Supreme S238</span>
+            <h3>Wake &amp; Surf</h3>
+            <p>Surf the no-wake coves on weekday mornings. Park at Chimney Rock by lunch. The G23 and S238 throw the cleanest wave on the lake — we set them up for surf, not for the brochure.</p>
+            <span class="rtile__go">Book a sea trial <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg></span>
+          </div>
+        </a>
+        <a class="rtile" href="#demo" data-reveal>
+          <div class="rtile__media"><img src="images/coastal.webp" alt="Pontoon cruising Lake Martin with family aboard" loading="lazy" /></div>
+          <div class="rtile__body">
+            <span class="rtile__kicker">Bennington Q · Godfrey AquaPatio · Sea Ray SDX</span>
+            <h3>Pontoons &amp; Bowriders</h3>
+            <p>Twenty-five feet of pontoon fits twelve adults, a cooler, and the dog. Triple toons run forty plus. Tell us how many people and how fast — we'll point at the right one.</p>
+            <span class="rtile__go">Book a sea trial <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg></span>
+          </div>
+        </a>
+        <a class="rtile" href="#demo" data-reveal>
+          <div class="rtile__media"><img src="images/action-spray.webp" alt="Slalom skier carving spray on Lake Martin" loading="lazy" /></div>
+          <div class="rtile__body">
+            <span class="rtile__kicker">Ski Nautique · Chris-Craft · Sea-Doo</span>
+            <h3>Ski, Tube &amp; Sea-Doo</h3>
+            <p>Slalom skiers chase the Ski Nautique. Teenagers chase the Sea-Doo Spark. Grandparents chase the Chris-Craft. We sell all three. Sea-Doo Platinum Dealer since 2019.</p>
+            <span class="rtile__go">Book a sea trial <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTPRINT (CENTERPIECE) ============ -->
+  <section class="states" id="stock">
+    <div class="wrap states__intro" data-reveal>
+      <p class="eyebrow">Two lakes, six locations</p>
+      <h2 class="section-h" data-mask>Wherever you put in,<br>we're already there.</h2>
+      <p class="lede">Four full-service marinas on Lake Martin, a dealership on Smith Lake, and a 150,000-square-foot superstore on Highway 280 — so the right boat, fuel, service and a slip are never far.</p>
+      <div class="stats">
+        <div class="stat"><span class="stat__num" data-count="60" data-suffix="+">0</span><span class="stat__label">Years on Lake Martin</span></div>
+        <div class="stat"><span class="stat__num" data-count="150" data-suffix="k sq ft">0</span><span class="stat__label">Superstore on Hwy 280</span></div>
+        <div class="stat"><span class="stat__num" data-count="7">0</span><span class="stat__label">Marine brands</span></div>
+        <!-- CSI stat: rendered as static text so the decimal renders correctly even when count-up animation runs (the shared countUp helper rounds to integers). -->
+        <div class="stat"><span class="stat__num">9.84<span style="font-size:.55em;color:var(--accent);margin-left:2px">/10</span></span><span class="stat__label">CSI sales score</span></div>
+      </div>
+    </div>
+
+    <div class="states__viewport" id="statesViewport">
+      <div class="states__track" id="statesTrack">
+        <article class="state-panel">
+          <img class="state-panel__img" src="images/onwater-1.webp" alt="Boats on Lake Martin" />
+          <div class="wrap state-panel__body">
+            <span class="state-panel__count"><span class="state-panel__num" data-count="4">0</span> full-service marinas</span>
+            <h3 class="state-panel__state">Lake Martin</h3>
+            <span class="state-panel__city">The Ridge · Kowaliga · River North · Real Island</span>
+            <a class="btn btn--primary" href="#showrooms">View Lake Martin
+              <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>
+            </a>
+          </div>
+        </article>
+        <article class="state-panel">
+          <img class="state-panel__img" src="images/gs24.webp" alt="The Superstore boat lineup" />
+          <div class="wrap state-panel__body">
+            <span class="state-panel__count"><span class="state-panel__num" data-count="150" data-suffix="k">0</span> sq ft under one roof</span>
+            <h3 class="state-panel__state">The Superstore</h3>
+            <span class="state-panel__city">Highway 280, Alexander City</span>
+            <a class="btn btn--primary" href="#showrooms">View the Superstore
+              <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>
+            </a>
+          </div>
+        </article>
+        <article class="state-panel">
+          <img class="state-panel__img" src="images/onwater-2.webp" alt="Cruising the clear water of Smith Lake" />
+          <div class="wrap state-panel__body">
+            <span class="state-panel__count"><span class="state-panel__num" data-count="500" data-suffix="+">0</span> miles of shoreline</span>
+            <h3 class="state-panel__state">Smith Lake</h3>
+            <span class="state-panel__city">Full-service dealership, Hanceville</span>
+            <a class="btn btn--primary" href="#showrooms">View Smith Lake
+              <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>
+            </a>
+          </div>
+        </article>
+      </div>
+      <div class="states__progress" aria-hidden="true"><span id="statesBar"></span></div>
+    </div>
+  </section>
+
+  <!-- ============ WHY RUSSELL ============ -->
+  <section class="why" id="why">
+    <div class="why__media"><img id="whyImg" src="images/onwater-2.webp" alt="A boat at rest on Lake Martin" loading="lazy" /></div>
+    <div class="wrap why__inner">
+      <h2 data-mask>We don't just<br>sell the boat.</h2>
+      <p class="why__lead" data-reveal>Anyone can move a boat off a lot. Sixty years on this lake means factory-certified service, the largest marine parts selection in Alabama, dry-stack and wet-slip storage, and a team still answering the phone long after handover.</p>
+      <div class="why__points" data-reveal>
+        <div class="why__pt"><h3>Factory-certified at every shop</h3><p>Marine Industry Certified Dealer at five locations, with techs factory-trained on Yamaha, Mercury, MerCruiser, Volvo and Sea-Doo — plus the largest marine parts selection in Alabama.</p></div>
+        <div class="why__pt"><h3>Store it with us</h3><p>Dry-stack racks at every Lake Martin location and wet slips at The Ridge and Kowaliga — with the lake's largest forklifts moving boats in and out fast.</p></div>
+        <div class="why__pt"><h3>9.84 sales · 9.77 service</h3><p>Customer Satisfaction Index, manufacturer-audited. People drive past closer marinas to buy and service here — their words, not ours.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TRADE-IN ============ -->
+  <section class="build" id="build">
+    <div class="wrap build__inner" data-reveal>
+      <h2 data-mask>Trade it in.<br>Trade it up.</h2>
+      <p class="lede">Bring us the boat you've got. We'll value it on the spot, put it toward the next one, and you skip writing the bigger check. Sixty years of buying boats back means we price them honestly the first time.</p>
+      <a class="btn btn--primary" href="#demo">Value my boat
+        <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>
+      </a>
+    </div>
+    <div class="build__stage" aria-hidden="true">
+      <img class="build__boat" id="buildBoat" src="images/models/super-air-g23-profile.png" alt="" />
+    </div>
+  </section>
+
+  <!-- ============ PROOF / REAL REVIEWS ============ -->
+  <section class="section proof">
+    <div class="wrap">
+      <div class="head proof__head" data-reveal>
+        <p class="eyebrow">What owners say</p>
+        <h2 class="section-h" data-mask>Read the reviews<br>before you drive over.</h2>
+        <p class="proof__rating"><span class="proof__stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 4.5★ on Google across every Russell Marine location · Marine Industry Certified.</p>
+      </div>
+      <div class="proof__grid" data-reveal>
+        <blockquote class="quote">
+          <p>"We purchased a boat from Russell Marine a year ago. The stellar customer service by Nathan Burdett during and (more importantly) even after the purchase continues. Nathan is very responsive to any and all questions we have had. I highly recommend seeking out Nathan if you are in the market for a boat!"</p>
+          <cite><strong>Leslie D.</strong> · Verified Google review · March 2025</cite>
+        </blockquote>
+        <blockquote class="quote">
+          <p>"Our salesman Caleb Weldon went out of his way to get everything pulled together in less than 24 hours so we could get on the water quickly — even water testing a ski for us on a cold, rainy day. I was shopping with my 3 young children and everyone made sure we were comfortable, welcomed and taken care of."</p>
+          <cite><strong>Daniel G.</strong> · Verified Google review · April 2025 · Sea-Doo purchase</cite>
+        </blockquote>
+        <blockquote class="quote">
+          <p>"I tried working with two other marine shops to get a mooring cover. Neither would call back. When I called Russell Marine and talked to Dan, he listened and was very proactive. Jessica in the service department was fantastic. I 100% recommend to all fellow boaters."</p>
+          <cite><strong>Dave W.</strong> · Verified Google review · February 2025 · Service Department</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ENQUIRE ============ -->
+  <section class="section demo" id="demo">
+    <div class="wrap demo__grid">
+      <div class="demo__copy" data-reveal>
+        <h2 data-mask>Come see them<br>on the water.</h2>
+        <p>Nobody buys a boat from a brochure. Tell us how you like to spend the day on the lake and we'll have the right boat — and the right person — ready when you arrive.</p>
+        <ul class="demo__list">
+          <li>Walk the docks at your nearest marina</li>
+          <li>Straight advice on wake, cruise, ski or fish</li>
+          <li>Trade-in valuation and finance, handled</li>
+        </ul>
+      </div>
+      <div class="demo__formwrap" data-reveal>
+        <form class="demo__form" id="demoForm" novalidate>
+          <div class="field">
+            <label for="f-name">Name</label>
+            <input id="f-name" name="name" type="text" placeholder="Your name" autocomplete="name" aria-describedby="f-name-err" required />
+            <p class="field__error" id="f-name-err" hidden>Enter your name.</p>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-phone">Phone</label>
+              <input id="f-phone" name="phone" type="tel" inputmode="tel" placeholder="(256) 555-0142" autocomplete="tel" aria-describedby="f-phone-err f-phone-hint" required />
+              <p class="field__hint" id="f-phone-hint">We'll call (or text) within one business day.</p>
+              <p class="field__error" id="f-phone-err" hidden>Enter a phone number we can reach you on.</p>
+            </div>
+            <div class="field">
+              <label for="f-email">Email <span class="field__opt">(optional)</span></label>
+              <input id="f-email" name="email" type="email" placeholder="you@email.com" autocomplete="email" spellcheck="false" aria-describedby="f-email-err" />
+              <p class="field__error" id="f-email-err" hidden>Enter a valid email address.</p>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-showroom">Nearest location</label>
+              <select id="f-showroom" name="showroom" aria-describedby="f-showroom-err" required>
+                <option value="" selected disabled>Choose a location</option>
+                <option>The Superstore — Alexander City</option>
+                <option>The Ridge Marina — Lake Martin</option>
+                <option>Kowaliga Marina — Lake Martin</option>
+                <option>River North Marina — Lake Martin</option>
+                <option>Real Island Marina — Lake Martin</option>
+                <option>Smith Lake — Hanceville</option>
+              </select>
+              <p class="field__error" id="f-showroom-err" hidden>Choose a location.</p>
+            </div>
+            <div class="field">
+              <label for="f-interest">I'm after</label>
+              <select id="f-interest" name="interest">
+                <option value="" selected disabled>Type of boat</option>
+                <option>Wake &amp; surf</option>
+                <option>Pontoon &amp; cruising</option>
+                <option>Sport &amp; ski</option>
+                <option>Fishing &amp; saltwater</option>
+                <option>Sea-Doo</option>
+                <option>Not sure yet, help me choose</option>
+              </select>
+            </div>
+          </div>
+          <label class="checkbox"><input type="checkbox" name="trade" /> <span>I have a boat to trade in</span></label>
+          <button class="btn btn--primary" type="submit">Call me back
+            <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>
+          </button>
+          <div class="demo__legal">
+            <p class="demo__fineprint">Your details stay with Russell Marine — we never share them.</p>
+            <p class="demo__consent">By submitting you agree we may call or text you about your enquiry. Msg &amp; data rates may apply. Reply STOP to opt out.</p>
+          </div>
+        </form>
+        <div class="demo__done" id="formDone" tabindex="-1" hidden>
+          <span class="demo__done-tick" aria-hidden="true"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M229.66 77.66l-128 128a8 8 0 0 1-11.32 0l-56-56a8 8 0 0 1 11.32-11.32L96 188.69 218.34 66.34a8 8 0 0 1 11.32 11.32Z"/></svg></span>
+          <h3>Got it. A Russell rep will call you within one business day.</h3>
+          <p>Want to skip the wait and lock a sea trial right now? Pick a time below — or text us, we usually reply within minutes during shop hours.</p>
+          <div class="demo__done-cta">
+            <a class="btn btn--primary" href="https://calendly.com/russell-marine/sea-trial" target="_blank" rel="noopener">Pick a sea-trial time</a>
+            <a class="btn btn--ghost" href="sms:+12563971700?&amp;body=Hi%20Russell%20Marine%20%E2%80%94%20I%20just%20submitted%20an%20enquiry">Text us instead</a>
+          </div>
+          <p class="demo__done-phone">Or call <a href="tel:+12563971700">(256) 397-1700</a> · Mon–Sat 9–5 CT</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LOCATIONS ============ -->
+  <section class="section showrooms" id="showrooms">
+    <div class="wrap">
+      <div class="head" data-reveal>
+        <p class="eyebrow">Visit Us</p>
+        <h2 class="section-h" data-mask>Find us on<br>the water.</h2>
+      </div>
+      <div class="locs" data-reveal>
+        <div class="loc">
+          <div class="loc__state">Highway 280</div>
+          <div class="loc__city">The Superstore</div>
+          <p class="loc__line"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 16a88.1 88.1 0 0 0-88 88c0 75.3 80 132.17 83.41 134.55a8 8 0 0 0 9.18 0C136 236.17 216 179.3 216 104a88.1 88.1 0 0 0-88-88Zm0 56a32 32 0 1 1-32 32 32 32 0 0 1 32-32Z"/></svg><span>19 Russell Marine Rd,<br>Alexander City, AL 35010</span></p>
+          <p class="loc__line"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M222.37 158.46l-47.11-21.11a16 16 0 0 0-15.17 1.4L134.87 160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71a16 16 0 0 0 1.32-15.06l-21.11-47.2A16 16 0 0 0 80.6 25a56.34 56.34 0 0 0-48.6 56c0 79.4 64.6 144 144 144a56.34 56.34 0 0 0 56-48.6 16 16 0 0 0-9.63-17.94Z"/></svg><a href="tel:+12563971700">(256) 397-1700</a></p>
+          <p class="loc__line loc__line--text"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 48a87.63 87.63 0 0 0-75.06 132.4L40.81 217.34a13.78 13.78 0 0 0 13 18.13 13.92 13.92 0 0 0 4.4-.72l36.84-12.13A88 88 0 1 0 128 48Z"/></svg><a href="sms:+12563971700?&amp;body=Hi%20Russell%20Superstore%20%E2%80%94%20">Text the Superstore</a></p>
+          <p class="loc__line"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24Zm56 112h-56a8 8 0 0 1-8-8V72a8 8 0 0 1 16 0v48h48a8 8 0 0 1 0 16Z"/></svg><span>Mon to Sat 9am to 5pm<br>Sun 1pm to 4pm</span></p>
+          <a class="text-link" href="https://maps.google.com/?q=19+Russell+Marine+Rd+Alexander+City+AL+35010" rel="noopener">Get directions
+            <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>
+          </a>
+        </div>
+        <div class="loc">
+          <div class="loc__state">Lake Martin</div>
+          <div class="loc__city">The Ridge Marina</div>
+          <p class="loc__line"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 16a88.1 88.1 0 0 0-88 88c0 75.3 80 132.17 83.41 134.55a8 8 0 0 0 9.18 0C136 236.17 216 179.3 216 104a88.1 88.1 0 0 0-88-88Zm0 56a32 32 0 1 1-32 32 32 32 0 0 1 32-32Z"/></svg><span>450 Ridge Marina Way,<br>Alexander City, AL 35010</span></p>
+          <p class="loc__line"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M222.37 158.46l-47.11-21.11a16 16 0 0 0-15.17 1.4L134.87 160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71a16 16 0 0 0 1.32-15.06l-21.11-47.2A16 16 0 0 0 80.6 25a56.34 56.34 0 0 0-48.6 56c0 79.4 64.6 144 144 144a56.34 56.34 0 0 0 56-48.6 16 16 0 0 0-9.63-17.94Z"/></svg><a href="tel:+12563971300">(256) 397-1300</a></p>
+          <p class="loc__line loc__line--text"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 48a87.63 87.63 0 0 0-75.06 132.4L40.81 217.34a13.78 13.78 0 0 0 13 18.13 13.92 13.92 0 0 0 4.4-.72l36.84-12.13A88 88 0 1 0 128 48Z"/></svg><a href="sms:+12563971300?&amp;body=Hi%20The%20Ridge%20Marina%20%E2%80%94%20">Text The Ridge</a></p>
+          <p class="loc__line"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24Zm56 112h-56a8 8 0 0 1-8-8V72a8 8 0 0 1 16 0v48h48a8 8 0 0 1 0 16Z"/></svg><span>Open 7 days<br>9am to 5pm</span></p>
+          <a class="text-link" href="https://maps.google.com/?q=450+Ridge+Marina+Way+Alexander+City+AL+35010" rel="noopener">Get directions
+            <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>
+          </a>
+        </div>
+        <div class="loc">
+          <div class="loc__state">Lake Martin</div>
+          <div class="loc__city">Kowaliga Marina</div>
+          <p class="loc__line"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 16a88.1 88.1 0 0 0-88 88c0 75.3 80 132.17 83.41 134.55a8 8 0 0 0 9.18 0C136 236.17 216 179.3 216 104a88.1 88.1 0 0 0-88-88Zm0 56a32 32 0 1 1-32 32 32 32 0 0 1 32-32Z"/></svg><span>255 Kowaliga Marina Rd,<br>Eclectic, AL 36024</span></p>
+          <p class="loc__line"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M222.37 158.46l-47.11-21.11a16 16 0 0 0-15.17 1.4L134.87 160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71a16 16 0 0 0 1.32-15.06l-21.11-47.2A16 16 0 0 0 80.6 25a56.34 56.34 0 0 0-48.6 56c0 79.4 64.6 144 144 144a56.34 56.34 0 0 0 56-48.6 16 16 0 0 0-9.63-17.94Z"/></svg><a href="tel:+12563971210">(256) 397-1210</a></p>
+          <p class="loc__line loc__line--text"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 48a87.63 87.63 0 0 0-75.06 132.4L40.81 217.34a13.78 13.78 0 0 0 13 18.13 13.92 13.92 0 0 0 4.4-.72l36.84-12.13A88 88 0 1 0 128 48Z"/></svg><a href="sms:+12563971210?&amp;body=Hi%20Kowaliga%20Marina%20%E2%80%94%20">Text Kowaliga</a></p>
+          <p class="loc__line"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24Zm56 112h-56a8 8 0 0 1-8-8V72a8 8 0 0 1 16 0v48h48a8 8 0 0 1 0 16Z"/></svg><span>Open 7 days<br>9am to 5pm</span></p>
+          <a class="text-link" href="https://maps.google.com/?q=255+Kowaliga+Marina+Rd+Eclectic+AL+36024" rel="noopener">Get directions
+            <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>
+          </a>
+        </div>
+        <div class="loc">
+          <div class="loc__state">Lake Martin</div>
+          <div class="loc__city">River North Marina</div>
+          <p class="loc__line"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 16a88.1 88.1 0 0 0-88 88c0 75.3 80 132.17 83.41 134.55a8 8 0 0 0 9.18 0C136 236.17 216 179.3 216 104a88.1 88.1 0 0 0-88-88Zm0 56a32 32 0 1 1-32 32 32 32 0 0 1 32-32Z"/></svg><span>250 River North Marina Rd,<br>Alexander City, AL 35010</span></p>
+          <p class="loc__line"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M222.37 158.46l-47.11-21.11a16 16 0 0 0-15.17 1.4L134.87 160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71a16 16 0 0 0 1.32-15.06l-21.11-47.2A16 16 0 0 0 80.6 25a56.34 56.34 0 0 0-48.6 56c0 79.4 64.6 144 144 144a56.34 56.34 0 0 0 56-48.6 16 16 0 0 0-9.63-17.94Z"/></svg><a href="tel:+12563971500">(256) 397-1500</a></p>
+          <p class="loc__line loc__line--text"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 48a87.63 87.63 0 0 0-75.06 132.4L40.81 217.34a13.78 13.78 0 0 0 13 18.13 13.92 13.92 0 0 0 4.4-.72l36.84-12.13A88 88 0 1 0 128 48Z"/></svg><a href="sms:+12563971500?&amp;body=Hi%20River%20North%20%E2%80%94%20">Text River North</a></p>
+          <p class="loc__line"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24Zm56 112h-56a8 8 0 0 1-8-8V72a8 8 0 0 1 16 0v48h48a8 8 0 0 1 0 16Z"/></svg><span>Open 7 days<br>9am to 5pm</span></p>
+          <a class="text-link" href="https://maps.google.com/?q=250+River+North+Marina+Rd+Alexander+City+AL+35010" rel="noopener">Get directions
+            <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>
+          </a>
+        </div>
+        <div class="loc">
+          <div class="loc__state">Lake Martin</div>
+          <div class="loc__city">Real Island Marina</div>
+          <p class="loc__line"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 16a88.1 88.1 0 0 0-88 88c0 75.3 80 132.17 83.41 134.55a8 8 0 0 0 9.18 0C136 236.17 216 179.3 216 104a88.1 88.1 0 0 0-88-88Zm0 56a32 32 0 1 1-32 32 32 32 0 0 1 32-32Z"/></svg><span>2700 Real Island Rd,<br>Equality, AL 36026</span></p>
+          <p class="loc__line"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M222.37 158.46l-47.11-21.11a16 16 0 0 0-15.17 1.4L134.87 160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71a16 16 0 0 0 1.32-15.06l-21.11-47.2A16 16 0 0 0 80.6 25a56.34 56.34 0 0 0-48.6 56c0 79.4 64.6 144 144 144a56.34 56.34 0 0 0 56-48.6 16 16 0 0 0-9.63-17.94Z"/></svg><a href="tel:+12563971200">(256) 397-1200</a></p>
+          <p class="loc__line loc__line--text"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 48a87.63 87.63 0 0 0-75.06 132.4L40.81 217.34a13.78 13.78 0 0 0 13 18.13 13.92 13.92 0 0 0 4.4-.72l36.84-12.13A88 88 0 1 0 128 48Z"/></svg><a href="sms:+12563971200?&amp;body=Hi%20Real%20Island%20%E2%80%94%20">Text Real Island</a></p>
+          <p class="loc__line"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24Zm56 112h-56a8 8 0 0 1-8-8V72a8 8 0 0 1 16 0v48h48a8 8 0 0 1 0 16Z"/></svg><span>Open 7 days<br>9am to 5pm</span></p>
+          <a class="text-link" href="https://maps.google.com/?q=2700+Real+Island+Rd+Equality+AL+36026" rel="noopener">Get directions
+            <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>
+          </a>
+        </div>
+        <div class="loc">
+          <div class="loc__state">Smith Lake</div>
+          <div class="loc__city">Smith Lake Dealership</div>
+          <p class="loc__line"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 16a88.1 88.1 0 0 0-88 88c0 75.3 80 132.17 83.41 134.55a8 8 0 0 0 9.18 0C136 236.17 216 179.3 216 104a88.1 88.1 0 0 0-88-88Zm0 56a32 32 0 1 1-32 32 32 32 0 0 1 32-32Z"/></svg><span>690 Alabama 69 S,<br>Hanceville, AL 35077</span></p>
+          <p class="loc__line"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M222.37 158.46l-47.11-21.11a16 16 0 0 0-15.17 1.4L134.87 160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71a16 16 0 0 0 1.32-15.06l-21.11-47.2A16 16 0 0 0 80.6 25a56.34 56.34 0 0 0-48.6 56c0 79.4 64.6 144 144 144a56.34 56.34 0 0 0 56-48.6 16 16 0 0 0-9.63-17.94Z"/></svg><a href="tel:+12563971110">(256) 397-1110</a></p>
+          <p class="loc__line loc__line--text"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 48a87.63 87.63 0 0 0-75.06 132.4L40.81 217.34a13.78 13.78 0 0 0 13 18.13 13.92 13.92 0 0 0 4.4-.72l36.84-12.13A88 88 0 1 0 128 48Z"/></svg><a href="sms:+12563971110?&amp;body=Hi%20Smith%20Lake%20%E2%80%94%20">Text Smith Lake</a></p>
+          <p class="loc__line"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24Zm56 112h-56a8 8 0 0 1-8-8V72a8 8 0 0 1 16 0v48h48a8 8 0 0 1 0 16Z"/></svg><span>Mon to Sat<br>9am to 5pm</span></p>
+          <a class="text-link" href="https://maps.google.com/?q=690+Alabama+69+S+Hanceville+AL+35077" rel="noopener">Get directions
+            <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HELP TRIO ============ -->
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="head" data-reveal style="margin-bottom:clamp(28px,4vw,44px)"><h2 class="section-h" data-mask>More than the sale.</h2></div>
+      <div class="help">
+        <div class="help__item" data-reveal>
+          <span class="help__icon"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M226.76,69a8,8,0,0,0-12.84-2.88l-40.3,37.19-17.23-3.7-3.7-17.23,37.19-40.3A8,8,0,0,0,187,29.24,72,72,0,0,0,88,96,72.34,72.34,0,0,0,94,124.94L33.79,177c-.15.12-.29.26-.43.39a32,32,0,0,0,45.26,45.26c.13-.13.27-.28.39-.42L131.06,162A72,72,0,0,0,232,96,71.56,71.56,0,0,0,226.76,69ZM160,152a56.14,56.14,0,0,1-27.07-7,8,8,0,0,0-9.92,1.77L67.11,211.51a16,16,0,0,1-22.62-22.62L109.18,133a8,8,0,0,0,1.77-9.93,56,56,0,0,1,58.36-82.31l-31.2,33.81a8,8,0,0,0-1.94,7.1L141.83,108a8,8,0,0,0,6.14,6.14l26.35,5.66a8,8,0,0,0,7.1-1.94l33.81-31.2A56.06,56.06,0,0,1,160,152Z"/></svg></span>
+          <h3>Certified service</h3>
+          <p>Genuine parts and the largest marine parts selection in Alabama, with certified techs for every major engine.</p>
+          <a class="text-link" href="#demo">Book a service <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg></a>
+        </div>
+        <div class="help__item" data-reveal>
+          <span class="help__icon"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M208,40H48A16,16,0,0,0,32,56v56c0,52.72,25.52,84.67,46.93,102.19,23.06,18.86,46,25.26,47,25.53a8,8,0,0,0,4.2,0c1-.27,23.91-6.67,47-25.53C198.48,196.67,224,164.72,224,112V56A16,16,0,0,0,208,40Zm0,72c0,37.07-13.66,67.16-40.6,89.42A129.3,129.3,0,0,1,128,223.62a128.25,128.25,0,0,1-38.92-21.81C61.82,179.51,48,149.3,48,112l0-56,160,0ZM82.34,141.66a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32l-56,56a8,8,0,0,1-11.32,0Z"/></svg></span>
+          <h3>Storage &amp; slips</h3>
+          <p>Dry-stack racks and wet slips across Lake Martin, so your boat's ready the moment you are.</p>
+          <a class="text-link" href="#demo">Reserve a slip <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg></a>
+        </div>
+        <div class="help__item" data-reveal>
+          <span class="help__icon"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm40-68a28,28,0,0,1-28,28h-4v8a8,8,0,0,1-16,0v-8H104a8,8,0,0,1,0-16h36a12,12,0,0,0,0-24H116a28,28,0,0,1,0-56h4V72a8,8,0,0,1,16,0v8h16a8,8,0,0,1,0,16H116a12,12,0,0,0,0,24h24A28,28,0,0,1,168,148Z"/></svg></span>
+          <h3>Finance &amp; trade-in</h3>
+          <p>Local lenders, simple terms, and a fast trade-in valuation that gets you on the water sooner.</p>
+          <a class="text-link" href="#demo">Get pre-approved <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CLOSER (full-bleed sunset) ============ -->
+  <section class="section closer closer--bleed">
+    <div class="closer__media" aria-hidden="true"><img src="images/coastal.webp" alt="" /></div>
+    <div class="wrap" data-reveal>
+      <h2 data-mask>Your best days are<br>on Lake Martin.</h2>
+      <p class="lede">Come walk the docks. Bring the kids, the dog, your trade-in. We'll have coffee on.</p>
+      <div class="closer__cta">
+        <a class="btn btn--primary" href="#demo">Book a Sea Trial
+          <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>
+        </a>
+        <a class="btn btn--ghost" href="tel:+12563971700">Call (256) 397-1700</a>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ============ boat cruising the bottom (scroll-driven, desktop only) ============ -->
+  <div class="cruise" id="cruise" aria-hidden="true">
+    <div class="cruise__rig" id="cruiseRig">
+      <span class="cruise__wake"></span>
+      <span class="cruise__wake cruise__wake--2"></span>
+      <img class="cruise__boat" src="images/g23-profile.webp" alt="" width="500" height="300" />
+    </div>
+  </div>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__grid">
+        <div>
+          <div class="wordmark footer__wordmark">
+            <svg class="wordmark__mark" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M10 50 V14 H22 a8 8 0 0 1 0 16 H14 M22 30 L30 50"/>
+              <path d="M34 50 V14 L44 34 L54 14 V50"/>
+              <path d="M8 58 H50 q3 -2 6 0" stroke-width="1.6" opacity=".85"/>
+            </svg>
+            <span class="wordmark__txt"><span class="wordmark__name">Russell Marine</span><span class="wordmark__sub">Lake Martin · Alabama</span></span>
+          </div>
+          <p>Alabama's largest boat dealer. Sixty years on Lake Martin and Smith Lake — sold, serviced, stored.</p>
+          <div class="footer__socials">
+            <a href="https://www.instagram.com/russellmarine.al" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 80a48 48 0 1 0 48 48 48 48 0 0 0-48-48Zm0 80a32 32 0 1 1 32-32 32 32 0 0 1-32 32Zm44-94a12 12 0 1 1-12-12 12 12 0 0 1 12 12Zm44 2a54.06 54.06 0 0 0-15.54-38.46A54.06 54.06 0 0 0 162 14c-15.8-.9-52.2-.9-68 0a54.06 54.06 0 0 0-38.46 15.54A54.06 54.06 0 0 0 14 68c-.9 15.8-.9 52.2 0 68a54.06 54.06 0 0 0 15.54 38.46A54.06 54.06 0 0 0 94 190c15.8.9 52.2.9 68 0a54.06 54.06 0 0 0 38.46-15.54A54.06 54.06 0 0 0 216 136c.9-15.8.9-52.16 0-68Zm-19 80a38 38 0 0 1-21 21c-14.55 5.74-49.06 4.42-65 4.42s-50.5 1.3-65-4.42a38 38 0 0 1-21-21c-5.74-14.55-4.42-49.06-4.42-65s-1.3-50.5 4.42-65a38 38 0 0 1 21-21c14.55-5.74 49.06-4.42 65-4.42s50.5-1.3 65 4.42a38 38 0 0 1 21 21c5.74 14.55 4.42 49.06 4.42 65s1.32 50.5-4.42 65Z"/></svg></a>
+            <a href="https://www.facebook.com/RussellMarineAL" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 24a104 104 0 0 0-16 207.21V152H88a8 8 0 0 1 0-16h24v-20.4c0-26 15.46-40.4 39.19-40.4a160.34 160.34 0 0 1 23.27 2v25.6h-13.1c-12.89 0-16.9 8-16.9 16.2V136h28.8a8 8 0 0 1 7.89 9.32l-3.2 19.2a8 8 0 0 1-7.89 6.68H144v59.21A104 104 0 0 0 128 24Z"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h3>Explore</h3>
+          <div class="footer__links">
+            <a href="#range">The Boats</a>
+            <a href="#stock">Our Footprint</a>
+            <a href="#why">Why Russell</a>
+            <a href="#demo">Book a Sea Trial</a>
+            <a href="#showrooms">Locations</a>
+          </div>
+        </div>
+        <div>
+          <h3>Locations</h3>
+          <div class="footer__locs">
+            <p class="footer__loc"><strong>The Superstore</strong>Alexander City &middot; <a href="tel:+12563971700">(256) 397-1700</a></p>
+            <p class="footer__loc"><strong>Lake Martin</strong>4 marinas &middot; <a href="tel:+12563971300">(256) 397-1300</a></p>
+            <p class="footer__loc"><strong>Smith Lake</strong>Hanceville &middot; <a href="tel:+12563971110">(256) 397-1110</a></p>
+          </div>
+        </div>
+      </div>
+
+      <p class="footer__demo-note">
+        <strong>Demo concept</strong> — a free homepage redesign pitched to Russell Marine by <a href="mailto:roy@trojanwss.com">Roy Newlan</a>. Not affiliated with Russell Marine or Russell Lands. Russell Marine names, marks and addresses appear here for demonstration only and remain the property of their owner. If you're the team at Russell, I'd love five minutes — <a href="mailto:roy@trojanwss.com">roy@trojanwss.com</a>.
+      </p>
+
+      <div class="footer__legal">
+        <span>&copy; 2026 Russell Marine. All rights reserved.</span>
+        <span><a href="tel:+12563971700">(256) 397-1700</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- sticky action bar (all viewports) -->
+  <div class="stickybar" id="stickybar">
+    <a class="btn btn--primary stickybar__btn" href="tel:+12563971700" aria-label="Call Russell Marine">
+      <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" width="16" height="16"><path d="M222.37 158.46l-47.11-21.11a16 16 0 0 0-15.17 1.4L134.87 160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71a16 16 0 0 0 1.32-15.06l-21.11-47.2A16 16 0 0 0 80.6 25a56.34 56.34 0 0 0-48.6 56c0 79.4 64.6 144 144 144a56.34 56.34 0 0 0 56-48.6 16 16 0 0 0-9.63-17.94Z"/></svg> Call
+    </a>
+    <a class="btn btn--ghost stickybar__btn" href="sms:+12563971700?&amp;body=Hi%20Russell%20Marine%20%E2%80%94%20" aria-label="Text Russell Marine">Text</a>
+    <a class="btn btn--ghost stickybar__btn" href="#demo">Sea trial</a>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="app.js?v=22"></script>
+
+  <!-- ============ DEMO LIFT: page-specific behaviours not in app.js ============ -->
+  <script>
+    (function(){
+      // Hero quick-call bar — fast lead capture (desktop only; mobile uses tel: ghost CTA)
+      var hq = document.getElementById('heroQuick');
+      if (hq) {
+        hq.addEventListener('submit', function(e){
+          e.preventDefault();
+          var p = document.getElementById('hq-phone');
+          var digits = (p.value || '').replace(/\D/g, '');
+          if (digits.length < 10) { p.focus(); p.classList.add('is-error'); return; }
+          hq.innerHTML = '<p style="color:#fff;padding:16px;line-height:1.5">Got it. A Russell rep will call ' + p.value + ' inside 15 minutes.</p>';
+        });
+      }
+
+      // On mobile, swap hero ghost CTA "Visit a Marina" to tap-to-call (256) 397-1700.
+      if (matchMedia('(max-width:700px)').matches) {
+        var c = document.querySelector('.hero__cta--call');
+        if (c) c.setAttribute('href', 'tel:+12563971700');
+      }
+
+      // Sticky action bar — show after scrolling past the hero.
+      var sb = document.getElementById('stickybar');
+      if (sb) {
+        var heroH = (document.querySelector('.hero') || {}).clientHeight || 600;
+        var toggle = function(){
+          if (window.scrollY > heroH * 0.7) sb.classList.add('show'); else sb.classList.remove('show');
+        };
+        window.addEventListener('scroll', toggle, { passive: true });
+        toggle();
+      }
+
+      // Mobile centerpiece — swap horizontal scroll-pin for a swipeable snap carousel.
+      if (matchMedia('(max-width:980px)').matches) {
+        var track = document.getElementById('statesTrack');
+        var viewport = document.getElementById('statesViewport');
+        if (track && viewport) {
+          document.documentElement.classList.add('states-snap');
+          var panels = track.querySelectorAll('.state-panel');
+          if (panels.length > 1) {
+            var pager = document.createElement('div'); pager.className = 'states__dots';
+            panels.forEach(function(_, i){
+              var d = document.createElement('button');
+              d.type = 'button';
+              d.setAttribute('aria-label', 'Slide ' + (i + 1));
+              d.addEventListener('click', function(){ track.scrollTo({ left: i * track.clientWidth, behavior: 'smooth' }); });
+              pager.appendChild(d);
+            });
+            viewport.appendChild(pager);
+            track.addEventListener('scroll', function(){
+              var i = Math.round(track.scrollLeft / track.clientWidth);
+              pager.querySelectorAll('button').forEach(function(b, idx){ b.classList.toggle('is-on', idx === i); });
+            }, { passive: true });
+            if (pager.firstChild) pager.firstChild.classList.add('is-on');
+          }
+        }
+      }
+
+      // Scroll parallax on images app.js doesn't already animate — the full-bleed
+      // sunset closer and the three range-tile photos drift as you scroll, for depth.
+      // Desktop + motion only (matches app.js's parallax gating); reduced-motion skips it.
+      if (window.gsap && window.ScrollTrigger &&
+          document.documentElement.classList.contains('anim') &&
+          matchMedia('(min-width: 981px)').matches) {
+        try {
+          gsap.registerPlugin(ScrollTrigger);
+          var closerImg = document.querySelector('.closer--bleed .closer__media img');
+          if (closerImg) {
+            gsap.fromTo(closerImg, { yPercent: -12, scale: 1.2 }, {
+              yPercent: 12, ease: 'none',
+              scrollTrigger: { trigger: '.closer--bleed', start: 'top bottom', end: 'bottom top', scrub: 1 }
+            });
+          }
+          document.querySelectorAll('.range .rtile__media img').forEach(function (img) {
+            gsap.fromTo(img, { yPercent: -9, scale: 1.14 }, {
+              yPercent: 9, ease: 'none',
+              scrollTrigger: { trigger: img.closest('.rtile'), start: 'top bottom', end: 'bottom top', scrub: 1 }
+            });
+          });
+        } catch (e) {}
+      }
+
+      // Main form — phone OR email validation (email no longer required); post-submit
+      // success state now includes Calendly + text fallback (handled in the HTML).
+      var form = document.getElementById('demoForm');
+      if (form) {
+        // app.js already wires a generic [required] validator + swaps form for #formDone.
+        // Inject a phone-OR-email override that runs FIRST and bails out cleanly.
+        form.addEventListener('submit', function(e){
+          var phone = document.getElementById('f-phone');
+          var email = document.getElementById('f-email');
+          var phoneOK = phone && phone.value.replace(/\D/g, '').length >= 10;
+          var emailOK = email && email.value.trim() && /[^@\s]+@[^@\s]+\.[^@\s]+/.test(email.value);
+          if (!phoneOK && !emailOK) {
+            // both empty — push the user to phone first
+            phone.focus();
+            phone.classList.add('is-error');
+            phone.setAttribute('aria-invalid', 'true');
+            var err = document.getElementById('f-phone-err');
+            if (err) err.hidden = false;
+            e.stopImmediatePropagation();
+            e.preventDefault();
+          }
+        }, true); // capture phase — runs before app.js's listener
+      }
+    })();
+  </script>
+</body>
+</html>
