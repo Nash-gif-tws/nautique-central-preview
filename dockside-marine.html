@@ -1,0 +1,683 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0d0d0e" />
+  <meta name="robots" content="noindex" />
+  <script>(function(d){d.documentElement.className+=' js';try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches)d.documentElement.className+=' anim';}catch(e){}})(document);</script>
+  <title>Dockside Marine | South Texas's Wake &amp; Surf Boat Dealer — Lake Conroe</title>
+  <meta name="description" content="Dockside Marine — Boating Industry Top-100 wake &amp; surf dealer on Lake Conroe, an hour north of Houston. Authorized Nautique and Crest dealer. New, pre-owned, service and pro shop. Call (936) 447-6161." />
+
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=switzer@400,500,600,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=22" />
+  <link rel="preload" as="image" href="images/hero-conroe.webp" type="image/webp" media="(min-width: 701px)" fetchpriority="high" />
+  <link rel="preload" as="image" href="images/hero-conroe-mobile.webp" type="image/webp" media="(max-width: 700px)" fetchpriority="high" />
+
+  <!-- ============ DEMO RE-SKIN: Dockside Marine — Texas red on charcoal ============ -->
+  <style>
+    :root{
+      --bg:#0c0c0d; --bg-1:#141416; --bg-2:#1a1a1d; --bg-3:#212126;
+      --accent:#E42129; --accent-2:#ff3b42;   /* Dockside red */
+    }
+    /* Wordmark */
+    .wordmark{ display:inline-flex; align-items:center; gap:11px; }
+    .wordmark__mark{ width:30px; height:30px; color:var(--accent); flex:none; filter:drop-shadow(0 2px 8px rgba(0,0,0,.45)); }
+    .wordmark__txt{ display:flex; flex-direction:column; line-height:1; }
+    .wordmark__name{ font-family:var(--font-display); text-transform:uppercase; font-weight:700; letter-spacing:.04em; font-size:1.16rem; color:#fff; }
+    .wordmark__sub{ font-family:var(--font-body); text-transform:uppercase; letter-spacing:.26em; font-size:.54rem; color:var(--muted-2); margin-top:5px; }
+    .footer__wordmark{ margin-bottom:18px; }
+    @media (max-width:700px){ .wordmark__sub{ display:none; } }
+
+    /* Header phone */
+    .header__phone{ display:inline-flex; align-items:center; gap:9px; color:#fff; font-family:var(--font-display); font-size:.92rem; text-decoration:none; margin-left:auto; margin-right:14px; }
+    .header__phone svg{ color:var(--accent); flex:none; }
+    .header__phone strong{ display:block; letter-spacing:.04em; font-weight:600; line-height:1; white-space:nowrap; }
+    .header__phone em{ display:block; font-style:normal; font-size:.66rem; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.55); margin-top:3px; }
+    .nav a{ white-space:nowrap; }
+    @media (min-width:981px) and (max-width:1180px){ .nav{ gap:20px; } .header__phone{ margin-right:10px; } .header__cta{ padding:11px 18px; } }
+    @media (max-width:980px){ .header__phone em{ display:none; } .header__phone{ min-height:44px; padding:0 12px; border:1px solid rgba(228,33,41,.5); border-radius:999px; color:#ff6b6b; margin-right:8px; font-size:.85rem; } }
+
+    /* Hero credentials eyebrow */
+    .hero .eyebrow--creds{ font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(255,255,255,.82); font-weight:500; display:flex; flex-wrap:wrap; gap:9px 13px; align-items:center; text-shadow:0 1px 12px rgba(0,0,0,.5); }
+    .hero .eyebrow--creds span{ color:var(--accent-2); }
+    @media (max-width:600px){ .hero .eyebrow--creds{ font-size:.62rem; letter-spacing:.16em; gap:6px 9px; } }
+
+    /* Hero quick-call */
+    .hero__quick{ margin-top:22px; max-width:560px; }
+    .hero__quick-label{ display:block; font-size:.88rem; color:#e7e7e8; margin-bottom:10px; text-shadow:0 1px 10px rgba(0,0,0,.5); }
+    .hero__quick-row{ display:flex; gap:8px; background:rgba(12,12,13,.55); border:1px solid rgba(255,255,255,.18); border-radius:999px; padding:6px; backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); }
+    .hero__quick-row input{ flex:1; background:transparent; border:0; color:#fff; padding:12px 18px; font-size:1rem; font-family:var(--font-body); outline:none; min-width:0; }
+    .hero__quick-row input::placeholder{ color:rgba(255,255,255,.45); }
+    .hero__quick-row .btn{ padding:13px 22px; font-size:.85rem; }
+    .hero__quick-fine{ font-size:.72rem; letter-spacing:.04em; color:rgba(255,255,255,.6); margin-top:10px; text-shadow:0 1px 10px rgba(0,0,0,.5); }
+    @media (max-width:700px){ .hero__quick{ display:none; } }
+
+    /* Hero CTA mobile call swap */
+    .hero__cta--mob{ display:none; } .hero__cta--desk{ display:inline; }
+    @media (max-width:700px){ .hero__cta--mob{ display:inline; } .hero__cta--desk{ display:none; } .hero__cta--call{ background:rgba(228,33,41,.18) !important; border-color:rgba(228,33,41,.6) !important; color:#fff !important; } }
+    @media (max-width:600px){
+      .hero{ min-height:88svh; align-items:flex-end; padding-top:84px; padding-bottom:28px; }
+      .hero__media img{ height:100%; object-position:60% 40%; }
+      .hero h1{ font-size:clamp(2.6rem,11.5vw,3.6rem) !important; line-height:.98; }
+      .hero__sub{ display:none; }
+      .hero__cta{ gap:10px; flex-direction:column; }
+      .hero__cta .btn{ width:100%; justify-content:center; padding:16px; font-size:1rem; }
+    }
+
+    /* Proof bar */
+    .proofbar{ background:var(--bg-1); border-top:1px solid rgba(255,255,255,.06); border-bottom:1px solid rgba(255,255,255,.06); padding:clamp(28px,4vw,52px) 0; }
+    .proofbar__row{ display:grid; grid-template-columns:repeat(4,1fr); align-items:end; }
+    .proofbar__cell{ display:flex; flex-direction:column; gap:8px; padding:8px 20px; border-right:1px solid rgba(255,255,255,.08); }
+    .proofbar__cell:last-child{ border-right:0; }
+    .proofbar__num{ font-family:var(--font-display); font-weight:600; font-size:clamp(2rem,4.6vw,3.4rem); line-height:1; color:#fff; letter-spacing:-.02em; }
+    .proofbar__den{ font-size:.5em; color:var(--accent); margin-left:3px; }
+    .proofbar__lbl{ font-family:var(--font-body); font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.62); font-weight:500; }
+    @media (max-width:700px){ .proofbar__row{ grid-template-columns:repeat(2,1fr); row-gap:24px; } .proofbar__cell:nth-child(2){ border-right:0; } .proofbar__cell:nth-child(1),.proofbar__cell:nth-child(2){ border-bottom:1px solid rgba(255,255,255,.08); padding-bottom:24px; } }
+
+    /* Brand strip mobile chips */
+    .brands__logos{ flex-wrap:wrap; justify-content:center; row-gap:14px; }
+    .brands__logos .brand-word{ font-size:1.12rem; letter-spacing:.05em; opacity:.86; }
+    @media (max-width:700px){
+      .brands__row{ display:block; padding:0; } .brands__label{ display:block; text-align:center; margin-bottom:14px; }
+      .brands__logos{ flex-wrap:nowrap !important; gap:8px !important; overflow-x:auto; scroll-snap-type:x mandatory; padding:4px 20px 8px; scrollbar-width:none; }
+      .brands__logos::-webkit-scrollbar{ display:none; } .brands__div{ display:none !important; }
+      .brand-word{ flex:0 0 auto; scroll-snap-align:start; padding:10px 16px; border:1px solid rgba(228,33,41,.3); border-radius:999px; background:rgba(228,33,41,.06); font-size:.86rem !important; opacity:1 !important; }
+    }
+
+    /* Awards / certs */
+    .certs{ padding:clamp(28px,4vw,56px) 0; border-top:1px solid rgba(255,255,255,.06); border-bottom:1px solid rgba(255,255,255,.06); }
+    .certs__row{ display:grid; grid-template-columns:repeat(4,1fr); gap:28px; align-items:center; }
+    .cert{ display:flex; gap:14px; align-items:flex-start; }
+    .cert__seal{ width:34px; height:34px; color:var(--accent); flex:none; margin-top:2px; }
+    .cert__txt{ display:flex; flex-direction:column; gap:4px; }
+    .cert__txt strong{ font-family:var(--font-display); font-weight:600; font-size:.92rem; color:#fff; text-transform:uppercase; letter-spacing:.01em; }
+    .cert__txt span{ font-size:.78rem; color:var(--muted); line-height:1.4; }
+    @media (max-width:900px){ .certs__row{ grid-template-columns:repeat(2,1fr); gap:22px; } }
+    @media (max-width:500px){ .certs__row{ grid-template-columns:1fr; } }
+
+    /* Featured inventory */
+    .inv__disclaimer{ font-size:.78rem; color:var(--muted-2); margin-top:14px; max-width:60ch; opacity:.85; }
+    .inv__phone{ color:var(--accent-2); text-decoration:underline; text-underline-offset:2px; white-space:nowrap; }
+    .inv-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    .icard{ display:flex; flex-direction:column; background:var(--bg-1); border:1px solid var(--line); border-radius:var(--r-card); overflow:hidden; transition:transform .3s var(--ease-out), border-color .3s var(--ease-out), box-shadow .3s var(--ease-out); }
+    .icard:hover{ transform:translateY(-6px); border-color:var(--line-strong); box-shadow:0 30px 60px -30px rgba(0,0,0,.7); }
+    .icard__media{ position:relative; aspect-ratio:16/10; overflow:hidden; background:var(--bg-2); }
+    .icard__media img{ width:100%; height:100%; object-fit:cover; transition:transform .7s var(--ease-out); }
+    .icard:hover .icard__media img{ transform:scale(1.05); }
+    .icard__badge{ position:absolute; top:12px; left:12px; z-index:2; font-family:var(--font-display); text-transform:uppercase; letter-spacing:.1em; font-size:.64rem; font-weight:600; padding:6px 11px; border-radius:var(--r-pill); line-height:1; }
+    .icard__badge--new{ background:var(--accent); color:#fff; }
+    .icard__badge--used{ background:rgba(12,12,13,.7); color:#fff; border:1px solid rgba(255,255,255,.4); }
+    .icard__body{ padding:clamp(18px,2vw,24px); display:flex; flex-direction:column; flex:1; }
+    .icard__kicker{ font-family:var(--font-display); font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-2); margin-bottom:8px; }
+    .icard__name{ font-size:clamp(1.25rem,1.7vw,1.5rem)!important; line-height:1.1; margin-bottom:12px; }
+    .icard__specs{ list-style:none; margin:0 0 16px; padding:0; display:flex; flex-wrap:wrap; gap:6px 8px; }
+    .icard__specs li{ font-family:var(--font-display); font-size:.66rem; letter-spacing:.06em; text-transform:uppercase; color:var(--muted-2); border:1px solid var(--line); border-radius:6px; padding:5px 8px; line-height:1; }
+    .icard__foot{ display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin-bottom:18px; margin-top:auto; padding-top:14px; border-top:1px solid var(--line); }
+    .icard__price{ font-family:var(--font-display); font-size:1.18rem; font-weight:600; color:#fff; white-space:nowrap; }
+    .icard__price em{ font-style:normal; font-size:.6rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted-2); margin-left:3px; }
+    .icard__loc{ display:inline-flex; align-items:center; gap:5px; font-size:.78rem; color:var(--muted); white-space:nowrap; }
+    .icard__loc svg{ width:14px; height:14px; flex:none; color:var(--accent); }
+    .icard__cta{ width:100%; justify-content:center; padding:14px 18px; font-size:.85rem; }
+    .icard__cta svg{ width:16px; height:16px; transition:transform .25s var(--ease-out); }
+    .icard:hover .icard__cta svg{ transform:translateX(4px); }
+    .inv__note{ text-align:center; font-size:.9rem; color:var(--muted); margin-top:clamp(24px,3vw,36px); }
+    .inv__note .inline-link{ color:var(--accent-2); text-decoration:underline; text-underline-offset:2px; }
+    @media (max-width:980px){ .inv-grid{ grid-template-columns:repeat(2,1fr); gap:16px; } }
+    @media (max-width:700px){
+      .inv-grid{ display:flex; grid-template-columns:none; gap:14px; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none; margin-inline:calc(-1*var(--pad)); padding:4px var(--pad) 10px; }
+      .inv-grid::-webkit-scrollbar{ display:none; } .icard{ flex:0 0 84%; scroll-snap-align:start; } .icard:hover{ transform:none; }
+    }
+    .enquire-chip__row{ display:flex; align-items:center; justify-content:space-between; gap:12px; background:rgba(228,33,41,.08); border:1px solid rgba(228,33,41,.4); border-radius:8px; padding:12px 14px; margin-top:4px; }
+    .enquire-chip__row strong{ font-family:var(--font-display); font-size:.9rem; color:#fff; line-height:1.3; }
+    .enquire-chip__clear{ flex:none; background:transparent; border:0; color:var(--accent-2); font-family:var(--font-display); text-transform:uppercase; letter-spacing:.08em; font-size:.66rem; font-weight:600; cursor:pointer; padding:4px 6px; text-decoration:underline; }
+
+    /* Single-location feature panel (replaces multi-panel pin track) */
+    .lotfeature{ position:relative; margin-top:clamp(40px,6vw,72px); min-height:60vh; display:flex; align-items:flex-end; overflow:hidden; border-radius:var(--r-card); }
+    .lotfeature img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+    .lotfeature::after{ content:""; position:absolute; inset:0; background:linear-gradient(to top, rgba(12,12,13,.9), rgba(12,12,13,.25) 60%, rgba(12,12,13,.4)); }
+    .lotfeature__body{ position:relative; z-index:1; padding:clamp(28px,4vw,48px); max-width:620px; }
+    .lotfeature__body h3{ font-size:clamp(1.6rem,3vw,2.4rem); margin-bottom:12px; }
+    .lotfeature__body p{ color:rgba(255,255,255,.82); margin-bottom:18px; }
+
+    /* Form + sticky + mnav + done state */
+    .field__hint{ font-size:.74rem; color:rgba(255,255,255,.55); margin-top:6px; }
+    .field__opt{ color:rgba(255,255,255,.55); font-weight:400; letter-spacing:.04em; font-size:.85em; }
+    .demo__consent{ font-size:.68rem; color:rgba(255,255,255,.55); text-align:center; margin-top:10px; line-height:1.5; max-width:46ch; margin-inline:auto; opacity:.85; }
+    .demo__done{ text-align:center; padding:clamp(28px,4vw,48px) 0; }
+    .demo__done-tick{ display:inline-flex; width:64px; height:64px; border-radius:50%; background:var(--accent); color:#fff; align-items:center; justify-content:center; margin-bottom:18px; }
+    .demo__done-tick svg{ width:32px; height:32px; }
+    .demo__done h3{ font-size:1.5rem; margin-bottom:12px; }
+    .demo__done > p{ color:var(--muted); max-width:48ch; margin:0 auto 22px; }
+    .demo__done-cta{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:18px; }
+    .demo__done-phone{ font-size:.85rem; color:rgba(255,255,255,.55); } .demo__done-phone a{ color:var(--accent-2); }
+    @media (max-width:980px){
+      .field input,.field select{ padding:16px 16px !important; font-size:16px; min-height:50px; border-radius:10px; }
+      .field select{ appearance:none; -webkit-appearance:none; background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b3b4b9' stroke-width='2' stroke-linecap='round'><path d='M7 10l5 5 5-5'/></svg>"); background-repeat:no-repeat; background-position:right 14px center; background-size:18px; padding-right:42px !important; }
+      .demo__form .btn{ min-height:56px; font-size:1.05rem; width:100%; justify-content:center; }
+    }
+    .stickybar{ position:fixed; left:0; right:0; bottom:0; z-index:90; display:flex; gap:10px; padding:12px clamp(16px,4vw,28px) calc(12px + env(safe-area-inset-bottom)); background:rgba(10,10,11,.92); backdrop-filter:blur(10px); border-top:1px solid var(--line); transform:translateY(110%); transition:transform .35s var(--ease-out); }
+    .stickybar.show{ transform:none; } .stickybar__btn{ flex:1; justify-content:center; min-height:52px; padding:14px 8px; font-size:.85rem; gap:6px; }
+    @media (min-width:981px){ .stickybar{ left:auto; right:24px; bottom:24px; border:1px solid var(--line); border-radius:999px; padding:8px; box-shadow:0 18px 48px rgba(0,0,0,.55); } .stickybar__btn{ flex:0 0 auto; padding:12px 20px; } }
+    @media (max-width:980px){ main{ padding-bottom:calc(88px + env(safe-area-inset-bottom)); } }
+    .mnav__call{ display:grid; gap:10px; padding:18px; background:rgba(228,33,41,.08); border:1px solid rgba(228,33,41,.3); border-radius:14px; margin-bottom:22px; }
+    .mnav__calleyebrow{ font-size:.72rem; letter-spacing:.22em; text-transform:uppercase; color:rgba(255,255,255,.55); }
+    .mnav__callbtn,.mnav__textbtn{ justify-content:center; width:100%; padding:16px 18px !important; font-size:1.05rem !important; }
+    .loc__line--text a{ color:var(--accent-2); font-weight:500; } .loc__line--text svg{ color:var(--accent); }
+    .inline-link{ color:#fff; text-decoration:underline; text-decoration-color:var(--accent); text-underline-offset:3px; }
+    .closer--bleed{ position:relative; padding-block:clamp(120px,16vw,200px); overflow:hidden; min-height:64vh; display:flex; align-items:center; }
+    .closer--bleed .closer__media{ position:absolute; inset:0; z-index:-1; }
+    .closer--bleed .closer__media::after{ content:''; position:absolute; inset:0; background:linear-gradient(180deg,rgba(12,12,13,.55),rgba(12,12,13,.85)); }
+    .closer--bleed .closer__media img{ width:100%; height:100%; object-fit:cover; }
+    .footer__demo-note{ font-size:.78rem; line-height:1.5; color:var(--muted); padding:14px 0 6px; border-top:1px dashed rgba(255,255,255,.12); margin-top:18px; max-width:780px; }
+    .footer__demo-note strong{ color:#fff; } .footer__demo-note a{ color:var(--accent-2); text-decoration:underline; }
+    @media (hover:hover) and (pointer:fine){
+      .btn svg{ transition:transform .35s cubic-bezier(0.16,1,0.3,1); } .btn:hover svg{ transform:translateX(5px); }
+      .btn--primary{ position:relative; overflow:hidden; isolation:isolate; } .btn--primary > *{ position:relative; z-index:1; }
+      .btn--primary::after{ content:''; position:absolute; inset:0; z-index:0; background:var(--accent-2); transform:translateX(-101%); transition:transform .5s cubic-bezier(0.16,1,0.3,1); }
+      .btn--primary:hover::after{ transform:translateX(0); }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org","@type":"AutoDealer","name":"Dockside Marine",
+    "description":"Boating Industry Top-100 wake and surf boat dealer on Lake Conroe, Texas. Authorized Nautique and Crest dealer serving the greater Houston area.",
+    "url":"https://www.dmboats.com","telephone":"+19364476161",
+    "email":"leads@dmboats.com",
+    "sameAs":["https://www.instagram.com/docksidemarinetx","https://www.facebook.com/dockside.marine.7"],
+    "brand":["Nautique","Crest"],
+    "address":{"@type":"PostalAddress","streetAddress":"14981 Hwy 105 W","addressLocality":"Montgomery","addressRegion":"TX","postalCode":"77356","addressCountry":"US"}
+  }
+  </script>
+</head>
+<body id="top">
+  <a href="#main" class="skip-link">Skip to content</a>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="wrap header__row">
+      <a href="#top" class="wordmark" aria-label="Dockside Marine home">
+        <svg class="wordmark__mark" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true"><path d="M32 4l5.9 12 13.2 1.9-9.6 9.3 2.3 13.2L32 40.5l-11.8 6.2 2.3-13.2-9.6-9.3 13.2-1.9z"/></svg>
+        <span class="wordmark__txt"><span class="wordmark__name">Dockside Marine</span><span class="wordmark__sub">Lake Conroe · Texas</span></span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#range">Boats</a>
+        <a href="#inventory">In Stock</a>
+        <a href="#why">Why Dockside</a>
+        <a href="#showrooms">Visit</a>
+        <a href="#demo">Contact</a>
+      </nav>
+      <a class="header__phone" href="tel:+19364476161" aria-label="Call Dockside Marine">
+        <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" width="16" height="16"><path d="M222.37 158.46l-47.11-21.11a16 16 0 0 0-15.17 1.4L134.87 160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71a16 16 0 0 0 1.32-15.06l-21.11-47.2A16 16 0 0 0 80.6 25a56.34 56.34 0 0 0-48.6 56c0 79.4 64.6 144 144 144a56.34 56.34 0 0 0 56-48.6 16 16 0 0 0-9.63-17.94Z"/></svg>
+        <span><strong>(936) 447-6161</strong><em>Tue–Sat</em></span>
+      </a>
+      <a class="btn btn--primary header__cta" href="#demo">Get a Quote</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M224 128a8 8 0 0 1-8 8H40a8 8 0 0 1 0-16h176a8 8 0 0 1 8 8ZM40 72h176a8 8 0 0 0 0-16H40a8 8 0 0 0 0 16Zm176 112H40a8 8 0 0 0 0 16h176a8 8 0 0 0 0-16Z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="mnav" id="mnav">
+    <div class="mnav__call">
+      <span class="mnav__calleyebrow">Talk to the team</span>
+      <a class="btn btn--primary mnav__callbtn" href="tel:+19364476161" data-mclose>Call (936) 447-6161</a>
+      <a class="btn btn--ghost mnav__textbtn" href="sms:+19364476161" data-mclose>Text us instead</a>
+    </div>
+    <a href="#range" data-mclose>Boats</a>
+    <a href="#inventory" data-mclose>In Stock</a>
+    <a href="#why" data-mclose>Why Dockside</a>
+    <a href="#showrooms" data-mclose>Visit</a>
+    <a class="btn btn--primary" href="#demo" data-mclose>Get a Quote</a>
+  </div>
+
+  <main id="main">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__media">
+      <picture>
+        <source media="(max-width: 700px)" srcset="images/hero-conroe-mobile.webp" type="image/webp" />
+        <source media="(max-width: 700px)" srcset="images/hero-conroe-mobile.jpg" />
+        <source srcset="images/hero-conroe.webp" type="image/webp" />
+        <img id="heroImg" src="images/hero-conroe.jpg" alt="A wake boat cruising Lake Conroe at golden hour past the Piney Woods treeline" width="1536" height="1024" fetchpriority="high" />
+      </picture>
+    </div>
+    <div class="wrap hero__inner">
+      <p class="eyebrow eyebrow--creds" data-hero>
+        Boating Industry Top-100 Dealer <span aria-hidden="true">·</span>
+        Nautique + Crest <span aria-hidden="true">·</span>
+        Lake Conroe <span aria-hidden="true">·</span>
+        Since 2008
+      </p>
+      <h1 data-hero>South Texas rides<br>with Dockside.</h1>
+      <p class="hero__sub" data-hero>The Top-100 wake and surf dealer on Lake Conroe. Nautique, Crest and the boats Houston actually wants — sold, serviced and dialed in, an hour north of downtown.</p>
+      <div class="hero__cta" data-hero>
+        <a class="btn btn--primary" href="#range">Browse the Boats
+          <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>
+        </a>
+        <a class="btn btn--ghost hero__cta--call" href="#showrooms">
+          <span class="hero__cta--mob">Call (936) 447-6161</span>
+          <span class="hero__cta--desk">Visit the Lot</span>
+        </a>
+      </div>
+      <form class="hero__quick" id="heroQuick" data-hero>
+        <label for="hq-phone" class="hero__quick-label">On the lake this weekend? Drop your number — we'll have a boat ready to ride.</label>
+        <div class="hero__quick-row">
+          <input id="hq-phone" name="phone" type="tel" inputmode="tel" placeholder="(936) 555-0142" autocomplete="tel" required aria-label="Your phone number" />
+          <button class="btn btn--primary" type="submit">Call me back
+            <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>
+          </button>
+        </div>
+        <p class="hero__quick-fine">Tue–Sat · We never share your number · Reply STOP to opt out.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- PROOF BAR -->
+  <section class="proofbar" aria-label="Dockside Marine credentials">
+    <div class="wrap proofbar__row" data-reveal>
+      <div class="proofbar__cell"><span class="proofbar__num">Top 100</span><span class="proofbar__lbl">Boating Industry dealer</span></div>
+      <div class="proofbar__cell"><span class="proofbar__num">15<span class="proofbar__den">+</span></span><span class="proofbar__lbl">Years on Lake Conroe</span></div>
+      <div class="proofbar__cell"><span class="proofbar__num">4.5<span class="proofbar__den">★</span></span><span class="proofbar__lbl">188 Google reviews</span></div>
+      <div class="proofbar__cell"><span class="proofbar__num">1 hr</span><span class="proofbar__lbl">North of Houston</span></div>
+    </div>
+  </section>
+
+  <!-- BRAND STRIP -->
+  <section class="brands" id="brands">
+    <div class="wrap brands__row" data-reveal>
+      <span class="brands__label">Proudly authorized for</span>
+      <div class="brands__logos">
+        <span class="brand-word">Nautique</span>
+        <span class="brands__div" aria-hidden="true"></span>
+        <span class="brand-word">Crest Pontoons</span>
+        <span class="brands__div" aria-hidden="true"></span>
+        <span class="brand-word">Ronix</span>
+        <span class="brands__div" aria-hidden="true"></span>
+        <span class="brand-word">Phase 5</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- AWARDS / CERTS -->
+  <section class="certs" aria-label="Awards and credentials">
+    <div class="wrap certs__row" data-reveal>
+      <div class="cert">
+        <svg class="cert__seal" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M32 6l6.5 13.2L53 21.5l-10.5 10.2L45 46.5 32 39.6 19 46.5l2.5-14.8L11 21.5l14.5-2.3z" stroke-linejoin="round"/></svg>
+        <div class="cert__txt"><strong>Top-100 Dealer</strong><span>Boating Industry, every year since 2013</span></div>
+      </div>
+      <div class="cert">
+        <svg class="cert__seal" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="32" cy="32" r="26"/><path d="M20 33l8 8 16-18" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="cert__txt"><strong>Authorized Nautique Dealer</strong><span>New wake, surf &amp; ski — factory direct</span></div>
+      </div>
+      <div class="cert">
+        <svg class="cert__seal" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10 44h44M16 44V28l16-12 16 12v16M26 44V32h12v12" stroke-linejoin="round"/></svg>
+        <div class="cert__txt"><strong>Largest inboard dealer in South Texas</strong><span>Family-owned since 2008</span></div>
+      </div>
+      <div class="cert">
+        <svg class="cert__seal" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M40 14l10 10-22 22-10 2 2-10z" stroke-linejoin="round"/><path d="M14 50h24" stroke-linecap="round"/></svg>
+        <div class="cert__txt"><strong>Dock-side &amp; mobile service</strong><span>Inboard specialists, we come to the water</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE RANGE -->
+  <section class="section range" id="range">
+    <div class="wrap">
+      <div class="head" data-reveal>
+        <h2 class="section-h" data-mask>Find the boat your<br>summer's been missing.</h2>
+        <p class="lede">Surf the back coves, load the whole crew on a tritoon, or pick up a clean pre-owned ride. Tell us how your family runs Lake Conroe and we'll put you on the right one.</p>
+      </div>
+      <div class="range-grid">
+        <a class="rtile" href="#demo" data-reveal>
+          <div class="rtile__media"><img src="images/wakeboarder.webp" alt="Wakeboarder behind a Nautique on Lake Conroe" loading="lazy" /></div>
+          <div class="rtile__body">
+            <span class="rtile__kicker">Nautique G &amp; P Series</span>
+            <h3>Wake &amp; Surf</h3>
+            <p>Head-high waves and a crisp wake, dialed in from the helm. The cleanest surf rides on Lake Conroe ride behind these.</p>
+            <span class="rtile__go">Book a sea trial <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg></span>
+          </div>
+        </a>
+        <a class="rtile" href="#demo" data-reveal>
+          <div class="rtile__media"><img src="images/coastal.webp" alt="Crest pontoon cruising Lake Conroe" loading="lazy" /></div>
+          <div class="rtile__body">
+            <span class="rtile__kicker">Crest Pontoons</span>
+            <h3>Pontoons</h3>
+            <p>Room for the whole crew, shade for a Texas afternoon, and the comfort to stay out past the last swim.</p>
+            <span class="rtile__go">Book a sea trial <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg></span>
+          </div>
+        </a>
+        <a class="rtile" href="#inventory" data-reveal>
+          <div class="rtile__media"><img src="images/action-spray.webp" alt="A clean pre-owned ski boat on Lake Conroe" loading="lazy" /></div>
+          <div class="rtile__body">
+            <span class="rtile__kicker">Certified Pre-Owned</span>
+            <h3>Pre-Owned</h3>
+            <p>Every trade-in we take gets gone through and prepped before it goes back on the water. Clean boats, honest prices.</p>
+            <span class="rtile__go">See what's in stock <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED INVENTORY -->
+  <section class="section inv" id="inventory">
+    <div class="wrap">
+      <div class="head inv__head" data-reveal>
+        <p class="eyebrow">On the lot now</p>
+        <h2 class="section-h" data-mask>A sample of what's<br>on the water this week.</h2>
+        <p class="lede">New and pre-owned, ready to ride on Lake Conroe. Prices shown are illustrative — call <a class="inv__phone" href="tel:+19364476161">(936)&nbsp;447-6161</a> for today's number.</p>
+        <p class="inv__disclaimer">Sample units shown for layout. Your live inventory feed drops straight into this grid and updates itself.</p>
+      </div>
+      <div class="inv-grid" data-reveal>
+        <article class="icard"><div class="icard__media"><span class="icard__badge icard__badge--new">New · 2026</span><img src="images/models/super-air-g23-profile.webp" alt="2026 Nautique Super Air G23" loading="lazy" /></div><div class="icard__body"><span class="icard__kicker">Nautique · Wake / Surf</span><h3 class="icard__name">Super Air Nautique G23</h3><ul class="icard__specs"><li>23' 0"</li><li>Surf-ready</li><li>Stk #N26-G23</li></ul><div class="icard__foot"><span class="icard__price">$224,900 <em>approx.</em></span><span class="icard__loc"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 16a88.1 88.1 0 0 0-88 88c0 75.3 80 132.17 83.41 134.55a8 8 0 0 0 9.18 0C136 236.17 216 179.3 216 104a88.1 88.1 0 0 0-88-88Zm0 56a32 32 0 1 1-32 32 32 32 0 0 1 32-32Z"/></svg>Lake Conroe</span></div><a class="btn btn--primary icard__cta" href="#demo" data-enquire data-model="Nautique Super Air G23 (2026)" data-interest="Wake &amp; surf">Enquire on this boat <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg></a></div></article>
+        <article class="icard"><div class="icard__media"><span class="icard__badge icard__badge--new">New · 2026</span><img src="images/gs24.webp" alt="2026 Nautique Super Air G25 Paragon" loading="lazy" /></div><div class="icard__body"><span class="icard__kicker">Nautique · Flagship</span><h3 class="icard__name">Super Air Nautique G25</h3><ul class="icard__specs"><li>25' 6"</li><li>Paragon hull</li><li>Stk #N26-G25</li></ul><div class="icard__foot"><span class="icard__price">$329,900 <em>approx.</em></span><span class="icard__loc"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 16a88.1 88.1 0 0 0-88 88c0 75.3 80 132.17 83.41 134.55a8 8 0 0 0 9.18 0C136 236.17 216 179.3 216 104a88.1 88.1 0 0 0-88-88Zm0 56a32 32 0 1 1-32 32 32 32 0 0 1 32-32Z"/></svg>Lake Conroe</span></div><a class="btn btn--primary icard__cta" href="#demo" data-enquire data-model="Nautique Super Air G25 (2026)" data-interest="Wake &amp; surf">Enquire on this boat <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg></a></div></article>
+        <article class="icard"><div class="icard__media"><span class="icard__badge icard__badge--new">New · 2025</span><img src="images/coastal.webp" alt="2025 Crest Caribbean tritoon" loading="lazy" /></div><div class="icard__body"><span class="icard__kicker">Crest · Tritoon</span><h3 class="icard__name">Crest Caribbean 250 SLS</h3><ul class="icard__specs"><li>25' 0"</li><li>Seats 12</li><li>Stk #CR25-CAR</li></ul><div class="icard__foot"><span class="icard__price">$112,500 <em>approx.</em></span><span class="icard__loc"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 16a88.1 88.1 0 0 0-88 88c0 75.3 80 132.17 83.41 134.55a8 8 0 0 0 9.18 0C136 236.17 216 179.3 216 104a88.1 88.1 0 0 0-88-88Zm0 56a32 32 0 1 1-32 32 32 32 0 0 1 32-32Z"/></svg>Lake Conroe</span></div><a class="btn btn--primary icard__cta" href="#demo" data-enquire data-model="Crest Caribbean 250 SLS (2025)" data-interest="Pontoon">Enquire on this boat <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg></a></div></article>
+        <article class="icard"><div class="icard__media"><span class="icard__badge icard__badge--used">Pre-Owned · 2021</span><img src="images/g23.webp" alt="2021 Nautique G23 used" loading="lazy" /></div><div class="icard__body"><span class="icard__kicker">Nautique · Wake / Surf</span><h3 class="icard__name">Super Air Nautique G23</h3><ul class="icard__specs"><li>23' 0"</li><li>One owner</li><li>Stk #U21-G23</li></ul><div class="icard__foot"><span class="icard__price">$139,900 <em>approx.</em></span><span class="icard__loc"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 16a88.1 88.1 0 0 0-88 88c0 75.3 80 132.17 83.41 134.55a8 8 0 0 0 9.18 0C136 236.17 216 179.3 216 104a88.1 88.1 0 0 0-88-88Zm0 56a32 32 0 1 1-32 32 32 32 0 0 1 32-32Z"/></svg>Lake Conroe</span></div><a class="btn btn--primary icard__cta" href="#demo" data-enquire data-model="Nautique G23 — Pre-Owned (2021)" data-interest="Wake &amp; surf">Enquire on this boat <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg></a></div></article>
+        <article class="icard"><div class="icard__media"><span class="icard__badge icard__badge--new">New · 2026</span><img src="images/onwater-1.webp" alt="2026 Nautique Ski Nautique" loading="lazy" /></div><div class="icard__body"><span class="icard__kicker">Nautique · Ski</span><h3 class="icard__name">Ski Nautique</h3><ul class="icard__specs"><li>20' 0"</li><li>Course-ready</li><li>Stk #N26-SKI</li></ul><div class="icard__foot"><span class="icard__price">$179,900 <em>approx.</em></span><span class="icard__loc"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 16a88.1 88.1 0 0 0-88 88c0 75.3 80 132.17 83.41 134.55a8 8 0 0 0 9.18 0C136 236.17 216 179.3 216 104a88.1 88.1 0 0 0-88-88Zm0 56a32 32 0 1 1-32 32 32 32 0 0 1 32-32Z"/></svg>Lake Conroe</span></div><a class="btn btn--primary icard__cta" href="#demo" data-enquire data-model="Ski Nautique (2026)" data-interest="Wake &amp; surf">Enquire on this boat <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg></a></div></article>
+        <article class="icard"><div class="icard__media"><span class="icard__badge icard__badge--used">Pre-Owned · 2020</span><img src="images/onwater-2.webp" alt="2020 Crest pontoon used" loading="lazy" /></div><div class="icard__body"><span class="icard__kicker">Crest · Pontoon</span><h3 class="icard__name">Crest Classic 220</h3><ul class="icard__specs"><li>22' 0"</li><li>Low hours</li><li>Stk #U20-CRE</li></ul><div class="icard__foot"><span class="icard__price">$44,900 <em>approx.</em></span><span class="icard__loc"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 16a88.1 88.1 0 0 0-88 88c0 75.3 80 132.17 83.41 134.55a8 8 0 0 0 9.18 0C136 236.17 216 179.3 216 104a88.1 88.1 0 0 0-88-88Zm0 56a32 32 0 1 1-32 32 32 32 0 0 1 32-32Z"/></svg>Lake Conroe</span></div><a class="btn btn--primary icard__cta" href="#demo" data-enquire data-model="Crest Classic 220 — Pre-Owned (2020)" data-interest="Pontoon">Enquire on this boat <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg></a></div></article>
+      </div>
+      <p class="inv__note">New, pre-owned and trade-ins on the lot — <a class="inline-link" href="#demo">value your trade</a> and put it toward any boat above.</p>
+    </div>
+  </section>
+
+  <!-- FOOTPRINT / LAKE CONROE -->
+  <section class="states" id="stock">
+    <div class="wrap states__intro" data-reveal>
+      <p class="eyebrow">One lake. One lot. Always on the water.</p>
+      <h2 class="section-h" data-mask>An hour from Houston,<br>right on Lake Conroe.</h2>
+      <p class="lede">21,000 acres, 157 miles of shoreline, and a near year-round Texas season. We sit right on Highway 105 — boats out front, water out back, and a service crew that'll meet you at your dock.</p>
+      <div class="stats">
+        <div class="stat"><span class="stat__num" data-count="157">0</span><span class="stat__label">Miles of shoreline</span></div>
+        <div class="stat"><span class="stat__num" data-count="15" data-suffix="+">0</span><span class="stat__label">Years on the lake</span></div>
+        <div class="stat"><span class="stat__num" data-count="100" data-suffix=" Top">0</span><span class="stat__label">Boating Industry rank</span></div>
+        <div class="stat"><span class="stat__num" data-count="1" data-suffix=" hr">0</span><span class="stat__label">From downtown Houston</span></div>
+      </div>
+      <div class="lotfeature" data-reveal-img>
+        <img src="images/coastal.webp" alt="Dockside Marine on Lake Conroe at golden hour" loading="lazy" />
+        <div class="lotfeature__body">
+          <h3>14981 Hwy 105 W, Montgomery</h3>
+          <p>Walk the docks, ride before you buy, and let the kids loose on the pro shop. We'll have coffee on and a boat in the water.</p>
+          <a class="btn btn--primary" href="#showrooms">Get directions
+            <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY DOCKSIDE -->
+  <section class="why" id="why">
+    <div class="why__media"><img id="whyImg" src="images/onwater-2.webp" alt="A boat being prepped at Dockside Marine" loading="lazy" /></div>
+    <div class="wrap why__inner">
+      <h2 data-mask>Your boat dealer<br>for life.</h2>
+      <p class="why__lead" data-reveal>Anyone can sell you a boat once. Fifteen years on Lake Conroe means a service department that knows inboards cold, a crew that preps every boat like it's their own, and a team that picks up the phone long after you've taken delivery.</p>
+      <div class="why__points" data-reveal>
+        <div class="why__pt"><h3>Inboard specialists</h3><p>Wake and surf boats are all we live on. Factory-trained techs, genuine parts, and the largest inboard service operation in South Texas.</p></div>
+        <div class="why__pt"><h3>We come to you</h3><p>Dock-side and mobile service across Lake Conroe — we'll meet your boat at the water so you don't lose a weekend.</p></div>
+        <div class="why__pt"><h3>Family-owned since 2008</h3><p>Top-100 dealer every year since 2013, and still run by the family that started it. People buy here, then send their friends.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRADE-IN -->
+  <section class="build" id="build">
+    <div class="wrap build__inner" data-reveal>
+      <h2 data-mask>Trade it in.<br>Trade it up.</h2>
+      <p class="lede">Your current boat is the easiest down payment you'll ever make. We'll value it on the spot, put it toward the next one, and you skip writing the bigger check.</p>
+      <a class="btn btn--primary" href="#demo">Value my boat
+        <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>
+      </a>
+    </div>
+    <div class="build__stage" aria-hidden="true">
+      <img class="build__boat" id="buildBoat" src="images/models/super-air-g23-profile.png" alt="" />
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="section proof">
+    <div class="wrap">
+      <div class="head proof__head" data-reveal>
+        <p class="eyebrow">What owners say</p>
+        <h2 class="section-h" data-mask>Read the reviews<br>before you drive out.</h2>
+        <p class="proof__rating"><span class="proof__stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Rated 4.5★ across 188 reviews · Top-100 dealer.</p>
+      </div>
+      <div class="proof__grid" data-reveal>
+        <blockquote class="quote"><p>"No pressure, no games. They showed us every option, were straight about pricing, and the boat was detailed and dialed in before we ever took delivery."</p><cite>Google review · Lake Conroe</cite></blockquote>
+        <blockquote class="quote"><p>"Bought from Larry and the team and they've taken care of us ever since. When something needed a look, they came to our dock. That's why we keep coming back."</p><cite>Google review · Lake Conroe</cite></blockquote>
+        <blockquote class="quote"><p>"First boat for our family and there was a lot to learn. The crew walked us through everything and never made us feel rushed. Felt like buying from friends."</p><cite>Google review · Lake Conroe</cite></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENQUIRE -->
+  <section class="section demo" id="demo">
+    <div class="wrap demo__grid">
+      <div class="demo__copy" data-reveal>
+        <h2 data-mask>Come see them<br>on the water.</h2>
+        <p>Nobody buys a wake boat from a brochure. Tell us how you ride Lake Conroe and we'll have the right boat — and the right person — ready when you pull in.</p>
+        <ul class="demo__list">
+          <li>On-water demo on Lake Conroe</li>
+          <li>Straight advice on wake, surf or pontoon</li>
+          <li>Trade-in valuation and financing, handled</li>
+        </ul>
+      </div>
+      <div class="demo__formwrap" data-reveal>
+        <form class="demo__form" id="demoForm" novalidate>
+          <div class="field">
+            <label for="f-name">Name</label>
+            <input id="f-name" name="name" type="text" placeholder="Your name" autocomplete="name" aria-describedby="f-name-err" required />
+            <p class="field__error" id="f-name-err" hidden>Enter your name.</p>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-phone">Phone</label>
+              <input id="f-phone" name="phone" type="tel" inputmode="tel" placeholder="(936) 555-0142" autocomplete="tel" aria-describedby="f-phone-err f-phone-hint" required />
+              <p class="field__hint" id="f-phone-hint">We'll call (or text) within one business day.</p>
+              <p class="field__error" id="f-phone-err" hidden>Enter a phone number we can reach you on.</p>
+            </div>
+            <div class="field">
+              <label for="f-email">Email <span class="field__opt">(optional)</span></label>
+              <input id="f-email" name="email" type="email" placeholder="you@email.com" autocomplete="email" spellcheck="false" aria-describedby="f-email-err" />
+              <p class="field__error" id="f-email-err" hidden>Enter a valid email address.</p>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-interest">I'm after</label>
+              <select id="f-interest" name="interest">
+                <option value="" selected disabled>Type of boat</option>
+                <option>Wake &amp; surf</option>
+                <option>Pontoon</option>
+                <option>Pre-owned</option>
+                <option>Service</option>
+                <option>Not sure yet, help me choose</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-budget">Budget</label>
+              <select id="f-budget" name="budget">
+                <option value="" selected disabled>Ballpark</option>
+                <option>Under $75K</option>
+                <option>$75K–$150K</option>
+                <option>$150K–$300K</option>
+                <option>$300K+</option>
+              </select>
+            </div>
+          </div>
+          <label class="checkbox"><input type="checkbox" name="trade" /> <span>I have a boat to trade in</span></label>
+          <button class="btn btn--primary" type="submit">Call me back
+            <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>
+          </button>
+          <div class="demo__legal">
+            <p class="demo__fineprint">Your details stay with Dockside Marine — we never share them.</p>
+            <p class="demo__consent">By submitting you agree we may call or text you about your enquiry. Msg &amp; data rates may apply. Reply STOP to opt out.</p>
+          </div>
+        </form>
+        <div class="demo__done" id="formDone" tabindex="-1" hidden>
+          <span class="demo__done-tick" aria-hidden="true"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M229.66 77.66l-128 128a8 8 0 0 1-11.32 0l-56-56a8 8 0 0 1 11.32-11.32L96 188.69 218.34 66.34a8 8 0 0 1 11.32 11.32Z"/></svg></span>
+          <h3>Got it. A Dockside rep will call you within one business day.</h3>
+          <p>Want to skip the wait? Text us — we usually reply within minutes during shop hours.</p>
+          <div class="demo__done-cta">
+            <a class="btn btn--primary" href="tel:+19364476161">Call (936) 447-6161</a>
+            <a class="btn btn--ghost" href="sms:+19364476161?&amp;body=Hi%20Dockside%20Marine%20—%20I%20just%20submitted%20an%20enquiry">Text us instead</a>
+          </div>
+          <p class="demo__done-phone">Tue–Sat · Lake Conroe, Montgomery TX</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION -->
+  <section class="section showrooms" id="showrooms">
+    <div class="wrap">
+      <div class="head" data-reveal>
+        <p class="eyebrow">Visit Us</p>
+        <h2 class="section-h" data-mask>Find us on<br>Lake Conroe.</h2>
+      </div>
+      <div class="locs" data-reveal>
+        <div class="loc" id="loc-main">
+          <div class="loc__state">Lake Conroe</div>
+          <div class="loc__city">Dockside Marine</div>
+          <p class="loc__line"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 16a88.1 88.1 0 0 0-88 88c0 75.3 80 132.17 83.41 134.55a8 8 0 0 0 9.18 0C136 236.17 216 179.3 216 104a88.1 88.1 0 0 0-88-88Zm0 56a32 32 0 1 1-32 32 32 32 0 0 1 32-32Z"/></svg><span>14981 Hwy 105 W,<br>Montgomery, TX 77356</span></p>
+          <p class="loc__line"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M222.37 158.46l-47.11-21.11a16 16 0 0 0-15.17 1.4L134.87 160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71a16 16 0 0 0 1.32-15.06l-21.11-47.2A16 16 0 0 0 80.6 25a56.34 56.34 0 0 0-48.6 56c0 79.4 64.6 144 144 144a56.34 56.34 0 0 0 56-48.6 16 16 0 0 0-9.63-17.94Z"/></svg><a href="tel:+19364476161">(936) 447-6161</a></p>
+          <p class="loc__line loc__line--text"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 48a87.63 87.63 0 0 0-75.06 132.4L40.81 217.34a13.78 13.78 0 0 0 13 18.13 13.92 13.92 0 0 0 4.4-.72l36.84-12.13A88 88 0 1 0 128 48Z"/></svg><a href="sms:+19364476161?&amp;body=Hi%20Dockside%20Marine%20—%20">Text Dockside</a></p>
+          <p class="loc__line"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24Zm56 112h-56a8 8 0 0 1-8-8V72a8 8 0 0 1 16 0v48h48a8 8 0 0 1 0 16Z"/></svg><span>Tue to Fri 8:30am–5:30pm<br>Sat 8:30am–5pm · Closed Sun/Mon</span></p>
+          <a class="text-link" href="https://maps.google.com/?q=14981+Hwy+105+W+Montgomery+TX+77356" rel="noopener">Get directions
+            <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>
+          </a>
+        </div>
+        <div class="loc">
+          <div class="loc__state">Service &amp; Pro Shop</div>
+          <div class="loc__city">More than the sale</div>
+          <p class="loc__line"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M226.76,69a8,8,0,0,0-12.84-2.88l-40.3,37.19-17.23-3.7-3.7-17.23,37.19-40.3A8,8,0,0,0,187,29.24,72,72,0,0,0,88,96,72.34,72.34,0,0,0,94,124.94L33.79,177a32,32,0,0,0,45.26,45.26L131.06,162A72,72,0,0,0,232,96,71.56,71.56,0,0,0,226.76,69Z"/></svg><span>Factory-trained inboard service<br>+ dock-side &amp; mobile repair</span></p>
+          <p class="loc__line"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M208,40H48A16,16,0,0,0,32,56v56c0,96,84,120,93.4,122.3a8,8,0,0,0,5.2,0C140,232,224,208,224,112V56A16,16,0,0,0,208,40Z"/></svg><span>Genuine parts + Pro Shop<br>Ronix, Phase 5 &amp; ride gear</span></p>
+          <p class="loc__line"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm12,120a12,12,0,0,1-24,0V80a12,12,0,0,1,24,0Z"/></svg><span>Financing, trade-ins &amp; insurance<br>all sorted in-house</span></p>
+          <a class="text-link" href="#demo">Book a service
+            <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSER -->
+  <section class="section closer closer--bleed">
+    <div class="closer__media" aria-hidden="true"><img src="images/onwater-1.webp" alt="" /></div>
+    <div class="wrap" data-reveal>
+      <h2 data-mask>Your best days are<br>on Lake Conroe.</h2>
+      <p class="lede">Come walk the docks. Bring the kids, the dog, your trade-in. We're always on the water.</p>
+      <div class="closer__cta">
+        <a class="btn btn--primary" href="#demo">Book a Sea Trial
+          <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>
+        </a>
+        <a class="btn btn--ghost" href="tel:+19364476161">Call (936) 447-6161</a>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <div class="cruise" id="cruise" aria-hidden="true">
+    <div class="cruise__rig" id="cruiseRig">
+      <span class="cruise__wake"></span><span class="cruise__wake cruise__wake--2"></span>
+      <img class="cruise__boat" src="images/g23-profile.webp" alt="" width="500" height="300" />
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__grid">
+        <div>
+          <div class="wordmark footer__wordmark">
+            <svg class="wordmark__mark" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true"><path d="M32 4l5.9 12 13.2 1.9-9.6 9.3 2.3 13.2L32 40.5l-11.8 6.2 2.3-13.2-9.6-9.3 13.2-1.9z"/></svg>
+            <span class="wordmark__txt"><span class="wordmark__name">Dockside Marine</span><span class="wordmark__sub">Lake Conroe · Texas</span></span>
+          </div>
+          <p>South Texas's Top-100 wake &amp; surf dealer. #IRideWithDockside.</p>
+          <div class="footer__socials">
+            <a href="https://www.instagram.com/docksidemarinetx" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 80a48 48 0 1 0 48 48 48 48 0 0 0-48-48Zm0 80a32 32 0 1 1 32-32 32 32 0 0 1-32 32Zm44-94a12 12 0 1 1-12-12 12 12 0 0 1 12 12Zm44 2a54.06 54.06 0 0 0-15.54-38.46A54.06 54.06 0 0 0 162 14c-15.8-.9-52.2-.9-68 0a54.06 54.06 0 0 0-38.46 15.54A54.06 54.06 0 0 0 14 68c-.9 15.8-.9 52.2 0 68a54.06 54.06 0 0 0 15.54 38.46A54.06 54.06 0 0 0 94 190c15.8.9 52.2.9 68 0a54.06 54.06 0 0 0 38.46-15.54A54.06 54.06 0 0 0 216 136c.9-15.8.9-52.16 0-68Z"/></svg></a>
+            <a href="https://www.facebook.com/dockside.marine.7" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 24a104 104 0 0 0-16 207.21V152H88a8 8 0 0 1 0-16h24v-20.4c0-26 15.46-40.4 39.19-40.4a160.34 160.34 0 0 1 23.27 2v25.6h-13.1c-12.89 0-16.9 8-16.9 16.2V136h28.8a8 8 0 0 1 7.89 9.32l-3.2 19.2a8 8 0 0 1-7.89 6.68H144v59.21A104 104 0 0 0 128 24Z"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h3>Explore</h3>
+          <div class="footer__links">
+            <a href="#range">The Boats</a>
+            <a href="#inventory">In Stock</a>
+            <a href="#why">Why Dockside</a>
+            <a href="#demo">Get a Quote</a>
+            <a href="#showrooms">Visit Us</a>
+          </div>
+        </div>
+        <div>
+          <h3>Visit</h3>
+          <div class="footer__locs">
+            <p class="footer__loc"><strong>Lake Conroe</strong>Montgomery, TX &middot; <a href="tel:+19364476161">(936) 447-6161</a></p>
+            <p class="footer__loc"><strong>Email</strong><a href="mailto:leads@dmboats.com">leads@dmboats.com</a></p>
+            <p class="footer__loc"><strong>Hours</strong>Tue–Fri 8:30–5:30 · Sat 8:30–5</p>
+          </div>
+        </div>
+      </div>
+      <p class="footer__demo-note">
+        <strong>Demo concept</strong> — a free homepage redesign put together for Dockside Marine by <a href="mailto:roy@trojanwss.com">Roy Newlan</a>. Not affiliated with Dockside Marine. All Dockside Marine names, marks and addresses appear here for demonstration only and remain the property of their owner. If you're the team at Dockside, I'd love five minutes — <a href="mailto:roy@trojanwss.com">roy@trojanwss.com</a>.
+      </p>
+      <div class="footer__legal">
+        <span>&copy; 2026 Dockside Marine. All rights reserved.</span>
+        <span><a href="tel:+19364476161">(936) 447-6161</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="stickybar" id="stickybar">
+    <a class="btn btn--primary stickybar__btn" href="tel:+19364476161" aria-label="Call Dockside Marine">
+      <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" width="16" height="16"><path d="M222.37 158.46l-47.11-21.11a16 16 0 0 0-15.17 1.4L134.87 160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71a16 16 0 0 0 1.32-15.06l-21.11-47.2A16 16 0 0 0 80.6 25a56.34 56.34 0 0 0-48.6 56c0 79.4 64.6 144 144 144a56.34 56.34 0 0 0 56-48.6 16 16 0 0 0-9.63-17.94Z"/></svg> Call
+    </a>
+    <a class="btn btn--ghost stickybar__btn" href="sms:+19364476161?&amp;body=Hi%20Dockside%20Marine%20—%20" aria-label="Text Dockside Marine">Text</a>
+    <a class="btn btn--ghost stickybar__btn" href="#demo">Quote</a>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="app.js?v=22"></script>
+  <script>
+    (function(){
+      var hq = document.getElementById('heroQuick');
+      if (hq) hq.addEventListener('submit', function(e){ e.preventDefault(); var p=document.getElementById('hq-phone'); if((p.value||'').replace(/\D/g,'').length<10){p.focus();p.classList.add('is-error');return;} hq.innerHTML='<p style="color:#fff;padding:16px;line-height:1.5">Got it. A Dockside rep will call '+p.value+' inside 15 minutes.</p>'; });
+      if (matchMedia('(max-width:700px)').matches){ var c=document.querySelector('.hero__cta--call'); if(c) c.setAttribute('href','tel:+19364476161'); }
+      var sb=document.getElementById('stickybar');
+      if (sb){ var hh=(document.querySelector('.hero')||{}).clientHeight||600; var t=function(){ if(window.scrollY>hh*0.7) sb.classList.add('show'); else sb.classList.remove('show'); }; window.addEventListener('scroll',t,{passive:true}); t(); }
+      // inventory -> form prefill
+      (function(){
+        var cards=document.querySelectorAll('[data-enquire]'); if(!cards.length) return;
+        var form=document.getElementById('demoForm'); if(!form) return;
+        var interest=document.getElementById('f-interest'), nameField=document.getElementById('f-name');
+        var submitBtn=form.querySelector('button[type="submit"]'), submitDefault=submitBtn?submitBtn.innerHTML:'';
+        var doneH=document.querySelector('#formDone h3'), doneDefault=doneH?doneH.textContent:'';
+        var dec=function(s){var t=document.createElement('textarea');t.innerHTML=s||'';return t.value;};
+        var chip=document.createElement('div'); chip.className='field'; chip.hidden=true;
+        chip.innerHTML='<label>Enquiring about</label><div class="enquire-chip__row"><strong id="enquireChipText"></strong><button type="button" class="enquire-chip__clear">Clear</button></div>';
+        var first=nameField?nameField.closest('.field'):form.firstElementChild; if(first) first.parentNode.insertBefore(chip,first);
+        var chipText=chip.querySelector('#enquireChipText');
+        function setOpt(sel,val){ if(!sel||!val)return; for(var i=0;i<sel.options.length;i++){ if(sel.options[i].text.trim()===val.trim()){sel.selectedIndex=i;return;} } }
+        function clr(){ chip.hidden=true; chipText.textContent=''; if(submitBtn)submitBtn.innerHTML=submitDefault; if(doneH)doneH.textContent=doneDefault; }
+        chip.querySelector('.enquire-chip__clear').addEventListener('click',clr);
+        cards.forEach(function(c){ c.addEventListener('click',function(){
+          var model=dec(c.getAttribute('data-model')); setOpt(interest,dec(c.getAttribute('data-interest')));
+          chipText.textContent=model; chip.hidden=false;
+          if(submitBtn) submitBtn.innerHTML='Enquire on the '+model.replace(/\s*\(.*\)$/,'')+' <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>';
+          if(doneH) doneH.textContent='Got it. A Dockside rep will call you about the '+model.replace(/\s*\(.*\)$/,'')+' within one business day.';
+          setTimeout(function(){ if(nameField) nameField.focus(); },600);
+        }); });
+      })();
+    })();
+  </script>
+</body>
+</html>
