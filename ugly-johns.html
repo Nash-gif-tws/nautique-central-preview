@@ -1,0 +1,670 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#081627" />
+  <meta name="robots" content="noindex" />
+  <script>(function(d){d.documentElement.className+=' js';try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches)d.documentElement.className+=' anim';}catch(e){}})(document);</script>
+  <title>Ugly John's Custom Boats | Grand Lake Since 1974 — Afton, OK</title>
+  <meta name="description" content="Ugly John's Custom Boats — family owned on Grand Lake o' the Cherokees since 1974. Nautique, Monterey, Premier, Harris, Sea Ray, Pardo and De Antonio across five locations in Oklahoma, Arkansas and Texas, with Thunder Bay Marina and Ugly's Grill &amp; Bar on the water. Call (918) 782-4414." />
+
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=switzer@400,500,600,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=22" />
+  <link rel="preload" as="image" href="images/hero-grandlake.webp" type="image/webp" media="(min-width: 701px)" fetchpriority="high" />
+  <link rel="preload" as="image" href="images/hero-grandlake-mobile.webp" type="image/webp" media="(max-width: 700px)" fetchpriority="high" />
+
+  <!-- ============ DEMO RE-SKIN: Ugly John's — royal blue on lake navy, red trim ============ -->
+  <style>
+    :root{
+      --bg:#081627; --bg-1:#0c1f35; --bg-2:#102941; --bg-3:#163654;
+      --accent:#2969F1; --accent-2:#5B8CFF; --gold:#E8484D; /* accent = royal blue (white text passes AA 4.77:1), gold slot = their red, brightened for navy */
+    }
+    .wordmark{ display:inline-flex; align-items:center; gap:11px; }
+    .wordmark__mark{ width:30px; height:30px; color:var(--accent-2); flex:none; filter:drop-shadow(0 2px 8px rgba(0,0,0,.45)); }
+    .wordmark__txt{ display:flex; flex-direction:column; line-height:1; }
+    .wordmark__name{ font-family:var(--font-display); text-transform:uppercase; font-weight:700; letter-spacing:.06em; font-size:1.16rem; color:#fff; }
+    .wordmark__sub{ font-family:var(--font-body); text-transform:uppercase; letter-spacing:.26em; font-size:.54rem; color:var(--muted-2); margin-top:5px; }
+    .footer__wordmark{ margin-bottom:18px; }
+    @media (max-width:700px){ .wordmark__sub{ display:none; } }
+    .header__phone{ display:inline-flex; align-items:center; gap:9px; color:#fff; font-family:var(--font-display); font-size:.92rem; text-decoration:none; margin-left:auto; margin-right:14px; }
+    .header__phone svg{ color:var(--accent-2); flex:none; }
+    .header__phone strong{ display:block; letter-spacing:.04em; font-weight:600; line-height:1; white-space:nowrap; }
+    .header__phone em{ display:block; font-style:normal; font-size:.66rem; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.55); margin-top:3px; }
+    .nav a{ white-space:nowrap; }
+    @media (min-width:981px) and (max-width:1180px){ .nav{ gap:20px; } .header__phone{ margin-right:10px; } .header__cta{ padding:11px 18px; } }
+    @media (max-width:980px){ .header__phone em{ display:none; } .header__phone{ min-height:44px; padding:0 12px; border:1px solid rgba(91,140,255,.5); border-radius:999px; color:#8fb2ff; margin-right:8px; font-size:.85rem; } }
+    .hero .eyebrow--creds{ font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(255,255,255,.85); font-weight:500; display:flex; flex-wrap:wrap; gap:9px 13px; align-items:center; text-shadow:0 1px 12px rgba(0,0,0,.5); }
+    .hero .eyebrow--creds span{ color:var(--gold); }
+    @media (max-width:600px){ .hero .eyebrow--creds{ font-size:.62rem; letter-spacing:.16em; gap:6px 9px; } }
+    .hero__quick{ margin-top:22px; max-width:560px; }
+    .hero__quick-label{ display:block; font-size:.88rem; color:#e9eef2; margin-bottom:10px; text-shadow:0 1px 10px rgba(0,0,0,.5); }
+    .hero__quick-row{ display:flex; gap:8px; background:rgba(8,22,39,.55); border:1px solid rgba(255,255,255,.18); border-radius:999px; padding:6px; backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); }
+    .hero__quick-row input{ flex:1; background:transparent; border:0; color:#fff; padding:12px 18px; font-size:1rem; font-family:var(--font-body); outline:none; min-width:0; }
+    .hero__quick-row input::placeholder{ color:rgba(255,255,255,.45); }
+    .hero__quick-row .btn{ padding:13px 22px; font-size:.85rem; }
+    .hero__quick-fine{ font-size:.72rem; letter-spacing:.04em; color:rgba(255,255,255,.62); margin-top:10px; text-shadow:0 1px 10px rgba(0,0,0,.5); }
+    @media (max-width:700px){ .hero__quick{ display:none; } }
+    .hero__cta--mob{ display:none; } .hero__cta--desk{ display:inline; }
+    @media (max-width:700px){ .hero__cta--mob{ display:inline; } .hero__cta--desk{ display:none; } .hero__cta--call{ background:rgba(41,105,241,.2) !important; border-color:rgba(91,140,255,.6) !important; color:#fff !important; } }
+    @media (max-width:600px){
+      .hero{ min-height:88svh; align-items:flex-end; padding-top:84px; padding-bottom:28px; }
+      .hero__media img{ height:100%; object-position:60% 40%; }
+      .hero h1{ font-size:clamp(2.6rem,11.5vw,3.6rem) !important; line-height:.98; }
+      .hero__sub{ display:none; }
+      .hero__cta{ gap:10px; flex-direction:column; } .hero__cta .btn{ width:100%; justify-content:center; padding:16px; font-size:1rem; }
+    }
+    .proofbar{ background:var(--bg-1); border-top:1px solid rgba(255,255,255,.06); border-bottom:1px solid rgba(255,255,255,.06); padding:clamp(28px,4vw,52px) 0; }
+    .proofbar__row{ display:grid; grid-template-columns:repeat(4,1fr); align-items:end; }
+    .proofbar__cell{ display:flex; flex-direction:column; gap:8px; padding:8px 20px; border-right:1px solid rgba(255,255,255,.08); }
+    .proofbar__cell:last-child{ border-right:0; }
+    .proofbar__num{ font-family:var(--font-display); font-weight:600; font-size:clamp(2rem,4.6vw,3.4rem); line-height:1; color:#fff; letter-spacing:-.02em; }
+    .proofbar__den{ font-size:.5em; color:var(--gold); margin-left:3px; }
+    .proofbar__lbl{ font-family:var(--font-body); font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.62); font-weight:500; }
+    @media (max-width:700px){ .proofbar__row{ grid-template-columns:repeat(2,1fr); row-gap:24px; } .proofbar__cell:nth-child(2){ border-right:0; } .proofbar__cell:nth-child(1),.proofbar__cell:nth-child(2){ border-bottom:1px solid rgba(255,255,255,.08); padding-bottom:24px; } }
+    .brands__logos{ flex-wrap:wrap; justify-content:center; row-gap:14px; }
+    .brands__logos .brand-word{ font-size:1.08rem; letter-spacing:.05em; opacity:.86; }
+    @media (max-width:700px){
+      .brands__row{ display:block; padding:0; } .brands__label{ display:block; text-align:center; margin-bottom:14px; }
+      .brands__logos{ flex-wrap:nowrap !important; gap:8px !important; overflow-x:auto; scroll-snap-type:x mandatory; padding:4px 20px 8px; scrollbar-width:none; }
+      .brands__logos::-webkit-scrollbar{ display:none; } .brands__div{ display:none !important; }
+      .brand-word{ flex:0 0 auto; scroll-snap-align:start; padding:10px 16px; border:1px solid rgba(91,140,255,.35); border-radius:999px; background:rgba(41,105,241,.08); font-size:.84rem !important; opacity:1 !important; }
+    }
+    .certs{ padding:clamp(28px,4vw,56px) 0; border-top:1px solid rgba(255,255,255,.06); border-bottom:1px solid rgba(255,255,255,.06); background:linear-gradient(180deg,transparent,rgba(41,105,241,.05) 50%,transparent); }
+    .certs__row{ display:grid; grid-template-columns:repeat(4,1fr); gap:28px; align-items:center; }
+    .cert{ display:flex; gap:14px; align-items:flex-start; }
+    .cert__seal{ width:34px; height:34px; color:var(--gold); flex:none; margin-top:2px; }
+    .cert__txt{ display:flex; flex-direction:column; gap:4px; }
+    .cert__txt strong{ font-family:var(--font-display); font-weight:600; font-size:.92rem; color:#fff; text-transform:uppercase; letter-spacing:.01em; }
+    .cert__txt span{ font-size:.78rem; color:var(--muted); line-height:1.4; }
+    @media (max-width:900px){ .certs__row{ grid-template-columns:repeat(2,1fr); gap:22px; } }
+    @media (max-width:500px){ .certs__row{ grid-template-columns:1fr; } }
+    .inv__disclaimer{ font-size:.78rem; color:var(--muted-2); margin-top:14px; max-width:60ch; opacity:.85; }
+    .inv__phone{ color:var(--accent-2); text-decoration:underline; text-underline-offset:2px; white-space:nowrap; }
+    .inv-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    .icard{ display:flex; flex-direction:column; background:var(--bg-1); border:1px solid var(--line); border-radius:var(--r-card); overflow:hidden; transition:transform .3s var(--ease-out), border-color .3s var(--ease-out), box-shadow .3s var(--ease-out); }
+    .icard:hover{ transform:translateY(-6px); border-color:var(--line-strong); box-shadow:0 30px 60px -30px rgba(0,0,0,.7); }
+    .icard__media{ position:relative; aspect-ratio:16/10; overflow:hidden; background:var(--bg-2); }
+    .icard__media img{ width:100%; height:100%; object-fit:cover; transition:transform .7s var(--ease-out); }
+    .icard:hover .icard__media img{ transform:scale(1.05); }
+    .icard__badge{ position:absolute; top:12px; left:12px; z-index:2; font-family:var(--font-display); text-transform:uppercase; letter-spacing:.1em; font-size:.64rem; font-weight:600; padding:6px 11px; border-radius:var(--r-pill); line-height:1; }
+    .icard__badge--new{ background:var(--accent); color:#fff; }
+    .icard__badge--used{ background:rgba(8,22,39,.72); color:var(--gold); border:1px solid rgba(232,72,77,.55); }
+    .icard__body{ padding:clamp(18px,2vw,24px); display:flex; flex-direction:column; flex:1; }
+    .icard__kicker{ font-family:var(--font-display); font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-2); margin-bottom:8px; }
+    .icard__name{ font-size:clamp(1.25rem,1.7vw,1.5rem)!important; line-height:1.1; margin-bottom:12px; }
+    .icard__specs{ list-style:none; margin:0 0 16px; padding:0; display:flex; flex-wrap:wrap; gap:6px 8px; }
+    .icard__specs li{ font-family:var(--font-display); font-size:.66rem; letter-spacing:.06em; text-transform:uppercase; color:var(--muted-2); border:1px solid var(--line); border-radius:6px; padding:5px 8px; line-height:1; }
+    .icard__foot{ display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin-bottom:18px; margin-top:auto; padding-top:14px; border-top:1px solid var(--line); }
+    .icard__price{ font-family:var(--font-display); font-size:1.18rem; font-weight:600; color:#fff; white-space:nowrap; }
+    .icard__price em{ font-style:normal; font-size:.6rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted-2); margin-left:3px; }
+    .icard__loc{ display:inline-flex; align-items:center; gap:5px; font-size:.78rem; color:var(--muted); white-space:nowrap; }
+    .icard__loc svg{ width:14px; height:14px; flex:none; color:var(--gold); }
+    .icard__cta{ width:100%; justify-content:center; padding:14px 18px; font-size:.85rem; }
+    .icard__cta svg{ width:16px; height:16px; transition:transform .25s var(--ease-out); }
+    .icard:hover .icard__cta svg{ transform:translateX(4px); }
+    .inv__note{ text-align:center; font-size:.9rem; color:var(--muted); margin-top:clamp(24px,3vw,36px); }
+    .inv__note .inline-link{ color:var(--accent-2); text-decoration:underline; text-underline-offset:2px; }
+    @media (max-width:980px){ .inv-grid{ grid-template-columns:repeat(2,1fr); gap:16px; } }
+    @media (max-width:700px){
+      .inv-grid{ display:flex; grid-template-columns:none; gap:14px; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none; margin-inline:calc(-1*var(--pad)); padding:4px var(--pad) 10px; }
+      .inv-grid::-webkit-scrollbar{ display:none; } .icard{ flex:0 0 84%; scroll-snap-align:start; } .icard:hover{ transform:none; }
+    }
+    .enquire-chip__row{ display:flex; align-items:center; justify-content:space-between; gap:12px; background:rgba(41,105,241,.1); border:1px solid rgba(91,140,255,.4); border-radius:8px; padding:12px 14px; margin-top:4px; }
+    .enquire-chip__row strong{ font-family:var(--font-display); font-size:.9rem; color:#fff; line-height:1.3; }
+    .enquire-chip__clear{ flex:none; background:transparent; border:0; color:var(--accent-2); font-family:var(--font-display); text-transform:uppercase; letter-spacing:.08em; font-size:.66rem; font-weight:600; cursor:pointer; padding:4px 6px; text-decoration:underline; }
+    .field__hint{ font-size:.74rem; color:rgba(255,255,255,.55); margin-top:6px; }
+    .field__opt{ color:rgba(255,255,255,.55); font-weight:400; letter-spacing:.04em; font-size:.85em; }
+    .demo__consent{ font-size:.68rem; color:rgba(255,255,255,.55); text-align:center; margin-top:10px; line-height:1.5; max-width:46ch; margin-inline:auto; opacity:.85; }
+    .demo__done{ text-align:center; padding:clamp(28px,4vw,48px) 0; }
+    .demo__done-tick{ display:inline-flex; width:64px; height:64px; border-radius:50%; background:var(--accent); color:#fff; align-items:center; justify-content:center; margin-bottom:18px; }
+    .demo__done-tick svg{ width:32px; height:32px; }
+    .demo__done h3{ font-size:1.5rem; margin-bottom:12px; }
+    .demo__done > p{ color:var(--muted); max-width:48ch; margin:0 auto 22px; }
+    .demo__done-cta{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:18px; }
+    .demo__done-phone{ font-size:.85rem; color:rgba(255,255,255,.55); } .demo__done-phone a{ color:var(--accent-2); }
+    @media (max-width:980px){
+      .field input,.field select{ padding:16px 16px !important; font-size:16px; min-height:50px; border-radius:10px; }
+      .field select{ appearance:none; -webkit-appearance:none; background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b3b4b9' stroke-width='2' stroke-linecap='round'><path d='M7 10l5 5 5-5'/></svg>"); background-repeat:no-repeat; background-position:right 14px center; background-size:18px; padding-right:42px !important; }
+      .demo__form .btn{ min-height:56px; font-size:1.05rem; width:100%; justify-content:center; }
+    }
+    .stickybar{ position:fixed; left:0; right:0; bottom:0; z-index:90; display:flex; gap:10px; padding:12px clamp(16px,4vw,28px) calc(12px + env(safe-area-inset-bottom)); background:rgba(6,17,30,.92); backdrop-filter:blur(10px); border-top:1px solid var(--line); transform:translateY(110%); transition:transform .35s var(--ease-out); }
+    .stickybar.show{ transform:none; } .stickybar__btn{ flex:1; justify-content:center; min-height:52px; padding:14px 8px; font-size:.85rem; gap:6px; }
+    @media (min-width:981px){ .stickybar{ left:auto; right:24px; bottom:24px; border:1px solid var(--line); border-radius:999px; padding:8px; box-shadow:0 18px 48px rgba(0,0,0,.55); } .stickybar__btn{ flex:0 0 auto; padding:12px 20px; } }
+    @media (max-width:980px){ main{ padding-bottom:calc(88px + env(safe-area-inset-bottom)); } }
+    .mnav__call{ display:grid; gap:10px; padding:18px; background:rgba(41,105,241,.1); border:1px solid rgba(91,140,255,.35); border-radius:14px; margin-bottom:22px; }
+    .mnav__calleyebrow{ font-size:.72rem; letter-spacing:.22em; text-transform:uppercase; color:rgba(255,255,255,.55); }
+    .mnav__callbtn,.mnav__textbtn{ justify-content:center; width:100%; padding:16px 18px !important; font-size:1.05rem !important; }
+    .loc{ border-top:2px solid rgba(232,72,77,.55); }
+    .loc__line svg, .loc__line--text svg{ color:var(--gold); }
+    .loc__line--text a{ color:var(--accent-2); font-weight:500; }
+    .inline-link{ color:#fff; text-decoration:underline; text-decoration-color:var(--accent-2); text-underline-offset:3px; }
+    .closer--bleed{ position:relative; padding-block:clamp(120px,16vw,200px); overflow:hidden; min-height:64vh; display:flex; align-items:center; }
+    .closer--bleed .closer__media{ position:absolute; inset:0; z-index:-1; }
+    .closer--bleed .closer__media::after{ content:''; position:absolute; inset:0; background:linear-gradient(180deg,rgba(8,22,39,.5),rgba(8,22,39,.86)); }
+    .closer--bleed .closer__media img{ width:100%; height:100%; object-fit:cover; }
+    .footer__demo-note{ font-size:.78rem; line-height:1.5; color:var(--muted); padding:14px 0 6px; border-top:1px dashed rgba(255,255,255,.12); margin-top:18px; max-width:780px; }
+    .footer__demo-note strong{ color:#fff; } .footer__demo-note a{ color:var(--accent-2); text-decoration:underline; }
+    @media (hover:hover) and (pointer:fine){
+      .btn svg{ transition:transform .35s cubic-bezier(0.16,1,0.3,1); } .btn:hover svg{ transform:translateX(5px); }
+      .btn--primary{ position:relative; overflow:hidden; isolation:isolate; } .btn--primary > *{ position:relative; z-index:1; }
+      .btn--primary::after{ content:''; position:absolute; inset:0; z-index:0; background:var(--accent-2); transform:translateX(-101%); transition:transform .5s cubic-bezier(0.16,1,0.3,1); }
+      .btn--primary:hover::after{ transform:translateX(0); }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org","@type":"AutoDealer","name":"Ugly John's Custom Boats",
+    "description":"Family owned on Grand Lake o' the Cherokees since 1974. Nautique, Monterey, Premier, Harris, Sea Ray, Pardo and De Antonio dealer with five locations across Oklahoma, Arkansas and Texas, plus Thunder Bay Marina and Ugly's Grill & Bar.",
+    "url":"https://www.uglyjohns.com","telephone":"+19187824414",
+    "brand":["Nautique","Monterey","Premier","Harris","Sea Ray","Pardo","De Antonio"],
+    "department":[
+      {"@type":"AutoDealer","name":"Ugly John's — Grand Lake (Thunder Bay)","telephone":"+19187824414","address":{"@type":"PostalAddress","streetAddress":"32550 Thunder Bay Rd","addressLocality":"Afton","addressRegion":"OK","postalCode":"74331","addressCountry":"US"}},
+      {"@type":"AutoDealer","name":"Ugly John's — Tulsa","telephone":"+19182666633","address":{"@type":"PostalAddress","streetAddress":"19123 E Admiral Pl","addressLocality":"Catoosa","addressRegion":"OK","postalCode":"74015","addressCountry":"US"}},
+      {"@type":"AutoDealer","name":"Ugly John's — Lake Eufaula","telephone":"+19182199966","address":{"@type":"PostalAddress","addressLocality":"Eufaula","addressRegion":"OK","addressCountry":"US"}},
+      {"@type":"AutoDealer","name":"Ugly John's — Beaver Lake","telephone":"+14799251300","address":{"@type":"PostalAddress","addressLocality":"Rogers","addressRegion":"AR","addressCountry":"US"}},
+      {"@type":"AutoDealer","name":"Ugly John's — Lake Travis","telephone":"+15128838040","address":{"@type":"PostalAddress","streetAddress":"3639 Ranch Road 620 N","addressLocality":"Austin","addressRegion":"TX","addressCountry":"US"}}
+    ]
+  }
+  </script>
+</head>
+<body id="top">
+  <a href="#main" class="skip-link">Skip to content</a>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="header" id="header">
+    <div class="wrap header__row">
+      <a href="#top" class="wordmark" aria-label="Ugly John's Custom Boats home">
+        <svg class="wordmark__mark" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6v52"/><path d="M18 10h34l-9 9 9 9H18" fill="currentColor" fill-opacity=".18"/><path d="M10 58h20"/></svg>
+        <span class="wordmark__txt"><span class="wordmark__name">Ugly John's</span><span class="wordmark__sub">Grand Lake · Since 1974</span></span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#range">Boats</a>
+        <a href="#inventory">In Stock</a>
+        <a href="#why">Marina &amp; Grill</a>
+        <a href="#showrooms">Visit</a>
+        <a href="#demo">Contact</a>
+      </nav>
+      <a class="header__phone" href="tel:+19187824414" aria-label="Call Ugly John's">
+        <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" width="16" height="16"><path d="M222.37 158.46l-47.11-21.11a16 16 0 0 0-15.17 1.4L134.87 160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71a16 16 0 0 0 1.32-15.06l-21.11-47.2A16 16 0 0 0 80.6 25a56.34 56.34 0 0 0-48.6 56c0 79.4 64.6 144 144 144a56.34 56.34 0 0 0 56-48.6 16 16 0 0 0-9.63-17.94Z"/></svg>
+        <span><strong>(918) 782-4414</strong><em>Grand Lake</em></span>
+      </a>
+      <a class="btn btn--primary header__cta" href="#demo">Get a Quote</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M224 128a8 8 0 0 1-8 8H40a8 8 0 0 1 0-16h176a8 8 0 0 1 8 8ZM40 72h176a8 8 0 0 0 0-16H40a8 8 0 0 0 0 16Zm176 112H40a8 8 0 0 0 0 16h176a8 8 0 0 0 0-16Z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="mnav" id="mnav">
+    <div class="mnav__call">
+      <span class="mnav__calleyebrow">Talk to the team</span>
+      <a class="btn btn--primary mnav__callbtn" href="tel:+19187824414" data-mclose>Call (918) 782-4414</a>
+      <a class="btn btn--ghost mnav__textbtn" href="sms:+19187824414" data-mclose>Text us instead</a>
+    </div>
+    <a href="#range" data-mclose>Boats</a>
+    <a href="#inventory" data-mclose>In Stock</a>
+    <a href="#why" data-mclose>The Marina</a>
+    <a href="#showrooms" data-mclose>Visit</a>
+    <a class="btn btn--primary" href="#demo" data-mclose>Get a Quote</a>
+  </div>
+
+  <main id="main">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__media">
+      <picture>
+        <source media="(max-width: 700px)" srcset="images/hero-grandlake-mobile.webp" type="image/webp" />
+        <source media="(max-width: 700px)" srcset="images/hero-grandlake-mobile.jpg" />
+        <source srcset="images/hero-grandlake.webp" type="image/webp" />
+        <img id="heroImg" src="images/hero-grandlake.jpg" alt="A boat carving across Grand Lake o' the Cherokees at golden hour, timbered shoreline behind" width="1536" height="1024" fetchpriority="high" />
+      </picture>
+    </div>
+    <div class="wrap hero__inner">
+      <p class="eyebrow eyebrow--creds" data-hero>
+        Family owned since 1974 <span aria-hidden="true">·</span>
+        Nautique + 6 more brands <span aria-hidden="true">·</span>
+        5 locations, OK · AR · TX <span aria-hidden="true">·</span>
+        Thunder Bay Marina
+      </p>
+      <h1 data-hero>Grand Lake,<br>since 1974.</h1>
+      <p class="hero__sub" data-hero>Fifty-plus years of family boating on Grand Lake o' the Cherokees. Ugly John's runs the docks at Thunder Bay Marina, the burgers at Ugly's Grill &amp; Bar, and the Nautique, Monterey, Premier and Harris lineups across five stores from Tulsa to Lake Travis. This lake is home.</p>
+      <div class="hero__cta" data-hero>
+        <a class="btn btn--primary" href="#range">Browse the Boats
+          <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>
+        </a>
+        <a class="btn btn--ghost hero__cta--call" href="#showrooms">
+          <span class="hero__cta--mob">Call (918) 782-4414</span>
+          <span class="hero__cta--desk">Visit Thunder Bay</span>
+        </a>
+      </div>
+      <form class="hero__quick" id="heroQuick" data-hero>
+        <label for="hq-phone" class="hero__quick-label">On the lake this week? Drop your number — an Ugly John's specialist will call you back.</label>
+        <div class="hero__quick-row">
+          <input id="hq-phone" name="phone" type="tel" inputmode="tel" placeholder="(918) 555-0142" autocomplete="tel" required aria-label="Your phone number" />
+          <button class="btn btn--primary" type="submit">Call me back
+            <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>
+          </button>
+        </div>
+        <p class="hero__quick-fine">Mon–Sat · We never share your number · Reply STOP to opt out.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- PROOF BAR -->
+  <section class="proofbar" aria-label="Ugly John's credentials">
+    <div class="wrap proofbar__row" data-reveal>
+      <div class="proofbar__cell"><span class="proofbar__num">50<span class="proofbar__den">+</span></span><span class="proofbar__lbl">Years family owned, since 1974</span></div>
+      <div class="proofbar__cell"><span class="proofbar__num">5</span><span class="proofbar__lbl">Locations · OK, AR &amp; TX</span></div>
+      <div class="proofbar__cell"><span class="proofbar__num">120<span class="proofbar__den">+</span></span><span class="proofbar__lbl">Covered slips at Thunder Bay</span></div>
+      <div class="proofbar__cell"><span class="proofbar__num">7</span><span class="proofbar__lbl">Boat brands under one roof</span></div>
+    </div>
+  </section>
+
+  <!-- BRAND STRIP -->
+  <section class="brands" id="brands">
+    <div class="wrap brands__row" data-reveal>
+      <span class="brands__label">Authorized dealer for</span>
+      <div class="brands__logos">
+        <span class="brand-word">Nautique</span><span class="brands__div" aria-hidden="true"></span>
+        <span class="brand-word">Monterey</span><span class="brands__div" aria-hidden="true"></span>
+        <span class="brand-word">Premier</span><span class="brands__div" aria-hidden="true"></span>
+        <span class="brand-word">Harris</span><span class="brands__div" aria-hidden="true"></span>
+        <span class="brand-word">Sea Ray</span><span class="brands__div" aria-hidden="true"></span>
+        <span class="brand-word">Pardo</span><span class="brands__div" aria-hidden="true"></span>
+        <span class="brand-word">De Antonio</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTS -->
+  <section class="certs" aria-label="Awards and credentials">
+    <div class="wrap certs__row" data-reveal>
+      <div class="cert">
+        <svg class="cert__seal" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M32 6l6.5 13.2L53 21.5l-10.5 10.2L45 46.5 32 39.6 19 46.5l2.5-14.8L11 21.5l14.5-2.3z" stroke-linejoin="round"/></svg>
+        <div class="cert__txt"><strong>Family owned since 1974</strong><span>50+ years of boating on Grand Lake</span></div>
+      </div>
+      <div class="cert">
+        <svg class="cert__seal" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="32" cy="32" r="26"/><path d="M20 33l8 8 16-18" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="cert__txt"><strong>Nautique, the flagship line</strong><span>Plus Monterey, Premier, Harris, Sea Ray &amp; more</span></div>
+      </div>
+      <div class="cert">
+        <svg class="cert__seal" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M16 50V24a4 4 0 0 1 4-4h24a4 4 0 0 1 4 4v26M10 50h44M24 50V36h16v14" stroke-linejoin="round"/></svg>
+        <div class="cert__txt"><strong>Thunder Bay Marina</strong><span>120+ covered slips on Grand Lake, plus Ugly's Grill &amp; Bar</span></div>
+      </div>
+      <div class="cert">
+        <svg class="cert__seal" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M32 8v26M20 20c-6 8-8 14-8 20a20 20 0 0 0 40 0c0-6-2-12-8-20M20 34h24" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="cert__txt"><strong>5 locations, 3 states</strong><span>Grand Lake · Tulsa · Eufaula · Beaver Lake · Lake Travis</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE RANGE -->
+  <section class="section range" id="range">
+    <div class="wrap">
+      <div class="head" data-reveal>
+        <h2 class="section-h" data-mask>Fifty years on this lake.<br>We know what runs here.</h2>
+        <p class="lede">Surf the quiet arms at dawn, cruise the open water at sunset, or tie a pontoon up outside Ugly's for lunch. Tell us how you run Grand Lake and we'll match the boat.</p>
+      </div>
+      <div class="range-grid">
+        <a class="rtile" href="#demo" data-reveal>
+          <div class="rtile__media"><img src="images/wakeboarder.webp" alt="Wakesurfer behind a Nautique on Grand Lake" loading="lazy" /></div>
+          <div class="rtile__body">
+            <span class="rtile__kicker">Super Air Nautique GS &amp; G Series</span>
+            <h3>Wake &amp; Surf</h3>
+            <p>The flagship line at Ugly John's. Head-high Nautique waves, dialed in by people who have rigged boats here for five decades.</p>
+            <span class="rtile__go">Book a demo <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg></span>
+          </div>
+        </a>
+        <a class="rtile" href="#demo" data-reveal>
+          <div class="rtile__media"><img src="images/onwater-1.webp" alt="Sport cruiser running Grand Lake" loading="lazy" /></div>
+          <div class="rtile__body">
+            <span class="rtile__kicker">Monterey · Sea Ray · Pardo · De Antonio</span>
+            <h3>Cruisers &amp; Runabouts</h3>
+            <p>From a weekend Monterey to a Pardo that turns heads at the poker run. The boats that hold their value on this lake.</p>
+            <span class="rtile__go">Book a viewing <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg></span>
+          </div>
+        </a>
+        <a class="rtile" href="#demo" data-reveal>
+          <div class="rtile__media"><img src="images/coastal.webp" alt="Premier pontoon on Grand Lake" loading="lazy" /></div>
+          <div class="rtile__body">
+            <span class="rtile__kicker">Premier · Harris</span>
+            <h3>Pontoons</h3>
+            <p>Room for the whole crew and shade for an Oklahoma July. Tie up at Ugly's dock or idle the quiet arms all day.</p>
+            <span class="rtile__go">Book a viewing <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED INVENTORY -->
+  <section class="section inv" id="inventory">
+    <div class="wrap">
+      <div class="head inv__head" data-reveal>
+        <p class="eyebrow">On our docks now</p>
+        <h2 class="section-h" data-mask>A sample of what's<br>in the water this week.</h2>
+        <p class="lede">New and pre-owned boats across all five locations. Prices shown are illustrative — call <a class="inv__phone" href="tel:+19187824414">(918)&nbsp;782-4414</a> for today's number.</p>
+        <p class="inv__disclaimer">Sample units shown for layout. Your live inventory feed drops straight into this grid and updates itself.</p>
+      </div>
+      <div class="inv-grid" data-reveal>
+        <article class="icard"><div class="icard__media"><span class="icard__badge icard__badge--new">New · 2026</span><img src="images/gs24.webp" alt="2026 Super Air Nautique GS24" loading="lazy" /></div><div class="icard__body"><span class="icard__kicker">Nautique · Wake / Surf</span><h3 class="icard__name">Super Air Nautique GS24</h3><ul class="icard__specs"><li>24' 0"</li><li>Surf-ready</li><li>Stk #N26-GS24</li></ul><div class="icard__foot"><span class="icard__price">$219,900 <em>approx.</em></span><span class="icard__loc"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 16a88.1 88.1 0 0 0-88 88c0 75.3 80 132.17 83.41 134.55a8 8 0 0 0 9.18 0C136 236.17 216 179.3 216 104a88.1 88.1 0 0 0-88-88Zm0 56a32 32 0 1 1-32 32 32 32 0 0 1 32-32Z"/></svg>Grand Lake</span></div><a class="btn btn--primary icard__cta" href="#demo" data-enquire data-model="Super Air Nautique GS24 (2026)" data-interest="Wake &amp; surf">Enquire on this boat <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg></a></div></article>
+        <article class="icard"><div class="icard__media"><span class="icard__badge icard__badge--new">New · 2026</span><img src="images/models/super-air-g23-profile.webp" alt="2026 Super Air Nautique GS20" loading="lazy" /></div><div class="icard__body"><span class="icard__kicker">Nautique · Wake / Surf</span><h3 class="icard__name">Super Air Nautique GS20</h3><ul class="icard__specs"><li>20' 0"</li><li>Crossover</li><li>Stk #N26-GS20</li></ul><div class="icard__foot"><span class="icard__price">$169,900 <em>approx.</em></span><span class="icard__loc"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 16a88.1 88.1 0 0 0-88 88c0 75.3 80 132.17 83.41 134.55a8 8 0 0 0 9.18 0C136 236.17 216 179.3 216 104a88.1 88.1 0 0 0-88-88Zm0 56a32 32 0 1 1-32 32 32 32 0 0 1 32-32Z"/></svg>Grand Lake</span></div><a class="btn btn--primary icard__cta" href="#demo" data-enquire data-model="Super Air Nautique GS20 (2026)" data-interest="Wake &amp; surf">Enquire on this boat <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg></a></div></article>
+        <article class="icard"><div class="icard__media"><span class="icard__badge icard__badge--new">New · 2025</span><img src="images/onwater-1.webp" alt="2025 Monterey M6 bowrider" loading="lazy" /></div><div class="icard__body"><span class="icard__kicker">Monterey · Bowrider</span><h3 class="icard__name">Monterey M6</h3><ul class="icard__specs"><li>22' 6"</li><li>Surf option</li><li>Stk #MT25-M6</li></ul><div class="icard__foot"><span class="icard__price">$139,900 <em>approx.</em></span><span class="icard__loc"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 16a88.1 88.1 0 0 0-88 88c0 75.3 80 132.17 83.41 134.55a8 8 0 0 0 9.18 0C136 236.17 216 179.3 216 104a88.1 88.1 0 0 0-88-88Zm0 56a32 32 0 1 1-32 32 32 32 0 0 1 32-32Z"/></svg>Grand Lake</span></div><a class="btn btn--primary icard__cta" href="#demo" data-enquire data-model="Monterey M6 (2025)" data-interest="Cruisers &amp; runabouts">Enquire on this boat <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg></a></div></article>
+        <article class="icard"><div class="icard__media"><span class="icard__badge icard__badge--new">New · 2025</span><img src="images/onwater-2.webp" alt="2025 Sea Ray SPX 210" loading="lazy" /></div><div class="icard__body"><span class="icard__kicker">Sea Ray · Sport</span><h3 class="icard__name">Sea Ray SPX 210</h3><ul class="icard__specs"><li>21' 4"</li><li>Mercury 200</li><li>Stk #SR25-210</li></ul><div class="icard__foot"><span class="icard__price">$114,500 <em>approx.</em></span><span class="icard__loc"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 16a88.1 88.1 0 0 0-88 88c0 75.3 80 132.17 83.41 134.55a8 8 0 0 0 9.18 0C136 236.17 216 179.3 216 104a88.1 88.1 0 0 0-88-88Zm0 56a32 32 0 1 1-32 32 32 32 0 0 1 32-32Z"/></svg>Tulsa</span></div><a class="btn btn--primary icard__cta" href="#demo" data-enquire data-model="Sea Ray SPX 210 (2025)" data-interest="Cruisers &amp; runabouts">Enquire on this boat <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg></a></div></article>
+        <article class="icard"><div class="icard__media"><span class="icard__badge icard__badge--new">New · 2025</span><img src="images/coastal.webp" alt="2025 Premier 230 Sunsation pontoon" loading="lazy" /></div><div class="icard__body"><span class="icard__kicker">Premier · Pontoon</span><h3 class="icard__name">Premier 230 Sunsation</h3><ul class="icard__specs"><li>23' 0"</li><li>Seats 13</li><li>Stk #PR25-230</li></ul><div class="icard__foot"><span class="icard__price">$79,900 <em>approx.</em></span><span class="icard__loc"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 16a88.1 88.1 0 0 0-88 88c0 75.3 80 132.17 83.41 134.55a8 8 0 0 0 9.18 0C136 236.17 216 179.3 216 104a88.1 88.1 0 0 0-88-88Zm0 56a32 32 0 1 1-32 32 32 32 0 0 1 32-32Z"/></svg>Tulsa</span></div><a class="btn btn--primary icard__cta" href="#demo" data-enquire data-model="Premier 230 Sunsation (2025)" data-interest="Pontoons">Enquire on this boat <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg></a></div></article>
+        <article class="icard"><div class="icard__media"><span class="icard__badge icard__badge--used">Pre-owned · 2021</span><img src="images/g23.webp" alt="2021 Super Air Nautique G23 pre-owned" loading="lazy" /></div><div class="icard__body"><span class="icard__kicker">Nautique · Pre-owned</span><h3 class="icard__name">Super Air Nautique G23</h3><ul class="icard__specs"><li>23' 0"</li><li>One owner</li><li>Stk #UJ21-G23</li></ul><div class="icard__foot"><span class="icard__price">$134,900 <em>approx.</em></span><span class="icard__loc"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 16a88.1 88.1 0 0 0-88 88c0 75.3 80 132.17 83.41 134.55a8 8 0 0 0 9.18 0C136 236.17 216 179.3 216 104a88.1 88.1 0 0 0-88-88Zm0 56a32 32 0 1 1-32 32 32 32 0 0 1 32-32Z"/></svg>Grand Lake</span></div><a class="btn btn--primary icard__cta" href="#demo" data-enquire data-model="Nautique G23 — Pre-owned (2021)" data-interest="Wake &amp; surf">Enquire on this boat <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg></a></div></article>
+      </div>
+      <p class="inv__note">New, pre-owned and trade-ins across all five stores — <a class="inline-link" href="#demo">value your trade</a> and put it toward any boat above.</p>
+    </div>
+  </section>
+
+  <!-- WHY / MARINA -->
+  <section class="why" id="why">
+    <div class="why__media"><img id="whyImg" src="images/onwater-2.webp" alt="Covered slips at Thunder Bay Marina on Grand Lake" loading="lazy" /></div>
+    <div class="wrap why__inner">
+      <h2 data-mask>The dealership with its own<br>marina — and its own bar.</h2>
+      <p class="why__lead" data-reveal>Most dealers sell you a boat and wave goodbye from the parking lot. We hand you the keys at Thunder Bay Marina — 120+ covered slips on Grand Lake — then feed you lunch at Ugly's Grill &amp; Bar on the water. Fifty years of family boating, and it shows.</p>
+      <div class="why__points" data-reveal>
+        <div class="why__pt"><h3>Thunder Bay Marina</h3><p>120+ covered slips on Grand Lake o' the Cherokees. Your boat lives where it's sold, slipped and serviced.</p></div>
+        <div class="why__pt"><h3>Ugly's Grill &amp; Bar</h3><p>Pull up by boat, order a burger, watch the lake go by. The only dealership where delivery day ends with lunch on the dock.</p></div>
+        <div class="why__pt"><h3>Fifty years of family</h3><p>Family owned since 1974. Poker runs, demo days and three generations of Grand Lake boaters who bought here and came back.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRADE-IN -->
+  <section class="build" id="build">
+    <div class="wrap build__inner" data-reveal>
+      <h2 data-mask>Trade it in.<br>Trade it up.</h2>
+      <p class="lede">Bring us the boat you've got. We'll value it on the spot and put it toward the next one — five stores' worth of buyers means your trade moves fast.</p>
+      <a class="btn btn--primary" href="#demo">Value my boat
+        <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>
+      </a>
+    </div>
+    <div class="build__stage" aria-hidden="true">
+      <img class="build__boat" id="buildBoat" src="images/models/super-air-g23-profile.png" alt="" />
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="section proof">
+    <div class="wrap">
+      <div class="head proof__head" data-reveal>
+        <p class="eyebrow">What owners say</p>
+        <h2 class="section-h" data-mask>Read the reviews<br>before you drive down.</h2>
+        <p class="proof__rating"><span class="proof__stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Sample reviews shown — your real Google reviews drop in here.</p>
+      </div>
+      <div class="proof__grid" data-reveal>
+        <blockquote class="quote"><p>"Placeholder review — on the live site this is one of your real five-star Google reviews, pulled in word for word with the customer's name."</p><cite>Sample review · Grand Lake</cite></blockquote>
+        <blockquote class="quote"><p>"Placeholder review — buyers trust other buyers. Your best delivery-day and service stories go here, straight from Google."</p><cite>Sample review · Tulsa</cite></blockquote>
+        <blockquote class="quote"><p>"Placeholder review — three of these, kept current, do more selling than any banner ad. Swapped for the real thing before launch."</p><cite>Sample review · Thunder Bay Marina</cite></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENQUIRE -->
+  <section class="section demo" id="demo">
+    <div class="wrap demo__grid">
+      <div class="demo__copy" data-reveal>
+        <h2 data-mask>Come see them<br>on the water.</h2>
+        <p>Nobody buys a boat from a brochure. Tell us how you run Grand Lake — or Eufaula, Beaver Lake or Travis — and we'll have the right boat waiting at the dock.</p>
+        <ul class="demo__list">
+          <li>On-water demo from Thunder Bay Marina</li>
+          <li>Straight advice on wake, cruise or pontoon</li>
+          <li>Trade-in and financing, handled</li>
+        </ul>
+      </div>
+      <div class="demo__formwrap" data-reveal>
+        <form class="demo__form" id="demoForm" novalidate>
+          <div class="field">
+            <label for="f-name">Name</label>
+            <input id="f-name" name="name" type="text" placeholder="Your name" autocomplete="name" aria-describedby="f-name-err" required />
+            <p class="field__error" id="f-name-err" hidden>Enter your name.</p>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-phone">Phone</label>
+              <input id="f-phone" name="phone" type="tel" inputmode="tel" placeholder="(918) 555-0142" autocomplete="tel" aria-describedby="f-phone-err f-phone-hint" required />
+              <p class="field__hint" id="f-phone-hint">We'll call (or text) within one business day.</p>
+              <p class="field__error" id="f-phone-err" hidden>Enter a phone number we can reach you on.</p>
+            </div>
+            <div class="field">
+              <label for="f-email">Email <span class="field__opt">(optional)</span></label>
+              <input id="f-email" name="email" type="email" placeholder="you@email.com" autocomplete="email" spellcheck="false" aria-describedby="f-email-err" />
+              <p class="field__error" id="f-email-err" hidden>Enter a valid email address.</p>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-interest">I'm after</label>
+              <select id="f-interest" name="interest">
+                <option value="" selected disabled>Type of boat</option>
+                <option>Wake &amp; surf</option>
+                <option>Cruisers &amp; runabouts</option>
+                <option>Pontoons</option>
+                <option>Pre-owned</option>
+                <option>A slip at Thunder Bay</option>
+                <option>Not sure yet, help me choose</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-loc">Nearest store</label>
+              <select id="f-loc" name="location">
+                <option value="" selected disabled>Choose a location</option>
+                <option>Grand Lake — Afton, OK</option>
+                <option>Tulsa — Catoosa, OK</option>
+                <option>Lake Eufaula — Eufaula, OK</option>
+                <option>Beaver Lake — Rogers, AR</option>
+                <option>Lake Travis — Austin, TX</option>
+              </select>
+            </div>
+          </div>
+          <label class="checkbox"><input type="checkbox" name="trade" /> <span>I have a boat to trade in</span></label>
+          <button class="btn btn--primary" type="submit">Call me back
+            <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>
+          </button>
+          <div class="demo__legal">
+            <p class="demo__fineprint">Your details stay with Ugly John's — we never share them.</p>
+            <p class="demo__consent">By submitting you agree we may call or text you about your enquiry. Msg &amp; data rates may apply. Reply STOP to opt out.</p>
+          </div>
+        </form>
+        <div class="demo__done" id="formDone" tabindex="-1" hidden>
+          <span class="demo__done-tick" aria-hidden="true"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M229.66 77.66l-128 128a8 8 0 0 1-11.32 0l-56-56a8 8 0 0 1 11.32-11.32L96 188.69 218.34 66.34a8 8 0 0 1 11.32 11.32Z"/></svg></span>
+          <h3>Got it. An Ugly John's specialist will call you within one business day.</h3>
+          <p>Want to skip the wait? Text us — we usually reply within minutes during shop hours.</p>
+          <div class="demo__done-cta">
+            <a class="btn btn--primary" href="tel:+19187824414">Call (918) 782-4414</a>
+            <a class="btn btn--ghost" href="sms:+19187824414?&amp;body=Hi%20Ugly%20John%27s%20—%20I%20just%20submitted%20an%20enquiry">Text us instead</a>
+          </div>
+          <p class="demo__done-phone">Grand Lake HQ · 32550 Thunder Bay Rd, Afton OK</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATIONS -->
+  <section class="section showrooms" id="showrooms">
+    <div class="wrap">
+      <div class="head" data-reveal>
+        <p class="eyebrow">Visit Us</p>
+        <h2 class="section-h" data-mask>Five stores,<br>three states of water.</h2>
+      </div>
+      <div class="locs" data-reveal>
+        <div class="loc" id="loc-grandlake">
+          <div class="loc__state">Grand Lake · HQ</div>
+          <div class="loc__city">Thunder Bay Marina &amp; Showroom</div>
+          <p class="loc__line"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 16a88.1 88.1 0 0 0-88 88c0 75.3 80 132.17 83.41 134.55a8 8 0 0 0 9.18 0C136 236.17 216 179.3 216 104a88.1 88.1 0 0 0-88-88Zm0 56a32 32 0 1 1-32 32 32 32 0 0 1 32-32Z"/></svg><span>32550 Thunder Bay Rd,<br>Afton, OK 74331</span></p>
+          <p class="loc__line"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M222.37 158.46l-47.11-21.11a16 16 0 0 0-15.17 1.4L134.87 160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71a16 16 0 0 0 1.32-15.06l-21.11-47.2A16 16 0 0 0 80.6 25a56.34 56.34 0 0 0-48.6 56c0 79.4 64.6 144 144 144a56.34 56.34 0 0 0 56-48.6 16 16 0 0 0-9.63-17.94Z"/></svg><a href="tel:+19187824414">(918) 782-4414</a></p>
+          <p class="loc__line loc__line--text"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 48a87.63 87.63 0 0 0-75.06 132.4L40.81 217.34a13.78 13.78 0 0 0 13 18.13 13.92 13.92 0 0 0 4.4-.72l36.84-12.13A88 88 0 1 0 128 48Z"/></svg><a href="sms:+19187824414?&amp;body=Hi%20Ugly%20John%27s%20—%20">Text this store</a></p>
+          <p class="loc__line"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24Zm56 112h-56a8 8 0 0 1-8-8V72a8 8 0 0 1 16 0v48h48a8 8 0 0 1 0 16Z"/></svg><span>120+ covered slips · Ugly's Grill &amp; Bar<br>on the water · Ask for Jason</span></p>
+          <a class="text-link" href="https://maps.google.com/?q=32550+Thunder+Bay+Rd+Afton+OK+74331" rel="noopener">Get directions
+            <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>
+          </a>
+        </div>
+        <div class="loc" id="loc-tulsa">
+          <div class="loc__state">Tulsa</div>
+          <div class="loc__city">Catoosa Showroom</div>
+          <p class="loc__line"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 16a88.1 88.1 0 0 0-88 88c0 75.3 80 132.17 83.41 134.55a8 8 0 0 0 9.18 0C136 236.17 216 179.3 216 104a88.1 88.1 0 0 0-88-88Zm0 56a32 32 0 1 1-32 32 32 32 0 0 1 32-32Z"/></svg><span>19123 E Admiral Pl,<br>Catoosa, OK 74015</span></p>
+          <p class="loc__line"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M222.37 158.46l-47.11-21.11a16 16 0 0 0-15.17 1.4L134.87 160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71a16 16 0 0 0 1.32-15.06l-21.11-47.2A16 16 0 0 0 80.6 25a56.34 56.34 0 0 0-48.6 56c0 79.4 64.6 144 144 144a56.34 56.34 0 0 0 56-48.6 16 16 0 0 0-9.63-17.94Z"/></svg><a href="tel:+19182666633">(918) 266-6633</a></p>
+          <p class="loc__line loc__line--text"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 48a87.63 87.63 0 0 0-75.06 132.4L40.81 217.34a13.78 13.78 0 0 0 13 18.13 13.92 13.92 0 0 0 4.4-.72l36.84-12.13A88 88 0 1 0 128 48Z"/></svg><a href="sms:+19182666633?&amp;body=Hi%20Ugly%20John%27s%20—%20">Text this store</a></p>
+          <p class="loc__line"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24Zm56 112h-56a8 8 0 0 1-8-8V72a8 8 0 0 1 16 0v48h48a8 8 0 0 1 0 16Z"/></svg><span>Sales, service &amp; parts<br>off Admiral Place</span></p>
+          <a class="text-link" href="https://maps.google.com/?q=19123+E+Admiral+Pl+Catoosa+OK+74015" rel="noopener">Get directions
+            <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>
+          </a>
+        </div>
+        <div class="loc" id="loc-eufaula">
+          <div class="loc__state">Lake Eufaula</div>
+          <div class="loc__city">Eufaula, OK</div>
+          <p class="loc__line"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 16a88.1 88.1 0 0 0-88 88c0 75.3 80 132.17 83.41 134.55a8 8 0 0 0 9.18 0C136 236.17 216 179.3 216 104a88.1 88.1 0 0 0-88-88Zm0 56a32 32 0 1 1-32 32 32 32 0 0 1 32-32Z"/></svg><span>Eufaula, OK<br>on Lake Eufaula</span></p>
+          <p class="loc__line"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M222.37 158.46l-47.11-21.11a16 16 0 0 0-15.17 1.4L134.87 160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71a16 16 0 0 0 1.32-15.06l-21.11-47.2A16 16 0 0 0 80.6 25a56.34 56.34 0 0 0-48.6 56c0 79.4 64.6 144 144 144a56.34 56.34 0 0 0 56-48.6 16 16 0 0 0-9.63-17.94Z"/></svg><a href="tel:+19182199966">(918) 219-9966</a></p>
+          <p class="loc__line loc__line--text"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 48a87.63 87.63 0 0 0-75.06 132.4L40.81 217.34a13.78 13.78 0 0 0 13 18.13 13.92 13.92 0 0 0 4.4-.72l36.84-12.13A88 88 0 1 0 128 48Z"/></svg><a href="sms:+19182199966?&amp;body=Hi%20Ugly%20John%27s%20—%20">Text this store</a></p>
+          <p class="loc__line"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24Zm56 112h-56a8 8 0 0 1-8-8V72a8 8 0 0 1 16 0v48h48a8 8 0 0 1 0 16Z"/></svg><span>Sales dock on Oklahoma's<br>biggest lake</span></p>
+          <a class="text-link" href="https://maps.google.com/?q=Ugly+John's+Custom+Boats+Eufaula+OK" rel="noopener">Get directions
+            <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>
+          </a>
+        </div>
+        <div class="loc" id="loc-beaverlake">
+          <div class="loc__state">Beaver Lake</div>
+          <div class="loc__city">Rogers, AR</div>
+          <p class="loc__line"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 16a88.1 88.1 0 0 0-88 88c0 75.3 80 132.17 83.41 134.55a8 8 0 0 0 9.18 0C136 236.17 216 179.3 216 104a88.1 88.1 0 0 0-88-88Zm0 56a32 32 0 1 1-32 32 32 32 0 0 1 32-32Z"/></svg><span>Rogers, AR<br>on Beaver Lake</span></p>
+          <p class="loc__line"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M222.37 158.46l-47.11-21.11a16 16 0 0 0-15.17 1.4L134.87 160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71a16 16 0 0 0 1.32-15.06l-21.11-47.2A16 16 0 0 0 80.6 25a56.34 56.34 0 0 0-48.6 56c0 79.4 64.6 144 144 144a56.34 56.34 0 0 0 56-48.6 16 16 0 0 0-9.63-17.94Z"/></svg><a href="tel:+14799251300">(479) 925-1300</a></p>
+          <p class="loc__line loc__line--text"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 48a87.63 87.63 0 0 0-75.06 132.4L40.81 217.34a13.78 13.78 0 0 0 13 18.13 13.92 13.92 0 0 0 4.4-.72l36.84-12.13A88 88 0 1 0 128 48Z"/></svg><a href="sms:+14799251300?&amp;body=Hi%20Ugly%20John%27s%20—%20">Text this store</a></p>
+          <p class="loc__line"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24Zm56 112h-56a8 8 0 0 1-8-8V72a8 8 0 0 1 16 0v48h48a8 8 0 0 1 0 16Z"/></svg><span>Serving Northwest Arkansas<br>and Beaver Lake</span></p>
+          <a class="text-link" href="https://maps.google.com/?q=Ugly+John's+Custom+Boats+Rogers+AR" rel="noopener">Get directions
+            <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>
+          </a>
+        </div>
+        <div class="loc" id="loc-laketravis">
+          <div class="loc__state">Lake Travis</div>
+          <div class="loc__city">Austin, TX</div>
+          <p class="loc__line"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 16a88.1 88.1 0 0 0-88 88c0 75.3 80 132.17 83.41 134.55a8 8 0 0 0 9.18 0C136 236.17 216 179.3 216 104a88.1 88.1 0 0 0-88-88Zm0 56a32 32 0 1 1-32 32 32 32 0 0 1 32-32Z"/></svg><span>3639 Ranch Road 620 N,<br>Austin, TX 78734</span></p>
+          <p class="loc__line"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M222.37 158.46l-47.11-21.11a16 16 0 0 0-15.17 1.4L134.87 160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71a16 16 0 0 0 1.32-15.06l-21.11-47.2A16 16 0 0 0 80.6 25a56.34 56.34 0 0 0-48.6 56c0 79.4 64.6 144 144 144a56.34 56.34 0 0 0 56-48.6 16 16 0 0 0-9.63-17.94Z"/></svg><a href="tel:+15128838040">(512) 883-8040</a></p>
+          <p class="loc__line loc__line--text"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 48a87.63 87.63 0 0 0-75.06 132.4L40.81 217.34a13.78 13.78 0 0 0 13 18.13 13.92 13.92 0 0 0 4.4-.72l36.84-12.13A88 88 0 1 0 128 48Z"/></svg><a href="sms:+15128838040?&amp;body=Hi%20Ugly%20John%27s%20—%20">Text this store</a></p>
+          <p class="loc__line"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24Zm56 112h-56a8 8 0 0 1-8-8V72a8 8 0 0 1 16 0v48h48a8 8 0 0 1 0 16Z"/></svg><span>Sales &amp; service<br>on Lake Travis</span></p>
+          <a class="text-link" href="https://maps.google.com/?q=3639+Ranch+Road+620+N+Austin+TX+78734" rel="noopener">Get directions
+            <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSER -->
+  <section class="section closer closer--bleed">
+    <div class="closer__media" aria-hidden="true"><img src="images/hero-grandlake.webp" alt="" /></div>
+    <div class="wrap" data-reveal>
+      <h2 data-mask>Your best days are<br>on Grand Lake.</h2>
+      <p class="lede">Come walk the docks at Thunder Bay. Bring the kids, the dog, your trade-in. Lunch is on the water at Ugly's.</p>
+      <div class="closer__cta">
+        <a class="btn btn--primary" href="#demo">Book a Demo
+          <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>
+        </a>
+        <a class="btn btn--ghost" href="tel:+19187824414">Call (918) 782-4414</a>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <div class="cruise" id="cruise" aria-hidden="true">
+    <div class="cruise__rig" id="cruiseRig">
+      <span class="cruise__wake"></span><span class="cruise__wake cruise__wake--2"></span>
+      <img class="cruise__boat" src="images/g23-profile.webp" alt="" width="500" height="300" />
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__grid">
+        <div>
+          <div class="wordmark footer__wordmark">
+            <svg class="wordmark__mark" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6v52"/><path d="M18 10h34l-9 9 9 9H18" fill="currentColor" fill-opacity=".18"/><path d="M10 58h20"/></svg>
+            <span class="wordmark__txt"><span class="wordmark__name">Ugly John's</span><span class="wordmark__sub">Grand Lake · Since 1974</span></span>
+          </div>
+          <p>Family owned on Grand Lake o' the Cherokees since 1974. Boats, marina, grill — five stores across Oklahoma, Arkansas and Texas.</p>
+          <div class="footer__socials">
+            <a href="https://www.uglyjohns.com" rel="noopener" aria-label="Website"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 24a104 104 0 0 0-16 207.21V152H88a8 8 0 0 1 0-16h24v-20.4c0-26 15.46-40.4 39.19-40.4a160.34 160.34 0 0 1 23.27 2v25.6h-13.1c-12.89 0-16.9 8-16.9 16.2V136h28.8a8 8 0 0 1 7.89 9.32l-3.2 19.2a8 8 0 0 1-7.89 6.68H144v59.21A104 104 0 0 0 128 24Z"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h3>Explore</h3>
+          <div class="footer__links">
+            <a href="#range">The Boats</a>
+            <a href="#inventory">In Stock</a>
+            <a href="#why">Marina &amp; Grill</a>
+            <a href="#demo">Get a Quote</a>
+            <a href="#showrooms">Visit Us</a>
+          </div>
+        </div>
+        <div>
+          <h3>Visit</h3>
+          <div class="footer__locs">
+            <p class="footer__loc"><strong>Grand Lake</strong>Afton, OK &middot; <a href="tel:+19187824414">(918) 782-4414</a></p>
+            <p class="footer__loc"><strong>Tulsa</strong>Catoosa, OK &middot; <a href="tel:+19182666633">(918) 266-6633</a></p>
+            <p class="footer__loc"><strong>Lake Eufaula</strong>Eufaula, OK &middot; <a href="tel:+19182199966">(918) 219-9966</a></p>
+            <p class="footer__loc"><strong>Beaver Lake</strong>Rogers, AR &middot; <a href="tel:+14799251300">(479) 925-1300</a></p>
+            <p class="footer__loc"><strong>Lake Travis</strong>Austin, TX &middot; <a href="tel:+15128838040">(512) 883-8040</a></p>
+          </div>
+        </div>
+      </div>
+      <p class="footer__demo-note">
+        <strong>Demo concept</strong> — a free homepage redesign put together for Ugly John's Custom Boats by <a href="mailto:roy@trojanwss.com">Roy Newlan</a>. Not affiliated with Ugly John's Custom Boats. All names, marks and addresses appear here for demonstration only and remain the property of their owner. If you're the team at Ugly John's, I'd love five minutes — <a href="mailto:roy@trojanwss.com">roy@trojanwss.com</a>.
+      </p>
+      <div class="footer__legal">
+        <span>&copy; 2026 Ugly John's Custom Boats. All rights reserved.</span>
+        <span><a href="tel:+19187824414">(918) 782-4414</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="stickybar" id="stickybar">
+    <a class="btn btn--primary stickybar__btn" href="tel:+19187824414" aria-label="Call Ugly John's">
+      <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" width="16" height="16"><path d="M222.37 158.46l-47.11-21.11a16 16 0 0 0-15.17 1.4L134.87 160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71a16 16 0 0 0 1.32-15.06l-21.11-47.2A16 16 0 0 0 80.6 25a56.34 56.34 0 0 0-48.6 56c0 79.4 64.6 144 144 144a56.34 56.34 0 0 0 56-48.6 16 16 0 0 0-9.63-17.94Z"/></svg> Call
+    </a>
+    <a class="btn btn--ghost stickybar__btn" href="sms:+19187824414?&amp;body=Hi%20Ugly%20John%27s%20—%20" aria-label="Text Ugly John's">Text</a>
+    <a class="btn btn--ghost stickybar__btn" href="#demo">Quote</a>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="app.js?v=22"></script>
+  <script>
+    (function(){
+      var hq = document.getElementById('heroQuick');
+      if (hq) hq.addEventListener('submit', function(e){ e.preventDefault(); var p=document.getElementById('hq-phone'); if((p.value||'').replace(/\D/g,'').length<10){p.focus();p.classList.add('is-error');return;} hq.innerHTML='<p style="color:#fff;padding:16px;line-height:1.5">Got it. A specialist will call '+p.value+' back shortly.</p>'; });
+      if (matchMedia('(max-width:700px)').matches){ var c=document.querySelector('.hero__cta--call'); if(c) c.setAttribute('href','tel:+19187824414'); }
+      var sb=document.getElementById('stickybar');
+      if (sb){ var hh=(document.querySelector('.hero')||{}).clientHeight||600; var t=function(){ if(window.scrollY>hh*0.7) sb.classList.add('show'); else sb.classList.remove('show'); }; window.addEventListener('scroll',t,{passive:true}); t(); }
+      (function(){
+        var cards=document.querySelectorAll('[data-enquire]'); if(!cards.length) return;
+        var form=document.getElementById('demoForm'); if(!form) return;
+        var interest=document.getElementById('f-interest'), nameField=document.getElementById('f-name');
+        var submitBtn=form.querySelector('button[type="submit"]'), submitDefault=submitBtn?submitBtn.innerHTML:'';
+        var doneH=document.querySelector('#formDone h3'), doneDefault=doneH?doneH.textContent:'';
+        var dec=function(s){var t=document.createElement('textarea');t.innerHTML=s||'';return t.value;};
+        var chip=document.createElement('div'); chip.className='field'; chip.hidden=true;
+        chip.innerHTML='<label>Enquiring about</label><div class="enquire-chip__row"><strong id="enquireChipText"></strong><button type="button" class="enquire-chip__clear">Clear</button></div>';
+        var first=nameField?nameField.closest('.field'):form.firstElementChild; if(first) first.parentNode.insertBefore(chip,first);
+        var chipText=chip.querySelector('#enquireChipText');
+        function setOpt(sel,val){ if(!sel||!val)return; for(var i=0;i<sel.options.length;i++){ if(sel.options[i].text.trim()===val.trim()){sel.selectedIndex=i;return;} } }
+        function clr(){ chip.hidden=true; chipText.textContent=''; if(submitBtn)submitBtn.innerHTML=submitDefault; if(doneH)doneH.textContent=doneDefault; }
+        chip.querySelector('.enquire-chip__clear').addEventListener('click',clr);
+        cards.forEach(function(c){ c.addEventListener('click',function(){
+          var model=dec(c.getAttribute('data-model')); setOpt(interest,dec(c.getAttribute('data-interest')));
+          chipText.textContent=model; chip.hidden=false;
+          if(submitBtn) submitBtn.innerHTML='Enquire on the '+model.replace(/\s*\(.*\)$/,'')+' <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>';
+          if(doneH) doneH.textContent='Got it. A specialist will call you about the '+model.replace(/\s*\(.*\)$/,'')+' within one business day.';
+          setTimeout(function(){ if(nameField) nameField.focus(); },600);
+        }); });
+      })();
+    })();
+  </script>
+</body>
+</html>

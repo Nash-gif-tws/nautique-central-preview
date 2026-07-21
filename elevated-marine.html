@@ -1,0 +1,618 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#06182f" />
+  <meta name="robots" content="noindex" />
+  <script>(function(d){d.documentElement.className+=' js';try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches)d.documentElement.className+=' anim';}catch(e){}})(document);</script>
+  <title>Elevated Marine | Colorado's Nautique Flagship — Arvada, CO</title>
+  <meta name="description" content="Elevated Marine — Colorado's premier dealership for Nautique, MB, Bennington and Chris Craft. Serving the Front Range from Arvada: Chatfield, Cherry Creek, Boulder Reservoir and the mountain lakes beyond. Call (303) 390-1390." />
+
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=switzer@400,500,600,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=22" />
+  <link rel="preload" as="image" href="images/hero-frontrange.webp" type="image/webp" media="(min-width: 701px)" fetchpriority="high" />
+  <link rel="preload" as="image" href="images/hero-frontrange-mobile.webp" type="image/webp" media="(max-width: 700px)" fetchpriority="high" />
+
+  <!-- ============ DEMO RE-SKIN: Elevated Marine — signal red on deep Rockies navy, alpine-ice trim ============ -->
+  <style>
+    :root{
+      --bg:#06182f; --bg-1:#082042; --bg-2:#0a2951; --bg-3:#0d3567;
+      --accent:#f11f28; --accent-2:#ff3b43; --gold:#9fc9ff; /* ponytail: --gold token reused as alpine-ice trim so template rules need no renaming */
+    }
+    .wordmark{ display:inline-flex; align-items:center; gap:11px; }
+    .wordmark__mark{ width:30px; height:30px; color:var(--accent-2); flex:none; filter:drop-shadow(0 2px 8px rgba(0,0,0,.45)); }
+    .wordmark__txt{ display:flex; flex-direction:column; line-height:1; }
+    .wordmark__name{ font-family:var(--font-display); text-transform:uppercase; font-weight:700; letter-spacing:.06em; font-size:1.16rem; color:#fff; }
+    .wordmark__sub{ font-family:var(--font-body); text-transform:uppercase; letter-spacing:.26em; font-size:.54rem; color:var(--muted-2); margin-top:5px; }
+    .footer__wordmark{ margin-bottom:18px; }
+    @media (max-width:700px){ .wordmark__sub{ display:none; } }
+    .header__phone{ display:inline-flex; align-items:center; gap:9px; color:#fff; font-family:var(--font-display); font-size:.92rem; text-decoration:none; margin-left:auto; margin-right:14px; }
+    .header__phone svg{ color:var(--accent-2); flex:none; }
+    .header__phone strong{ display:block; letter-spacing:.04em; font-weight:600; line-height:1; white-space:nowrap; }
+    .header__phone em{ display:block; font-style:normal; font-size:.66rem; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.55); margin-top:3px; }
+    .nav a{ white-space:nowrap; }
+    @media (min-width:981px) and (max-width:1180px){ .nav{ gap:20px; } .header__phone{ margin-right:10px; } .header__cta{ padding:11px 18px; } }
+    @media (max-width:980px){ .header__phone em{ display:none; } .header__phone{ min-height:44px; padding:0 12px; border:1px solid rgba(255,59,67,.5); border-radius:999px; color:#ff9a9e; margin-right:8px; font-size:.85rem; } }
+    .hero .eyebrow--creds{ font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(255,255,255,.85); font-weight:500; display:flex; flex-wrap:wrap; gap:9px 13px; align-items:center; text-shadow:0 1px 12px rgba(0,0,0,.5); }
+    .hero .eyebrow--creds span{ color:var(--gold); }
+    @media (max-width:600px){ .hero .eyebrow--creds{ font-size:.62rem; letter-spacing:.16em; gap:6px 9px; } }
+    .hero__quick{ margin-top:22px; max-width:560px; }
+    .hero__quick-label{ display:block; font-size:.88rem; color:#e9eef2; margin-bottom:10px; text-shadow:0 1px 10px rgba(0,0,0,.5); }
+    .hero__quick-row{ display:flex; gap:8px; background:rgba(6,24,47,.55); border:1px solid rgba(255,255,255,.18); border-radius:999px; padding:6px; backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); }
+    .hero__quick-row input{ flex:1; background:transparent; border:0; color:#fff; padding:12px 18px; font-size:1rem; font-family:var(--font-body); outline:none; min-width:0; }
+    .hero__quick-row input::placeholder{ color:rgba(255,255,255,.45); }
+    .hero__quick-row .btn{ padding:13px 22px; font-size:.85rem; }
+    .hero__quick-fine{ font-size:.72rem; letter-spacing:.04em; color:rgba(255,255,255,.62); margin-top:10px; text-shadow:0 1px 10px rgba(0,0,0,.5); }
+    @media (max-width:700px){ .hero__quick{ display:none; } }
+    .hero__cta--mob{ display:none; } .hero__cta--desk{ display:inline; }
+    @media (max-width:700px){ .hero__cta--mob{ display:inline; } .hero__cta--desk{ display:none; } .hero__cta--call{ background:rgba(241,31,40,.2) !important; border-color:rgba(255,59,67,.6) !important; color:#fff !important; } }
+    @media (max-width:600px){
+      .hero{ min-height:88svh; align-items:flex-end; padding-top:84px; padding-bottom:28px; }
+      .hero__media img{ height:100%; object-position:60% 40%; }
+      .hero h1{ font-size:clamp(2.6rem,11.5vw,3.6rem) !important; line-height:.98; }
+      .hero__sub{ display:none; }
+      .hero__cta{ gap:10px; flex-direction:column; } .hero__cta .btn{ width:100%; justify-content:center; padding:16px; font-size:1rem; }
+    }
+    .proofbar{ background:var(--bg-1); border-top:1px solid rgba(255,255,255,.06); border-bottom:1px solid rgba(255,255,255,.06); padding:clamp(28px,4vw,52px) 0; }
+    .proofbar__row{ display:grid; grid-template-columns:repeat(4,1fr); align-items:end; }
+    .proofbar__cell{ display:flex; flex-direction:column; gap:8px; padding:8px 20px; border-right:1px solid rgba(255,255,255,.08); }
+    .proofbar__cell:last-child{ border-right:0; }
+    .proofbar__num{ font-family:var(--font-display); font-weight:600; font-size:clamp(2rem,4.6vw,3.4rem); line-height:1; color:#fff; letter-spacing:-.02em; }
+    .proofbar__den{ font-size:.5em; color:var(--gold); margin-left:3px; }
+    .proofbar__lbl{ font-family:var(--font-body); font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.62); font-weight:500; }
+    @media (max-width:700px){ .proofbar__row{ grid-template-columns:repeat(2,1fr); row-gap:24px; } .proofbar__cell:nth-child(2){ border-right:0; } .proofbar__cell:nth-child(1),.proofbar__cell:nth-child(2){ border-bottom:1px solid rgba(255,255,255,.08); padding-bottom:24px; } }
+    .brands__logos{ flex-wrap:wrap; justify-content:center; row-gap:14px; }
+    .brands__logos .brand-word{ font-size:1.08rem; letter-spacing:.05em; opacity:.86; }
+    @media (max-width:700px){
+      .brands__row{ display:block; padding:0; } .brands__label{ display:block; text-align:center; margin-bottom:14px; }
+      .brands__logos{ flex-wrap:nowrap !important; gap:8px !important; overflow-x:auto; scroll-snap-type:x mandatory; padding:4px 20px 8px; scrollbar-width:none; }
+      .brands__logos::-webkit-scrollbar{ display:none; } .brands__div{ display:none !important; }
+      .brand-word{ flex:0 0 auto; scroll-snap-align:start; padding:10px 16px; border:1px solid rgba(255,59,67,.35); border-radius:999px; background:rgba(241,31,40,.08); font-size:.84rem !important; opacity:1 !important; }
+    }
+    .certs{ padding:clamp(28px,4vw,56px) 0; border-top:1px solid rgba(255,255,255,.06); border-bottom:1px solid rgba(255,255,255,.06); background:linear-gradient(180deg,transparent,rgba(241,31,40,.05) 50%,transparent); }
+    .certs__row{ display:grid; grid-template-columns:repeat(4,1fr); gap:28px; align-items:center; }
+    .cert{ display:flex; gap:14px; align-items:flex-start; }
+    .cert__seal{ width:34px; height:34px; color:var(--gold); flex:none; margin-top:2px; }
+    .cert__txt{ display:flex; flex-direction:column; gap:4px; }
+    .cert__txt strong{ font-family:var(--font-display); font-weight:600; font-size:.92rem; color:#fff; text-transform:uppercase; letter-spacing:.01em; }
+    .cert__txt span{ font-size:.78rem; color:var(--muted); line-height:1.4; }
+    @media (max-width:900px){ .certs__row{ grid-template-columns:repeat(2,1fr); gap:22px; } }
+    @media (max-width:500px){ .certs__row{ grid-template-columns:1fr; } }
+    .inv__disclaimer{ font-size:.78rem; color:var(--muted-2); margin-top:14px; max-width:60ch; opacity:.85; }
+    .inv__phone{ color:var(--accent-2); text-decoration:underline; text-underline-offset:2px; white-space:nowrap; }
+    .inv-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    .icard{ display:flex; flex-direction:column; background:var(--bg-1); border:1px solid var(--line); border-radius:var(--r-card); overflow:hidden; transition:transform .3s var(--ease-out), border-color .3s var(--ease-out), box-shadow .3s var(--ease-out); }
+    .icard:hover{ transform:translateY(-6px); border-color:var(--line-strong); box-shadow:0 30px 60px -30px rgba(0,0,0,.7); }
+    .icard__media{ position:relative; aspect-ratio:16/10; overflow:hidden; background:var(--bg-2); }
+    .icard__media img{ width:100%; height:100%; object-fit:cover; transition:transform .7s var(--ease-out); }
+    .icard:hover .icard__media img{ transform:scale(1.05); }
+    .icard__badge{ position:absolute; top:12px; left:12px; z-index:2; font-family:var(--font-display); text-transform:uppercase; letter-spacing:.1em; font-size:.64rem; font-weight:600; padding:6px 11px; border-radius:var(--r-pill); line-height:1; }
+    .icard__badge--new{ background:var(--accent); color:#fff; }
+    .icard__badge--used{ background:rgba(6,24,47,.72); color:var(--gold); border:1px solid rgba(159,201,255,.5); }
+    .icard__body{ padding:clamp(18px,2vw,24px); display:flex; flex-direction:column; flex:1; }
+    .icard__kicker{ font-family:var(--font-display); font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-2); margin-bottom:8px; }
+    .icard__name{ font-size:clamp(1.25rem,1.7vw,1.5rem)!important; line-height:1.1; margin-bottom:12px; }
+    .icard__specs{ list-style:none; margin:0 0 16px; padding:0; display:flex; flex-wrap:wrap; gap:6px 8px; }
+    .icard__specs li{ font-family:var(--font-display); font-size:.66rem; letter-spacing:.06em; text-transform:uppercase; color:var(--muted-2); border:1px solid var(--line); border-radius:6px; padding:5px 8px; line-height:1; }
+    .icard__foot{ display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin-bottom:18px; margin-top:auto; padding-top:14px; border-top:1px solid var(--line); }
+    .icard__price{ font-family:var(--font-display); font-size:1.18rem; font-weight:600; color:#fff; white-space:nowrap; }
+    .icard__price em{ font-style:normal; font-size:.6rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted-2); margin-left:3px; }
+    .icard__loc{ display:inline-flex; align-items:center; gap:5px; font-size:.78rem; color:var(--muted); white-space:nowrap; }
+    .icard__loc svg{ width:14px; height:14px; flex:none; color:var(--gold); }
+    .icard__cta{ width:100%; justify-content:center; padding:14px 18px; font-size:.85rem; }
+    .icard__cta svg{ width:16px; height:16px; transition:transform .25s var(--ease-out); }
+    .icard:hover .icard__cta svg{ transform:translateX(4px); }
+    .inv__note{ text-align:center; font-size:.9rem; color:var(--muted); margin-top:clamp(24px,3vw,36px); }
+    .inv__note .inline-link{ color:var(--accent-2); text-decoration:underline; text-underline-offset:2px; }
+    @media (max-width:980px){ .inv-grid{ grid-template-columns:repeat(2,1fr); gap:16px; } }
+    @media (max-width:700px){
+      .inv-grid{ display:flex; grid-template-columns:none; gap:14px; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none; margin-inline:calc(-1*var(--pad)); padding:4px var(--pad) 10px; }
+      .inv-grid::-webkit-scrollbar{ display:none; } .icard{ flex:0 0 84%; scroll-snap-align:start; } .icard:hover{ transform:none; }
+    }
+    .enquire-chip__row{ display:flex; align-items:center; justify-content:space-between; gap:12px; background:rgba(241,31,40,.1); border:1px solid rgba(255,59,67,.4); border-radius:8px; padding:12px 14px; margin-top:4px; }
+    .enquire-chip__row strong{ font-family:var(--font-display); font-size:.9rem; color:#fff; line-height:1.3; }
+    .enquire-chip__clear{ flex:none; background:transparent; border:0; color:var(--accent-2); font-family:var(--font-display); text-transform:uppercase; letter-spacing:.08em; font-size:.66rem; font-weight:600; cursor:pointer; padding:4px 6px; text-decoration:underline; }
+    .field__hint{ font-size:.74rem; color:rgba(255,255,255,.55); margin-top:6px; }
+    .field__opt{ color:rgba(255,255,255,.55); font-weight:400; letter-spacing:.04em; font-size:.85em; }
+    .demo__consent{ font-size:.68rem; color:rgba(255,255,255,.55); text-align:center; margin-top:10px; line-height:1.5; max-width:46ch; margin-inline:auto; opacity:.85; }
+    .demo__done{ text-align:center; padding:clamp(28px,4vw,48px) 0; }
+    .demo__done-tick{ display:inline-flex; width:64px; height:64px; border-radius:50%; background:var(--accent); color:#fff; align-items:center; justify-content:center; margin-bottom:18px; }
+    .demo__done-tick svg{ width:32px; height:32px; }
+    .demo__done h3{ font-size:1.5rem; margin-bottom:12px; }
+    .demo__done > p{ color:var(--muted); max-width:48ch; margin:0 auto 22px; }
+    .demo__done-cta{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:18px; }
+    .demo__done-phone{ font-size:.85rem; color:rgba(255,255,255,.55); } .demo__done-phone a{ color:var(--accent-2); }
+    @media (max-width:980px){
+      .field input,.field select{ padding:16px 16px !important; font-size:16px; min-height:50px; border-radius:10px; }
+      .field select{ appearance:none; -webkit-appearance:none; background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b3b4b9' stroke-width='2' stroke-linecap='round'><path d='M7 10l5 5 5-5'/></svg>"); background-repeat:no-repeat; background-position:right 14px center; background-size:18px; padding-right:42px !important; }
+      .demo__form .btn{ min-height:56px; font-size:1.05rem; width:100%; justify-content:center; }
+    }
+    .stickybar{ position:fixed; left:0; right:0; bottom:0; z-index:90; display:flex; gap:10px; padding:12px clamp(16px,4vw,28px) calc(12px + env(safe-area-inset-bottom)); background:rgba(5,15,28,.92); backdrop-filter:blur(10px); border-top:1px solid var(--line); transform:translateY(110%); transition:transform .35s var(--ease-out); }
+    .stickybar.show{ transform:none; } .stickybar__btn{ flex:1; justify-content:center; min-height:52px; padding:14px 8px; font-size:.85rem; gap:6px; }
+    @media (min-width:981px){ .stickybar{ left:auto; right:24px; bottom:24px; border:1px solid var(--line); border-radius:999px; padding:8px; box-shadow:0 18px 48px rgba(0,0,0,.55); } .stickybar__btn{ flex:0 0 auto; padding:12px 20px; } }
+    @media (max-width:980px){ main{ padding-bottom:calc(88px + env(safe-area-inset-bottom)); } }
+    .mnav__call{ display:grid; gap:10px; padding:18px; background:rgba(241,31,40,.1); border:1px solid rgba(255,59,67,.35); border-radius:14px; margin-bottom:22px; }
+    .mnav__calleyebrow{ font-size:.72rem; letter-spacing:.22em; text-transform:uppercase; color:rgba(255,255,255,.55); }
+    .mnav__callbtn,.mnav__textbtn{ justify-content:center; width:100%; padding:16px 18px !important; font-size:1.05rem !important; }
+    .loc{ border-top:2px solid rgba(159,201,255,.5); }
+    .loc__line svg, .loc__line--text svg{ color:var(--gold); }
+    .loc__line--text a{ color:var(--accent-2); font-weight:500; }
+    .inline-link{ color:#fff; text-decoration:underline; text-decoration-color:var(--accent-2); text-underline-offset:3px; }
+    .closer--bleed{ position:relative; padding-block:clamp(120px,16vw,200px); overflow:hidden; min-height:64vh; display:flex; align-items:center; }
+    .closer--bleed .closer__media{ position:absolute; inset:0; z-index:-1; }
+    .closer--bleed .closer__media::after{ content:''; position:absolute; inset:0; background:linear-gradient(180deg,rgba(6,24,47,.5),rgba(6,24,47,.86)); }
+    .closer--bleed .closer__media img{ width:100%; height:100%; object-fit:cover; }
+    .footer__demo-note{ font-size:.78rem; line-height:1.5; color:var(--muted); padding:14px 0 6px; border-top:1px dashed rgba(255,255,255,.12); margin-top:18px; max-width:780px; }
+    .footer__demo-note strong{ color:#fff; } .footer__demo-note a{ color:var(--accent-2); text-decoration:underline; }
+    @media (hover:hover) and (pointer:fine){
+      .btn svg{ transition:transform .35s cubic-bezier(0.16,1,0.3,1); } .btn:hover svg{ transform:translateX(5px); }
+      .btn--primary{ position:relative; overflow:hidden; isolation:isolate; } .btn--primary > *{ position:relative; z-index:1; }
+      .btn--primary::after{ content:''; position:absolute; inset:0; z-index:0; background:var(--accent-2); transform:translateX(-101%); transition:transform .5s cubic-bezier(0.16,1,0.3,1); }
+      .btn--primary:hover::after{ transform:translateX(0); }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org","@type":"AutoDealer","name":"Elevated Marine",
+    "description":"Colorado's premier dealership for Nautique, MB, Bennington and Chris Craft. Serving the Denver Front Range from Arvada — Chatfield, Cherry Creek, Boulder Reservoir and the mountain lakes beyond.",
+    "url":"https://elevatedboats.com","telephone":"+13033901390",
+    "brand":["Nautique","MB","Bennington","Chris Craft"],
+    "address":{"@type":"PostalAddress","addressLocality":"Arvada","addressRegion":"CO","addressCountry":"US"}
+  }
+  </script>
+</head>
+<body id="top">
+  <a href="#main" class="skip-link">Skip to content</a>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="header" id="header">
+    <div class="wrap header__row">
+      <a href="#top" class="wordmark" aria-label="Elevated Marine home">
+        <svg class="wordmark__mark" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 50L24 20l10 16 8-12 16 26" fill="currentColor" fill-opacity=".18"/><path d="M4 56h56"/></svg>
+        <span class="wordmark__txt"><span class="wordmark__name">Elevated Marine</span><span class="wordmark__sub">Front Range · Arvada CO</span></span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#range">Boats</a>
+        <a href="#inventory">In Stock</a>
+        <a href="#why">Why Us</a>
+        <a href="#showrooms">Visit</a>
+        <a href="#demo">Contact</a>
+      </nav>
+      <a class="header__phone" href="tel:+13033901390" aria-label="Call Elevated Marine">
+        <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" width="16" height="16"><path d="M222.37 158.46l-47.11-21.11a16 16 0 0 0-15.17 1.4L134.87 160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71a16 16 0 0 0 1.32-15.06l-21.11-47.2A16 16 0 0 0 80.6 25a56.34 56.34 0 0 0-48.6 56c0 79.4 64.6 144 144 144a56.34 56.34 0 0 0 56-48.6 16 16 0 0 0-9.63-17.94Z"/></svg>
+        <span><strong>(303) 390-1390</strong><em>Arvada</em></span>
+      </a>
+      <a class="btn btn--primary header__cta" href="#demo">Get a Quote</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M224 128a8 8 0 0 1-8 8H40a8 8 0 0 1 0-16h176a8 8 0 0 1 8 8ZM40 72h176a8 8 0 0 0 0-16H40a8 8 0 0 0 0 16Zm176 112H40a8 8 0 0 0 0 16h176a8 8 0 0 0 0-16Z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="mnav" id="mnav">
+    <div class="mnav__call">
+      <span class="mnav__calleyebrow">Talk to the team</span>
+      <a class="btn btn--primary mnav__callbtn" href="tel:+13033901390" data-mclose>Call (303) 390-1390</a>
+      <a class="btn btn--ghost mnav__textbtn" href="sms:+13033901390" data-mclose>Text us instead</a>
+    </div>
+    <a href="#range" data-mclose>Boats</a>
+    <a href="#inventory" data-mclose>In Stock</a>
+    <a href="#why" data-mclose>Why Us</a>
+    <a href="#showrooms" data-mclose>Visit</a>
+    <a class="btn btn--primary" href="#demo" data-mclose>Get a Quote</a>
+  </div>
+
+  <main id="main">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__media">
+      <picture>
+        <source media="(max-width: 700px)" srcset="images/hero-frontrange-mobile.webp" type="image/webp" />
+        <source media="(max-width: 700px)" srcset="images/hero-frontrange-mobile.jpg" />
+        <source srcset="images/hero-frontrange.webp" type="image/webp" />
+        <img id="heroImg" src="images/hero-frontrange.jpg" alt="A Nautique carving glassy water on a Front Range reservoir, snow-capped Rockies on the horizon" width="1536" height="1024" fetchpriority="high" />
+      </picture>
+    </div>
+    <div class="wrap hero__inner">
+      <p class="eyebrow eyebrow--creds" data-hero>
+        Colorado's Nautique flagship <span aria-hidden="true">·</span>
+        Nautique + MB + Bennington + Chris Craft <span aria-hidden="true">·</span>
+        Denver Front Range <span aria-hidden="true">·</span>
+        Arvada, CO
+      </p>
+      <h1 data-hero>Boating, elevated.</h1>
+      <p class="hero__sub" data-hero>Colorado's premier dealership for Nautique, MB, Bennington and Chris Craft — a mile above sea level and minutes from the water. From glassy dawn sets at Chatfield and Cherry Creek to summer weekends on Grand Lake, the Elevated crew sets you up for all of it, from Arvada.</p>
+      <div class="hero__cta" data-hero>
+        <a class="btn btn--primary" href="#range">Browse the Boats
+          <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>
+        </a>
+        <a class="btn btn--ghost hero__cta--call" href="#showrooms">
+          <span class="hero__cta--mob">Call (303) 390-1390</span>
+          <span class="hero__cta--desk">Visit the Showroom</span>
+        </a>
+      </div>
+      <form class="hero__quick" id="heroQuick" data-hero>
+        <label for="hq-phone" class="hero__quick-label">Chasing glass this week? Drop your number — an Elevated specialist will call you back.</label>
+        <div class="hero__quick-row">
+          <input id="hq-phone" name="phone" type="tel" inputmode="tel" placeholder="(303) 555-0142" autocomplete="tel" required aria-label="Your phone number" />
+          <button class="btn btn--primary" type="submit">Call me back
+            <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>
+          </button>
+        </div>
+        <p class="hero__quick-fine">Mon–Sat · We never share your number · Reply STOP to opt out.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- PROOF BAR -->
+  <section class="proofbar" aria-label="Elevated Marine credentials">
+    <div class="wrap proofbar__row" data-reveal>
+      <div class="proofbar__cell"><span class="proofbar__num" data-count="4">4</span><span class="proofbar__lbl">Premium brands under one roof</span></div>
+      <div class="proofbar__cell"><span class="proofbar__num" data-count="12">12</span><span class="proofbar__lbl">People on the Elevated team</span></div>
+      <div class="proofbar__cell"><span class="proofbar__num" data-count="20">20<span class="proofbar__den">+</span></span><span class="proofbar__lbl">Years of combined industry expertise</span></div>
+      <div class="proofbar__cell"><span class="proofbar__num">5,280<span class="proofbar__den">ft</span></span><span class="proofbar__lbl">Home elevation, Denver Front Range</span></div>
+    </div>
+  </section>
+
+  <!-- BRAND STRIP -->
+  <section class="brands" id="brands">
+    <div class="wrap brands__row" data-reveal>
+      <span class="brands__label">Premier Colorado dealer for</span>
+      <div class="brands__logos">
+        <span class="brand-word">Nautique</span><span class="brands__div" aria-hidden="true"></span>
+        <span class="brand-word">MB</span><span class="brands__div" aria-hidden="true"></span>
+        <span class="brand-word">Bennington</span><span class="brands__div" aria-hidden="true"></span>
+        <span class="brand-word">Chris Craft</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTS -->
+  <section class="certs" aria-label="Credentials">
+    <div class="wrap certs__row" data-reveal>
+      <div class="cert">
+        <svg class="cert__seal" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M32 6l6.5 13.2L53 21.5l-10.5 10.2L45 46.5 32 39.6 19 46.5l2.5-14.8L11 21.5l14.5-2.3z" stroke-linejoin="round"/></svg>
+        <div class="cert__txt"><strong>Colorado's Nautique flagship</strong><span>Premier dealer for the Denver Front Range</span></div>
+      </div>
+      <div class="cert">
+        <svg class="cert__seal" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="32" cy="32" r="26"/><path d="M20 33l8 8 16-18" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="cert__txt"><strong>Four premium brands</strong><span>Nautique · MB · Bennington · Chris Craft</span></div>
+      </div>
+      <div class="cert">
+        <svg class="cert__seal" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M16 50V24a4 4 0 0 1 4-4h24a4 4 0 0 1 4 4v26M10 50h44M24 50V36h16v14" stroke-linejoin="round"/></svg>
+        <div class="cert__txt"><strong>A 12-person crew</strong><span>20+ years of combined industry expertise</span></div>
+      </div>
+      <div class="cert">
+        <svg class="cert__seal" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M32 8v26M20 20c-6 8-8 14-8 20a20 20 0 0 0 40 0c0-6-2-12-8-20M20 34h24" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="cert__txt"><strong>Your lakes, our backyard</strong><span>Chatfield · Cherry Creek · Boulder Res · Grand Lake</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE RANGE -->
+  <section class="section range" id="range">
+    <div class="wrap">
+      <div class="head" data-reveal>
+        <h2 class="section-h" data-mask>Thin air. Glassy water.<br>The right boat for both.</h2>
+        <p class="lede">Surf the morning glass at Chatfield, cruise Cherry Creek at sunset, or load the whole crew onto a Bennington for Grand Lake in July. Tell us how you run the Front Range and we'll match the boat.</p>
+      </div>
+      <div class="range-grid">
+        <a class="rtile" href="#demo" data-reveal>
+          <div class="rtile__media"><img src="images/wakeboarder.webp" alt="Wakesurfer behind a Nautique on a Front Range reservoir" loading="lazy" /></div>
+          <div class="rtile__body">
+            <span class="rtile__kicker">Super Air Nautique GS &amp; G Series · MB</span>
+            <h3>Wake &amp; Surf</h3>
+            <p>Colorado's Nautique flagship. Dialed ballast and wave shapes tuned for altitude — head-high waves a mile above sea level.</p>
+            <span class="rtile__go">Book a demo <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg></span>
+          </div>
+        </a>
+        <a class="rtile" href="#demo" data-reveal>
+          <div class="rtile__media"><img src="images/onwater-1.webp" alt="Chris Craft cruising a Colorado reservoir" loading="lazy" /></div>
+          <div class="rtile__body">
+            <span class="rtile__kicker">Chris Craft</span>
+            <h3>Classic Cruisers</h3>
+            <p>Hand-finished lines and timeless style. The boat that turns heads at every launch ramp on the Front Range.</p>
+            <span class="rtile__go">Book a viewing <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg></span>
+          </div>
+        </a>
+        <a class="rtile" href="#demo" data-reveal>
+          <div class="rtile__media"><img src="images/coastal.webp" alt="Bennington pontoon on a Colorado mountain lake" loading="lazy" /></div>
+          <div class="rtile__body">
+            <span class="rtile__kicker">Bennington</span>
+            <h3>Pontoons</h3>
+            <p>Room for the whole crew and shade for a Colorado summer. Idle the coves at Grand Lake or anchor up at Cherry Creek all afternoon.</p>
+            <span class="rtile__go">Book a viewing <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED INVENTORY -->
+  <section class="section inv" id="inventory">
+    <div class="wrap">
+      <div class="head inv__head" data-reveal>
+        <p class="eyebrow">In the showroom now</p>
+        <h2 class="section-h" data-mask>A sample of what's<br>ready for the water.</h2>
+        <p class="lede">New and pre-owned boats in Arvada. Prices shown are illustrative — call <a class="inv__phone" href="tel:+13033901390">(303)&nbsp;390-1390</a> for today's number.</p>
+        <p class="inv__disclaimer">Sample units shown for layout. Your live inventory feed drops straight into this grid and updates itself.</p>
+      </div>
+      <div class="inv-grid" data-reveal>
+        <article class="icard"><div class="icard__media"><span class="icard__badge icard__badge--new">New · 2026</span><img src="images/gs24.webp" alt="2026 Super Air Nautique GS24" loading="lazy" /></div><div class="icard__body"><span class="icard__kicker">Nautique · Wake / Surf</span><h3 class="icard__name">Super Air Nautique GS24</h3><ul class="icard__specs"><li>24' 0"</li><li>Surf-ready</li><li>Stk #N26-GS24</li></ul><div class="icard__foot"><span class="icard__price">$219,900 <em>approx.</em></span><span class="icard__loc"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 16a88.1 88.1 0 0 0-88 88c0 75.3 80 132.17 83.41 134.55a8 8 0 0 0 9.18 0C136 236.17 216 179.3 216 104a88.1 88.1 0 0 0-88-88Zm0 56a32 32 0 1 1-32 32 32 32 0 0 1 32-32Z"/></svg>Arvada</span></div><a class="btn btn--primary icard__cta" href="#demo" data-enquire data-model="Super Air Nautique GS24 (2026)" data-interest="Wake &amp; surf">Enquire on this boat <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg></a></div></article>
+        <article class="icard"><div class="icard__media"><span class="icard__badge icard__badge--new">New · 2026</span><img src="images/models/super-air-g23-profile.webp" alt="2026 Super Air Nautique GS20" loading="lazy" /></div><div class="icard__body"><span class="icard__kicker">Nautique · Wake / Surf</span><h3 class="icard__name">Super Air Nautique GS20</h3><ul class="icard__specs"><li>20' 0"</li><li>Crossover</li><li>Stk #N26-GS20</li></ul><div class="icard__foot"><span class="icard__price">$169,900 <em>approx.</em></span><span class="icard__loc"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 16a88.1 88.1 0 0 0-88 88c0 75.3 80 132.17 83.41 134.55a8 8 0 0 0 9.18 0C136 236.17 216 179.3 216 104a88.1 88.1 0 0 0-88-88Zm0 56a32 32 0 1 1-32 32 32 32 0 0 1 32-32Z"/></svg>Arvada</span></div><a class="btn btn--primary icard__cta" href="#demo" data-enquire data-model="Super Air Nautique GS20 (2026)" data-interest="Wake &amp; surf">Enquire on this boat <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg></a></div></article>
+        <article class="icard"><div class="icard__media"><span class="icard__badge icard__badge--new">New · 2025</span><img src="images/wakeboarder.webp" alt="2025 MB B52 23 Alpha wake boat" loading="lazy" /></div><div class="icard__body"><span class="icard__kicker">MB · Wake / Surf</span><h3 class="icard__name">MB B52 23 Alpha</h3><ul class="icard__specs"><li>23' 0"</li><li>Surf-ready</li><li>Stk #MB25-23A</li></ul><div class="icard__foot"><span class="icard__price">$159,900 <em>approx.</em></span><span class="icard__loc"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 16a88.1 88.1 0 0 0-88 88c0 75.3 80 132.17 83.41 134.55a8 8 0 0 0 9.18 0C136 236.17 216 179.3 216 104a88.1 88.1 0 0 0-88-88Zm0 56a32 32 0 1 1-32 32 32 32 0 0 1 32-32Z"/></svg>Arvada</span></div><a class="btn btn--primary icard__cta" href="#demo" data-enquire data-model="MB B52 23 Alpha (2025)" data-interest="Wake &amp; surf">Enquire on this boat <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg></a></div></article>
+        <article class="icard"><div class="icard__media"><span class="icard__badge icard__badge--new">New · 2025</span><img src="images/onwater-2.webp" alt="2025 Chris Craft Launch 25 GT" loading="lazy" /></div><div class="icard__body"><span class="icard__kicker">Chris Craft · Cruiser</span><h3 class="icard__name">Chris Craft Launch 25 GT</h3><ul class="icard__specs"><li>25' 0"</li><li>Hand-finished</li><li>Stk #CC25-L25</li></ul><div class="icard__foot"><span class="icard__price">$249,900 <em>approx.</em></span><span class="icard__loc"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 16a88.1 88.1 0 0 0-88 88c0 75.3 80 132.17 83.41 134.55a8 8 0 0 0 9.18 0C136 236.17 216 179.3 216 104a88.1 88.1 0 0 0-88-88Zm0 56a32 32 0 1 1-32 32 32 32 0 0 1 32-32Z"/></svg>Arvada</span></div><a class="btn btn--primary icard__cta" href="#demo" data-enquire data-model="Chris Craft Launch 25 GT (2025)" data-interest="Classic cruisers">Enquire on this boat <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg></a></div></article>
+        <article class="icard"><div class="icard__media"><span class="icard__badge icard__badge--new">New · 2025</span><img src="images/coastal.webp" alt="2025 Bennington 23 LX pontoon" loading="lazy" /></div><div class="icard__body"><span class="icard__kicker">Bennington · Pontoon</span><h3 class="icard__name">Bennington 23 LX</h3><ul class="icard__specs"><li>23' 0"</li><li>Seats 13</li><li>Stk #BN25-23LX</li></ul><div class="icard__foot"><span class="icard__price">$74,900 <em>approx.</em></span><span class="icard__loc"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 16a88.1 88.1 0 0 0-88 88c0 75.3 80 132.17 83.41 134.55a8 8 0 0 0 9.18 0C136 236.17 216 179.3 216 104a88.1 88.1 0 0 0-88-88Zm0 56a32 32 0 1 1-32 32 32 32 0 0 1 32-32Z"/></svg>Arvada</span></div><a class="btn btn--primary icard__cta" href="#demo" data-enquire data-model="Bennington 23 LX (2025)" data-interest="Pontoons">Enquire on this boat <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg></a></div></article>
+        <article class="icard"><div class="icard__media"><span class="icard__badge icard__badge--used">Pre-owned · 2021</span><img src="images/g23.webp" alt="2021 Super Air Nautique G23 pre-owned" loading="lazy" /></div><div class="icard__body"><span class="icard__kicker">Nautique · Pre-owned</span><h3 class="icard__name">Super Air Nautique G23</h3><ul class="icard__specs"><li>23' 0"</li><li>One owner</li><li>Stk #PO21-G23</li></ul><div class="icard__foot"><span class="icard__price">$134,900 <em>approx.</em></span><span class="icard__loc"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 16a88.1 88.1 0 0 0-88 88c0 75.3 80 132.17 83.41 134.55a8 8 0 0 0 9.18 0C136 236.17 216 179.3 216 104a88.1 88.1 0 0 0-88-88Zm0 56a32 32 0 1 1-32 32 32 32 0 0 1 32-32Z"/></svg>Arvada</span></div><a class="btn btn--primary icard__cta" href="#demo" data-enquire data-model="Nautique G23 — Pre-owned (2021)" data-interest="Wake &amp; surf">Enquire on this boat <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg></a></div></article>
+      </div>
+      <p class="inv__note">New, pre-owned and trade-ins through the Arvada showroom — <a class="inline-link" href="#demo">value your trade</a> and put it toward any boat above.</p>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section class="why" id="why">
+    <div class="why__media"><img id="whyImg" src="images/onwater-2.webp" alt="A boat from Elevated Marine running a Front Range reservoir at golden hour" loading="lazy" /></div>
+    <div class="wrap why__inner">
+      <h2 data-mask>The crew that boats<br>the same water you do.</h2>
+      <p class="why__lead" data-reveal>Most dealers sell you a boat and wave goodbye from the parking lot. Nick Stiller and the Elevated team are on the same reservoirs you are — a 12-person crew with 20+ years of combined industry expertise, backing four premium brands from one showroom in Arvada.</p>
+      <div class="why__points" data-reveal>
+        <div class="why__pt"><h3>Four brands, one straight answer</h3><p>Nautique, MB, Bennington and Chris Craft under one roof — so the recommendation fits your water and your family, not a quota.</p></div>
+        <div class="why__pt"><h3>Set up for altitude</h3><p>Boats at 5,280 feet run differently. Props, ballast and engine setup dialed for Front Range reservoirs and mountain lakes, not sea level.</p></div>
+        <div class="why__pt"><h3>Service that answers the phone</h3><p>Factory parts, straight answers, done when we say. The same faces on the About page are the ones who pick up when you call.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRADE-IN -->
+  <section class="build" id="build">
+    <div class="wrap build__inner" data-reveal>
+      <h2 data-mask>Trade it in.<br>Trade it up.</h2>
+      <p class="lede">Bring us the boat you've got. We'll value it on the spot, put it toward the next one, or help you move it on — wake boats, pontoons and cruisers alike.</p>
+      <a class="btn btn--primary" href="#demo">Value my boat
+        <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>
+      </a>
+    </div>
+    <div class="build__stage" aria-hidden="true">
+      <img class="build__boat" id="buildBoat" src="images/models/super-air-g23-profile.png" alt="" />
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="section proof">
+    <div class="wrap">
+      <div class="head proof__head" data-reveal>
+        <p class="eyebrow">What owners say</p>
+        <h2 class="section-h" data-mask>Hear it from owners<br>before you drive over.</h2>
+        <p class="proof__rating"><span class="proof__stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Placeholder reviews — your real Google reviews drop in here.</p>
+      </div>
+      <div class="proof__grid" data-reveal>
+        <blockquote class="quote"><p>"Sample review — swapped for a real customer quote before launch. Bought our first wake boat here and the whole process was straightforward from test drive to delivery."</p><cite>Placeholder · Front Range owner</cite></blockquote>
+        <blockquote class="quote"><p>"Sample review — swapped for a real customer quote before launch. They took the time to set the boat up properly for altitude and walked us through everything on the water."</p><cite>Placeholder · First-time buyer</cite></blockquote>
+        <blockquote class="quote"><p>"Sample review — swapped for a real customer quote before launch. Service department actually answers the phone and the boat was ready when they said it would be."</p><cite>Placeholder · Service customer</cite></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENQUIRE -->
+  <section class="section demo" id="demo">
+    <div class="wrap demo__grid">
+      <div class="demo__copy" data-reveal>
+        <h2 data-mask>Come see them<br>in person.</h2>
+        <p>Nobody buys a boat from a brochure. Tell us how you run the Front Range and we'll have the right boat — and the right person — waiting for you in Arvada.</p>
+        <ul class="demo__list">
+          <li>Walk the showroom, sit in every boat</li>
+          <li>Straight advice on wake, cruise or pontoon</li>
+          <li>Trade-in and financing, handled</li>
+        </ul>
+      </div>
+      <div class="demo__formwrap" data-reveal>
+        <form class="demo__form" id="demoForm" novalidate>
+          <div class="field">
+            <label for="f-name">Name</label>
+            <input id="f-name" name="name" type="text" placeholder="Your name" autocomplete="name" aria-describedby="f-name-err" required />
+            <p class="field__error" id="f-name-err" hidden>Enter your name.</p>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-phone">Phone</label>
+              <input id="f-phone" name="phone" type="tel" inputmode="tel" placeholder="(303) 555-0142" autocomplete="tel" aria-describedby="f-phone-err f-phone-hint" required />
+              <p class="field__hint" id="f-phone-hint">We'll call (or text) within one business day.</p>
+              <p class="field__error" id="f-phone-err" hidden>Enter a phone number we can reach you on.</p>
+            </div>
+            <div class="field">
+              <label for="f-email">Email <span class="field__opt">(optional)</span></label>
+              <input id="f-email" name="email" type="email" placeholder="you@email.com" autocomplete="email" spellcheck="false" aria-describedby="f-email-err" />
+              <p class="field__error" id="f-email-err" hidden>Enter a valid email address.</p>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-interest">I'm after</label>
+              <select id="f-interest" name="interest">
+                <option value="" selected disabled>Type of boat</option>
+                <option>Wake &amp; surf</option>
+                <option>Classic cruisers</option>
+                <option>Pontoons</option>
+                <option>Pre-owned</option>
+                <option>Not sure yet, help me choose</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-loc">Home water</label>
+              <select id="f-loc" name="location">
+                <option value="" selected disabled>Where do you boat?</option>
+                <option>Chatfield</option>
+                <option>Cherry Creek</option>
+                <option>Boulder Reservoir</option>
+                <option>Grand Lake / mountain lakes</option>
+                <option>Somewhere else</option>
+              </select>
+            </div>
+          </div>
+          <label class="checkbox"><input type="checkbox" name="trade" /> <span>I have a boat to trade in</span></label>
+          <button class="btn btn--primary" type="submit">Call me back
+            <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>
+          </button>
+          <div class="demo__legal">
+            <p class="demo__fineprint">Your details stay with Elevated Marine — we never share them.</p>
+            <p class="demo__consent">By submitting you agree we may call or text you about your enquiry. Msg &amp; data rates may apply. Reply STOP to opt out.</p>
+          </div>
+        </form>
+        <div class="demo__done" id="formDone" tabindex="-1" hidden>
+          <span class="demo__done-tick" aria-hidden="true"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M229.66 77.66l-128 128a8 8 0 0 1-11.32 0l-56-56a8 8 0 0 1 11.32-11.32L96 188.69 218.34 66.34a8 8 0 0 1 11.32 11.32Z"/></svg></span>
+          <h3>Got it. An Elevated specialist will call you within one business day.</h3>
+          <p>Want to skip the wait? Text us — we usually reply within minutes during shop hours.</p>
+          <div class="demo__done-cta">
+            <a class="btn btn--primary" href="tel:+13033901390">Call (303) 390-1390</a>
+            <a class="btn btn--ghost" href="sms:+13033901390?&amp;body=Hi%20Elevated%20Marine%20-%20I%20just%20submitted%20an%20enquiry">Text us instead</a>
+          </div>
+          <p class="demo__done-phone">Mon–Sat · Arvada, Colorado</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATIONS -->
+  <section class="section showrooms" id="showrooms">
+    <div class="wrap">
+      <div class="head" data-reveal>
+        <p class="eyebrow">Visit Us</p>
+        <h2 class="section-h" data-mask>One showroom,<br>every lake on the Front Range.</h2>
+      </div>
+      <div class="locs" data-reveal>
+        <div class="loc" id="loc-arvada">
+          <div class="loc__state">Arvada · Colorado</div>
+          <div class="loc__city">Showroom &amp; Service</div>
+          <p class="loc__line"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 16a88.1 88.1 0 0 0-88 88c0 75.3 80 132.17 83.41 134.55a8 8 0 0 0 9.18 0C136 236.17 216 179.3 216 104a88.1 88.1 0 0 0-88-88Zm0 56a32 32 0 1 1-32 32 32 32 0 0 1 32-32Z"/></svg><span>Arvada, CO<br>Denver Front Range</span></p>
+          <p class="loc__line"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M222.37 158.46l-47.11-21.11a16 16 0 0 0-15.17 1.4L134.87 160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71a16 16 0 0 0 1.32-15.06l-21.11-47.2A16 16 0 0 0 80.6 25a56.34 56.34 0 0 0-48.6 56c0 79.4 64.6 144 144 144a56.34 56.34 0 0 0 56-48.6 16 16 0 0 0-9.63-17.94Z"/></svg><a href="tel:+13033901390">(303) 390-1390</a></p>
+          <p class="loc__line loc__line--text"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 48a87.63 87.63 0 0 0-75.06 132.4L40.81 217.34a13.78 13.78 0 0 0 13 18.13 13.92 13.92 0 0 0 4.4-.72l36.84-12.13A88 88 0 1 0 128 48Z"/></svg><a href="sms:+13033901390?&amp;body=Hi%20Elevated%20Marine%20-%20">Text the showroom</a></p>
+          <p class="loc__line"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24Zm56 112h-56a8 8 0 0 1-8-8V72a8 8 0 0 1 16 0v48h48a8 8 0 0 1 0 16Z"/></svg><span>Call for current hours<br>Sales · Service · Parts</span></p>
+          <a class="text-link" href="https://maps.google.com/?q=Elevated+Marine+Arvada+CO" rel="noopener">Get directions
+            <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>
+          </a>
+        </div>
+        <div class="loc" id="loc-water">
+          <div class="loc__state">Where we run</div>
+          <div class="loc__city">Home Waters</div>
+          <p class="loc__line"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 16a88.1 88.1 0 0 0-88 88c0 75.3 80 132.17 83.41 134.55a8 8 0 0 0 9.18 0C136 236.17 216 179.3 216 104a88.1 88.1 0 0 0-88-88Zm0 56a32 32 0 1 1-32 32 32 32 0 0 1 32-32Z"/></svg><span>Chatfield · Cherry Creek<br>Boulder Reservoir</span></p>
+          <p class="loc__line"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24Zm56 112h-56a8 8 0 0 1-8-8V72a8 8 0 0 1 16 0v48h48a8 8 0 0 1 0 16Z"/></svg><span>In season: Grand Lake and<br>the mountain lakes beyond</span></p>
+          <p class="loc__line loc__line--text"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 48a87.63 87.63 0 0 0-75.06 132.4L40.81 217.34a13.78 13.78 0 0 0 13 18.13 13.92 13.92 0 0 0 4.4-.72l36.84-12.13A88 88 0 1 0 128 48Z"/></svg><a href="#demo">Tell us your home water</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSER -->
+  <section class="section closer closer--bleed">
+    <div class="closer__media" aria-hidden="true"><img src="images/hero-frontrange.webp" alt="" /></div>
+    <div class="wrap" data-reveal>
+      <h2 data-mask>Your best days are<br>a mile high.</h2>
+      <p class="lede">Come walk the showroom. Bring the kids, the dog, your trade-in. The crew's in Arvada, minutes from the water.</p>
+      <div class="closer__cta">
+        <a class="btn btn--primary" href="#demo">Book a Demo
+          <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>
+        </a>
+        <a class="btn btn--ghost" href="tel:+13033901390">Call (303) 390-1390</a>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <div class="cruise" id="cruise" aria-hidden="true">
+    <div class="cruise__rig" id="cruiseRig">
+      <span class="cruise__wake"></span><span class="cruise__wake cruise__wake--2"></span>
+      <img class="cruise__boat" src="images/g23-profile.webp" alt="" width="500" height="300" />
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__grid">
+        <div>
+          <div class="wordmark footer__wordmark">
+            <svg class="wordmark__mark" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 50L24 20l10 16 8-12 16 26" fill="currentColor" fill-opacity=".18"/><path d="M4 56h56"/></svg>
+            <span class="wordmark__txt"><span class="wordmark__name">Elevated Marine</span><span class="wordmark__sub">Front Range · Arvada CO</span></span>
+          </div>
+          <p>Colorado's premier dealership for Nautique, MB, Bennington and Chris Craft. Arvada, on the Denver Front Range.</p>
+        </div>
+        <div>
+          <h3>Explore</h3>
+          <div class="footer__links">
+            <a href="#range">The Boats</a>
+            <a href="#inventory">In Stock</a>
+            <a href="#why">Why Us</a>
+            <a href="#demo">Get a Quote</a>
+            <a href="#showrooms">Visit Us</a>
+          </div>
+        </div>
+        <div>
+          <h3>Visit</h3>
+          <div class="footer__locs">
+            <p class="footer__loc"><strong>Showroom</strong>Arvada, CO &middot; <a href="tel:+13033901390">(303) 390-1390</a></p>
+            <p class="footer__loc"><strong>Home waters</strong>Chatfield · Cherry Creek · Boulder Res</p>
+            <p class="footer__loc"><strong>Hours</strong>Call for current hours</p>
+          </div>
+        </div>
+      </div>
+      <p class="footer__demo-note">
+        <strong>Demo concept</strong> — a free homepage redesign put together for Elevated Marine by <a href="mailto:roy@trojanwss.com">Roy Newlan</a>. Not affiliated with Elevated Marine. All names, marks and details appear here for demonstration only and remain the property of their owner. If you're the team at Elevated Marine, I'd love five minutes — <a href="mailto:roy@trojanwss.com">roy@trojanwss.com</a>.
+      </p>
+      <div class="footer__legal">
+        <span>&copy; 2026 Elevated Marine. All rights reserved.</span>
+        <span><a href="tel:+13033901390">(303) 390-1390</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="stickybar" id="stickybar">
+    <a class="btn btn--primary stickybar__btn" href="tel:+13033901390" aria-label="Call Elevated Marine">
+      <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" width="16" height="16"><path d="M222.37 158.46l-47.11-21.11a16 16 0 0 0-15.17 1.4L134.87 160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71a16 16 0 0 0 1.32-15.06l-21.11-47.2A16 16 0 0 0 80.6 25a56.34 56.34 0 0 0-48.6 56c0 79.4 64.6 144 144 144a56.34 56.34 0 0 0 56-48.6 16 16 0 0 0-9.63-17.94Z"/></svg> Call
+    </a>
+    <a class="btn btn--ghost stickybar__btn" href="sms:+13033901390?&amp;body=Hi%20Elevated%20Marine%20-%20" aria-label="Text Elevated Marine">Text</a>
+    <a class="btn btn--ghost stickybar__btn" href="#demo">Quote</a>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="app.js?v=22"></script>
+  <script>
+    (function(){
+      var hq = document.getElementById('heroQuick');
+      if (hq) hq.addEventListener('submit', function(e){ e.preventDefault(); var p=document.getElementById('hq-phone'); if((p.value||'').replace(/\D/g,'').length<10){p.focus();p.classList.add('is-error');return;} hq.innerHTML='<p style="color:#fff;padding:16px;line-height:1.5">Got it. An Elevated specialist will call '+p.value+' back shortly.</p>'; });
+      if (matchMedia('(max-width:700px)').matches){ var c=document.querySelector('.hero__cta--call'); if(c) c.setAttribute('href','tel:+13033901390'); }
+      var sb=document.getElementById('stickybar');
+      if (sb){ var hh=(document.querySelector('.hero')||{}).clientHeight||600; var t=function(){ if(window.scrollY>hh*0.7) sb.classList.add('show'); else sb.classList.remove('show'); }; window.addEventListener('scroll',t,{passive:true}); t(); }
+      (function(){
+        var cards=document.querySelectorAll('[data-enquire]'); if(!cards.length) return;
+        var form=document.getElementById('demoForm'); if(!form) return;
+        var interest=document.getElementById('f-interest'), nameField=document.getElementById('f-name');
+        var submitBtn=form.querySelector('button[type="submit"]'), submitDefault=submitBtn?submitBtn.innerHTML:'';
+        var doneH=document.querySelector('#formDone h3'), doneDefault=doneH?doneH.textContent:'';
+        var dec=function(s){var t=document.createElement('textarea');t.innerHTML=s||'';return t.value;};
+        var chip=document.createElement('div'); chip.className='field'; chip.hidden=true;
+        chip.innerHTML='<label>Enquiring about</label><div class="enquire-chip__row"><strong id="enquireChipText"></strong><button type="button" class="enquire-chip__clear">Clear</button></div>';
+        var first=nameField?nameField.closest('.field'):form.firstElementChild; if(first) first.parentNode.insertBefore(chip,first);
+        var chipText=chip.querySelector('#enquireChipText');
+        function setOpt(sel,val){ if(!sel||!val)return; for(var i=0;i<sel.options.length;i++){ if(sel.options[i].text.trim()===val.trim()){sel.selectedIndex=i;return;} } }
+        function clr(){ chip.hidden=true; chipText.textContent=''; if(submitBtn)submitBtn.innerHTML=submitDefault; if(doneH)doneH.textContent=doneDefault; }
+        chip.querySelector('.enquire-chip__clear').addEventListener('click',clr);
+        cards.forEach(function(c){ c.addEventListener('click',function(){
+          var model=dec(c.getAttribute('data-model')); setOpt(interest,dec(c.getAttribute('data-interest')));
+          chipText.textContent=model; chip.hidden=false;
+          if(submitBtn) submitBtn.innerHTML='Enquire on the '+model.replace(/\s*\(.*\)$/,'')+' <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>';
+          if(doneH) doneH.textContent='Got it. An Elevated specialist will call you about the '+model.replace(/\s*\(.*\)$/,'')+' within one business day.';
+          setTimeout(function(){ if(nameField) nameField.focus(); },600);
+        }); });
+      })();
+    })();
+  </script>
+</body>
+</html>
